@@ -8,13 +8,18 @@ public class Camera : Anomaly
 
 	public override void OnAnomalyActive()
 	{
-		base.OnAnomalyActive();
 		CameraManager?.PossibleCameras.Remove( this );
+		base.OnAnomalyActive();
 	}
 
 	public override void OnAnomalyClear()
 	{
-		base.OnAnomalyClear();
 		CameraManager?.PossibleCameras.Add( this );
+		base.OnAnomalyClear();
+	}
+
+	public override bool IsAvailable()
+	{
+		return CameraManager?.ActiveCamera != this;
 	}
 }

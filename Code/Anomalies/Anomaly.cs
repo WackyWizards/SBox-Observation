@@ -31,7 +31,7 @@ public class Anomaly : Component
 	}
 
 	/// <summary>
-	/// If this anomaly is able to be reported.
+	/// If this anomaly is available for activation.
 	/// </summary>
 	public virtual bool IsAvailable()
 	{
