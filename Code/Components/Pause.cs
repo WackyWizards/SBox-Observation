@@ -1,5 +1,6 @@
 ﻿using Observation.UI;
 using Sandbox.UI;
+
 namespace Observation;
 
 public class Pause : Component

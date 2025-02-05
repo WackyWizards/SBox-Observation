@@ -31,7 +31,7 @@
               "Name": "Family Home",
               "Description": "Former residence of high-profile individuals. Vacated under undisclosed circumstances. Lights turn on despite no power, shadowy figures spotted in upper-floor windows. Audit the premises. Do not acknowledge voices calling from empty rooms.",
               "Difficulty": "Normal",
-              "Scene": "scenes/map3.scene",
+              "Scene": "scenes/house.scene",
               "WinAchievement": "WinHouse"
             }
           ],
