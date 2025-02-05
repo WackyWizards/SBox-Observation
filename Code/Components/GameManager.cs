@@ -1,7 +1,8 @@
-﻿using Observation.Platform;
+﻿using Sandbox.UI;
+using Observation.Platform;
 using Observation.UI;
-using Sandbox.UI;
 using Achievement=Observation.Platform.Achievement;
+
 namespace Observation;
 
 public class GameManager : Component

@@ -20,7 +20,7 @@ public class MapManager : Component
 
 	public void Restart()
 	{
-		if ( ActiveMap is not {} map )
+		if ( ActiveMap is null )
 		{
 			return;
 		}

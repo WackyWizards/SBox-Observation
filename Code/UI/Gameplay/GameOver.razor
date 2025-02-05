@@ -40,7 +40,7 @@
 		return _isWin ? "Workday Complete" : "Notice Of Dismissal";
 	}
 
-	private string GetSubTitle( bool victory, GameManager.LoseReason reason )
+	private static string GetSubTitle( bool victory, GameManager.LoseReason reason )
 	{
 		return victory ? "Congratulations!" : reason.GetDescription();
 	}

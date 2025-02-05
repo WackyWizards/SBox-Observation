@@ -9,10 +9,11 @@
 </root>
 
 @code {
-	public required Label Report;
+	public Label? Report;
 
 	public void SetReport( bool validReport )
 	{
-		Report.Text = validReport ? "Anomaly Cleared!" : "No Anomalies Found!";
+		if ( Report.IsValid() )
+			Report.Text = validReport ? "Anomaly Cleared!" : "No Anomalies Found!";
 	}
 }

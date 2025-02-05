@@ -1,5 +1,4 @@
 ﻿@using System
-@using Observation.Cameras
 @using Sandbox.UI
 
 @namespace Observation.UI
@@ -22,8 +21,8 @@
 
 @code {
 	#nullable enable
-	private Observation.Timer? TimerInstance => Observation.Timer.Instance;
-	private string ElapsedTime => TimerInstance?.GetElapsedTime() ?? "N/A";
+	private static Observation.Timer? TimerInstance => Observation.Timer.Instance;
+	private static string ElapsedTime => TimerInstance?.GetElapsedTime() ?? "N/A";
 
 	protected override int BuildHash()
 	{

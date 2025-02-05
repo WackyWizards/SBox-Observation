@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Observation.UI;
 using Sandbox.Diagnostics;
 using Sandbox.UI;
+using Observation.UI;
 
 namespace Observation;
 
