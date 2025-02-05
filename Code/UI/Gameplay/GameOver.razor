@@ -1,0 +1,73 @@
+﻿@using System
+@using Sandbox.UI
+
+@namespace Observation.UI
+@attribute [Hud]
+@inherits Panel
+
+<root class="hidden">
+	<label class="title" @ref="_title">@GetTitle( _isWin )</label>
+	<label class="sub-title" @ref="_subTitle">@GetSubTitle( _isWin, _loseReason )</label>
+	
+	@if ( AnomalyManager.Instance is {} anomalyManager && anomalyManager.ActiveAnomalies.Any() )
+	{
+		<div class="missed-anomalies">
+			<label class="title">Missed Anomalies</label>
+			@foreach ( var anomaly in anomalyManager.ActiveAnomalies )
+			{
+				<label>@( anomaly.Type.GetName() ) in @( anomaly.Room )</label>
+			}
+		</div>
+	}
+	
+	<div class="button-container">
+		<button onclick="@PlayAgain">Play Again</button>
+		<button onclick="@Return">Return To Menu</button>
+	</div>
+</root>
+
+@code {
+	#nullable enable
+
+	private bool _isWin;
+	private GameManager.LoseReason _loseReason = GameManager.LoseReason.TooManyAnomalies;
+    
+	private Label? _title;
+	private Label? _subTitle;
+
+	private string GetTitle( bool victory )
+	{
+		return _isWin ? "Workday Complete" : "Notice Of Dismissal";
+	}
+
+	private string GetSubTitle( bool victory, GameManager.LoseReason reason )
+	{
+		return victory ? "Congratulations!" : reason.GetDescription();
+	}
+	
+	public void OnGameEnd( bool victory )
+	{
+		_isWin = true;
+	}
+
+	public void OnGameLose( GameManager.LoseReason reason )
+	{
+		_isWin = false;
+		_loseReason = reason;
+	}
+
+	public static void PlayAgain()
+	{
+		MapManager.Instance?.Restart();
+	}
+	
+	public static void Return()
+	{
+		GameManager.Instance?.ToMenu();
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( _isWin, _loseReason );
+	}
+}

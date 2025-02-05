@@ -1,0 +1,66 @@
+@namespace Observation.UI
+
+@using Sandbox.UI
+@inherits PanelComponent
+
+<root>
+	<div class="container">
+		<label class="title">Observation</label>
+		<div class="button-container">
+			<button icon="play_arrow" onclick="@Play">Play</button>
+			<button icon="settings" onclick="@Settings">Settings</button>
+			<button icon="exit_to_app" onclick="@Game.Close">Quit</button>
+		</div>
+		<div class="socials">
+			<img class="social" alt="discord" src="/materials/icons/discord-icon.svg" tooltip="Discord" onclick="@Discord"/>
+		</div>
+	</div>
+
+	<div class="rank">
+		Rank: @( PlayerData.Data.Rank.GetName() )
+	</div>
+	
+	<div class="web-container hidden" @ref="_webContainer">
+		<WebPanel @ref="_web"></WebPanel>
+		<button onclick="@CloseWebPanel">Close</button>
+	</div>
+
+	<MapSelection @ref="_mapSelection" Menu="@this"></MapSelection>
+	<Settings @ref="_settings" Menu="@this"></Settings>
+</root>
+
+@code {
+	#nullable enable
+
+	[Property, InlineEditor, WideMode] public List<Map> Maps { get; set; } = [];
+
+	private MapSelection? _mapSelection;
+	private Settings? _settings;
+
+	private Panel? _webContainer;
+	private WebPanel? _web;
+
+	private const string DiscordInvite = "https://discord.gg/kKU6a4AYNk";
+	
+	public void Play()
+	{
+		_mapSelection?.Show();
+	}
+
+	public void Settings()
+	{
+		_settings?.Show();
+	}
+
+	public void Discord()
+	{
+		_webContainer.Show();
+		if ( _web.IsValid() )
+			_web.Url = DiscordInvite;
+	}
+
+	private void CloseWebPanel()
+	{
+		_webContainer.Hide();
+	}
+}

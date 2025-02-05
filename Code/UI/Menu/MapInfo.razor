@@ -1,0 +1,45 @@
+﻿@using Observation
+@using System.Collections.Generic
+@using Sandbox.UI
+
+@namespace Observation.UI
+@inherits MenuSubPanel
+
+<root>
+	@if ( Map is not null )
+	{
+		<div class="map">
+			<label class="map-name">@Map.Name</label>
+			<label class="map-difficulty">@Map.Difficulty</label>
+			<label class="map-description">@Map.Description</label>
+			<div class="button-container">
+				<button icon="play_arrow" onclick="@Play">Play</button>
+				<button icon="arrow_back" onclick="@Return">Return</button>
+			</div>
+		</div>
+	}
+</root>
+
+@code {
+	#nullable enable
+    
+	public Map? Map { get; set; }
+
+	public void Play()
+	{
+		if ( Map is null )
+		{
+			Log.Error( "Unable to play a null map!" );
+			return;
+		}
+		
+		MapManager.Instance?.SetMap( Map );
+		var scene = Map.Scene;
+		Scene.Load( scene );
+	}
+
+	protected override void Return()
+	{
+		Delete();
+	}
+}

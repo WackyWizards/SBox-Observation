@@ -1,0 +1,45 @@
+@using Observation.Cameras
+@using Sandbox.UI
+
+@namespace Observation.UI
+@attribute [Hud]
+@inherits Panel
+
+@if (!CameraManager.IsValid())
+	return;
+
+<root>
+	<div class="buttons">
+		<button onclick="@LastCamera">&lt;</button>
+		<button onclick="@NextCamera">&gt;</button>
+	</div>
+</root>
+
+@code {
+	#nullable enable
+    
+	private static CameraManager? CameraManager => CameraManager.Instance;
+	private static Camera? ActiveCamera => CameraManager?.ActiveCamera;
+
+	public static void NextCamera()
+	{
+		if ( CameraManager?.PossibleCameras == null || !CameraManager.PossibleCameras.Any() ) 
+			return;
+
+		if ( !ActiveCamera.IsValid() )
+			return;
+		
+		CameraManager.SetNextAvailableActive();
+	}
+
+	public static void LastCamera()
+	{
+		if ( CameraManager?.PossibleCameras == null || !CameraManager.PossibleCameras.Any() ) 
+			return;
+
+		if ( !ActiveCamera.IsValid() )
+			return;
+
+		CameraManager.SetPreviousAvailableActive();
+	}
+}

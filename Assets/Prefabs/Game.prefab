@@ -1,0 +1,264 @@
+{
+  "RootObject": {
+    "__guid": "1ebcabb5-3fa2-481b-aad4-a078a44df7c2",
+    "Flags": 0,
+    "Name": "game",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "Components": [
+      {
+        "__type": "Observation.GameManager",
+        "__guid": "f2782567-4a27-4ddf-9282-9abe1fbbaf97",
+        "MenuScene": "scenes/menu.scene",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "Observation.AnomalyManager",
+        "__guid": "76365f3d-9320-4e93-b36b-fb176e261a87",
+        "ActiveAnomalies": [],
+        "AnomalyTime": 60,
+        "CanActivateAnomalies": true,
+        "FailReports": 0,
+        "FailReportsTilGameOver": 5,
+        "FailReportsTilWarning": 3,
+        "MaxAmountOfAnomalies": 5,
+        "MaxAnomaliesTilWarning": 3,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "PossibleAnomalies": [],
+        "SuccessfulReports": 0
+      },
+      {
+        "__type": "Observation.Timer",
+        "__guid": "aa12b2e8-b8ad-4e41-b276-ef92fba3963a",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "WinTime": 468
+      },
+      {
+        "__type": "Observation.Cursor",
+        "__guid": "bd4da06d-e1e1-46ae-9b47-8745671d2bcb",
+        "HoldTime": 1,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "Observation.Pause",
+        "__guid": "03d339e0-6eee-4518-b90b-db7c10b86e3e",
+        "IsPaused": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ],
+    "Children": [],
+    "__variables": [
+      {
+        "Id": "Active Anomalies",
+        "Title": "Active Anomalies",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "ActiveAnomalies"
+          }
+        ]
+      },
+      {
+        "Id": "Possible Anomalies",
+        "Title": "Possible Anomalies",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "PossibleAnomalies"
+          }
+        ]
+      },
+      {
+        "Id": "Anomaly Time",
+        "Title": "Anomaly Time",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "AnomalyTime"
+          }
+        ]
+      },
+      {
+        "Id": "Max Amount Of Anomalies",
+        "Title": "Max Amount Of Anomalies",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "MaxAmountOfAnomalies"
+          }
+        ]
+      },
+      {
+        "Id": "Can Activate Anomalies",
+        "Title": "Can Activate Anomalies",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "CanActivateAnomalies"
+          }
+        ]
+      },
+      {
+        "Id": "Successful Reports",
+        "Title": "Successful Reports",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "SuccessfulReports"
+          }
+        ]
+      },
+      {
+        "Id": "Fail Reports",
+        "Title": "Fail Reports",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "FailReports"
+          }
+        ]
+      },
+      {
+        "Id": "Fail Reports Til Game Over",
+        "Title": "Fail Reports Til Game Over",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "FailReportsTilGameOver"
+          }
+        ]
+      },
+      {
+        "Id": "Win Time",
+        "Title": "Win Time",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "aa12b2e8-b8ad-4e41-b276-ef92fba3963a",
+            "Property": "WinTime"
+          }
+        ]
+      },
+      {
+        "Id": "Hold Time",
+        "Title": "Hold Time",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "bd4da06d-e1e1-46ae-9b47-8745671d2bcb",
+            "Property": "HoldTime"
+          }
+        ]
+      },
+      {
+        "Id": "Fail Reports Til Warning",
+        "Title": "Fail Reports Til Warning",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "FailReportsTilWarning"
+          }
+        ]
+      },
+      {
+        "Id": "Max Anomalies Til Warning",
+        "Title": "Max Anomalies Til Warning",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "MaxAnomaliesTilWarning"
+          }
+        ]
+      }
+    ],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

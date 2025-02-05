@@ -1,0 +1,44 @@
+{
+  "RootObject": {
+    "__guid": "4cc789b5-7089-402b-9f10-d863f770b341",
+    "Flags": 0,
+    "Name": "Screen",
+    "Position": "-267.452,-379.653,297.7903",
+    "Rotation": "-0.1448582,0.2860239,0.4279631,0.8450171",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.ScreenPanel",
+        "__guid": "84bb2f0d-f133-4605-923c-f9485aaff6ef",
+        "AutoScreenScale": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Opacity": 1,
+        "Scale": 1,
+        "ScaleStrategy": "ConsistentHeight",
+        "ZIndex": 100
+      },
+      {
+        "__type": "Observation.UI.Hud",
+        "__guid": "340f65ab-f810-4ad4-948a-96ea87288e84",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

@@ -1,0 +1,48 @@
+{
+  "UI": false,
+  "Volume": "1",
+  "Pitch": "1",
+  "Decibels": 70,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sounds/anomalies/443327__productionnow__1900s-edison-phonograph-playing-music.vsnd"
+  ],
+  "Occlusion": true,
+  "AirAbsorption": true,
+  "Transmission": true,
+  "OcclusionRadius": 64,
+  "DistanceAttenuation": true,
+  "Distance": 9500,
+  "Falloff": [
+    {
+      "x": 0,
+      "y": 1,
+      "in": 0,
+      "out": -1.8,
+      "mode": "Mirrored"
+    },
+    {
+      "x": 0.020858899,
+      "y": 0.5,
+      "in": 3.5,
+      "out": -3.5,
+      "mode": "Mirrored"
+    },
+    {
+      "x": 0.253681,
+      "y": 0.029361725,
+      "in": 0.16,
+      "out": -0.16,
+      "mode": "Mirrored"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "in": 0,
+      "out": 0,
+      "mode": "Mirrored"
+    }
+  ],
+  "__references": [],
+  "__version": 1
+}

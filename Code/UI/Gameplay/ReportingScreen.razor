@@ -1,0 +1,18 @@
+﻿@using Sandbox.UI
+
+@namespace Observation.UI
+@attribute [Hud]
+@inherits Panel
+
+<root class="hidden">
+	<label @ref="Report">Verifying Report...</label>
+</root>
+
+@code {
+	public required Label Report;
+
+	public void SetReport( bool validReport )
+	{
+		Report.Text = validReport ? "Anomaly Cleared!" : "No Anomalies Found!";
+	}
+}

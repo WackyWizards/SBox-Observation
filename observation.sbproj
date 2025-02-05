@@ -1,0 +1,49 @@
+{
+  "Title": "Observation",
+  "Type": "game",
+  "Org": "spoonstuff",
+  "Ident": "observation",
+  "Schema": 1,
+  "IncludeSourceFiles": false,
+  "Resources": "/Materials/*\n/Sounds/*",
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "IsWhitelistDisabled": false,
+  "Metadata": {
+    "MaxPlayers": 1,
+    "MinPlayers": 1,
+    "TickRate": 50,
+    "GameNetworkType": "Multiplayer",
+    "MapSelect": "Unrestricted",
+    "MapList": [
+      "facepunch.flatgrass"
+    ],
+    "RankType": "None",
+    "PerMapRanking": false,
+    "LeaderboardType": "None",
+    "CsProjName": "",
+    "StartupScene": "scenes/menu.scene",
+    "Compiler": {
+      "RootNamespace": "Observation",
+      "DefineConstants": "SANDBOX;ADDON;DEBUG",
+      "NoWarn": "1701;1702;1591;",
+      "WarningsAsErrors": "",
+      "TreatWarningsAsErrors": false,
+      "Nullables": true,
+      "Whitelist": true,
+      "ReleaseMode": "Debug",
+      "AssemblyReferences": [],
+      "IgnoreFolders": [
+        "editor",
+        "unittest"
+      ],
+      "DistinctAssemblyReferences": []
+    },
+    "LaunchMode": "Normal",
+    "ControlModes": {
+      "Keyboard": false,
+      "VR": false,
+      "Gamepad": false
+    }
+  }
+}

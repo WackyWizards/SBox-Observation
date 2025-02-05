@@ -1,0 +1,32 @@
+﻿@using System
+@using Observation.Cameras
+@using Sandbox.UI
+
+@namespace Observation.UI
+@attribute [Hud]
+@inherits Panel
+
+@{
+	var timerInstance = Observation.Timer.Instance;
+	if ( !timerInstance.IsValid() )
+		return;
+}
+
+<root>
+	<label class="timer">@ElapsedTime</label>
+	@if ( CameraManager.Instance?.ActiveCamera is { Name: { } cameraName } )
+	{
+		<label class="camera-name">@cameraName</label>
+	}
+</root>
+
+@code {
+	#nullable enable
+	private Observation.Timer? TimerInstance => Observation.Timer.Instance;
+	private string ElapsedTime => TimerInstance?.GetElapsedTime() ?? "N/A";
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( TimerInstance?.SinceStart.Relative );
+	}
+}

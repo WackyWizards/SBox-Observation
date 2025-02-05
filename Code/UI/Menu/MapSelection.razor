@@ -1,0 +1,39 @@
+﻿@using Observation
+@using System.Collections.Generic
+@using Sandbox.UI
+
+@namespace Observation.UI
+@inherits MenuSubPanel
+
+<root class="hidden">
+	<label class="title">Maps</label>
+	
+	<div class="maps">
+		@if ( Maps is not null )
+		{
+			foreach ( var map in Maps )
+			{
+				<div class="map" onclick="@( () => SelectMap( map ) )">
+					<label class="map-name">@map.Name</label>
+					<label class="map-difficulty">@map.Difficulty</label>
+				</div>
+			}
+		}
+	</div>
+	
+	<div class="button-container">
+		<button icon="arrow_back" onclick="@Return">Return</button>
+	</div>
+</root>
+
+@code {
+	#nullable enable
+
+	private List<Map>? Maps => Menu?.Maps;
+
+	public void SelectMap( Map map )
+	{
+		var mapPanel = AddChild<MapInfo>();
+		mapPanel.Map = map;
+	}
+}

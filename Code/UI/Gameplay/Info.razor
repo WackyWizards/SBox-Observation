@@ -1,0 +1,33 @@
+﻿@using System.Threading.Tasks
+@using Sandbox.UI
+
+@namespace Observation.UI
+@attribute [Hud]
+@inherits Panel
+
+<root class="hidden">
+	<label @ref="_text"></label>
+</root>
+
+@code {
+	#nullable enable
+	private Label? _text;
+
+	public async Task WriteText( string text )
+	{
+		if ( !_text.IsValid() )
+			return;
+		
+		this.Show();
+
+		_text.Text = string.Empty;
+		foreach ( var c in text )
+		{
+			_text.Text += c;
+			await Task.Delay( 100 );
+		}
+		
+		await Task.Delay( 500 );
+		this.Hide();
+	}
+}

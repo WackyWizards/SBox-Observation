@@ -1,0 +1,48 @@
+﻿@using Sandbox.UI
+
+@namespace Observation.UI
+@attribute [Hud]
+@inherits Panel
+
+<root class="hidden">
+	<label class="title">Paused</label>
+	<div class="button-container">
+		<button icon="arrow_back" onclick="@Return">Return</button>
+		<button icon="refresh" onclick="@Restart">Restart</button>
+		<button icon="settings" onclick="@Settings">Settings</button>
+		<button icon="home" onclick="@Menu">Main Menu</button>
+	</div>
+	
+	<Settings @ref="_settings"></Settings>
+</root>
+
+@code {
+	#nullable enable
+
+	private Settings? _settings;
+
+	public void Return()
+	{
+		Pause.Instance?.UnpauseGame();
+		Observation.Cursor.HideMouse();
+		this.Hide();
+	}
+
+	public void Restart()
+	{
+		MapManager.Instance?.Restart();
+	}
+
+	public void Settings()
+	{
+		if ( _settings.IsValid() )
+		{
+			_settings.Show();
+		}
+	}
+
+	public void Menu()
+	{
+		GameManager.Instance?.ToMenu();
+	}
+}

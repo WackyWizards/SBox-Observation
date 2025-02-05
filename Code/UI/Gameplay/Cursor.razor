@@ -1,0 +1,24 @@
+﻿@using Sandbox.UI
+
+@namespace Observation.UI
+@attribute [Hud]
+@inherits Panel
+
+<root/>
+
+@code {
+	#nullable enable
+	public override void Tick()
+	{
+		base.Tick();
+
+		var mousePos = Mouse.Position;
+		var relativeX = mousePos.x / Screen.Width;
+		var relativeY = mousePos.y / Screen.Height;
+
+		Style.Left = Length.Percent( relativeX * 100 );
+		Style.Top = Length.Percent( relativeY * 100 );
+		Style.MarginLeft = Length.Pixels( -10 );
+		Style.MarginTop = Length.Pixels( -10 );
+	}
+}

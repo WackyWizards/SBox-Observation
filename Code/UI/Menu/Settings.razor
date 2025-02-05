@@ -1,0 +1,35 @@
+﻿@using Observation
+@using System.Collections.Generic
+@using Sandbox.Audio
+@using Sandbox.UI
+
+@namespace Observation.UI
+@inherits MenuSubPanel
+
+<root class="hidden">
+	<label class="title">Settings</label>
+	
+	<div class="settings">
+		<div class="settings-group">
+			<div class="setting">
+				<label class="setting-label">@( Master.Name ) Volume</label>
+				<SliderControl Value:bind="@Master.Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )"></SliderControl>
+			</div>
+			
+			@foreach ( var mixer in Mixers )
+			{
+				<div class="setting">
+					<label class="setting-label">@( mixer.Name ) Volume</label>
+					<SliderControl Value:bind="@mixer.Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )"></SliderControl>
+				</div>
+			}
+		</div>
+	</div>
+	
+	<button icon="arrow_back" onclick="@Return">Return</button>
+</root>
+
+@code {
+	private static Mixer Master => Mixer.Master;
+	private static Mixer[] Mixers => Mixer.Master.GetChildren();
+}

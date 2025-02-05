@@ -1,0 +1,90 @@
+﻿MapSelection {
+  position: absolute;
+  pointer-events: all;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(40px) saturate(180%);
+  z-index: 100;
+
+  > .title {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 1.25rem;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .maps {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.6);
+    //overflow-y: scroll;
+    gap: 1rem;
+
+    > .map {
+      width: 100%;
+      height: 150px;
+      flex-shrink: 0;
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: all 0.2s ease-out;
+
+      .map-name {
+        font-size: 32px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        font-weight: 600;
+      }
+
+      .map-difficulty {
+        font-size: 24px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        opacity: 0.9;
+      }
+
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &:not(.disabled) {
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.15);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active {
+          transform: scale(0.99);
+          sound-in: "ui.button.deny";
+        }
+      }
+    }
+  }
+  
+  > .button-container {
+    width: 50%;
+    gap: 10px;
+
+    > button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
