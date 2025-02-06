@@ -51,8 +51,8 @@ public class AnomalyManager : Component
 	private readonly Dictionary<Anomaly, float> _removedAnomalies = new();
 	private TimeUntil _nextAnomaly;
 
-	private const string ActiveAnomaliesWarning = "Attention employee, multiple active anomalies detected in your area. Locate and report them immediately.";
-	private const string FailReportsWarning = "Attention employee, excessive false reports detected. Report only active anomalies or face termination.";
+	private const string ActiveAnomaliesAlert = "Attention employee, multiple active anomalies detected in your area. Locate and send reports immediately.";
+	private const string FailReportsAlert = "Attention employee, excessive false reports detected. Please only report active anomalies or face termination.";
 
 	private readonly Logger Log = new( "Anomaly Manager" );
 
@@ -126,7 +126,7 @@ public class AnomalyManager : Component
 		if ( ActiveAnomalies.Count == MaxAnomaliesTilWarning )
 		{
 			var info = Hud.GetElement<Info>();
-			info?.WriteText( ActiveAnomaliesWarning );
+			info?.WriteText( ActiveAnomaliesAlert );
 		}
 
 		if ( ActiveAnomalies.Count < MaxAmountOfAnomalies )
@@ -256,7 +256,7 @@ public class AnomalyManager : Component
 		if ( FailReports == FailReportsTilWarning )
 		{
 			var info = Hud.GetElement<Info>();
-			info?.WriteText( FailReportsWarning );
+			info?.WriteText( FailReportsAlert );
 		}
 
 		if ( FailReports >= FailReportsTilGameOver )
