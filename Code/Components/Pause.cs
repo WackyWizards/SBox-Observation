@@ -35,21 +35,11 @@ public class Pause : Component
 		Hud.GetElement<PauseMenu>()?.Show();
 	}
 
-	public async void UnpauseGame()
+	public void UnpauseGame()
 	{
 		Scene.TimeScale = 1;
 		Hud.GetElement<PauseMenu>()?.Hide();
-		
-		// This is a hack to hide the cursor after unpausing again.
-		var hideCursor = Hud.GetElement<HideCursor>();
-		if ( !hideCursor.IsValid() )
-		{
-			return;
-		}
-		
-		hideCursor?.Show();
-		await Task.DelayRealtime( 100 );
-		hideCursor?.Hide();
+		Hud.GetElement<HideCursor>()?.HideMouse();
 	}
 
 	public void TogglePause()
