@@ -12,7 +12,7 @@
   "Transmission": true,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
-  "Distance": 9500,
+  "Distance": 8000,
   "Falloff": [
     {
       "x": 0,
@@ -22,15 +22,15 @@
       "mode": "Mirrored"
     },
     {
-      "x": 0.020858899,
-      "y": 0.5,
+      "x": 0.025000002,
+      "y": 0.45,
       "in": 3.5,
       "out": -3.5,
       "mode": "Mirrored"
     },
     {
-      "x": 0.253681,
-      "y": 0.029361725,
+      "x": 0.3,
+      "y": 0.019680835,
       "in": 0.16,
       "out": -0.16,
       "mode": "Mirrored"
