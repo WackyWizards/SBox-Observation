@@ -14,6 +14,8 @@ public class Anomaly : Component
 	[Property] public Action<GameObject>? OnAfterActive { get; set; }
 	[Property] public Action<GameObject>? OnAfterClear { get; set; }
 
+	protected bool IsActive => (bool)AnomalyManager.Instance?.ActiveAnomalies?.Contains( this );
+
 	/// <summary>
 	/// Called when this anomaly becomes active.
 	/// </summary>
