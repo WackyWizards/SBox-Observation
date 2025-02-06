@@ -22,13 +22,10 @@ public class Timer : Component
 	{
 		if ( UntilVictory )
 		{
-			var scene = Game.ActiveScene;
-			var map = new Map()
-			{
-				Name = scene.Name, Scene = (SceneFile)scene.Source
-			};
+			if ( MapManager.Instance is { ActiveMap: not null } mapManager )
+				GameManager.Instance?.EndGameInWin( mapManager.ActiveMap );
 
-			GameManager.Instance?.EndGameInWin( map );
+			UntilVictory = 999999;
 		}
 
 		base.OnUpdate();

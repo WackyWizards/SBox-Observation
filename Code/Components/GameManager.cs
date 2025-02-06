@@ -11,8 +11,6 @@ public class GameManager : Component
 	
 	[Property] public SceneFile? MenuScene { get; set; }
 	
-	public static Map? ActiveMap { get; set; }
-	
 	protected override void OnStart()
 	{
 		Instance = this;

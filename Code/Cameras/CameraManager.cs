@@ -66,7 +66,7 @@ public class CameraManager : Component
 		sound.TargetMixer = Mixer.FindMixerByName( "UI" );
 	}
 
-	public void DisableCamera( Camera camera )
+	public static void DisableCamera( Camera camera )
 	{
 		camera.GameObject.Enabled = false;
 	}
