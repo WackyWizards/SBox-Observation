@@ -9,7 +9,6 @@ public static class TraceExtensions
 	{
 		return trace.Ray( ray, distance )
 			.WithAnyTags( tags )
-			.IgnoreGameObject( Game.ActiveScene.GetAllObjects( true ).FirstOrDefault( x => x.Name == "World Physics" ) )
 			.Run();
 	}
 

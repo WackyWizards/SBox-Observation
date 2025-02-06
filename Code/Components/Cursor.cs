@@ -98,8 +98,21 @@ public class Cursor : Component
 		if ( !Camera.IsValid() )
 			return null;
 
+		var trace = RunSphereRay();
+		return trace?.GameObject;
+	}
+
+	private SceneTraceResult? RunSphereRay()
+	{
+		if ( !Camera.IsValid() )
+			return null;
+
 		var ray = Camera.ScreenPixelToRay( Mouse.Position );
-		var trace = Scene.Trace.RunRayTrace( ray, 100000 );
-		return trace.GameObject;
+		var worldPhysics = Game.ActiveScene.GetAllObjects( true ).FirstOrDefault( x => x.Name == "World Physics" );
+		var trace = Scene.Trace.Sphere( 10, ray, 100000 )
+			.IgnoreGameObject( worldPhysics )
+			.Run();
+
+		return trace;
 	}
 }
