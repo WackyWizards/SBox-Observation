@@ -6,9 +6,9 @@ namespace Observation;
 public class Anomaly : Component
 {
 	[Property] public virtual string Name { get; set; } = string.Empty;
-	
+
 	[Property] public virtual string Room { get; set; } = string.Empty;
-	
+
 	[Property] public virtual AnomalyType Type { get; set; }
 
 	[Property] public Action<GameObject>? OnAfterActive { get; set; }
@@ -35,7 +35,11 @@ public class Anomaly : Component
 	/// </summary>
 	public virtual bool IsAvailable()
 	{
-		return true;
+		if ( CameraManager.Instance?.ActiveCamera is not {} activeCamera )
+			return false;
+
+		// Check if the active camera's name is different from the room name.
+		return !string.Equals( activeCamera.Name, Room, StringComparison.OrdinalIgnoreCase );
 	}
 
 	public enum AnomalyType
