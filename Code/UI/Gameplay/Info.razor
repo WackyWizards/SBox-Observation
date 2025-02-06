@@ -1,4 +1,5 @@
 ﻿@using System.Threading.Tasks
+@using Sandbox.Audio
 @using Sandbox.UI
 
 @namespace Observation.UI
@@ -24,10 +25,20 @@
 		foreach ( var c in text )
 		{
 			_text.Text += c;
-			await Task.Delay( 100 );
+			
+			if ( c != ' ' )
+			{
+				var textSound = Sound.Play( "AlertBlip" );
+				if ( textSound.IsValid() )
+				{
+					textSound.TargetMixer = Mixer.FindMixerByName( "UI" );
+				}
+			}
+			
+			await Task.Delay( 150 );
 		}
 		
-		await Task.Delay( 500 );
+		await Task.Delay( 2000 );
 		this.Hide();
 	}
 }
