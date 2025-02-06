@@ -19,6 +19,9 @@ public class GameManager : Component
 
 	public void EndGameInLoss( LoseReason reason )
 	{
+		Sandbox.Services.Stats.Increment( "Losses", 1 );
+		Sandbox.Services.Stats.Increment( $"Losses_due_to_{reason}", 1 );
+
 		var menu = Hud.GetElement<GameOver>();
 		menu?.OnGameLose( reason );
 		menu?.Show();
@@ -32,6 +35,8 @@ public class GameManager : Component
 		{
 			achievement.Unlock();
 		}
+		
+		Sandbox.Services.Stats.Increment( "Wins", 1 );
 
 		var menu = Hud.GetElement<GameOver>();
 		menu?.OnGameEnd( true );
