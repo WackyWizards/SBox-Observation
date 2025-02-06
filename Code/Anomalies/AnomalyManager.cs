@@ -53,7 +53,7 @@ public class AnomalyManager : Component
 	public event Action<Anomaly>? OnAnomalyCleared;
 	public event Action<bool>? OnReportSubmitted;
 
-	private float GetRandomValue()
+	private float GetRandomAnomalyTime()
 	{
 		return Game.Random.Float( MinAnomalyTime, MaxAnomalyTime );
 	}
@@ -61,7 +61,7 @@ public class AnomalyManager : Component
 	protected override void OnStart()
 	{
 		Instance = this;
-		_nextAnomaly = GetRandomValue();
+		_nextAnomaly = GetRandomAnomalyTime();
 		base.OnStart();
 	}
 
@@ -81,7 +81,7 @@ public class AnomalyManager : Component
 			_logger.Error( $"Error activating anomaly: {ex.Message}" );
 		}
 
-		_nextAnomaly = GetRandomValue();
+		_nextAnomaly = GetRandomAnomalyTime();
 	}
 
 	private void TryActivateRandomAnomaly()
