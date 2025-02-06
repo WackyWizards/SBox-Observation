@@ -86,9 +86,9 @@
           {
             "Anomaly": {
               "_type": "component",
-              "component_id": "925ba1d7-0e5f-4177-b679-afcb29526349",
+              "component_id": "1051e9c3-e382-408b-9ec4-610d2fec7598",
               "go": "11167c12-8b1d-4d28-a848-48730736f550",
-              "component_type": "Enabler"
+              "component_type": "DelayedSound"
             },
             "Weight": 2
           }
@@ -1253,7 +1253,7 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "Pitch": 1,
-              "PlayOnStart": true,
+              "PlayOnStart": false,
               "ReflectionOverride": false,
               "Reflections": false,
               "Repeat": false,
@@ -1288,14 +1288,12 @@
               "SurfaceVelocity": "0,0,0"
             },
             {
-              "__type": "Observation.Anomalies.Enabler",
-              "__guid": "925ba1d7-0e5f-4177-b679-afcb29526349",
-              "Component": {
-                "_type": "component",
-                "component_id": "6d7ef09f-c487-4859-9583-ec001d8f5252",
-                "go": "11167c12-8b1d-4d28-a848-48730736f550",
-                "component_type": "SoundPointComponent"
-              },
+              "__type": "Observation.Anomalies.DelayedSound",
+              "__guid": "1051e9c3-e382-408b-9ec4-610d2fec7598",
+              "Delay": 3,
+              "IsLooping": true,
+              "MaxTime": 6,
+              "MinTime": 3,
               "Name": "",
               "OnAfterActive": null,
               "OnAfterClear": null,
@@ -1306,7 +1304,14 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "Room": "Entrance",
-              "Type": "Audio"
+              "SoundComponent": {
+                "_type": "component",
+                "component_id": "6d7ef09f-c487-4859-9583-ec001d8f5252",
+                "go": "11167c12-8b1d-4d28-a848-48730736f550",
+                "component_type": "SoundPointComponent"
+              },
+              "Type": "Audio",
+              "UseRandomTime": true
             }
           ]
         },
