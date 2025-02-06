@@ -60,7 +60,6 @@
             "component_type": "ObjectMover"
           }
         ],
-        "Anomaly Time": 60,
         "Max Amount Of Anomalies": 5,
         "Can Activate Anomalies": true,
         "Successful Reports": 0,

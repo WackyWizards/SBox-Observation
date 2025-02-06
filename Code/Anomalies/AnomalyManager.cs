@@ -17,8 +17,11 @@ public class AnomalyManager : Component
 	public List<Anomaly> PossibleAnomalies { get; set; } = [];
 
 	[Property, Category( "Anomalies" )]
-	public float AnomalyTime { get; set; } = 100f;
+	public float MinAnomalyTime { get; set; } = 25f;
 
+	[Property, Category( "Anomalies" )]
+	public float MaxAnomalyTime { get; set; } = 999f;
+	
 	[Property, Category( "Anomalies" )]
 	public int MaxAmountOfAnomalies { get; set; } = 5;
 
@@ -50,10 +53,15 @@ public class AnomalyManager : Component
 	public event Action<Anomaly>? OnAnomalyCleared;
 	public event Action<bool>? OnReportSubmitted;
 
+	private float GetRandomValue()
+	{
+		return Game.Random.Float( MinAnomalyTime, MaxAnomalyTime );
+	}
+
 	protected override void OnStart()
 	{
 		Instance = this;
-		_nextAnomaly = AnomalyTime;
+		_nextAnomaly = GetRandomValue();
 		base.OnStart();
 	}
 
@@ -73,7 +81,7 @@ public class AnomalyManager : Component
 			_logger.Error( $"Error activating anomaly: {ex.Message}" );
 		}
 
-		_nextAnomaly = AnomalyTime;
+		_nextAnomaly = GetRandomValue();
 	}
 
 	private void TryActivateRandomAnomaly()
@@ -95,7 +103,7 @@ public class AnomalyManager : Component
 		anomaly.OnAnomalyActive();
 		OnAnomalyActivated?.Invoke( anomaly );
 
-		if ( Game.IsEditor)
+		if ( Game.IsEditor )
 			_logger.Info( $"Activated anomaly: {anomaly}" );
 
 		CheckAnomalyWarningThresholds();
@@ -209,8 +217,8 @@ public class AnomalyManager : Component
 	private async Task HandleFailedReport( ReportingScreen reportingScreen )
 	{
 		FailReports++;
-		
-		if ( Game.IsEditor)
+
+		if ( Game.IsEditor )
 			_logger.Info( $"Failed Reports: {FailReports}" );
 
 		if ( FailReports == FailReportsTilWarning )
