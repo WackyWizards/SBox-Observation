@@ -62,6 +62,7 @@ public class GameManager : Component
 
 public class Map
 {
+	public string Ident { get; set; } = string.Empty;
 	public string Name { get; set; } = string.Empty;
 	public string Description { get; set; } = string.Empty;
 	public Difficulty Difficulty { get; set; } = Difficulty.Normal;

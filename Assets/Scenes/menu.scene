@@ -28,6 +28,7 @@
           "__guid": "b90fe410-6992-4885-9422-7f4ad0d9c5e8",
           "Maps": [
             {
+              "Ident": "house",
               "Name": "Family Home",
               "Description": "Former residence of high-profile individuals. Vacated under undisclosed circumstances. Lights turn on despite no power, shadowy figures spotted in upper-floor windows. Audit the premises. Do not acknowledge voices calling from empty rooms.",
               "Difficulty": "Normal",
@@ -55,6 +56,7 @@
           "__type": "Observation.MapManager",
           "__guid": "d8e45543-8644-427e-a6bc-bdbb3d7d27dd",
           "ActiveMap": {
+            "Ident": "",
             "Name": "",
             "Description": "",
             "Difficulty": "Normal",

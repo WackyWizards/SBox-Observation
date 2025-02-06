@@ -16,6 +16,7 @@ public class MapManager : Component
 	public void SetMap( Map map )
 	{
 		ActiveMap = map;
+		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}", 1 );
 	}
 
 	public void Restart()
