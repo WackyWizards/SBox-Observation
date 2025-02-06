@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Sandbox.Diagnostics;
 using Sandbox.UI;
 using Observation.UI;
+using CollectionExtensions=System.Collections.Generic.CollectionExtensions;
 
 namespace Observation;
 
@@ -13,22 +14,22 @@ public class AnomalyManager : Component
 	[Property, Category( "Anomalies" )]
 	public List<Anomaly> ActiveAnomalies { get; set; } = [];
 
-	[Property, Category( "Anomalies" )]
-	public List<Anomaly> PossibleAnomalies { get; set; } = [];
+	[Property, Category( "Anomalies" ), InlineEditor, WideMode]
+	public List<AnomalyEntry> PossibleAnomalies { get; set; } = [];
 
 	[Property, Category( "Anomalies" )]
-	public float MinAnomalyTime { get; set; } = 25f;
+	public float MinAnomalyTime { get; set; } = 20f;
 
 	[Property, Category( "Anomalies" )]
-	public float MaxAnomalyTime { get; set; } = 999f;
-	
+	public float MaxAnomalyTime { get; set; } = 60f;
+
 	[Property, Category( "Anomalies" )]
 	public int MaxAmountOfAnomalies { get; set; } = 5;
 
 	[Property, Category( "Anomalies" )]
 	public int MaxAnomaliesTilWarning { get; set; } = 3;
 
-	[Property, Category( "Anomalies" ), ReadOnly]
+	[Property, Category( "Anomalies" )]
 	public bool CanActivateAnomalies { get; private set; } = true;
 
 	[Property, Category( "Reports" ), ReadOnly]
@@ -43,15 +44,17 @@ public class AnomalyManager : Component
 	[Property, Category( "Reports" )]
 	public int FailReportsTilGameOver { get; set; } = 5;
 
+	public event Action<Anomaly>? OnAnomalyActivated;
+	public event Action<Anomaly>? OnAnomalyCleared;
+	public event Action<bool>? OnReportSubmitted;
+
+	private readonly Dictionary<Anomaly, float> _removedAnomalies = new();
 	private TimeUntil _nextAnomaly;
-	private readonly Logger _logger = new( "Anomaly Manager" );
 
 	private const string ActiveAnomaliesWarning = "Attention employee, multiple active anomalies detected in your area. Locate and report them immediately.";
 	private const string FailReportsWarning = "Attention employee, excessive false reports detected. Report only active anomalies or face termination.";
 
-	public event Action<Anomaly>? OnAnomalyActivated;
-	public event Action<Anomaly>? OnAnomalyCleared;
-	public event Action<bool>? OnReportSubmitted;
+	private readonly Logger _logger = new( "Anomaly Manager" );
 
 	private float GetRandomAnomalyTime()
 	{
@@ -93,13 +96,21 @@ public class AnomalyManager : Component
 		SetAnomalyActive( anomaly );
 	}
 
-	public void SetAnomalyActive( Anomaly anomaly )
+	private void SetAnomalyActive( Anomaly anomaly )
 	{
 		if ( !CanSetAnomalyActive( anomaly ) )
 			return;
 
 		ActiveAnomalies.Add( anomaly );
-		PossibleAnomalies.Remove( anomaly );
+
+		// Find the corresponding anomaly reference to remove from PossibleAnomalies
+		var anomalyReference = PossibleAnomalies.FirstOrDefault( x => x.Anomaly == anomaly );
+		if ( anomalyReference.Anomaly != null )
+		{
+			_removedAnomalies[anomaly] = anomalyReference.Weight;
+			PossibleAnomalies.Remove( anomalyReference );
+		}
+
 		anomaly.OnAnomalyActive();
 		OnAnomalyActivated?.Invoke( anomaly );
 
@@ -117,16 +128,18 @@ public class AnomalyManager : Component
 			info?.WriteText( ActiveAnomaliesWarning );
 		}
 
-		if ( ActiveAnomalies.Count >= MaxAmountOfAnomalies )
+		if ( ActiveAnomalies.Count < MaxAmountOfAnomalies )
 		{
-			CanActivateAnomalies = false;
-			GameManager.Instance?.EndGameInLoss( GameManager.LoseReason.TooManyAnomalies );
+			return;
 		}
+		
+		CanActivateAnomalies = false;
+		GameManager.Instance?.EndGameInLoss( GameManager.LoseReason.TooManyAnomalies );
 	}
 
 	public bool CanSetAnomalyActive( Anomaly anomaly )
 	{
-		return anomaly is { IsValid: true } &&
+		return anomaly?.IsValid() == true &&
 			anomaly.IsAvailable() &&
 			!ActiveAnomalies.Contains( anomaly );
 	}
@@ -134,10 +147,27 @@ public class AnomalyManager : Component
 	public Anomaly? GetRandomPossibleAnomaly()
 	{
 		var availableAnomalies = PossibleAnomalies
-			.Where( x => x is { IsValid: true } && x.IsAvailable() )
+			.Where( x => x.Anomaly is { IsValid: true } && x.Anomaly.IsAvailable() )
 			.ToList();
 
-		return availableAnomalies.Count > 0 ? Game.Random.FromList( availableAnomalies! ) : null;
+		if ( availableAnomalies.Count == 0 )
+			return null;
+
+		var totalWeight = availableAnomalies.Sum( x => x.Weight );
+
+		var randomValue = Game.Random.Float( 0, totalWeight );
+		var cumulativeWeight = 0f;
+
+		foreach ( var reference in availableAnomalies )
+		{
+			cumulativeWeight += reference.Weight;
+			if ( randomValue <= cumulativeWeight )
+			{
+				return reference.Anomaly;
+			}
+		}
+
+		return null;
 	}
 
 	public async Task Report( Anomaly.AnomalyType type, string room )
@@ -265,9 +295,21 @@ public class AnomalyManager : Component
 
 		ActiveAnomalies.Remove( anomaly );
 		anomaly.OnAnomalyClear();
-		PossibleAnomalies.Add( anomaly );
-		OnAnomalyCleared?.Invoke( anomaly );
 
+		// Restore original weight if available, otherwise use a default value
+		var weight = CollectionExtensions.GetValueOrDefault( _removedAnomalies, anomaly, 1.0f );
+		PossibleAnomalies.Add( new AnomalyEntry
+		{
+			Anomaly = anomaly, Weight = weight
+		} );
+
+		OnAnomalyCleared?.Invoke( anomaly );
 		_logger.Info( $"Cleared anomaly: {anomaly}" );
 	}
+}
+
+public record struct AnomalyEntry
+{
+	public Anomaly Anomaly { get; set; }
+	public float Weight { get; set; }
 }
