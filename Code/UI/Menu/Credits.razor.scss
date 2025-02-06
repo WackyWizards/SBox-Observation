@@ -32,10 +32,12 @@
   
   .credit {
     width: 100%;
-    padding: 8px;
+    padding: 4px;
+    gap: 8px;
     flex-direction: column;
     
     > .credit-title {
+      font-weight: 600;
       font-size: 35px;
     }
     
