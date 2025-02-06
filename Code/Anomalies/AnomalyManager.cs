@@ -54,7 +54,7 @@ public class AnomalyManager : Component
 	private const string ActiveAnomaliesWarning = "Attention employee, multiple active anomalies detected in your area. Locate and report them immediately.";
 	private const string FailReportsWarning = "Attention employee, excessive false reports detected. Report only active anomalies or face termination.";
 
-	private readonly Logger _logger = new( "Anomaly Manager" );
+	private readonly Logger Log = new( "Anomaly Manager" );
 
 	private float GetRandomAnomalyTime()
 	{
@@ -81,12 +81,13 @@ public class AnomalyManager : Component
 		}
 		catch ( Exception ex )
 		{
-			_logger.Error( $"Error activating anomaly: {ex.Message}" );
+			Log.Error( $"Error activating anomaly: {ex.Message}" );
 		}
 
 		_nextAnomaly = GetRandomAnomalyTime();
 	}
 
+	[Button]
 	private void TryActivateRandomAnomaly()
 	{
 		var anomaly = GetRandomPossibleAnomaly();
@@ -115,7 +116,7 @@ public class AnomalyManager : Component
 		OnAnomalyActivated?.Invoke( anomaly );
 
 		if ( Game.IsEditor )
-			_logger.Info( $"Activated anomaly: {anomaly}" );
+			Log.Info( $"Activated anomaly: {anomaly}" );
 
 		CheckAnomalyWarningThresholds();
 	}
@@ -185,7 +186,7 @@ public class AnomalyManager : Component
 		}
 		catch ( Exception ex )
 		{
-			_logger.Error( $"Error processing room report: {ex.Message}" );
+			Log.Error( $"Error processing room report: {ex.Message}" );
 			reportingScreen.Hide();
 		}
 	}
@@ -205,7 +206,7 @@ public class AnomalyManager : Component
 		}
 		catch ( Exception ex )
 		{
-			_logger.Error( $"Error processing object report: {ex.Message}" );
+			Log.Error( $"Error processing object report: {ex.Message}" );
 			reportingScreen.Hide();
 		}
 	}
@@ -250,9 +251,7 @@ public class AnomalyManager : Component
 	private async Task HandleFailedReport( ReportingScreen reportingScreen )
 	{
 		FailReports++;
-
-		if ( Game.IsEditor )
-			_logger.Info( $"Failed Reports: {FailReports}" );
+		Log.Info( $"Failed Reports: {FailReports}" );
 
 		if ( FailReports == FailReportsTilWarning )
 		{
@@ -289,7 +288,7 @@ public class AnomalyManager : Component
 	{
 		if ( !ActiveAnomalies.Contains( anomaly ) )
 		{
-			_logger.Warning( $"Unable to clear anomaly: {anomaly}, not active!" );
+			Log.Warning( $"Unable to clear anomaly: {anomaly}, not active!" );
 			return;
 		}
 
@@ -304,7 +303,7 @@ public class AnomalyManager : Component
 		} );
 
 		OnAnomalyCleared?.Invoke( anomaly );
-		_logger.Info( $"Cleared anomaly: {anomaly}" );
+		Log.Info( $"Cleared anomaly: {anomaly}" );
 	}
 }
 
