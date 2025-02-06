@@ -63,7 +63,10 @@ public class CameraManager : Component
 
 		Hud.GetElement<AnomalyList>()?.Hide();
 		var sound = Sound.Play( "ui.button.deny" );
-		sound.TargetMixer = Mixer.FindMixerByName( "UI" );
+		if ( sound.IsValid() )
+		{
+			sound.TargetMixer = Mixer.FindMixerByName( "UI" );
+		}
 	}
 
 	public static void DisableCamera( Camera camera )
