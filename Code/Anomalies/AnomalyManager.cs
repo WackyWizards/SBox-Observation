@@ -186,7 +186,10 @@ public class AnomalyManager : Component
 		if ( !reportingScreen.IsValid() )
 			return null;
 
-		reportingScreen.Report.Text = "Verifying Report...";
+		if ( reportingScreen.Report.IsValid() )
+		{
+			reportingScreen.Report.Text = "Verifying Report...";
+		}
 		reportingScreen.Show();
 
 		await Task.DelayRealtimeSeconds( 2 );
