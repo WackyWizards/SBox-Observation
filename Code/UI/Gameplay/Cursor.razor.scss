@@ -1,9 +1,28 @@
 ﻿Cursor {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+
+  .hold-circle {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 0.9;
+    transform-origin: center;
+  }
+
+  .outer-circle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 1px 1px black;
+  }
 }

@@ -1,13 +1,30 @@
-﻿@using Sandbox.UI
+﻿@using System
+@using Sandbox.UI
 
 @namespace Observation.UI
 @attribute [Hud]
 @inherits Panel
 
-<root/>
+<root>
+	<div class="outer-circle">
+		<div class="hold-circle" style="@GetHoldProgress()"></div>
+	</div>
+</root>
 
 @code {
 	#nullable enable
+
+	public TimeSince SinceStartedHold { get; set; }
+	private bool IsHolding { get; set; }
+
+	private const float MaxHoldTime = 1.0f;
+	private const int Margin = -10;
+
+	public Cursor()
+	{
+		BindClass( "active", () => Input.Down( "attack1" ) );
+	}
+
 	public override void Tick()
 	{
 		base.Tick();
@@ -18,7 +35,31 @@
 
 		Style.Left = Length.Percent( relativeX * 100 );
 		Style.Top = Length.Percent( relativeY * 100 );
-		Style.MarginLeft = Length.Pixels( -10 );
-		Style.MarginTop = Length.Pixels( -10 );
+		Style.MarginLeft = Length.Pixels( Margin );
+		Style.MarginTop = Length.Pixels( Margin );
+
+		if ( Input.Down( "attack1" ) )
+		{
+			if ( !IsHolding )
+			{
+				IsHolding = true;
+				SinceStartedHold = 0;
+			}
+		}
+		else
+		{
+			IsHolding = false;
+		}
+
+		StateHasChanged();
+	}
+
+	private string GetHoldProgress()
+	{
+		if ( !IsHolding )
+			return "transform: scale(0);";
+
+		var progress = Math.Min( SinceStartedHold / MaxHoldTime, 1.0f );
+		return $"transform: scale({progress});";
 	}
 }
