@@ -21,7 +21,7 @@ code/Properties/*
 *.vpk
 *launchSettings.json
 *.sln
-*.idea
+*.sln.DotSettings.user
 *idea
 
 # Exported / standalone games
