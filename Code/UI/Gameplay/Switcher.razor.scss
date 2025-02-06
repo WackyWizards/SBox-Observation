@@ -24,9 +24,9 @@ Switcher {
       backdrop-filter: blur(10px);
       align-items: center;
       justify-content: center;
-      font-size: 45px;
+      font-size: 50px;
       color: white;
-      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+      text-shadow: 0 2px 2px black;
       box-shadow: 0 2px 8px black;
       transition: all 0.1s ease;
 
@@ -37,7 +37,7 @@ Switcher {
       }
 
       &:active {
-        transform: scale(0.99);
+        transform: scale(0.98);
         background-color: rgba(255, 255, 255, 0.15);
       }
     }

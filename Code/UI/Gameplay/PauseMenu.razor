@@ -21,14 +21,12 @@
 
 	private Settings? _settings;
 
-	public void Return()
+	public static void Return()
 	{
 		Pause.Instance?.UnpauseGame();
-		Observation.Cursor.HideMouse();
-		this.Hide();
 	}
 
-	public void Restart()
+	public static void Restart()
 	{
 		MapManager.Instance?.Restart();
 	}
@@ -41,7 +39,7 @@
 		}
 	}
 
-	public void Menu()
+	public static void Menu()
 	{
 		GameManager.Instance?.ToMenu();
 	}
