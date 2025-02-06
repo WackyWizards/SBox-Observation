@@ -12,63 +12,89 @@
         "Active Anomalies": [],
         "Possible Anomalies": [
           {
-            "_type": "component",
-            "component_id": "eb52a6f2-7cc7-4225-8d36-cd3ca3ebabc4",
-            "go": "dd1c4b9a-a400-4373-99b3-8c07cc3aeff5",
-            "component_type": "Enabler"
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "eb52a6f2-7cc7-4225-8d36-cd3ca3ebabc4",
+              "go": "dd1c4b9a-a400-4373-99b3-8c07cc3aeff5",
+              "component_type": "Enabler"
+            },
+            "Weight": 2
           },
           {
-            "_type": "component",
-            "component_id": "be874132-6409-44a9-8ae2-21ee62380927",
-            "go": "e2637479-81c5-4083-9a85-ecb8ed7951ad",
-            "component_type": "Enabler"
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "be874132-6409-44a9-8ae2-21ee62380927",
+              "go": "e2637479-81c5-4083-9a85-ecb8ed7951ad",
+              "component_type": "Enabler"
+            },
+            "Weight": 5
           },
           {
-            "_type": "component",
-            "component_id": "4ab58cd7-ffa7-4476-b6c9-30d17805f949",
-            "go": "6c021324-db0c-468a-b01b-a61189f63a62",
-            "component_type": "Enabler"
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "4ab58cd7-ffa7-4476-b6c9-30d17805f949",
+              "go": "6c021324-db0c-468a-b01b-a61189f63a62",
+              "component_type": "Enabler"
+            },
+            "Weight": 5
           },
           {
-            "_type": "component",
-            "component_id": "0ca0bf10-5c84-4b8a-a395-493c21d28d7a",
-            "go": "c36d35c2-9c35-49bd-9189-b270a5157358",
-            "component_type": "ObjectMover"
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "0ca0bf10-5c84-4b8a-a395-493c21d28d7a",
+              "go": "c36d35c2-9c35-49bd-9189-b270a5157358",
+              "component_type": "ObjectMover"
+            },
+            "Weight": 5
           },
           {
-            "_type": "component",
-            "component_id": "128984bc-d118-46e1-9db2-a56ae15b0360",
-            "go": "a506741b-7054-4c72-bb1e-78a38159d588",
-            "component_type": "Enabler"
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "128984bc-d118-46e1-9db2-a56ae15b0360",
+              "go": "a506741b-7054-4c72-bb1e-78a38159d588",
+              "component_type": "Enabler"
+            },
+            "Weight": 5
           },
           {
-            "_type": "component",
-            "component_id": "f3a56487-80d3-47ad-b3bd-24cf5da8396f",
-            "go": "e84c0a5a-0399-437b-8e52-d59371c77169",
-            "component_type": "Enabler"
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "f3a56487-80d3-47ad-b3bd-24cf5da8396f",
+              "go": "e84c0a5a-0399-437b-8e52-d59371c77169",
+              "component_type": "Enabler"
+            },
+            "Weight": 5
           },
           {
-            "_type": "component",
-            "component_id": "71346b30-2f58-4800-bc71-f1f649960490",
-            "go": "c010364b-4a88-423a-97f3-a444bbc96949",
-            "component_type": "Enabler"
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "71346b30-2f58-4800-bc71-f1f649960490",
+              "go": "c010364b-4a88-423a-97f3-a444bbc96949",
+              "component_type": "Enabler"
+            },
+            "Weight": 2
           },
           {
-            "_type": "component",
-            "component_id": "bf1d127b-2e35-4e05-8387-667cb06ba49b",
-            "go": "a700d552-05cf-4f4c-ad97-51c604ad3b4a",
-            "component_type": "ObjectMover"
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "bf1d127b-2e35-4e05-8387-667cb06ba49b",
+              "go": "a700d552-05cf-4f4c-ad97-51c604ad3b4a",
+              "component_type": "ObjectMover"
+            },
+            "Weight": 5
           }
         ],
         "Max Amount Of Anomalies": 5,
         "Can Activate Anomalies": true,
         "Successful Reports": 0,
         "Fail Reports": 0,
-        "Fail Reports Til Game Over": 99999999,
+        "Fail Reports Til Game Over": 999999,
         "Win Time": 468,
         "Hold Time": 1,
-        "Fail Reports Til Warning": 99999999,
-        "Max Anomalies Til Warning": 3
+        "Fail Reports Til Warning": 999999,
+        "Max Anomalies Til Warning": 3,
+        "Min Anomaly Time": 20,
+        "Max Anomaly Time": 60
       }
     },
     {
@@ -973,7 +999,7 @@
           "__guid": "e84c0a5a-0399-437b-8e52-d59371c77169",
           "Flags": 0,
           "Name": "prop_physics",
-          "Position": "-422.8847,1007.609,-44.03601",
+          "Position": "-462.6663,1031.165,-44.03601",
           "Rotation": "0,0,0.7071068,0.7071067",
           "Enabled": true,
           "NetworkOrphaned": 3,

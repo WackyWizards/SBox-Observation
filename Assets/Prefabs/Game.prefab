@@ -27,8 +27,8 @@
         "FailReportsTilWarning": 3,
         "MaxAmountOfAnomalies": 5,
         "MaxAnomaliesTilWarning": 3,
-        "MaxAnomalyTime": 75,
-        "MinAnomalyTime": 25,
+        "MaxAnomalyTime": 60,
+        "MinAnomalyTime": 20,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -97,19 +97,6 @@
           {
             "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
             "Property": "PossibleAnomalies"
-          }
-        ]
-      },
-      {
-        "Id": "Anomaly Time",
-        "Title": "Anomaly Time",
-        "Description": null,
-        "Group": null,
-        "Order": 0,
-        "Targets": [
-          {
-            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
-            "Property": "AnomalyTime"
           }
         ]
       },
@@ -227,6 +214,32 @@
           {
             "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
             "Property": "MaxAnomaliesTilWarning"
+          }
+        ]
+      },
+      {
+        "Id": "Min Anomaly Time",
+        "Title": "Min Anomaly Time",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "MinAnomalyTime"
+          }
+        ]
+      },
+      {
+        "Id": "Max Anomaly Time",
+        "Title": "Max Anomaly Time",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "MaxAnomalyTime"
           }
         ]
       }
