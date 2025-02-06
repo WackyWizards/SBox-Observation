@@ -1039,26 +1039,6 @@
               "Tint": "1,1,1,1"
             },
             {
-              "__type": "Sandbox.ModelCollider",
-              "__guid": "3ad17e32-829e-449f-9617-78cc626c5888",
-              "Friction": null,
-              "IsTrigger": false,
-              "Model": "models/plants/plant2.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnObjectTriggerEnter": null,
-              "OnObjectTriggerExit": null,
-              "OnTriggerEnter": null,
-              "OnTriggerExit": null,
-              "Static": true,
-              "Surface": null,
-              "SurfaceVelocity": "0,0,0"
-            },
-            {
               "__type": "Sandbox.Rigidbody",
               "__guid": "2fb3b303-c20b-4704-8abc-7b4e30158c7d",
               "AngularDamping": 0,
@@ -1084,6 +1064,27 @@
               "OverrideMassCenter": false,
               "RigidbodyFlags": 0,
               "StartAsleep": false
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "d99007bd-721c-47b9-87a2-d691b0d74767",
+              "Center": "-0.4354401,0,41.41315",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "30,35,58.75181",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Observation.Anomalies.Enabler",
@@ -1210,112 +1211,6 @@
           ]
         },
         {
-          "__guid": "11167c12-8b1d-4d28-a848-48730736f550",
-          "Flags": 0,
-          "Name": "Knocking",
-          "Position": "136.9413,313.3816,0",
-          "Scale": "1,1,1.300001",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.SoundPointComponent",
-              "__guid": "6d7ef09f-c487-4859-9583-ec001d8f5252",
-              "__enabled": false,
-              "Distance": 512,
-              "DistanceAttenuation": false,
-              "DistanceAttenuationOverride": false,
-              "Falloff": [
-                {
-                  "x": 0,
-                  "y": 1,
-                  "in": 3.1415927,
-                  "out": -3.1415927,
-                  "mode": "Mirrored"
-                },
-                {
-                  "x": 1,
-                  "y": 0,
-                  "in": 0,
-                  "out": 0,
-                  "mode": "Mirrored"
-                }
-              ],
-              "Force2d": false,
-              "MaxRepeatTime": 1,
-              "MinRepeatTime": 1,
-              "Occlusion": false,
-              "OcclusionOverride": false,
-              "OcclusionRadius": 32,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Pitch": 1,
-              "PlayOnStart": false,
-              "ReflectionOverride": false,
-              "Reflections": false,
-              "Repeat": false,
-              "SoundEvent": "sounds/anomalies/wood door knocking.sound",
-              "SoundOverride": false,
-              "StopOnNew": false,
-              "TargetMixer": {
-                "Name": "game",
-                "Id": "08b1a8ed-4861-4d96-8be8-22b266178ab4"
-              },
-              "Volume": 1
-            },
-            {
-              "__type": "Sandbox.BoxCollider",
-              "__guid": "eefa0513-d2ad-4e3f-951f-0d8bbc4f2bd3",
-              "Center": "11.48716,-28.23775,8.898983",
-              "Friction": null,
-              "IsTrigger": false,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnObjectTriggerEnter": null,
-              "OnObjectTriggerExit": null,
-              "OnTriggerEnter": null,
-              "OnTriggerExit": null,
-              "Scale": "54.97433,142.0378,108.2245",
-              "Static": false,
-              "Surface": null,
-              "SurfaceVelocity": "0,0,0"
-            },
-            {
-              "__type": "Observation.Anomalies.DelayedSound",
-              "__guid": "1051e9c3-e382-408b-9ec4-610d2fec7598",
-              "Delay": 3,
-              "IsLooping": true,
-              "MaxTime": 6,
-              "MinTime": 3,
-              "Name": "",
-              "OnAfterActive": null,
-              "OnAfterClear": null,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Room": "Entrance",
-              "SoundComponent": {
-                "_type": "component",
-                "component_id": "6d7ef09f-c487-4859-9583-ec001d8f5252",
-                "go": "11167c12-8b1d-4d28-a848-48730736f550",
-                "component_type": "SoundPointComponent"
-              },
-              "Type": "Audio",
-              "UseRandomTime": true
-            }
-          ]
-        },
-        {
           "__guid": "a700d552-05cf-4f4c-ad97-51c604ad3b4a",
           "Flags": 0,
           "Name": "prop_physics",
@@ -1419,6 +1314,112 @@
               "OnComponentUpdate": null,
               "Room": "Entrance",
               "Type": "Movement"
+            }
+          ]
+        },
+        {
+          "__guid": "11167c12-8b1d-4d28-a848-48730736f550",
+          "Flags": 0,
+          "Name": "Knocking",
+          "Position": "136.9413,313.3816,0",
+          "Scale": "1,1,1.300001",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SoundPointComponent",
+              "__guid": "6d7ef09f-c487-4859-9583-ec001d8f5252",
+              "__enabled": false,
+              "Distance": 512,
+              "DistanceAttenuation": false,
+              "DistanceAttenuationOverride": false,
+              "Falloff": [
+                {
+                  "x": 0,
+                  "y": 1,
+                  "in": 3.1415927,
+                  "out": -3.1415927,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 1,
+                  "y": 0,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Force2d": false,
+              "MaxRepeatTime": 1,
+              "MinRepeatTime": 1,
+              "Occlusion": false,
+              "OcclusionOverride": false,
+              "OcclusionRadius": 32,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Pitch": 1,
+              "PlayOnStart": false,
+              "ReflectionOverride": false,
+              "Reflections": false,
+              "Repeat": false,
+              "SoundEvent": "sounds/anomalies/wood door knocking.sound",
+              "SoundOverride": false,
+              "StopOnNew": false,
+              "TargetMixer": {
+                "Name": "game",
+                "Id": "08b1a8ed-4861-4d96-8be8-22b266178ab4"
+              },
+              "Volume": 1
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "eefa0513-d2ad-4e3f-951f-0d8bbc4f2bd3",
+              "Center": "11.48716,-28.23775,8.898983",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "54.97433,142.0378,108.2245",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.DelayedSound",
+              "__guid": "1051e9c3-e382-408b-9ec4-610d2fec7598",
+              "Delay": 3,
+              "IsLooping": true,
+              "MaxTime": 6,
+              "MinTime": 3,
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Room": "Entrance",
+              "SoundComponent": {
+                "_type": "component",
+                "component_id": "6d7ef09f-c487-4859-9583-ec001d8f5252",
+                "go": "11167c12-8b1d-4d28-a848-48730736f550",
+                "component_type": "SoundPointComponent"
+              },
+              "Type": "Audio",
+              "UseRandomTime": true
             }
           ]
         }
