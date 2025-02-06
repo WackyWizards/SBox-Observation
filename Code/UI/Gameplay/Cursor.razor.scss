@@ -1,11 +1,17 @@
 ﻿Cursor {
   position: absolute;
+  pointer-events: none;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  z-index: 6;
+  z-index: 10;
+  transition: transform 10ms linear;
+  
+  &.active {
+    transform: scale(0.9);
+  }
 
   .hold-circle {
     position: absolute;

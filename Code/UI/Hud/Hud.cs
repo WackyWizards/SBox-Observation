@@ -12,7 +12,6 @@ public class Hud : PanelComponent
 	protected override void OnStart()
 	{
 		Instance = this;
-		StyleHack();
 		
 		foreach ( var element in TypeLibrary.GetAttributes<HudAttribute>() )
 		{
