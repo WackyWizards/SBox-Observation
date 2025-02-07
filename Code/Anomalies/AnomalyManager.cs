@@ -151,7 +151,7 @@ public class AnomalyManager : Component
 	public Anomaly? GetRandomPossibleAnomaly()
 	{
 		var availableAnomalies = PossibleAnomalies
-			.Where( x => 
+			.Where( x =>
 				x.Anomaly.IsValid() &&
 				x.Anomaly.IsAvailable() &&
 				IsPassedMinTime( x ) )
@@ -255,7 +255,7 @@ public class AnomalyManager : Component
 		await Task.DelayRealtimeSeconds( 1 );
 		reportingScreen.Hide();
 
-		if ( anomaly.IsValid() )
+		if ( isValidReport && anomaly.IsValid() )
 		{
 			SuccessfulReports++;
 			ClearAnomaly( anomaly );
