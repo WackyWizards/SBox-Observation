@@ -19,7 +19,7 @@
               "component_type": "Enabler"
             },
             "Weight": 3,
-            "MinTime": null
+            "MinTime": 150
           },
           {
             "Anomaly": {
@@ -79,7 +79,7 @@
               "component_type": "Enabler"
             },
             "Weight": 4,
-            "MinTime": null
+            "MinTime": 450
           },
           {
             "Anomaly": {
@@ -109,7 +109,7 @@
               "component_type": "Enabler"
             },
             "Weight": 3,
-            "MinTime": 100
+            "MinTime": 550
           },
           {
             "Anomaly": {
@@ -130,8 +130,8 @@
         "Hold Time": 1,
         "Fail Reports Til Warning": 999999,
         "Max Anomalies Til Warning": 3,
-        "Min Anomaly Time": 40,
-        "Max Anomaly Time": 100,
+        "Min Anomaly Time": 30,
+        "Max Anomaly Time": 120,
         "Win Time": 1080
       }
     },
