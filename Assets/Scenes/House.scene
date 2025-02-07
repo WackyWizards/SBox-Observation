@@ -18,7 +18,8 @@
               "go": "dd1c4b9a-a400-4373-99b3-8c07cc3aeff5",
               "component_type": "Enabler"
             },
-            "Weight": 2
+            "Weight": 3,
+            "MinTime": null
           },
           {
             "Anomaly": {
@@ -27,16 +28,18 @@
               "go": "e2637479-81c5-4083-9a85-ecb8ed7951ad",
               "component_type": "Enabler"
             },
-            "Weight": 5
+            "Weight": 7,
+            "MinTime": null
           },
           {
             "Anomaly": {
               "_type": "component",
-              "component_id": "4ab58cd7-ffa7-4476-b6c9-30d17805f949",
+              "component_id": "78dd630e-5389-4c85-9330-ad25f155cc57",
               "go": "6c021324-db0c-468a-b01b-a61189f63a62",
-              "component_type": "Enabler"
+              "component_type": "ObjectMover"
             },
-            "Weight": 5
+            "Weight": 7,
+            "MinTime": null
           },
           {
             "Anomaly": {
@@ -45,7 +48,8 @@
               "go": "c36d35c2-9c35-49bd-9189-b270a5157358",
               "component_type": "ObjectMover"
             },
-            "Weight": 5
+            "Weight": 7,
+            "MinTime": null
           },
           {
             "Anomaly": {
@@ -54,7 +58,8 @@
               "go": "a506741b-7054-4c72-bb1e-78a38159d588",
               "component_type": "Enabler"
             },
-            "Weight": 5
+            "Weight": 7,
+            "MinTime": null
           },
           {
             "Anomaly": {
@@ -63,7 +68,8 @@
               "go": "e84c0a5a-0399-437b-8e52-d59371c77169",
               "component_type": "Enabler"
             },
-            "Weight": 5
+            "Weight": 7,
+            "MinTime": null
           },
           {
             "Anomaly": {
@@ -72,7 +78,8 @@
               "go": "c010364b-4a88-423a-97f3-a444bbc96949",
               "component_type": "Enabler"
             },
-            "Weight": 2
+            "Weight": 4,
+            "MinTime": null
           },
           {
             "Anomaly": {
@@ -81,7 +88,8 @@
               "go": "a700d552-05cf-4f4c-ad97-51c604ad3b4a",
               "component_type": "ObjectMover"
             },
-            "Weight": 5
+            "Weight": 7,
+            "MinTime": null
           },
           {
             "Anomaly": {
@@ -90,7 +98,8 @@
               "go": "11167c12-8b1d-4d28-a848-48730736f550",
               "component_type": "DelayedSound"
             },
-            "Weight": 2
+            "Weight": 4,
+            "MinTime": null
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -693,7 +702,7 @@
           "__guid": "6c021324-db0c-468a-b01b-a61189f63a62",
           "Flags": 0,
           "Name": "prop_physics",
-          "Position": "-555.9204,905.1116,-5.457153",
+          "Position": "-555.9204,905.1114,-5.457031",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,
@@ -701,7 +710,6 @@
             {
               "__type": "Sandbox.ModelRenderer",
               "__guid": "4a6e04cc-f23a-46d5-9cc0-2acc65ce1b50",
-              "__enabled": false,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
               "MaterialGroup": null,
@@ -770,13 +778,17 @@
               "StartAsleep": false
             },
             {
-              "__type": "Observation.Anomalies.Enabler",
-              "__guid": "4ab58cd7-ffa7-4476-b6c9-30d17805f949",
-              "Component": {
-                "_type": "component",
-                "component_id": "4a6e04cc-f23a-46d5-9cc0-2acc65ce1b50",
-                "go": "6c021324-db0c-468a-b01b-a61189f63a62",
-                "component_type": "ModelRenderer"
+              "__type": "Observation.Anomalies.ObjectMover",
+              "__guid": "78dd630e-5389-4c85-9330-ad25f155cc57",
+              "DefaultWorldTransform": {
+                "Position": "-453.0357,1167.193,1357.319",
+                "Scale": "1,1,1",
+                "Rotation": "0,0,0,1"
+              },
+              "DesiredWorldTransform": {
+                "Position": "-419.3609,1167.193,1357.319",
+                "Scale": "1,1,1",
+                "Rotation": "0,0,0,1"
               },
               "Name": "",
               "OnAfterActive": null,
@@ -788,7 +800,7 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "Room": "Study",
-              "Type": "Extra"
+              "Type": "Movement"
             }
           ]
         },
@@ -1068,7 +1080,7 @@
             {
               "__type": "Sandbox.BoxCollider",
               "__guid": "d99007bd-721c-47b9-87a2-d691b0d74767",
-              "Center": "-0.4354401,0,41.41315",
+              "Center": "-0.9715567,0.3955469,34.38774",
               "Friction": null,
               "IsTrigger": false,
               "OnComponentDestroy": null,
@@ -1081,7 +1093,7 @@
               "OnObjectTriggerExit": null,
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
-              "Scale": "30,35,58.75181",
+              "Scale": "31.07223,29.95741,70.25211",
               "Static": true,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"

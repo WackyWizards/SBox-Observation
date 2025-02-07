@@ -50,6 +50,7 @@ public class AnomalyManager : Component
 
 	private readonly Dictionary<Anomaly, float> _removedAnomalies = new();
 	private TimeUntil _nextAnomaly;
+	private TimeSince _sinceStart;
 
 	private const string ActiveAnomaliesAlert = "Attention employee, multiple active anomalies detected in your area. Locate and send reports immediately.";
 	private const string FailReportsAlert = "Attention employee, excessive false reports detected. Please only report active anomalies or face termination.";
@@ -65,6 +66,8 @@ public class AnomalyManager : Component
 	{
 		Instance = this;
 		_nextAnomaly = GetRandomAnomalyTime();
+		_sinceStart = 0;
+
 		base.OnStart();
 	}
 
@@ -133,7 +136,7 @@ public class AnomalyManager : Component
 		{
 			return;
 		}
-		
+
 		CanActivateAnomalies = false;
 		GameManager.Instance?.EndGameInLoss( GameManager.LoseReason.TooManyAnomalies );
 	}
@@ -148,7 +151,10 @@ public class AnomalyManager : Component
 	public Anomaly? GetRandomPossibleAnomaly()
 	{
 		var availableAnomalies = PossibleAnomalies
-			.Where( x => x.Anomaly is { IsValid: true } && x.Anomaly.IsAvailable() )
+			.Where( x => 
+				x.Anomaly.IsValid() &&
+				x.Anomaly.IsAvailable() &&
+				IsPassedMinTime( x ) )
 			.ToList();
 
 		if ( availableAnomalies.Count == 0 )
@@ -169,6 +175,14 @@ public class AnomalyManager : Component
 		}
 
 		return null;
+	}
+
+	private bool IsPassedMinTime( AnomalyEntry entry )
+	{
+		if ( !entry.MinTime.HasValue )
+			return true;
+
+		return _sinceStart >= entry.MinTime.Value;
 	}
 
 	public async Task Report( Anomaly.AnomalyType type, string room )
@@ -311,4 +325,9 @@ public record struct AnomalyEntry
 {
 	public Anomaly Anomaly { get; set; }
 	public float Weight { get; set; }
+
+	/// <summary>
+	/// The minimum amount of passed time before this anomaly can be activated.
+	/// </summary>
+	public float? MinTime { get; set; }
 }
