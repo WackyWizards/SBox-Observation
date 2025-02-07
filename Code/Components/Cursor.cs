@@ -109,7 +109,7 @@ public class Cursor : Component
 
 		var ray = Camera.ScreenPixelToRay( Mouse.Position );
 		var worldPhysics = Game.ActiveScene.GetAllObjects( true ).FirstOrDefault( x => x.Name == "World Physics" );
-		var trace = Scene.Trace.Sphere( 10, ray, 100000 )
+		var trace = Scene.Trace.Sphere( 20, ray, 100000 )
 			.IgnoreGameObject( worldPhysics )
 			.Run();
 
