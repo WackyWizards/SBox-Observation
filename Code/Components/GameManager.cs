@@ -34,15 +34,17 @@ public class GameManager : Component
 		Scene.TimeScale = 0;
 	}
 
-	public void EndGameInWin( Map map )
+	public void EndGameInWin()
 	{
-		if ( map.WinAchievement is {} achievement )
-		{
-			achievement.Unlock();
-		}
-
 		Sandbox.Services.Stats.Increment( "Wins", 1 );
-		Sandbox.Services.Stats.Increment( $"Wins_on_map_{map.Ident}", 1 );
+		if ( MapManager.Instance?.ActiveMap is {} activeMap )
+		{
+			Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}", 1 );
+			if ( activeMap.WinAchievement is {} achievement )
+			{
+				achievement.Unlock();
+			}
+		}
 
 		var menu = Hud.GetElement<GameOver>();
 		menu?.OnGameEnd( true );
