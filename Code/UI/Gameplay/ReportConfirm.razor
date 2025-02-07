@@ -1,0 +1,68 @@
+﻿@using System
+@using Sandbox.UI
+
+@namespace Observation.UI
+@attribute [Hud]
+@inherits Panel
+
+<root class="hidden">
+	<div class="main">
+		<label class="title" @ref="Title">Confirm Report</label>
+
+		<label class="text">You are attempting to report @( AnomalyType.GetName() ) in @( RoomName ).</label>
+		<label class="text">Are you sure?</label>
+
+		<div class="button-container">
+			<button icon="check_circle" onclick="@Confirm">Yes</button>
+			<button icon="cancel" onclick="@Deny">No</button>
+		</div>
+	</div>
+</root>
+
+@code {
+	#nullable enable
+    
+	public Label? Title { get; set; }
+
+	public string RoomName { get; set; } = "N/A";
+
+	public Anomaly.AnomalyType AnomalyType { get; set; }
+
+	public Action? OnConfirm { get; set; }
+	public Action? OnDeny { get; set; }
+
+	public void Show( Anomaly.AnomalyType type, string room, Action? onConfirm = null, Action? onDeny = null )
+	{
+		AnomalyType = type;
+		RoomName = room;
+
+		if ( onConfirm is not null )
+		{
+			OnConfirm = onConfirm;
+		}
+
+		if ( onDeny is not null )
+		{
+			OnDeny = onDeny;
+		}
+		
+		this.Show();
+	}
+
+	public void Confirm()
+	{
+		OnConfirm?.Invoke();
+		this.Hide();
+	}
+
+	public void Deny()
+	{
+		OnDeny?.Invoke();
+		this.Hide();
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( Title, Title?.Text, AnomalyType );
+	}
+}

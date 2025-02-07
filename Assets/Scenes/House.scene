@@ -274,7 +274,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": null
+              "Room": "Living Room"
             }
           ]
         },
@@ -321,7 +321,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": null
+              "Room": "Kitchen"
             }
           ]
         },
@@ -368,7 +368,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": null
+              "Room": "Entrance"
             }
           ]
         },
@@ -415,7 +415,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": ""
+              "Room": "Gardening"
             }
           ]
         },
@@ -462,7 +462,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": null
+              "Room": "Study"
             }
           ]
         },
@@ -509,7 +509,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": null
+              "Room": "Playroom"
             }
           ]
         }
@@ -596,6 +596,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Entrance",
               "Type": "Manipulation"
             }
@@ -698,6 +699,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Kitchen",
               "Type": "Extra"
             },
@@ -825,6 +827,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Study",
               "Type": "Movement"
             }
@@ -933,6 +936,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Playroom",
               "Type": "Movement"
             }
@@ -1061,6 +1065,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Living Room",
               "Type": "Extra"
             }
@@ -1189,6 +1194,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Study",
               "Type": "Extra"
             }
@@ -1293,6 +1299,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Living Room",
               "Type": "Audio"
             }
@@ -1421,6 +1428,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Entrance",
               "Type": "Movement"
             }
@@ -1520,6 +1528,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Entrance",
               "SoundComponent": {
                 "_type": "component",
@@ -1562,6 +1571,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Kitchen",
               "Type": "Manipulation"
             },
@@ -2187,6 +2197,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "ReportType": "Cursor",
               "Room": "Playroom",
               "Type": "Disappearance"
             }

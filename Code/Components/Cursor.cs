@@ -22,7 +22,7 @@ public class Cursor : Component
 		Instance = this;
 		_reportTimer = HoldTime;
 		HideMouse();
-		
+
 		base.OnStart();
 	}
 
@@ -73,7 +73,7 @@ public class Cursor : Component
 
 	private static void ShowAnomalyList( GameObject targetObject )
 	{
-			
+
 		var hud = Hud.Instance;
 		if ( !hud.IsValid() )
 			return;
@@ -88,7 +88,9 @@ public class Cursor : Component
 
 		void ReportCallback( Anomaly.AnomalyType type )
 		{
-			AnomalyManager.Instance?.Report( type, targetObject );
+			var room = CameraManager.Instance?.ActiveCamera?.Room ?? "N/A";
+			var reportConfirmation = hud.GetFirstElement<ReportConfirm>();
+			reportConfirmation?.Show( type, room, () => AnomalyManager.Instance?.Report( type, targetObject ) );
 			anomalyList.OnReport -= ReportCallback;
 		}
 	}
