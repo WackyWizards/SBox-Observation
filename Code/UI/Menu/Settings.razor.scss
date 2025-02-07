@@ -49,8 +49,13 @@
     }
   }
 
-  > button {
+  > .button-container {
     width: 50%;
+    gap: 10px;
+
+    > button {
+      width: 100%;
+    }
   }
   
   &.hidden {
