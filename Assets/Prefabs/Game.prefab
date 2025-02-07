@@ -39,17 +39,6 @@
         "SuccessfulReports": 0
       },
       {
-        "__type": "Observation.Timer",
-        "__guid": "aa12b2e8-b8ad-4e41-b276-ef92fba3963a",
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "WinTime": 468
-      },
-      {
         "__type": "Observation.Cursor",
         "__guid": "bd4da06d-e1e1-46ae-9b47-8745671d2bcb",
         "HoldTime": 1,
@@ -70,6 +59,17 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "Observation.GameTimer",
+        "__guid": "98352bc1-135e-402b-b086-16a3c6e49220",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "WinTime": 1080
       }
     ],
     "Children": [],
@@ -166,19 +166,6 @@
         ]
       },
       {
-        "Id": "Win Time",
-        "Title": "Win Time",
-        "Description": null,
-        "Group": null,
-        "Order": 0,
-        "Targets": [
-          {
-            "Id": "aa12b2e8-b8ad-4e41-b276-ef92fba3963a",
-            "Property": "WinTime"
-          }
-        ]
-      },
-      {
         "Id": "Hold Time",
         "Title": "Hold Time",
         "Description": null,
@@ -240,6 +227,19 @@
           {
             "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
             "Property": "MaxAnomalyTime"
+          }
+        ]
+      },
+      {
+        "Id": "Win Time",
+        "Title": "Win Time",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "98352bc1-135e-402b-b086-16a3c6e49220",
+            "Property": "WinTime"
           }
         ]
       }
