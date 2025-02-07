@@ -196,7 +196,7 @@ public class AnomalyManager : Component
 			var anomaly = GetValidActiveAnomaly( room );
 			var isValidReport = anomaly?.Type == type;
 
-			await ProcessReport( isValidReport, reportingScreen, anomaly );
+			await ProcessReport( isValidReport, reportingScreen, anomaly, type );
 		}
 		catch ( Exception ex )
 		{
@@ -216,7 +216,7 @@ public class AnomalyManager : Component
 			var anomaly = GetValidActiveAnomaly( gameObject );
 			var isValidReport = anomaly?.Type == type;
 
-			await ProcessReport( isValidReport, reportingScreen, anomaly );
+			await ProcessReport( isValidReport, reportingScreen, anomaly, type );
 		}
 		catch ( Exception ex )
 		{
@@ -241,14 +241,14 @@ public class AnomalyManager : Component
 		return reportingScreen;
 	}
 
-	private async Task ProcessReport( bool isValidReport, ReportingScreen reportingScreen, Anomaly? anomaly )
+	private async Task ProcessReport( bool isValidReport, ReportingScreen reportingScreen, Anomaly? anomaly, Anomaly.AnomalyType type )
 	{
 		reportingScreen.SetReport( isValidReport );
 		OnReportSubmitted?.Invoke( isValidReport );
 
 		if ( !isValidReport )
 		{
-			await HandleFailedReport( reportingScreen );
+			await HandleFailedReport( reportingScreen, type );
 			return;
 		}
 
@@ -258,13 +258,22 @@ public class AnomalyManager : Component
 		if ( isValidReport && anomaly.IsValid() )
 		{
 			SuccessfulReports++;
+			Sandbox.Services.Stats.Increment( "report_success", 1 );
+			Sandbox.Services.Stats.Increment( $"report_success_{type}", 1 );
 			ClearAnomaly( anomaly );
 		}
 	}
 
-	private async Task HandleFailedReport( ReportingScreen reportingScreen )
+	private async Task HandleFailedReport( ReportingScreen reportingScreen, Anomaly.AnomalyType? type = null )
 	{
 		FailReports++;
+		
+		Sandbox.Services.Stats.Increment( "report_fail", 1 );
+		if ( type.HasValue )
+		{
+			Sandbox.Services.Stats.Increment( $"report_fail_{type.Value}", 1 );
+		}
+		
 		Log.Info( $"Failed Reports: {FailReports}" );
 
 		if ( FailReports == FailReportsTilWarning )

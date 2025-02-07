@@ -27,7 +27,9 @@ public class MapManager : Component
 		}
 		
 		var scene = ActiveMap.Scene;
-		Scene.Load( scene );
+		if ( scene.IsValid() )
+			Scene.Load( scene );
+		
 		Sandbox.Services.Stats.Increment( "Restarts", 1 );
 		Sandbox.Services.Stats.Increment( $"Restarts_on_map_{ActiveMap.Ident}", 1 );
 	}
