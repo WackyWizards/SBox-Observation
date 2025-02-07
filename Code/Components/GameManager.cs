@@ -8,9 +8,9 @@ namespace Observation;
 public class GameManager : Component
 {
 	public static GameManager? Instance { get; private set; }
-	
+
 	[Property] public SceneFile? MenuScene { get; set; }
-	
+
 	protected override void OnStart()
 	{
 		Instance = this;
@@ -21,6 +21,11 @@ public class GameManager : Component
 	{
 		Sandbox.Services.Stats.Increment( "Losses", 1 );
 		Sandbox.Services.Stats.Increment( $"Losses_due_to_{reason}", 1 );
+
+		if ( MapManager.Instance?.ActiveMap is {} activeMap )
+		{
+			Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}", 1 );
+		}
 
 		var menu = Hud.GetElement<GameOver>();
 		menu?.OnGameLose( reason );
@@ -35,13 +40,14 @@ public class GameManager : Component
 		{
 			achievement.Unlock();
 		}
-		
+
 		Sandbox.Services.Stats.Increment( "Wins", 1 );
+		Sandbox.Services.Stats.Increment( $"Wins_on_map_{map.Ident}", 1 );
 
 		var menu = Hud.GetElement<GameOver>();
 		menu?.OnGameEnd( true );
 		menu?.Show();
-		
+
 		Scene.TimeScale = 0;
 	}
 
