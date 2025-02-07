@@ -19,7 +19,7 @@
               "component_type": "Enabler"
             },
             "Weight": 3,
-            "MinTime": 150
+            "MinTime": 300
           },
           {
             "Anomaly": {
@@ -109,7 +109,7 @@
               "component_type": "Enabler"
             },
             "Weight": 3,
-            "MinTime": 550
+            "MinTime": 600
           },
           {
             "Anomaly": {
@@ -120,6 +120,16 @@
             },
             "Weight": 7,
             "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "e7333380-3d26-43c1-a9ff-4f6d3a7cb586",
+              "go": "e253b299-b274-43b3-b5c3-166809fef974",
+              "component_type": "Enabler"
+            },
+            "Weight": 2,
+            "MinTime": 300
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -130,9 +140,9 @@
         "Hold Time": 1,
         "Fail Reports Til Warning": 999999,
         "Max Anomalies Til Warning": 3,
-        "Min Anomaly Time": 30,
+        "Min Anomaly Time": 20,
         "Max Anomaly Time": 120,
-        "Win Time": 1080
+        "Win Time": 1440
       }
     },
     {
@@ -606,7 +616,7 @@
           "__guid": "e2637479-81c5-4083-9a85-ecb8ed7951ad",
           "Flags": 0,
           "Name": "Plate",
-          "Position": "-1382.753,-244.3839,1.362549",
+          "Position": "-1393.383,-240.0357,1.362549",
           "Tags": "debris",
           "Enabled": true,
           "NetworkOrphaned": 3,
@@ -706,7 +716,7 @@
             {
               "__type": "Sandbox.BoxCollider",
               "__guid": "ca53d1cf-0b60-4fd4-a7d2-cf54c6e6cb9d",
-              "Center": "0,0,0",
+              "Center": "0,0,1.874996",
               "Friction": null,
               "IsTrigger": false,
               "OnComponentDestroy": null,
@@ -719,7 +729,7 @@
               "OnObjectTriggerExit": null,
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
-              "Scale": "20,20,12.29989",
+              "Scale": "20,20,16.04988",
               "Static": true,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"
@@ -946,7 +956,7 @@
           "__guid": "a506741b-7054-4c72-bb1e-78a38159d588",
           "Flags": 0,
           "Name": "prop_physics",
-          "Position": "-1506.826,211.1197,-44.03601",
+          "Position": "-1312.287,46.80032,-44.03601",
           "Rotation": "0,0,0.7071068,0.7071067",
           "Enabled": true,
           "NetworkOrphaned": 3,
@@ -1013,7 +1023,7 @@
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
               "Scale": "32,32,86.27728",
-              "Static": false,
+              "Static": true,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"
             },
@@ -1024,9 +1034,9 @@
               "Gravity": true,
               "LinearDamping": 0,
               "Locking": {
-                "X": false,
-                "Y": false,
-                "Z": false,
+                "X": true,
+                "Y": true,
+                "Z": true,
                 "Pitch": false,
                 "Yaw": false,
                 "Roll": false
@@ -1135,7 +1145,7 @@
             {
               "__type": "Sandbox.BoxCollider",
               "__guid": "d99007bd-721c-47b9-87a2-d691b0d74767",
-              "Center": "-0.9715567,1.168272,34.38774",
+              "Center": "-18.50861,-12.81997,72.90231",
               "Friction": null,
               "IsTrigger": false,
               "OnComponentDestroy": null,
@@ -1148,7 +1158,7 @@
               "OnObjectTriggerExit": null,
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
-              "Scale": "31.07223,31.50286,70.25211",
+              "Scale": "66.14633,127.1842,147.2812",
               "Static": true,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"
@@ -2200,6 +2210,422 @@
               "ReportType": "Cursor",
               "Room": "Playroom",
               "Type": "Disappearance"
+            }
+          ]
+        },
+        {
+          "__guid": "e253b299-b274-43b3-b5c3-166809fef974",
+          "Flags": 0,
+          "Name": "gnome",
+          "Position": "-185.0503,446.7861,-7.657837",
+          "Rotation": "0,0,0.953717,-0.3007057",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "22d64a4a-e143-4952-931f-45482973f31b",
+              "__enabled": false,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/garden/gnome/jnoeme420.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "b2f90cb5-d69b-4854-9391-30e306489317",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/3t/garden/gnome/jnoeme420.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "c3ce1ed7-88ce-435f-a275-6900016653eb",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "e7333380-3d26-43c1-a9ff-4f6d3a7cb586",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "22d64a4a-e143-4952-931f-45482973f31b",
+                  "go": "e253b299-b274-43b3-b5c3-166809fef974",
+                  "component_type": "ModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "Gnome",
+              "OnAfterActive": null,
+              "OnAfterClear": {
+                "__version": 9,
+                "__guid": "87931b6e-7418-4484-a882-950940730dd5",
+                "__changeId": 14,
+                "UserData": {
+                  "Title": "On After Clear",
+                  "ReferencedComponentTypes": []
+                },
+                "Variables": [],
+                "Nodes": [
+                  {
+                    "Id": 0,
+                    "Type": "input"
+                  },
+                  {
+                    "Id": 1,
+                    "Type": "sound.play",
+                    "UserData": {
+                      "Position": "216,-0"
+                    }
+                  },
+                  {
+                    "Id": 4,
+                    "Type": "resource.ref",
+                    "Properties": {
+                      "T": "Sandbox.SoundEvent",
+                      "value": "sounds/anomalies/gnome.sound"
+                    },
+                    "UserData": {
+                      "Position": "48,60"
+                    }
+                  }
+                ],
+                "Links": [
+                  {
+                    "SrcId": 0,
+                    "SrcName": "_signal",
+                    "DstId": 1,
+                    "DstName": "_signal"
+                  },
+                  {
+                    "SrcId": 0,
+                    "SrcName": "_target",
+                    "DstId": 1,
+                    "DstName": "_this"
+                  },
+                  {
+                    "SrcId": 4,
+                    "SrcName": "_result",
+                    "DstId": 1,
+                    "DstName": "soundEvent"
+                  }
+                ]
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Entrance",
+              "Type": "Extra"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "14ed964a-7114-4dd8-a8c6-fa4de15a9bb7",
+      "Flags": 0,
+      "Name": "Props",
+      "Position": "-1536.465,6.243776,1251.865",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "c6882c07-80b1-4725-a42b-b5474d819522",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "235.4078,-0.2326679,112.274",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "d9b4fcd8-e8c3-4389-9f26-d4017cfff33a",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "b84ea5be-cfbe-4e95-b3d1-9d910b51c8c7",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "f0b07bc2-2182-4299-8c53-7d4db7c17f50",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "d9b4fcd8-e8c3-4389-9f26-d4017cfff33a",
+                  "go": "c6882c07-80b1-4725-a42b-b5474d819522",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "b434e155-4e89-4b84-8e9c-a9905bcb3595",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "258d7346-26bc-4a98-9fed-e6da80c5a383",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "227.0068,13.51294,112.274",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "2f691263-a6a4-4318-8252-e984b1654762",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "0101caee-1803-4754-a159-a8fba6749cda",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "d9c6072f-9993-4cd5-9430-b0a781702aed",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "2f691263-a6a4-4318-8252-e984b1654762",
+                  "go": "258d7346-26bc-4a98-9fed-e6da80c5a383",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "59315e02-ce9f-4575-ada9-6667eb6dcde4",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             }
           ]
         }
