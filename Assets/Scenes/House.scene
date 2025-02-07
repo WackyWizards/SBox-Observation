@@ -127,12 +127,12 @@
         "Successful Reports": 0,
         "Fail Reports": 0,
         "Fail Reports Til Game Over": 999999,
-        "Win Time": 468,
         "Hold Time": 1,
         "Fail Reports Til Warning": 999999,
         "Max Anomalies Til Warning": 3,
-        "Min Anomaly Time": 20,
-        "Max Anomaly Time": 60
+        "Min Anomaly Time": 40,
+        "Max Anomaly Time": 100,
+        "Win Time": 1080
       }
     },
     {
