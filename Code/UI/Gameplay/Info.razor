@@ -1,4 +1,6 @@
-﻿@using System.Threading.Tasks
+﻿@using System
+@using System.Threading
+@using System.Threading.Tasks
 @using Sandbox.Audio
 @using Sandbox.UI
 
@@ -7,38 +9,109 @@
 @inherits Panel
 
 <root class="hidden">
-	<label @ref="_text"></label>
+	<label @ref="_text" class="typing-text"></label>
 </root>
 
 @code {
 	#nullable enable
+    
 	private Label? _text;
+	private CancellationTokenSource? _currentWriteTask;
+	private readonly Queue<string> _textQueue = new();
+	private bool _isWriting;
 
 	public async Task WriteText( string text )
 	{
-		if ( !_text.IsValid() )
-			return;
-		
-		this.Show();
+		_textQueue.Enqueue( text );
 
-		_text.Text = string.Empty;
-		foreach ( var c in text )
+		if ( !_isWriting )
 		{
-			_text.Text += c;
-			
-			if ( c != ' ' )
-			{
-				var textSound = Sound.Play( "AlertBlip" );
-				if ( textSound.IsValid() )
-				{
-					textSound.TargetMixer = Mixer.FindMixerByName( "UI" );
-				}
-			}
-			
-			await Task.Delay( 150 );
+			await ProcessTextQueue();
 		}
-		
-		await Task.Delay( 2000 );
+	}
+
+	private async Task ProcessTextQueue()
+	{
+		_isWriting = true;
+
+		try
+		{
+			while ( _textQueue.Count > 0 )
+			{
+				var currentText = _textQueue.Dequeue();
+				await WriteTextInternal( currentText );
+			}
+		}
+		finally
+		{
+			_isWriting = false;
+		}
+	}
+
+	private async Task WriteTextInternal( string text )
+	{
+		_currentWriteTask?.Cancel();
+		_currentWriteTask?.Dispose();
+
+		_currentWriteTask = new CancellationTokenSource();
+		var cancellationToken = _currentWriteTask.Token;
+
+		try
+		{
+			if ( _text == null )
+				return;
+
+			_text.Text = "";
+			this.Show();
+
+			foreach ( var t in text )
+			{
+				cancellationToken.ThrowIfCancellationRequested();
+
+				_text.Text += t;
+
+				if ( t != ' ' )
+				{
+					var textSound = Sound.Play( "AlertBlip" );
+					if ( textSound.IsValid() )
+					{
+						textSound.TargetMixer = Mixer.FindMixerByName( "UI" );
+					}
+				}
+
+				await Task.Delay( 150, cancellationToken );
+			}
+
+			await Task.Delay( 2000, cancellationToken );
+			this.Hide();
+		}
+		catch ( OperationCanceledException )
+		{
+			this.Hide();
+		}
+		catch ( ObjectDisposedException )
+		{
+			this.Hide();
+		}
+		finally
+		{
+			_currentWriteTask?.Dispose();
+			_currentWriteTask = null;
+		}
+	}
+
+	public void StopWriting()
+	{
+		_textQueue.Clear();
+		_currentWriteTask?.Cancel();
+		_currentWriteTask?.Dispose();
+		_currentWriteTask = null;
 		this.Hide();
+	}
+
+	[ConCmd]
+	private static void Test()
+	{
+		Hud.GetElement<Info>()?.WriteText( "This is a testing message." );
 	}
 }
