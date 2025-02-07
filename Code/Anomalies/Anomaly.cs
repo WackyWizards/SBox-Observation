@@ -11,17 +11,20 @@ public class Anomaly : Component
 
 	[Property] public virtual AnomalyType Type { get; set; }
 
+	[Property] public virtual ReportType ReportType { get; set; }
+
 	[Property] public Action<GameObject>? OnAfterActive { get; set; }
 	[Property] public Action<GameObject>? OnAfterClear { get; set; }
 
-	protected bool IsActive => (bool)AnomalyManager.Instance?.ActiveAnomalies?.Contains( this );
+	protected bool IsActive => AnomalyManager.Instance.IsValid() && AnomalyManager.Instance.ActiveAnomalies.Contains(this);
 
 	/// <summary>
 	/// Called when this anomaly becomes active.
 	/// </summary>
 	public virtual void OnAnomalyActive()
 	{
-		OnAfterActive?.Invoke( GameObject );
+		if ( GameObject.IsValid() )
+			OnAfterActive?.Invoke( GameObject );
 	}
 
 	/// <summary>
@@ -29,7 +32,8 @@ public class Anomaly : Component
 	/// </summary>
 	public virtual void OnAnomalyClear()
 	{
-		OnAfterClear?.Invoke( GameObject );
+		if ( GameObject.IsValid() )
+			OnAfterClear?.Invoke( GameObject );
 	}
 
 	/// <summary>
