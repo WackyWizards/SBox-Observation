@@ -9,6 +9,7 @@
 		<div class="button-container">
 			<button icon="play_arrow" onclick="@Play">Play</button>
 			<button icon="settings" onclick="@Settings">Settings</button>
+			<button icon="school" onclick="@Tutorial">How To Play</button>
 			<button icon="info" onclick="@Credits">Credits</button>
 			<button icon="exit_to_app" onclick="@Game.Close">Quit</button>
 		</div>
@@ -29,6 +30,7 @@
 	<MapSelection @ref="_mapSelection" Menu="@this"></MapSelection>
 	<Settings @ref="_settings" Menu="@this"></Settings>
 	<Credits @ref="_credits" Menu="@this"></Credits>
+	<Tutorial @ref="_tutorial" Menu="@this"></Tutorial>
 </root>
 
 @code {
@@ -38,6 +40,7 @@
 
 	private MapSelection? _mapSelection;
 	private Settings? _settings;
+	private Tutorial? _tutorial;
 	private Credits? _credits;
 
 	private Panel? _webContainer;
@@ -53,6 +56,11 @@
 	public void Settings()
 	{
 		_settings?.Show();
+	}
+
+	public void Tutorial()
+	{
+		_tutorial?.Show();
 	}
 
 	public void Credits()

@@ -1,0 +1,97 @@
+﻿@using System
+@using Sandbox.UI
+
+@namespace Observation.UI
+@inherits MenuSubPanel
+
+<root class="hidden">
+	<div class="tab-selection">
+		<button onclick="@LastTab" disabled="@IsFirstTab">&lt;</button>
+		<button onclick="@NextTab" disabled="@IsLastTab">&gt;</button>
+	</div>
+	
+	<div class="tutorial">
+		<div class="tabs" @ref="_tabs">
+			<div class="tab @( CurrentTabIndex == 0 ? "" : "hidden" )">
+				<label class="title">Introduction</label>
+				<label>
+					As an Observer, your core responsibility is to maintain surveillance of security camera feeds and report any anomalous activity within the designated area. Your shift encompasses the hours of 00:00 to 06:00 (midnight to 6 AM). This orientation guide has been designed to facilitate your transition into this critical position.
+				</label>
+				<label style="flex-grow: 1; align-items: flex-end; text-align: center;">We anticipate your valuable contributions to our team.</label>
+			</div>
+
+			<div class="tab @( CurrentTabIndex == 1 ? "" : "hidden" )">
+				<label class="title">Camera Operations</label>
+				<label>To navigate between surveillance feeds, utilize these approved methods:</label>
+				<ul>
+					<li>Access the designated navigation controls positioned on either side of the monitoring interface.</li>
+					<li>Alternatively, employ the A/D directional keys on your keyboard for efficient feed transitions.</li>
+				</ul>
+			</div>
+
+			<div class="tab @( CurrentTabIndex == 2 ? "" : "hidden" )">
+				<label class="title">Reporting Protocol</label>
+				<label>Follow this standardized procedure for anomaly reporting:</label>
+				<ol>
+					<li>Position your cursor over the area of concern.</li>
+					<li>Initiate the reporting interface by maintaining pressure on the left mouse button.</li>
+					<li>Categorize the anomaly using the appropriate classification.</li>
+					<li>Review and submit your anomaly report.</li>
+				</ol>
+				<label style="flex-grow: 1; align-items: flex-end;">
+					Please note: Consistent submission of inaccurate reports may adversely affect your performance evaluation and may result in termination of your employment contract.
+				</label>
+			</div>
+
+			<div class="tab @( CurrentTabIndex == 3 ? "" : "hidden" )">
+				<label class="title">Operating Protocols</label>
+				<label>Adhere to these essential operational standards:</label>
+				<ul>
+					<li>Maintain consistent surveillance across all designated camera feeds.</li>
+					<li>Exercise heightened awareness regarding environmental variations and anomalies.</li>
+					<li>Implement prompt response protocols while maintaining reporting accuracy.</li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="button-container">
+		<button onclick="@Return">Return to Menu</button>
+	</div>
+</root>
+
+@code {
+	#nullable enable
+	
+	private Panel? _tabs;
+	private int CurrentTabIndex { get; set; } = 0;
+
+	private bool IsFirstTab => CurrentTabIndex == 0;
+	private bool IsLastTab => CurrentTabIndex == _tabs?.ChildrenCount - 1;
+
+	public void NextTab()
+	{
+		if ( IsLastTab || _tabs == null ) return;
+		CurrentTabIndex++;
+		StateHasChanged();
+	}
+
+	public void LastTab()
+	{
+		if ( IsFirstTab ) return;
+		CurrentTabIndex--;
+		StateHasChanged();
+	}
+
+	protected override void OnAfterTreeRender( bool firstTime )
+	{
+		if ( !firstTime ) return;
+		base.OnAfterTreeRender( firstTime );
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( CurrentTabIndex );
+	}
+}
