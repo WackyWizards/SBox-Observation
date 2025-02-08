@@ -274,7 +274,7 @@ public class AnomalyManager : Component
 			Sandbox.Services.Stats.Increment( $"report_fail_{type.Value}", 1 );
 		}
 		
-		Log.Info( $"Failed Reports: {FailReports}" );
+		Log.Info( $"Failed Reports: {FailReports} | Type: {type}" );
 
 		if ( FailReports == FailReportsTilWarning )
 		{
