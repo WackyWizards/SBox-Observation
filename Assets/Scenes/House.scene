@@ -156,7 +156,7 @@
     {
       "__guid": "09221d79-981d-410c-8f8e-482b1f77aca2",
       "Flags": 0,
-      "Name": "Map",
+      "Name": "Map Instance",
       "Position": "-359.0742,-391.7434,838.7399",
       "Enabled": true,
       "Components": [
@@ -1588,7 +1588,7 @@
             {
               "__type": "Sandbox.BoxCollider",
               "__guid": "0f1263ef-9ea3-4d8a-ba59-d98593634e82",
-              "Center": "0,0,0",
+              "Center": "12.58459,2.844566,-11.88624",
               "Friction": null,
               "IsTrigger": false,
               "OnComponentDestroy": null,
@@ -1601,7 +1601,7 @@
               "OnObjectTriggerExit": null,
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
-              "Scale": "32,32,32",
+              "Scale": "57.16915,37.68912,67.58533",
               "Static": false,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"

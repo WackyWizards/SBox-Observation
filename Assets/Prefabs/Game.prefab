@@ -69,7 +69,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "WinTime": 1080
+        "WinTime": 1440
       }
     ],
     "Children": [],
