@@ -2,13 +2,13 @@
 @using Sandbox.UI
 
 @namespace Observation.UI
-@attribute [Hud]
+@attribute [Hud( true )]
 @inherits Panel
 
-<root class="hidden">
+<root>
 	<label class="title" @ref="_title">@GetTitle( _isWin )</label>
 	<label class="sub-title" @ref="_subTitle">@GetSubTitle( _isWin, _loseReason )</label>
-	
+
 	@if ( AnomalyManager.Instance is {} anomalyManager && anomalyManager.ActiveAnomalies.Any() )
 	{
 		<div class="missed-anomalies">
@@ -19,7 +19,7 @@
 			}
 		</div>
 	}
-	
+
 	<div class="button-container">
 		<button onclick="@PlayAgain">Play Again</button>
 		<button onclick="@Return">Return To Menu</button>
@@ -31,7 +31,7 @@
 
 	private bool _isWin;
 	private GameManager.LoseReason _loseReason = GameManager.LoseReason.TooManyAnomalies;
-    
+
 	private Label? _title;
 	private Label? _subTitle;
 
@@ -44,7 +44,7 @@
 	{
 		return victory ? "Congratulations!" : reason.GetDescription();
 	}
-	
+
 	public void OnGameEnd( bool victory )
 	{
 		_isWin = true;
@@ -60,7 +60,7 @@
 	{
 		MapManager.Instance?.Restart();
 	}
-	
+
 	public static void Return()
 	{
 		GameManager.Instance?.ToMenu();
@@ -68,6 +68,6 @@
 
 	protected override int BuildHash()
 	{
-		return HashCode.Combine( _isWin, _loseReason );
+		return HashCode.Combine( _isWin, _loseReason, _title?.Text, _subTitle?.Text );
 	}
 }

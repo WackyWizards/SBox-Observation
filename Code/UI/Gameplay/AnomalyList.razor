@@ -3,10 +3,10 @@
 @using Observation
 
 @namespace Observation.UI
-@attribute [Hud]
+@attribute [Hud( true )]
 @inherits Panel
 
-<root class="hidden">
+<root>
 	@foreach ( var anomalyType in Enum.GetValues<Anomaly.AnomalyType>() )
 	{
 		<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetName()</button>
@@ -15,7 +15,7 @@
 
 @code {
 	#nullable enable
-    
+
 	public Action<Anomaly.AnomalyType>? OnReport;
 
 	public void Report( Anomaly.AnomalyType type )

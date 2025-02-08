@@ -6,7 +6,7 @@
 @inherits Panel
 
 @{
-	var timerInstance = Observation.GameTimer.Instance;
+	var timerInstance = GameTimer.Instance;
 	if ( !timerInstance.IsValid() )
 		return;
 }
@@ -21,7 +21,7 @@
 
 @code {
 	#nullable enable
-	private static Observation.GameTimer? TimerInstance => Observation.GameTimer.Instance;
+	private static GameTimer? TimerInstance => GameTimer.Instance;
 	private static string ElapsedTime => TimerInstance?.GetDisplayTime() ?? "N/A";
 
 	protected override int BuildHash()
