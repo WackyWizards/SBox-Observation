@@ -538,6 +538,7 @@
           "Name": "Cube",
           "Position": "-79.48843,97.77988,36.49426",
           "Scale": "0.9185477,0.006542607,0.879942",
+          "Tags": "anomaly",
           "Enabled": true,
           "Components": [
             {
@@ -617,7 +618,7 @@
           "Flags": 0,
           "Name": "Plate",
           "Position": "-1393.383,-240.0357,1.362549",
-          "Tags": "debris",
+          "Tags": "debris,anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,
@@ -741,6 +742,7 @@
           "Flags": 0,
           "Name": "prop_physics",
           "Position": "-555.9204,905.1114,-5.457031",
+          "Tags": "anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,
@@ -849,6 +851,7 @@
           "Name": "prop_physics",
           "Position": "-867.7091,917.1393,-43.54578",
           "Rotation": "0.07918803,-0.2590122,0.2814437,0.9205602",
+          "Tags": "anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,
@@ -958,6 +961,7 @@
           "Name": "prop_physics",
           "Position": "-1312.287,46.80032,-44.03601",
           "Rotation": "0,0,0.7071068,0.7071067",
+          "Tags": "anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,
@@ -1087,6 +1091,7 @@
           "Name": "prop_physics",
           "Position": "-462.6663,1031.871,-44.03601",
           "Rotation": "0,0,0.7071068,0.7071067",
+          "Tags": "anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,
@@ -1216,6 +1221,7 @@
           "Name": "Music",
           "Position": "-1494.643,397.0255,0",
           "Scale": "1,1,1.300001",
+          "Tags": "anomaly",
           "Enabled": true,
           "Components": [
             {
@@ -1321,6 +1327,7 @@
           "Name": "prop_physics",
           "Position": "12.375,427.3188,-44.03601",
           "Rotation": "0,0,0.7071068,0.7071067",
+          "Tags": "anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,
@@ -1450,6 +1457,7 @@
           "Name": "Knocking",
           "Position": "136.9413,313.3816,0",
           "Scale": "1,1,1.300001",
+          "Tags": "anomaly",
           "Enabled": true,
           "Components": [
             {
@@ -1556,6 +1564,7 @@
           "Flags": 0,
           "Name": "FireAnomaly",
           "Position": "-1425.858,-470.4492,0",
+          "Tags": "anomaly",
           "Enabled": true,
           "Components": [
             {
@@ -2112,6 +2121,7 @@
           "Name": "prop_physics (2)",
           "Position": "-852.6541,788.3045,2.463989",
           "Rotation": "0,0,0.8660254,0.5",
+          "Tags": "anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,
@@ -2219,6 +2229,7 @@
           "Name": "gnome",
           "Position": "-185.0503,446.7861,-7.657837",
           "Rotation": "0,0,0.953717,-0.3007057",
+          "Tags": "anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,

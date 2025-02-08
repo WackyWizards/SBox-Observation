@@ -113,6 +113,7 @@ public class Cursor : Component
 		var worldPhysics = Game.ActiveScene.GetAllObjects( true ).FirstOrDefault( x => x.Name == "World Physics" );
 		var trace = Scene.Trace.Sphere( 20, ray, 100000 )
 			.IgnoreGameObject( worldPhysics )
+			.WithTag( "anomaly" )
 			.Run();
 
 		return trace;
