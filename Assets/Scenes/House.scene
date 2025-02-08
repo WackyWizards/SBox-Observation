@@ -129,7 +129,17 @@
               "component_type": "Enabler"
             },
             "Weight": 2,
-            "MinTime": 300
+            "MinTime": 350
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "d67b4dd3-67df-4113-ade3-4a70dc6ee8c0",
+              "go": "ef827618-ab4a-4ba0-8305-11aea1137dc8",
+              "component_type": "Enabler"
+            },
+            "Weight": 7,
+            "MinTime": null
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -510,7 +520,7 @@
             {
               "__type": "Observation.Cameras.Camera",
               "__guid": "e0b62bde-d24e-48c9-b007-74fd09f6e623",
-              "Name": "Playroom",
+              "Name": "Lounge",
               "OnAfterActive": null,
               "OnAfterClear": null,
               "OnComponentDestroy": null,
@@ -519,7 +529,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Playroom"
+              "Room": "Lounge"
             }
           ]
         }
@@ -950,7 +960,7 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
-              "Room": "Playroom",
+              "Room": "Lounge",
               "Type": "Movement"
             }
           ]
@@ -1568,6 +1578,27 @@
           "Enabled": true,
           "Components": [
             {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "0f1263ef-9ea3-4d8a-ba59-d98593634e82",
+              "Center": "12.58459,2.844566,-11.88624",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "57.16915,37.68912,67.58533",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
               "__type": "Observation.Anomalies.Enabler",
               "__guid": "23b8e7e3-0c07-4b9f-890b-143c48eaf926",
               "ComponentList": [],
@@ -1593,27 +1624,6 @@
               "ReportType": "Cursor",
               "Room": "Kitchen",
               "Type": "Manipulation"
-            },
-            {
-              "__type": "Sandbox.BoxCollider",
-              "__guid": "0f1263ef-9ea3-4d8a-ba59-d98593634e82",
-              "Center": "12.58459,2.844566,-11.88624",
-              "Friction": null,
-              "IsTrigger": false,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnObjectTriggerEnter": null,
-              "OnObjectTriggerExit": null,
-              "OnTriggerEnter": null,
-              "OnTriggerExit": null,
-              "Scale": "57.16915,37.68912,67.58533",
-              "Static": false,
-              "Surface": null,
-              "SurfaceVelocity": "0,0,0"
             }
           ],
           "Children": [
@@ -2218,7 +2228,7 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
-              "Room": "Playroom",
+              "Room": "Lounge",
               "Type": "Disappearance"
             }
           ]
@@ -2382,6 +2392,129 @@
               "ReportType": "Cursor",
               "Room": "Entrance",
               "Type": "Extra"
+            }
+          ]
+        },
+        {
+          "__guid": "ef827618-ab4a-4ba0-8305-11aea1137dc8",
+          "Flags": 0,
+          "Name": "prop_physics (2)",
+          "Position": "-1243.801,937.3484,-4.469116",
+          "Rotation": "0,0,0.7028733,-0.711315",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "efed8512-2afe-447f-9b90-a5e28441f608",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/plants/joe_watering_can/joe_watering_can.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "3d985671-1696-41cc-b4b5-a12521244fe7",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/3t/plants/joe_watering_can/joe_watering_can.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "d96bd0c1-9468-4480-ba0b-5a872fe5fcef",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "d67b4dd3-67df-4113-ade3-4a70dc6ee8c0",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "efed8512-2afe-447f-9b90-a5e28441f608",
+                  "go": "ef827618-ab4a-4ba0-8305-11aea1137dc8",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Gardening",
+              "Type": "Disappearance"
             }
           ]
         }
