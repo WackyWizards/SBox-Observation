@@ -5,7 +5,7 @@
   "Ident": "observation",
   "Schema": 1,
   "IncludeSourceFiles": false,
-  "Resources": "/Materials/*\n/Sounds/*",
+  "Resources": "/Materials/*\n/Sounds/*\n/Fonts/*",
   "PackageReferences": [],
   "EditorReferences": null,
   "IsWhitelistDisabled": false,
