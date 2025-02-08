@@ -4,6 +4,8 @@ public enum Achievement
 {
 	[Title( "win_house" )]
 	WinHouse,
+	[Title( "win_pool" )]
+	WinPool
 }
 
 public static class AchievementExtensions

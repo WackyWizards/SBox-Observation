@@ -1,0 +1,497 @@
+{
+  "__guid": "853a0d4c-8557-49b6-bd32-7452a5ebf4a9",
+  "GameObjects": [
+    {
+      "__guid": "810ce754-3d58-446b-a924-11a8fd5968e0",
+      "Flags": 0,
+      "Name": "game",
+      "Enabled": true,
+      "NetworkMode": 1,
+      "__Prefab": "prefabs/game.prefab",
+      "__PrefabVariables": {
+        "Active Anomalies": [],
+        "Possible Anomalies": [],
+        "Max Amount Of Anomalies": 5,
+        "Can Activate Anomalies": true,
+        "Successful Reports": 0,
+        "Fail Reports": 0,
+        "Fail Reports Til Game Over": 5,
+        "Hold Time": 1,
+        "Fail Reports Til Warning": 3,
+        "Max Anomalies Til Warning": 3,
+        "Min Anomaly Time": 20,
+        "Max Anomaly Time": 60,
+        "Win Time": 1080
+      }
+    },
+    {
+      "__guid": "1e35e2fc-65dd-4366-84c8-2bd2b76f5471",
+      "Flags": 0,
+      "Name": "Screen",
+      "Enabled": true,
+      "__Prefab": "prefabs/hud.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "5ab7cc8e-72eb-4fa3-ba47-4285e6a957b2",
+      "Flags": 0,
+      "Name": "Cameras",
+      "Position": "249.3024,-488.898,1582.136",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Observation.CameraManager",
+          "__guid": "836bfac4-d239-4ad8-a9b2-78f6a3dd1ab6",
+          "ActiveCamera": null,
+          "LastCameraInput": "lastcamera",
+          "NextCameraInput": "nextcamera",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PossibleCameras": [
+            {
+              "_type": "component",
+              "component_id": "4388c6e8-44a7-454a-8aa3-6a388d14928a",
+              "go": "06448d84-6f6a-437a-8ef9-6b7cdc294428",
+              "component_type": "Camera"
+            },
+            {
+              "_type": "component",
+              "component_id": "c56cfb51-383e-427b-a5c9-c2362588823b",
+              "go": "f6aed408-ac58-4aaf-bc73-ee8151aacf06",
+              "component_type": "Camera"
+            },
+            {
+              "_type": "component",
+              "component_id": "96025aa9-e6e7-4cdb-8d5d-0af5d88417ee",
+              "go": "c858d4e6-b96c-4de2-98a4-14ff676b87e4",
+              "component_type": "Camera"
+            },
+            {
+              "_type": "component",
+              "component_id": "ae74b3b6-0dc5-46cf-85d1-8cc1cd088acb",
+              "go": "a39ab630-76b8-46f0-9df1-869be357587a",
+              "component_type": "Camera"
+            }
+          ]
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "06448d84-6f6a-437a-8ef9-6b7cdc294428",
+          "Flags": 0,
+          "Name": "Camera",
+          "Position": "-483.7085,1007.17,1559.026",
+          "Rotation": "0.1197327,-0.06979756,-0.8645816,-0.483002",
+          "Tags": "maincamera",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "3e523fb4-fb27-484c-a2e3-5c95640ad575",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 60,
+              "IsMainCamera": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            },
+            {
+              "__type": "Observation.Cameras.Camera",
+              "__guid": "4388c6e8-44a7-454a-8aa3-6a388d14928a",
+              "Name": "Reception",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Room": "Reception"
+            }
+          ]
+        },
+        {
+          "__guid": "920b1d2e-7a4a-48ff-8b35-d66ab2dca6d2",
+          "Flags": 0,
+          "Name": "Camera",
+          "Position": "-483.7085,138.0875,1559.026",
+          "Rotation": "0.1197327,-0.06979756,-0.8645816,-0.483002",
+          "Tags": "maincamera",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "9fe84b54-c889-4b20-9e20-667a11a0bd14",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 60,
+              "IsMainCamera": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            },
+            {
+              "__type": "Observation.Cameras.Camera",
+              "__guid": "b3333092-50c3-47ec-bee2-35fef7b92c51",
+              "Name": "Reception",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Room": "Reception"
+            }
+          ]
+        },
+        {
+          "__guid": "f6aed408-ac58-4aaf-bc73-ee8151aacf06",
+          "Flags": 0,
+          "Name": "Camera",
+          "Position": "-1065.482,973.2225,1559.026",
+          "Rotation": "0.2580702,-0.1127087,-0.8649887,-0.4153204",
+          "Tags": "maincamera",
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "ce5043c7-915a-41e1-a80a-5714f2492062",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 70,
+              "IsMainCamera": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            },
+            {
+              "__type": "Observation.Cameras.Camera",
+              "__guid": "c56cfb51-383e-427b-a5c9-c2362588823b",
+              "Name": "Storage",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Room": "Storage"
+            }
+          ]
+        },
+        {
+          "__guid": "c858d4e6-b96c-4de2-98a4-14ff676b87e4",
+          "Flags": 0,
+          "Name": "Camera",
+          "Position": "-1350.606,1599.168,1515.505",
+          "Rotation": "0.09278493,-0.2029729,-0.365373,-0.9037122",
+          "Tags": "maincamera",
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "a0c3219a-6975-4895-9463-378c96c6d773",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 75,
+              "IsMainCamera": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            },
+            {
+              "__type": "Observation.Cameras.Camera",
+              "__guid": "96025aa9-e6e7-4cdb-8d5d-0af5d88417ee",
+              "Name": "Office",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Room": "Office"
+            }
+          ]
+        },
+        {
+          "__guid": "a39ab630-76b8-46f0-9df1-869be357587a",
+          "Flags": 0,
+          "Name": "Camera",
+          "Position": "-2621.117,2057.401,1554.61",
+          "Rotation": "-0.04800258,-0.1307045,0.376595,-0.9158539",
+          "Tags": "maincamera",
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "b2112cbb-ef36-47bc-8594-4bee2b4cf4ef",
+              "BackgroundColor": "0,0,0,1",
+              "ClearFlags": "All",
+              "FieldOfView": 70,
+              "IsMainCamera": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            },
+            {
+              "__type": "Observation.Cameras.Camera",
+              "__guid": "ae74b3b6-0dc5-46cf-85d1-8cc1cd088acb",
+              "Name": "Pool",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Room": "Pool"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "0417ffb2-3e6d-4e4e-b728-67a718b918a6",
+      "Flags": 0,
+      "Name": "Map Instance",
+      "Position": "-345.7414,724.8586,1853.729",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "aeab91e6-6170-4b0f-8de8-64d2a5202187",
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "thieves.community_pool",
+          "NoOrigin": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "65a9757b-0030-4e91-ad1c-e1ce089feccc",
+      "Flags": 0,
+      "Name": "2000_monitor",
+      "Position": "-449.516,1038.011,2981.727",
+      "Rotation": "0.0001688573,-0.00004935762,-0.959812,0.2806438",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "6710c852-b7df-4902-8d9d-7460f3f8fd99",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/props/2000_monitor/2000_monitor.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "7866c49a-86b1-4a3f-b4be-01fcd702e967",
+      "Flags": 0,
+      "Name": "2000_monitor (1)",
+      "Position": "-624.9583,985.9896,2981.728",
+      "Rotation": "0.00004935765,0.0001688573,0.2806436,0.959812",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "c1beaea4-cd24-459b-b85e-83c0f1e6e489",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/props/2000_monitor/2000_monitor.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "91721e99-e01d-4a81-b8db-fc80bc963512",
+      "Flags": 0,
+      "Name": "2000_keyboard",
+      "Position": "-610.084,1002.217,2981.743",
+      "Rotation": "0,0,0.05854555,0.9982848",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "87bf04c0-f134-4df7-a900-0e44733781c5",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/props/2000_keyboard/2000_keyboard.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "89b7d5cd-c3d3-4e38-b4d2-3b6cb74a470f",
+      "Flags": 0,
+      "Name": "2000_keyboard (1)",
+      "Position": "-461.0366,1019.76,2981.743",
+      "Rotation": "0,0,-0.9981211,0.06127498",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "149bd265-a9b9-410c-8f19-edcc90784742",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/props/2000_keyboard/2000_keyboard.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 2,
+  "Title": null,
+  "Description": null,
+  "__references": [
+    "fish.2000_keyboard#58967",
+    "fish.2000_monitor#58965"
+  ],
+  "__version": 2
+}
