@@ -10,7 +10,18 @@
       "__Prefab": "prefabs/game.prefab",
       "__PrefabVariables": {
         "Active Anomalies": [],
-        "Possible Anomalies": [],
+        "Possible Anomalies": [
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "35e030e0-baf8-4626-96f7-90ffea13c1e8",
+              "go": "36cfcad7-cba1-47ec-989a-452018f6d3a5",
+              "component_type": "Enabler"
+            },
+            "Weight": 7,
+            "MinTime": null
+          }
+        ],
         "Max Amount Of Anomalies": 5,
         "Can Activate Anomalies": true,
         "Successful Reports": 0,
@@ -60,6 +71,12 @@
             },
             {
               "_type": "component",
+              "component_id": "b3333092-50c3-47ec-bee2-35fef7b92c51",
+              "go": "920b1d2e-7a4a-48ff-8b35-d66ab2dca6d2",
+              "component_type": "Camera"
+            },
+            {
+              "_type": "component",
               "component_id": "c56cfb51-383e-427b-a5c9-c2362588823b",
               "go": "f6aed408-ac58-4aaf-bc73-ee8151aacf06",
               "component_type": "Camera"
@@ -74,6 +91,12 @@
               "_type": "component",
               "component_id": "ae74b3b6-0dc5-46cf-85d1-8cc1cd088acb",
               "go": "a39ab630-76b8-46f0-9df1-869be357587a",
+              "component_type": "Camera"
+            },
+            {
+              "_type": "component",
+              "component_id": "5a462d3e-046e-494e-81d3-80be3a28d648",
+              "go": "d9fff941-b62f-457b-93fa-34fa48e35640",
               "component_type": "Camera"
             }
           ]
@@ -92,7 +115,7 @@
             {
               "__type": "Sandbox.CameraComponent",
               "__guid": "3e523fb4-fb27-484c-a2e3-5c95640ad575",
-              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 60,
               "IsMainCamera": true,
@@ -132,15 +155,14 @@
           "__guid": "920b1d2e-7a4a-48ff-8b35-d66ab2dca6d2",
           "Flags": 0,
           "Name": "Camera",
-          "Position": "-483.7085,138.0875,1559.026",
-          "Rotation": "0.1197327,-0.06979756,-0.8645816,-0.483002",
+          "Position": "-477.0951,103.509,1492.433",
+          "Rotation": "0.1150281,-0.06716927,-0.8652201,-0.4833745",
           "Tags": "maincamera",
-          "Enabled": true,
           "Components": [
             {
               "__type": "Sandbox.CameraComponent",
               "__guid": "9fe84b54-c889-4b20-9e20-667a11a0bd14",
-              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 60,
               "IsMainCamera": true,
@@ -163,7 +185,7 @@
             {
               "__type": "Observation.Cameras.Camera",
               "__guid": "b3333092-50c3-47ec-bee2-35fef7b92c51",
-              "Name": "Reception",
+              "Name": "Break Room",
               "OnAfterActive": null,
               "OnAfterClear": null,
               "OnComponentDestroy": null,
@@ -172,7 +194,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Reception"
+              "Room": "Break Room"
             }
           ]
         },
@@ -187,9 +209,9 @@
             {
               "__type": "Sandbox.CameraComponent",
               "__guid": "ce5043c7-915a-41e1-a80a-5714f2492062",
-              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
-              "FieldOfView": 70,
+              "FieldOfView": 80,
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -234,9 +256,9 @@
             {
               "__type": "Sandbox.CameraComponent",
               "__guid": "a0c3219a-6975-4895-9463-378c96c6d773",
-              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
-              "FieldOfView": 75,
+              "FieldOfView": 90,
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -283,7 +305,7 @@
               "__guid": "b2112cbb-ef36-47bc-8594-4bee2b4cf4ef",
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
-              "FieldOfView": 70,
+              "FieldOfView": 80,
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -316,6 +338,53 @@
               "Room": "Pool"
             }
           ]
+        },
+        {
+          "__guid": "d9fff941-b62f-457b-93fa-34fa48e35640",
+          "Flags": 0,
+          "Name": "Camera",
+          "Position": "-1486.564,1755.228,880.3552",
+          "Rotation": "-0.1982311,-0.07745917,0.9187812,-0.3324843",
+          "Tags": "maincamera",
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "f8daa0b8-26cb-4236-b5de-cd473462e338",
+              "BackgroundColor": "0,0,0,1",
+              "ClearFlags": "All",
+              "FieldOfView": 90,
+              "IsMainCamera": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            },
+            {
+              "__type": "Observation.Cameras.Camera",
+              "__guid": "5a462d3e-046e-494e-81d3-80be3a28d648",
+              "Name": "Basement",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Room": "Basement"
+            }
+          ]
         }
       ]
     },
@@ -345,6 +414,124 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "f1a66195-be4c-4c3b-8f61-b60d6072161e",
+      "Flags": 0,
+      "Name": "Anomalies",
+      "Position": "-861.9189,498.923,3114.28",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "36cfcad7-cba1-47ec-989a-452018f6d3a5",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "623.3128,-625.5678,-140.251",
+          "Rotation": "0,0,0.8526403,0.5224984",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "f189c990-4b48-4905-afb6-a9700b8c8b81",
+              "__enabled": false,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/jazz_cup/jazz_cup.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "e4e22c7e-ce15-4446-9e39-bea138a3715c",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/3t/jazz_cup/jazz_cup.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "f241dce3-c114-4cc8-9831-5d01421c2531",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "35e030e0-baf8-4626-96f7-90ffea13c1e8",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "f189c990-4b48-4905-afb6-a9700b8c8b81",
+                  "go": "36cfcad7-cba1-47ec-989a-452018f6d3a5",
+                  "component_type": "ModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Break Room",
+              "Type": "Extra"
+            }
+          ]
+        }
+      ]
     },
     {
       "__guid": "65a9757b-0030-4e91-ad1c-e1ce089feccc",

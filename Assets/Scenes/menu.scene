@@ -34,6 +34,14 @@
               "Difficulty": "Normal",
               "Scene": "scenes/house.scene",
               "WinAchievement": "WinHouse"
+            },
+            {
+              "Ident": "pool",
+              "Name": "Pool",
+              "Description": "Drained long ago, yet the floor is still damp. Faint wet footprints appear and vanish. Something drags along the tiled bottom, just out of sight. The diving board creaks under an unseen weight. Do not linger near the drain.",
+              "Difficulty": "Normal",
+              "Scene": "scenes/pool.scene",
+              "WinAchievement": "WinPool"
             }
           ],
           "OnComponentDestroy": null,
