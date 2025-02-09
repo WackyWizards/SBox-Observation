@@ -1,4 +1,5 @@
-﻿@using Sandbox.Audio
+﻿@using System
+@using Sandbox.Audio
 @using Sandbox.UI
 
 @namespace Observation.UI
@@ -11,20 +12,21 @@
 		<div class="settings-group">
 			<div class="setting">
 				<label class="setting-label">@( Master.Name ) Volume</label>
-				<SliderControl Value:bind="@Master.Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )"></SliderControl>
+				<SliderControl Value:bind="@Master.Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )" onclick="@Save"></SliderControl>
 			</div>
 			
 			@foreach ( var mixer in Mixers )
 			{
 				<div class="setting">
 					<label class="setting-label">@( mixer.Name ) Volume</label>
-					<SliderControl Value:bind="@mixer.Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )"></SliderControl>
+					<SliderControl Value:bind="@mixer.Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )" onclick="@Save"></SliderControl>
 				</div>
 			}
 		</div>
 	</div>
 	
 	<div class="button-container">
+		<button icon="save" onclick="@Save">Save</button>
 		<button icon="arrow_back" onclick="@Return">Return</button>
 	</div>
 </root>
@@ -32,4 +34,24 @@
 @code {
 	private static Mixer Master => Mixer.Master;
 	private static Mixer[] Mixers => Mixer.Master.GetChildren();
+	
+	public static void Save()
+	{
+		var data = Observation.Settings.Data;
+		data.MasterVolume = Master.Volume;
+
+		foreach ( var mixer in Mixers )
+		{
+			var propertyName = mixer.Name + "Volume";
+			var volume = mixer.Volume;
+			var success = TypeLibrary.SetProperty( data, propertyName, volume );
+
+			if ( !success )
+			{
+				Log.Error( "Unable to set volume property in settings, is it properly named?" );
+			}
+		}
+		
+		data.Save();
+	}
 }

@@ -1,5 +1,6 @@
 @namespace Observation.UI
 
+@using Sandbox.Audio
 @using Sandbox.UI
 @inherits PanelComponent
 
@@ -19,7 +20,7 @@
 	</div>
 
 	<div class="rank">
-		Rank: @( PlayerData.Data.Rank.GetName() )
+		Rank: @( PlayerData.Data.Rank.GetTitle() )
 	</div>
 	
 	<div class="web-container hidden" @ref="_webContainer">
@@ -47,7 +48,18 @@
 	private WebPanel? _web;
 
 	private const string DiscordInvite = "https://discord.gg/kKU6a4AYNk";
-	
+
+	protected override void OnStart()
+	{
+		var settings = Observation.Settings.Data;
+		Mixer.FindMixerByName( "Master" ).Volume = settings.MasterVolume;
+		Mixer.FindMixerByName( "Music" ).Volume = settings.MusicVolume;
+		Mixer.FindMixerByName( "Game" ).Volume = settings.GameVolume;
+		Mixer.FindMixerByName( "UI" ).Volume = settings.UIVolume;
+		
+		base.OnStart();
+	}
+
 	public void Play()
 	{
 		_mapSelection?.Show();
