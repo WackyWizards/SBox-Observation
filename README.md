@@ -1,5 +1,5 @@
 # Observation
-An I'm on Observation Duty clone, made in S&Box. Licensed under MIT.
+An I'm On Observation Duty clone, made in S&Box.
 
 ## Contributions
 All contributions are welcome by creating a pull request.
