@@ -31,6 +31,8 @@ public class GameManager : Component
 
 	public void EndGameInLoss( LoseReason reason )
 	{
+		Log.Info( "Game Lost!" );
+		
 		Sandbox.Services.Stats.Increment( "Losses", 1 );
 		Sandbox.Services.Stats.Increment( $"Losses_due_to_{reason}", 1 );
 
@@ -55,6 +57,8 @@ public class GameManager : Component
 
 	public void EndGameInWin()
 	{
+		Log.Info( "Game Win!" );
+		
 		Sandbox.Services.Stats.Increment( "Wins", 1 );
 		if ( MapManager.Instance?.ActiveMap is {} activeMap )
 		{

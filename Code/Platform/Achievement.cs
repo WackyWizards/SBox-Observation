@@ -22,9 +22,9 @@ public static class AchievementExtensions
 
 	public static void Unlock( this Achievement achievement )
 	{
-		var name = achievement.GetTitle();
-		Sandbox.Services.Achievements.Unlock( name );
+		var ident = achievement.GetTitle();
+		Sandbox.Services.Achievements.Unlock( ident );
 
-		Log.Info( $"Unlocked achievement: {name}" );
+		Log.Info( $"Unlocked achievement: {ident}" );
 	}
 }

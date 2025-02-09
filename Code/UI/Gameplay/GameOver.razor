@@ -6,7 +6,7 @@
 @inherits Panel
 
 <root>
-	<label class="title" @ref="_title">@GetTitle( _isWin )</label>
+	<label class="title" @ref="_title">@GetTitle()</label>
 	<label class="sub-title" @ref="_subTitle">@GetSubTitle( _isWin, _loseReason )</label>
 
 	@if ( AnomalyManager.Instance is {} anomalyManager )
@@ -44,7 +44,7 @@
 	private Label? _title;
 	private Label? _subTitle;
 
-	private string GetTitle( bool victory )
+	private string GetTitle()
 	{
 		return _isWin ? "Shift Complete" : "Notice Of Dismissal";
 	}
@@ -56,7 +56,7 @@
 
 	public void OnGameEnd( bool victory )
 	{
-		_isWin = true;
+		_isWin = victory;
 	}
 
 	public void OnGameLose( GameManager.LoseReason reason )
