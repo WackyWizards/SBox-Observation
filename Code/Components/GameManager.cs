@@ -41,6 +41,8 @@ public class GameManager : Component
 			if ( AnomalyManager.Instance is {} anomalyManager )
 			{
 				Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
+				Sandbox.Services.Stats.SetValue( "Success_rate", anomalyManager.SuccessRate );
+				Sandbox.Services.Stats.SetValue( $"Success_rate_on_map_{activeMap.Ident}", anomalyManager.SuccessRate );
 			}
 		}
 
