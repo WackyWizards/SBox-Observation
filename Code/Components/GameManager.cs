@@ -1,4 +1,5 @@
-﻿using Sandbox.UI;
+﻿using System;
+using Sandbox.UI;
 using Observation.Platform;
 using Observation.UI;
 using Achievement=Observation.Platform.Achievement;
@@ -11,9 +12,20 @@ public class GameManager : Component
 
 	[Property] public SceneFile? MenuScene { get; set; }
 
+	private static readonly Dictionary<Rank, int> Thresholds = [];
+
 	protected override void OnStart()
 	{
 		Instance = this;
+
+		Thresholds.Clear();
+		var ranks = Enum.GetValues<Rank>();
+		foreach ( var rank in ranks )
+		{
+			var threshold = rank.GetAttributeOfType<ThresholdAttribute>();
+			Thresholds.Add( rank, threshold.MinimumValue );
+		}
+
 		base.OnStart();
 	}
 
@@ -57,6 +69,27 @@ public class GameManager : Component
 	{
 		Scene.DestroyPersistentObjects();
 		Scene.Load( MenuScene );
+	}
+
+	public static Rank GetRank( int successRate )
+	{
+		if ( successRate is < 0 or > 100 )
+			throw new ArgumentOutOfRangeException( nameof( successRate ), "Success rate must be between 0 and 100" );
+		
+		return Thresholds
+			.OrderByDescending( x => x.Value )
+			.First( x => successRate >= x.Value )
+			.Key;
+	}
+
+	public static (Rank rank, int percentage) GetRank( int successes, int total )
+	{
+		if ( total == 0 ) return (Rank.F, 0);
+
+		var percentage = (int)Math.Floor( (double)successes / total * 100 );
+		percentage = Math.Min( 100, Math.Max( 0, percentage ) );
+
+		return (GetRank( percentage ), percentage);
 	}
 
 	public enum LoseReason

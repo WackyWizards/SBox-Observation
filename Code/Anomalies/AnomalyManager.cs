@@ -32,10 +32,10 @@ public class AnomalyManager : Component
 	[Property, Category( "Anomalies" )]
 	public bool CanActivateAnomalies { get; private set; } = true;
 
-	[Property, Category( "Reports" ), ReadOnly]
+	[Property, Category( "Reports" )]
 	public int SuccessfulReports { get; private set; }
 
-	[Property, Category( "Reports" ), ReadOnly]
+	[Property, Category( "Reports" )]
 	public int FailReports { get; private set; }
 
 	[Property, Category( "Reports" )]
@@ -43,6 +43,32 @@ public class AnomalyManager : Component
 
 	[Property, Category( "Reports" )]
 	public int FailReportsTilGameOver { get; set; } = 5;
+
+	[Property, Category( "Reports" )]
+	public int TotalReports
+	{
+		get
+		{
+			return SuccessfulReports + FailReports;
+		}
+
+	}
+
+	[Property, Category( "Reports" )] public Rank Rank
+	{
+		get
+		{
+			return GameManager.GetRank( SuccessfulReports, TotalReports ).rank;
+		}
+	}
+
+	[Property, Category( "Reports" )] public int SuccessRate
+	{
+		get
+		{
+			return GameManager.GetRank( SuccessfulReports, TotalReports ).percentage;
+		}
+	}
 
 	public event Action<Anomaly>? OnAnomalyActivated;
 	public event Action<Anomaly>? OnAnomalyCleared;
@@ -267,13 +293,13 @@ public class AnomalyManager : Component
 	private async Task HandleFailedReport( ReportingScreen reportingScreen, Anomaly.AnomalyType? type = null )
 	{
 		FailReports++;
-		
+
 		Sandbox.Services.Stats.Increment( "report_fail", 1 );
 		if ( type.HasValue )
 		{
 			Sandbox.Services.Stats.Increment( $"report_fail_{type.Value}", 1 );
 		}
-		
+
 		Log.Info( $"Failed Reports: {FailReports} | Type: {type}" );
 
 		if ( FailReports == FailReportsTilWarning )

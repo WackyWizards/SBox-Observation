@@ -9,20 +9,29 @@
 	<label class="title" @ref="_title">@GetTitle( _isWin )</label>
 	<label class="sub-title" @ref="_subTitle">@GetSubTitle( _isWin, _loseReason )</label>
 
-	@if ( AnomalyManager.Instance is {} anomalyManager && anomalyManager.ActiveAnomalies.Any() )
+	@if ( AnomalyManager.Instance is {} anomalyManager )
 	{
-		<div class="missed-anomalies">
-			<label class="title">Missed Anomalies</label>
-			@foreach ( var anomaly in anomalyManager.ActiveAnomalies )
-			{
-				<label>@( anomaly.Type.GetName() ) in @( anomaly.Room )</label>
-			}
+		if ( anomalyManager.ActiveAnomalies.Any() )
+		{
+
+			<div class="missed-anomalies">
+				<label class="title">Missed Anomalies</label>
+				@foreach ( var anomaly in anomalyManager.ActiveAnomalies )
+				{
+					<label>@( anomaly.Type.GetName() ) in @( anomaly.Room )</label>
+				}
+			</div>
+		}
+		
+		<div class="rank">
+			<label class="actual-rank">Rank: @( anomalyManager.Rank )</label>
+			<label class="percentage">@( anomalyManager.SuccessRate )%</label>
 		</div>
 	}
 
 	<div class="button-container">
-		<button onclick="@PlayAgain">Play Again</button>
-		<button onclick="@Return">Return To Menu</button>
+		<button icon="refresh" onclick="@PlayAgain">Play Again</button>
+		<button icon="home" onclick="@Return">Return To Menu</button>
 	</div>
 </root>
 
@@ -37,7 +46,7 @@
 
 	private string GetTitle( bool victory )
 	{
-		return _isWin ? "Workday Complete" : "Notice Of Dismissal";
+		return _isWin ? "Shift Complete" : "Notice Of Dismissal";
 	}
 
 	private static string GetSubTitle( bool victory, GameManager.LoseReason reason )
