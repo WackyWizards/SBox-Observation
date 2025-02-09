@@ -9,7 +9,7 @@
 <root>
 	@foreach ( var anomalyType in Enum.GetValues<Anomaly.AnomalyType>() )
 	{
-		<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetName()</button>
+		<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetTitle()</button>
 	}
 </root>
 

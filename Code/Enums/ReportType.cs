@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Observation;
+﻿namespace Observation;
 
 public enum ReportType
 {

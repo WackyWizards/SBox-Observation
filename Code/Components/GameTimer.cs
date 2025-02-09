@@ -24,7 +24,7 @@ public class GameTimer : Component
 		if ( UntilVictory )
 		{
 			GameManager.Instance?.EndGameInWin();
-			UntilVictory = 999999;
+			UntilVictory = int.MaxValue;
 		}
 
 		base.OnUpdate();

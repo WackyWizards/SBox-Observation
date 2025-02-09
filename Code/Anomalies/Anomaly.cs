@@ -69,7 +69,7 @@ public class Anomaly : Component
 
 public static class AnomalyTypeExtensions
 {
-	public static string GetName( this Anomaly.AnomalyType type )
+	public static string GetTitle( this Anomaly.AnomalyType type )
 	{
 		var title = type.GetAttributeOfType<TitleAttribute>();
 		return title.Value ?? type.ToString();
