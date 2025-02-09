@@ -2,7 +2,7 @@
 
 $spacing-lg: 20px;
 $container-width: 30%;
-$container-height: 50%;
+$container-height: 60%;
 
 MainMenu {
   position: absolute;
@@ -17,11 +17,24 @@ MainMenu {
   color: white;
   font-family: "IBM Plex Mono";
 
+  .stats {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    gap: 5px;
+    margin: 10px;
+    overflow-y: scroll;
+
+    * {
+      flex-shrink: 0;
+    }
+  }
+
   .container {
     width: $container-width;
     height: $container-height;
     margin-left: $spacing-lg;
-    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;

@@ -1,0 +1,246 @@
+﻿@using System
+@using System.Threading.Tasks
+@using Sandbox.Network
+@using Sandbox.Services
+
+@namespace Observation.UI
+@inherits MenuSubPanel
+
+<root class="hidden">
+	<div class="tab-selection">
+		<button onclick="@( () => SelectTab( 0 ) )">Leaderboards</button>
+		<button onclick="@( () => SelectTab( 1 ) )">Global Stats</button>
+		<button onclick="@( () => SelectTab( 2 ) )">Personal Stats</button>
+	</div>
+
+	<div class="tabs">
+		<div class="tab @( _selectedTab == 0 ? "" : "hidden" )">
+			<label class="title">Leaderboards</label>
+
+			<div class="subtab-selection">
+				<button onclick="@( () => SelectLeaderboardTab( 0 ) )"
+				        class="@( _selectedLeaderboardTab == 0 ? "active" : "" )">S-Rank Wins
+				</button>
+				<button onclick="@( () => SelectLeaderboardTab( 1 ) )"
+				        class="@( _selectedLeaderboardTab == 1 ? "active" : "" )">Total Wins
+				</button>
+			</div>
+
+			<div class="subtab">
+				@switch ( _selectedLeaderboardTab )
+				{
+					case 0:
+						{
+							<label class="sub-title">S-Rank Wins</label>
+							if ( SRankBoard is not null )
+							{
+								<div class="leaderboard">
+									@foreach ( var entry in SRankBoard.Entries )
+									{
+										<div
+											class="entry @GetRank( (int)entry.Rank ) @( IsMe( entry.SteamId ) ? "me" : "" )">
+											<label class="entry-rank">@(entry.Rank).</label>
+											<img class="entry-avatar" src="avatar:@(entry.SteamId)" alt=""/>
+											<label class="entry-displayname">@(entry.DisplayName)</label>
+											<label class="entry-value">@(entry.Value)</label>
+										</div>
+									}
+								</div>
+							}
+							break;
+						}
+					case 1:
+						{
+							<label class="sub-title">Total Wins</label>
+							if ( WinsBoard is not null )
+							{
+								<div class="leaderboard">
+									@foreach ( var entry in WinsBoard.Entries )
+									{
+										<div
+											class="entry @GetRank( (int)entry.Rank ) @( IsMe( entry.SteamId ) ? "me" : "" )">
+											<label class="entry-rank">@(entry.Rank).</label>
+											<img class="entry-avatar" src="avatar:@(entry.SteamId)" alt=""/>
+											<label class="entry-displayname">@(entry.DisplayName)</label>
+											<label class="entry-value">@(entry.Value)</label>
+										</div>
+									}
+								</div>
+							}
+							break;
+						}
+				}
+			</div>
+		</div>
+
+		<div class="tab @( _selectedTab == 1 ? "" : "hidden" )">
+			<label class="title">Global Stats</label>
+			<div class="stats">
+				@{
+					var globalStats = Stats.GetGlobalStats( Ident );
+					var statGroups = new[]
+					{
+						("Wins", globalStats.Get( "wins" )),
+						("Losses", globalStats.Get( "losses" )),
+						("Rank S Wins", globalStats.Get( "wins_with_rank_s" )),
+						("Rank A Wins", globalStats.Get( "wins_with_rank_a" )),
+						//("Rank A Losses", globalStats.Get( "losses_with_rank_a" )),
+						("Rank B Wins", globalStats.Get( "wins_with_rank_b" )),
+						//("Rank B Losses", globalStats.Get( "losses_with_rank_b" )),
+						("Rank C Wins", globalStats.Get( "wins_with_rank_c" )),
+						//("Rank C Losses", globalStats.Get( "losses_with_rank_c" )),
+						("Rank D Wins", globalStats.Get( "wins_with_rank_d" )),
+						//("Rank D Losses", globalStats.Get( "losses_with_rank_d" )),
+						("Rank E Wins", globalStats.Get( "wins_with_rank_e" )),
+						//("Rank E Losses", globalStats.Get( "losses_with_rank_e" )),
+						("Rank F Wins", globalStats.Get( "wins_with_rank_f" )),
+						//("Rank F Losses", globalStats.Get( "losses_with_rank_f" )),
+						("Successful Reports", globalStats.Get( "report_success" )),
+						("Successful Extra Object Reports", globalStats.Get( "report_success_extra" )),
+						("Successful Object Movement Reports", globalStats.Get( "report_success_movement" )),
+						("Successful Object Manipulation Reports", globalStats.Get( "report_success_manipulation" )),
+						("Successful Object Disappearance Reports", globalStats.Get( "report_success_disappearance" )),
+						("Successful Audio Anomaly Reports", globalStats.Get( "report_success_audio" )),
+						("Successful Intruder Reports", globalStats.Get( "report_success_intruder" )),
+						("Fail Reports", globalStats.Get( "report_fail" )),
+						("Failed Extra Object Reports", globalStats.Get( "report_fail_extra" )),
+						("Failed Object Movement Reports", globalStats.Get( "report_fail_movement" )),
+						("Failed Object Manipulation Reports", globalStats.Get( "report_fail_manipulation" )),
+						("Failed Object Disappearance Reports", globalStats.Get( "report_fail_disappearance" )),
+						("Failed Audio Anomaly Reports", globalStats.Get( "report_fail_audio" )),
+						("Failed Intruder Reports", globalStats.Get( "report_fail_intruder" )),
+					};
+				}
+
+				@foreach ( var (label, stat) in statGroups )
+				{
+					<label>@( label ): @( stat.Sum )</label>
+				}
+			</div>
+		</div>
+
+		<div class="tab @( _selectedTab == 2 ? "" : "hidden" )">
+			<label class="title">Personal Stats</label>
+			<div class="stats">
+				@{
+					var localStats = Stats.GetLocalPlayerStats( Ident );
+					var personalStatGroups = new[]
+					{
+						("Wins", localStats.Get( "wins" )),
+						("Losses", localStats.Get( "losses" )),
+						("Rank S Wins", localStats.Get( "wins_with_rank_s" )),
+						("Rank A Wins", localStats.Get( "wins_with_rank_a" )),
+						//("Rank A Losses", localStats.Get( "losses_with_rank_a" )),
+						("Rank B Wins", localStats.Get( "wins_with_rank_b" )),
+						//("Rank B Losses", localStats.Get( "losses_with_rank_b" )),
+						("Rank C Wins", localStats.Get( "wins_with_rank_c" )),
+						//("Rank C Losses", localStats.Get( "losses_with_rank_c" )),
+						("Rank D Wins", localStats.Get( "wins_with_rank_d" )),
+						//("Rank D Losses", localStats.Get( "losses_with_rank_d" )),
+						("Rank E Wins", localStats.Get( "wins_with_rank_e" )),
+						//("Rank E Losses", localStats.Get( "losses_with_rank_e" )),
+						("Rank F Wins", localStats.Get( "wins_with_rank_f" )),
+						//("Rank F Losses", localStats.Get( "losses_with_rank_f" )),
+						("Successful Reports", localStats.Get( "report_success" )),
+						("Successful Extra Object Reports", localStats.Get( "report_success_extra" )),
+						("Successful Object Movement Reports", localStats.Get( "report_success_movement" )),
+						("Successful Object Manipulation Reports", localStats.Get( "report_success_manipulation" )),
+						("Successful Object Disappearance Reports", localStats.Get( "report_success_disappearance" )),
+						("Successful Audio Anomaly Reports", localStats.Get( "report_success_audio" )),
+						("Successful Intruder Reports", localStats.Get( "report_success_intruder" )),
+						("Fail Reports", localStats.Get( "report_fail" )),
+						("Failed Extra Object Reports", localStats.Get( "report_fail_extra" )),
+						("Failed Object Movement Reports", localStats.Get( "report_fail_movement" )),
+						("Failed Object Manipulation Reports", localStats.Get( "report_fail_manipulation" )),
+						("Failed Object Disappearance Reports", localStats.Get( "report_fail_disappearance" )),
+						("Failed Audio Anomaly Reports", localStats.Get( "report_fail_audio" )),
+						("Failed Intruder Reports", localStats.Get( "report_fail_intruder" )),
+					};
+				}
+
+				@foreach ( var (label, stat) in personalStatGroups )
+				{
+					<label>@( label ): @( stat.Sum )</label>
+				}
+			</div>
+		</div>
+	</div>
+
+	<div class="button-container">
+		<button icon="refresh" onclick="@Refresh">Refresh</button>
+		<button icon="arrow_back" onclick="@Return">Return</button>
+	</div>
+</root>
+
+@code {
+	#nullable enable
+
+	private const string Ident = "spoonstuff.observation";
+	private int _selectedTab;
+	private int _selectedLeaderboardTab;
+
+	private void SelectTab( int index )
+	{
+		_selectedTab = index;
+	}
+
+	private void SelectLeaderboardTab( int index )
+	{
+		_selectedLeaderboardTab = index;
+		_ = RefreshCurrentLeaderboard();
+	}
+
+	private Sandbox.Services.Leaderboards.Board2? SRankBoard;
+	private Sandbox.Services.Leaderboards.Board2? WinsBoard;
+
+	private async Task RefreshCurrentLeaderboard()
+	{
+		switch ( _selectedLeaderboardTab )
+		{
+			case 0:
+				SRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Ident, "Wins_with_rank_S" );
+				SRankBoard.MaxEntries = 50;
+				SRankBoard.CenterOnMe();
+				await SRankBoard.Refresh();
+				break;
+			case 1:
+				WinsBoard = Sandbox.Services.Leaderboards.GetFromStat( Ident, "Wins" );
+				WinsBoard.MaxEntries = 50;
+				WinsBoard.CenterOnMe();
+				await WinsBoard.Refresh();
+				break;
+		}
+	}
+
+	public async Task Refresh()
+	{
+		await RefreshCurrentLeaderboard();
+	}
+
+	private static string GetRank( int position )
+	{
+		return position switch
+		{
+			1 => "gold",
+			2 => "silver",
+			3 => "bronze",
+			_ => string.Empty
+		};
+	}
+
+	private bool IsMe( SteamId id )
+	{
+		return id == Connection.Local.SteamId;
+	}
+
+	protected override void OnAfterTreeRender( bool firstTime )
+	{
+		_ = Refresh();
+		base.OnAfterTreeRender( firstTime );
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( WinsBoard, SRankBoard, _selectedLeaderboardTab );
+	}
+}

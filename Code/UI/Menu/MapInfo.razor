@@ -1,4 +1,7 @@
-﻿@using Observation
+﻿@using System
+@using System.Threading.Tasks
+@using Observation
+@using Sandbox.Services
 
 @namespace Observation.UI
 @inherits MenuSubPanel
@@ -7,12 +10,134 @@
 	@if ( Map is not null )
 	{
 		<div class="map">
-			<label class="map-name">@( Map.Name )</label>
-			<label class="map-difficulty">Difficulty: @( Map.Difficulty )</label>
-			<label class="map-description">@( Map.Description )</label>
-			<div class="button-container">
-				<button icon="play_arrow" onclick="@Play">Play</button>
-				<button icon="arrow_back" onclick="@Return">Return</button>
+			<div class="tab-selection">
+				<button onclick="@( () => SelectTab( 0 ) )">Play</button>
+				<button onclick="@( () => SelectTab( 1 ) )">Leaderboards</button>
+				<button onclick="@( () => SelectTab( 2 ) )">Global Stats</button>
+				<button onclick="@( () => SelectTab( 3 ) )">Personal Stats</button>
+			</div>
+			<div class="tabs">
+				<div class="tab @( _selectedTab == 0 ? "" : "hidden" )">
+					<label class="title">@( Map.Name )</label>
+					<label class="map-difficulty">Difficulty: @( Map.Difficulty )</label>
+					<label class="map-description">@( Map.Description )</label>
+					<div class="button-container">
+						<button icon="play_arrow" onclick="@Play">Play</button>
+						<button icon="arrow_back" onclick="@Return">Return</button>
+					</div>
+				</div>
+
+				<div class="tab @( _selectedTab == 1 ? "" : "hidden" )">
+					<label class="title">Map Leaderboards</label>
+					<div class="subtab-selection">
+						<button onclick="@( () => SelectLeaderboardTab( 0 ) )"
+						        class="@( _selectedLeaderboardTab == 0 ? "active" : "" )">S-Rank
+						</button>
+						<button onclick="@( () => SelectLeaderboardTab( 1 ) )"
+						        class="@( _selectedLeaderboardTab == 1 ? "active" : "" )">Completions
+						</button>
+					</div>
+
+					<div class="subtab">
+						@switch ( _selectedLeaderboardTab )
+						{
+							case 0:
+								{
+									<label class="sub-title">S-Rank Completions</label>
+									if ( SRankBoard is not null )
+									{
+										<div class="leaderboard">
+											@foreach ( var entry in SRankBoard.Entries )
+											{
+												<div class="entry">
+													<label class="entry-rank">@(entry.Rank).</label>
+													<img class="entry-avatar" src="avatar:@(entry.SteamId)"/>
+													<label class="entry-displayname">@(entry.DisplayName)</label>
+													<label class="entry-value">@(entry.Value)</label>
+												</div>
+											}
+										</div>
+									}
+									break;
+								}
+							case 1:
+								{
+									<label class="sub-title">Total Completions</label>
+									if ( CompletionsBoard is not null )
+									{
+										<div class="leaderboard">
+											@foreach ( var entry in CompletionsBoard.Entries )
+											{
+												<div class="entry">
+													<label class="entry-rank">@(entry.Rank).</label>
+													<img class="entry-avatar" src="avatar:@(entry.SteamId)"/>
+													<label class="entry-displayname">@(entry.DisplayName)</label>
+													<label class="entry-value">@(entry.Value)</label>
+												</div>
+											}
+										</div>
+									}
+									break;
+								}
+						}
+					</div>
+				</div>
+
+				<div class="tab @( _selectedTab == 2 ? "" : "hidden" )">
+					<label class="title">Global Map Stats</label>
+					<div class="stats">
+						@{
+							var globalStats = Stats.GetGlobalStats( Ident );
+							var mapStatGroups = new[]
+							{
+								("Total Plays", globalStats.Get( "plays" )),
+								("Total Completions", globalStats.Get( $"wins_on_map_{Map.Ident}" )),
+								("Total Losses", globalStats.Get( $"losses_on_map_{Map.Ident}" )),
+								("Total Restarts", globalStats.Get( $"restarts_on_map_{Map.Ident}" )),
+								("S Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_s" )),
+								("A Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_a" )),
+								("B Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_b" )),
+								("C Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_c" )),
+								("D Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_d" )),
+								("E Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_e" )),
+								("F Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_f" ))
+							};
+						}
+
+						@foreach ( var (label, stat) in mapStatGroups )
+						{
+							<label>@label: @( stat.Sum )</label>
+						}
+					</div>
+				</div>
+
+				<div class="tab @( _selectedTab == 3 ? "" : "hidden" )">
+					<label class="title">Personal Map Stats</label>
+					<div class="stats">
+						@{
+							var localStats = Stats.GetLocalPlayerStats( Ident );
+							var personalMapStats = new[]
+							{
+								("Total Plays", localStats.Get( $"plays_{Map.Ident}" )),
+								("Total Completions", localStats.Get( $"wins_on_map_{Map.Ident}" )),
+								("Total Losses", localStats.Get( $"losses_on_map_{Map.Ident}" )),
+								("Total Restarts", localStats.Get( $"restarts_on_map_{Map.Ident}" )),
+								("S Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_s" )),
+								("A Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_a" )),
+								("B Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_b" )),
+								("C Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_c" )),
+								("D Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_d" )),
+								("E Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_e" )),
+								("F Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_f" ))
+							};
+						}
+
+						@foreach ( var (label, stat) in personalMapStats )
+						{
+							<label>@label: @( stat.Sum )</label>
+						}
+					</div>
+				</div>
 			</div>
 		</div>
 	}
@@ -21,7 +146,48 @@
 @code {
 	#nullable enable
 
+	private const string Ident = "spoonstuff.observation";
+	private int _selectedTab = 0;
+	private int _selectedLeaderboardTab = 0;
+
 	public Map? Map { get; set; }
+
+	private Sandbox.Services.Leaderboards.Board2? SRankBoard;
+	private Sandbox.Services.Leaderboards.Board2? CompletionsBoard;
+
+	private void SelectTab( int index )
+	{
+		_selectedTab = index;
+		if ( index == 1 )
+		{
+			_ = RefreshCurrentLeaderboard();
+		}
+	}
+
+	private void SelectLeaderboardTab( int index )
+	{
+		_selectedLeaderboardTab = index;
+		_ = RefreshCurrentLeaderboard();
+	}
+
+	private async Task RefreshCurrentLeaderboard()
+	{
+		if ( Map is null ) return;
+
+		switch ( _selectedLeaderboardTab )
+		{
+			case 0:
+				SRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Ident, $"Wins_on_map_{Map.Ident}_with_rank_S" );
+				SRankBoard.CenterOnMe();
+				await SRankBoard.Refresh();
+				break;
+			case 1:
+				CompletionsBoard = Sandbox.Services.Leaderboards.GetFromStat( Ident, $"Wins_on_map_{Map.Ident}" );
+				CompletionsBoard.CenterOnMe();
+				await CompletionsBoard.Refresh();
+				break;
+		}
+	}
 
 	public void Play()
 	{
@@ -39,5 +205,19 @@
 	protected override void Return()
 	{
 		Delete();
+	}
+
+	protected override void OnAfterTreeRender( bool firstTime )
+	{
+		if ( _selectedTab == 1 )
+		{
+			_ = RefreshCurrentLeaderboard();
+		}
+		base.OnAfterTreeRender( firstTime );
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( Map, _selectedTab, _selectedLeaderboardTab, CompletionsBoard, SRankBoard );
 	}
 }
