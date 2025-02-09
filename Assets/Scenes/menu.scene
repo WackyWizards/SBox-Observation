@@ -33,7 +33,8 @@
               "Description": "Former residence of high-profile individuals. Vacated under undisclosed circumstances. Lights turn on despite no power, shadowy figures spotted in upper-floor windows. Audit the premises. Do not acknowledge voices calling from empty rooms.",
               "Difficulty": "Normal",
               "Scene": "scenes/house.scene",
-              "WinAchievement": "WinHouse"
+              "WinAchievement": "WinHouse",
+              "SRankAchievement": "SRankHouse"
             },
             {
               "Ident": "pool",
@@ -41,7 +42,8 @@
               "Description": "Drained long ago, yet the floor is still damp. Faint wet footprints appear and vanish. Something drags along the tiled bottom, just out of sight. The diving board creaks under an unseen weight. Do not linger near the drain.",
               "Difficulty": "Normal",
               "Scene": "scenes/pool.scene",
-              "WinAchievement": "WinPool"
+              "WinAchievement": "WinPool",
+              "SRankAchievement": "SRankPool"
             }
           ],
           "OnComponentDestroy": null,
@@ -69,7 +71,8 @@
             "Description": "",
             "Difficulty": "Normal",
             "Scene": null,
-            "WinAchievement": null
+            "WinAchievement": null,
+            "SRankAchievement": null
           },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,

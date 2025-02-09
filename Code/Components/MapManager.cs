@@ -34,3 +34,14 @@ public class MapManager : Component
 		Sandbox.Services.Stats.Increment( $"Restarts_on_map_{ActiveMap.Ident}", 1 );
 	}
 }
+
+public class Map
+{
+	public string Ident { get; set; } = string.Empty;
+	public string Name { get; set; } = string.Empty;
+	public string Description { get; set; } = string.Empty;
+	public Difficulty Difficulty { get; set; } = Difficulty.Normal;
+	public SceneFile? Scene { get; set; }
+	public Observation.Platform.Achievement? WinAchievement { get; set; }
+	[Title( "S Rank Achievement" )] public Observation.Platform.Achievement? SRankAchievement { get; set; }
+}

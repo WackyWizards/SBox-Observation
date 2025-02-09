@@ -5,12 +5,16 @@ public enum Achievement
 	[Title( "win_house" )]
 	WinHouse,
 	[Title( "win_pool" )]
-	WinPool
+	WinPool,
+	[Title( "s_rank_house" )]
+	SRankHouse,
+	[Title( "s_rank_pool" )]
+	SRankPool
 }
 
 public static class AchievementExtensions
 {
-	public static string GetName( this Achievement achievement )
+	public static string GetTitle( this Achievement achievement )
 	{
 		var title = achievement.GetAttributeOfType<TitleAttribute>();
 		return title.Value ?? achievement.ToString();
@@ -18,7 +22,7 @@ public static class AchievementExtensions
 
 	public static void Unlock( this Achievement achievement )
 	{
-		var name = achievement.GetName();
+		var name = achievement.GetTitle();
 		Sandbox.Services.Achievements.Unlock( name );
 
 		Log.Info( $"Unlocked achievement: {name}" );
