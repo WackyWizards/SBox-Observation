@@ -10,13 +10,14 @@ PauseMenu {
   justify-content: center;
   flex-direction: column;
   background-color: black;
+  font-family: "IBM Plex Mono";
   opacity: 0.9;
   backdrop-filter: blur(4px);
   z-index: 999;
   transition: all 0.1s linear;
   
   > .title {
-    font-weight: 800;
+    font-weight: 500;
     font-size: 80px;
     color: white;
   }
