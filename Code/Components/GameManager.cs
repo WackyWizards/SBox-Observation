@@ -37,6 +37,11 @@ public class GameManager : Component
 		if ( MapManager.Instance?.ActiveMap is {} activeMap )
 		{
 			Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}", 1 );
+
+			if ( AnomalyManager.Instance is {} anomalyManager )
+			{
+				Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
+			}
 		}
 
 		var menu = Hud.GetElement<GameOver>();
@@ -52,9 +57,20 @@ public class GameManager : Component
 		if ( MapManager.Instance?.ActiveMap is {} activeMap )
 		{
 			Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}", 1 );
-			if ( activeMap.WinAchievement is {} achievement )
+			activeMap.WinAchievement?.Unlock();
+
+			if ( AnomalyManager.Instance is {} anomalyManager )
 			{
-				achievement.Unlock();
+				Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
+				Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
+				Sandbox.Services.Stats.SetValue( "Success_rate", anomalyManager.SuccessRate );
+				Sandbox.Services.Stats.SetValue( $"Success_rate_on_map_{activeMap.Ident}", anomalyManager.SuccessRate );
+
+				if ( anomalyManager.Rank == Rank.S )
+				{
+					Sandbox.Services.Stats.Increment( $"Rank_S", 1 );
+					activeMap.SRankAchievement?.Unlock();
+				}
 			}
 		}
 
@@ -75,7 +91,7 @@ public class GameManager : Component
 	{
 		if ( successRate is < 0 or > 100 )
 			throw new ArgumentOutOfRangeException( nameof( successRate ), "Success rate must be between 0 and 100" );
-		
+
 		return Thresholds
 			.OrderByDescending( x => x.Value )
 			.First( x => successRate >= x.Value )
@@ -99,16 +115,6 @@ public class GameManager : Component
 		[Description( "Too many active anomalies" )]
 		TooManyAnomalies
 	}
-}
-
-public class Map
-{
-	public string Ident { get; set; } = string.Empty;
-	public string Name { get; set; } = string.Empty;
-	public string Description { get; set; } = string.Empty;
-	public Difficulty Difficulty { get; set; } = Difficulty.Normal;
-	public SceneFile? Scene { get; set; }
-	public Achievement? WinAchievement { get; set; }
 }
 
 public enum Difficulty
