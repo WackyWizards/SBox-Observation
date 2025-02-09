@@ -1,6 +1,6 @@
 ﻿namespace Observation;
 
-public class Settings
+public class Settings : IDataFile<Settings>
 {
 	public static Settings Data
 	{
@@ -10,39 +10,23 @@ public class Settings
 		}
 	}
 
-	private const string FileName = "settings.json";
+	public static bool CanSave => FileSystem.Data.FileExists( FileName );
+
+	public const string FileName = "Settings.json";
 
 	public float MasterVolume { get; set; } = 0.5f;
 	public float GameVolume { get; set; } = 0.5f;
 	public float MusicVolume { get; set; } = 0.5f;
 	public float UIVolume { get; set; } = 0.5f;
-
-	public void Load()
-	{
-		FileSystem.Data.ReadJson( FileName, new Settings() );
-	}
-
+	
 	public void Save()
-	{
+	{		
+		if ( !CanSave )
+		{
+			Log.Error( "Unable to save data! No data file exists!" );
+			return;
+		}
+		
 		FileSystem.Data.WriteJson( FileName, this );
-	}
-}
-
-public enum ObserverRank
-{
-	[Title("New Hire")]
-	Newbie,
-	[Title("Veteran Employee")]
-	Veteran,
-	[Title("Manager")]
-	Manager
-}
-
-public static class ObserverRankExtensions
-{
-	public static string GetName( this ObserverRank rank )
-	{
-		var title = rank.GetAttributeOfType<TitleAttribute>();
-		return title.Value ?? rank.ToString();
 	}
 }

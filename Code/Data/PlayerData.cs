@@ -1,6 +1,6 @@
 ﻿namespace Observation;
 
-public class PlayerData
+public class PlayerData : IDataFile<PlayerData>
 {
 	public static PlayerData Data
 	{
@@ -10,17 +10,40 @@ public class PlayerData
 		}
 	}
 	
-	private const string FileName = "data.json";
+	public static bool CanSave => FileSystem.Data.FileExists( FileName );
 
+	public const string FileName = "PlayerData.json";
+	
 	public ObserverRank Rank { get; set; } = ObserverRank.Newbie;
 	
-	public void Load()
-	{
-		FileSystem.Data.ReadJson( FileName, new PlayerData() );
-	}
-
 	public void Save()
-	{
+	{		
+		if ( !CanSave )
+		{
+			Log.Error( "Unable to save data! No data file exists!" );
+			return;
+		}
+		
 		FileSystem.Data.WriteJson( FileName, this );
+	}
+}
+
+
+public enum ObserverRank
+{
+	[Title("New Hire")]
+	Newbie,
+	[Title("Veteran Employee")]
+	Veteran,
+	[Title("Manager")]
+	Manager
+}
+
+public static class ObserverRankExtensions
+{
+	public static string GetTitle( this ObserverRank rank )
+	{
+		var title = rank.GetAttributeOfType<TitleAttribute>();
+		return title.Value ?? rank.ToString();
 	}
 }
