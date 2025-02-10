@@ -2,7 +2,7 @@
 
 $spacing-lg: 20px;
 $container-width: 30%;
-$container-height: 60%;
+$container-height: 80%;
 
 MainMenu {
   position: absolute;
@@ -12,7 +12,7 @@ MainMenu {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(10,10,10,1);
+  background-color: rgba(10, 10, 10, 1);
   backdrop-filter: blur(30px);
   color: white;
   font-family: "IBM Plex Mono";
@@ -47,9 +47,9 @@ MainMenu {
       text-stroke: 1px black;
       margin: 20px;
       text-align: center;
-      text-shadow: 0 1px 1px rgba(0,0,0,1);
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 1);
     }
-    
+
     > * {
       width: 100%;
     }
@@ -57,90 +57,109 @@ MainMenu {
     .button-container {
       flex-direction: column;
       width: 100%;
-      gap: 16px;
+      gap: 15px;
       padding: 20px;
 
       > button {
         width: 100%;
-        position: relative;
         font-size: 24px;
-        padding: 16px 32px;
-        background: linear-gradient(
-                        120deg,
-                        rgba(255, 255, 255, 0.1) 0%,
-                        rgba(255, 255, 255, 0.05) 100%
-        );
         border: 2px solid rgba(255, 255, 255, 0.1);
-        color: white;
-        text-transform: uppercase;
         letter-spacing: 2px;
-        backdrop-filter: blur(10px);
-        transition: left 0.3s ease;
-        cursor: pointer;
-        overflow: hidden;
-        
-        > .icon {
-          text-transform: none;
-          font-family: "Material Icons";
-        }
-
-        &:hover {
-          background: linear-gradient(
-                          120deg,
-                          rgba(255, 255, 255, 0.2) 0%,
-                          rgba(255, 255, 255, 0.1) 100%
-          );
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-          border-color: rgba(255, 255, 255, 0.2);
-        }
       }
     }
   }
 
-  .rank {
-    // Hide for now.
+  .side-buttons {
     display: none;
     position: absolute;
-    left: $spacing-lg;
-    bottom: $spacing-lg;
-    font-size: 24px;
+    right: 50px;
+    bottom: 50px;
+    font-size: 65px;
+    gap: 10px;
+
+    .iconpanel, img {
+      width: 65px;
+      height: 65px;
+      transition: all 0.2s ease;
+
+      &:not(.disabled) {
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        &:active {
+          sound-in: "ui.button.deny";
+        }
+      }
+
+      &.disabled {
+        opacity: 0.2;
+      }
+    }
+  }
+
+  .achievements {
+    display: none;
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 10px;
+
+    > img {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &.locked {
+        opacity: 0.2;
+      }
+    }
   }
 
   .socials {
     font-size: 24px;
-    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    margin: 15px;
+    gap: 15px;
 
-    .social {
+    > .iconpanel, img {
       pointer-events: all;
-      width: 65px;
-      height: 65px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+      width: 60px;
+      height: 60px;
+      font-size: 60px;
       filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
       transition: all 0.2s ease;
 
       &:hover {
+        transform: scale(1.1);
         opacity: 0.5;
         cursor: pointer;
       }
-      
+
       &:active {
         sound-in: "ui.button.deny";
         transform: scale(0.95);
       }
     }
   }
-  
+
   .web-container {
     pointer-events: all;
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(40px);
     align-items: center;
     justify-content: center;
@@ -151,11 +170,11 @@ MainMenu {
       width: 90%;
       height: 90%;
     }
-    
+
     > button {
       width: 90%;
     }
-    
+
     &.hidden {
       opacity: 0;
     }
