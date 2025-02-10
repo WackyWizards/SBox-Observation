@@ -167,7 +167,10 @@
 	</div>
 
 	<div class="button-container">
-		<button icon="refresh" onclick="@Refresh">Refresh</button>
+		@if ( _selectedTab == 0 )
+		{
+			<button icon="refresh" onclick="@Refresh">Refresh</button>
+		}
 		<button icon="arrow_back" onclick="@Return">Return</button>
 	</div>
 </root>
