@@ -8,9 +8,9 @@
 
 <root class="hidden">
 	<div class="tab-selection">
-		<button onclick="@( () => SelectTab( 0 ) )">Leaderboards</button>
-		<button onclick="@( () => SelectTab( 1 ) )">Global Stats</button>
-		<button onclick="@( () => SelectTab( 2 ) )">Personal Stats</button>
+		<button class="@(_selectedTab == 0 ? "disabled" : "")" onclick="@( () => SelectTab( 0 ) )">Leaderboards</button>
+		<button class="@(_selectedTab == 1 ? "disabled" : "")"  onclick="@( () => SelectTab( 1 ) )">Global Stats</button>
+		<button class="@(_selectedTab == 2 ? "disabled" : "")"  onclick="@( () => SelectTab( 2 ) )">Personal Stats</button>
 	</div>
 
 	<div class="tabs">
@@ -19,10 +19,10 @@
 
 			<div class="subtab-selection">
 				<button onclick="@( () => SelectLeaderboardTab( 0 ) )"
-				        class="@( _selectedLeaderboardTab == 0 ? "active" : "" )">S-Rank Wins
+				        class="@( _selectedLeaderboardTab == 0 ? "disabled" : "" )">S-Rank Wins
 				</button>
 				<button onclick="@( () => SelectLeaderboardTab( 1 ) )"
-				        class="@( _selectedLeaderboardTab == 1 ? "active" : "" )">Total Wins
+				        class="@( _selectedLeaderboardTab == 1 ? "disabled" : "" )">Total Wins
 				</button>
 			</div>
 

@@ -11,10 +11,18 @@
 	{
 		<div class="map">
 			<div class="tab-selection">
-				<button onclick="@( () => SelectTab( 0 ) )">Play</button>
-				<button onclick="@( () => SelectTab( 1 ) )">Leaderboards</button>
-				<button onclick="@( () => SelectTab( 2 ) )">Global Stats</button>
-				<button onclick="@( () => SelectTab( 3 ) )">Personal Stats</button>
+				<button class="@( _selectedTab == 0 ? "disabled" : "" )" onclick="@( () => SelectTab( 0 ) )">
+					Play
+				</button>
+				<button class="@( _selectedTab == 1 ? "disabled" : "" )" onclick="@( () => SelectTab( 1 ) )">
+					Leaderboards
+				</button>
+				<button class="@( _selectedTab == 2 ? "disabled" : "" )" onclick="@( () => SelectTab( 2 ) )">
+					Global Stats
+				</button>
+				<button class="@( _selectedTab == 3 ? "disabled" : "" )" onclick="@( () => SelectTab( 3 ) )">
+					Personal Stats
+				</button>
 			</div>
 			<div class="tabs">
 				<div class="tab @( _selectedTab == 0 ? "" : "hidden" )">
@@ -31,10 +39,10 @@
 					<label class="title">Map Leaderboards</label>
 					<div class="subtab-selection">
 						<button onclick="@( () => SelectLeaderboardTab( 0 ) )"
-						        class="@( _selectedLeaderboardTab == 0 ? "active" : "" )">S-Rank
+						        class="@( _selectedLeaderboardTab == 0 ? "disabled" : "" )">S-Rank
 						</button>
 						<button onclick="@( () => SelectLeaderboardTab( 1 ) )"
-						        class="@( _selectedLeaderboardTab == 1 ? "active" : "" )">Completions
+						        class="@( _selectedLeaderboardTab == 1 ? "disabled" : "" )">Completions
 						</button>
 					</div>
 
@@ -43,17 +51,16 @@
 						{
 							case 0:
 								{
-									<label class="sub-title">S-Rank Completions</label>
 									if ( SRankBoard is not null )
 									{
 										<div class="leaderboard">
 											@foreach ( var entry in SRankBoard.Entries )
 											{
 												<div class="entry">
-													<label class="entry-rank">@(entry.Rank).</label>
-													<img class="entry-avatar" src="avatar:@(entry.SteamId)"/>
-													<label class="entry-displayname">@(entry.DisplayName)</label>
-													<label class="entry-value">@(entry.Value)</label>
+													<label class="entry-rank">@( entry.Rank ).</label>
+													<img class="entry-avatar" src="avatar:@( entry.SteamId )"/>
+													<label class="entry-displayname">@( entry.DisplayName )</label>
+													<label class="entry-value">@( entry.Value )</label>
 												</div>
 											}
 										</div>
@@ -62,17 +69,16 @@
 								}
 							case 1:
 								{
-									<label class="sub-title">Total Completions</label>
 									if ( CompletionsBoard is not null )
 									{
 										<div class="leaderboard">
 											@foreach ( var entry in CompletionsBoard.Entries )
 											{
 												<div class="entry">
-													<label class="entry-rank">@(entry.Rank).</label>
-													<img class="entry-avatar" src="avatar:@(entry.SteamId)"/>
-													<label class="entry-displayname">@(entry.DisplayName)</label>
-													<label class="entry-value">@(entry.Value)</label>
+													<label class="entry-rank">@( entry.Rank ).</label>
+													<img class="entry-avatar" src="avatar:@( entry.SteamId )"/>
+													<label class="entry-displayname">@( entry.DisplayName )</label>
+													<label class="entry-value">@( entry.Value )</label>
 												</div>
 											}
 										</div>
