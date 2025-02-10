@@ -13,6 +13,11 @@ public class PlayerData : IDataFile<PlayerData>
 	public static bool CanSave => FileSystem.Data.FileExists( FileName );
 
 	public const string FileName = "PlayerData.json";
+
+	/// <summary>
+	/// Is this the players first time playing the game?
+	/// </summary>
+	public bool FirstTime { get; set; } = true;
 	
 	public ObserverRank Rank { get; set; } = ObserverRank.Newbie;
 	

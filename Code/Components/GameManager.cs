@@ -26,6 +26,10 @@ public class GameManager : Component
 			Thresholds.Add( rank, threshold.MinimumValue );
 		}
 
+		var playerData = PlayerData.Data;
+		playerData.FirstTime = false;
+		playerData.Save();
+
 		base.OnStart();
 	}
 
