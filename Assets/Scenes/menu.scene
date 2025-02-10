@@ -34,9 +34,7 @@
               "Difficulty": "Normal",
               "Scene": "scenes/house.scene",
               "WinAchievement": "WinHouse",
-              "SRankAchievement": "SRankHouse",
-              "HighestRankAchieved": "S",
-              "HighestPercentageAchieved": 100
+              "SRankAchievement": "SRankHouse"
             },
             {
               "Ident": "pool",
@@ -45,9 +43,7 @@
               "Difficulty": "Normal",
               "Scene": "scenes/pool.scene",
               "WinAchievement": "WinPool",
-              "SRankAchievement": "SRankPool",
-              "HighestRankAchieved": "F",
-              "HighestPercentageAchieved": 0
+              "SRankAchievement": "SRankPool"
             }
           ],
           "OnComponentDestroy": null,
@@ -76,9 +72,7 @@
             "Difficulty": "Normal",
             "Scene": null,
             "WinAchievement": null,
-            "SRankAchievement": null,
-            "HighestRankAchieved": "S",
-            "HighestPercentageAchieved": 0
+            "SRankAchievement": null
           },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
