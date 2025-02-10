@@ -13,10 +13,15 @@ public class Anomaly : Component
 
 	[Property] public virtual ReportType ReportType { get; set; }
 
+	/// <summary>
+	/// If this anomaly can be activated while it's in view of a camera.
+	/// </summary>
+	[Property] public bool ShowOnCamera { get; set; } = false;
+
 	[Property] public Action<GameObject>? OnAfterActive { get; set; }
 	[Property] public Action<GameObject>? OnAfterClear { get; set; }
 
-	protected bool IsActive => AnomalyManager.Instance.IsValid() && AnomalyManager.Instance.ActiveAnomalies.Contains(this);
+	protected bool IsActive => AnomalyManager.Instance.IsValid() && AnomalyManager.Instance.ActiveAnomalies.Contains( this );
 
 	/// <summary>
 	/// Called when this anomaly becomes active.
@@ -41,6 +46,11 @@ public class Anomaly : Component
 	/// </summary>
 	public virtual bool IsAvailable()
 	{
+		if ( ShowOnCamera )
+		{
+			return true;
+		}
+		
 		if ( CameraManager.Instance?.ActiveCamera is not {} activeCamera )
 			return false;
 

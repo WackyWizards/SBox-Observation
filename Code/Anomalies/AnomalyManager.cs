@@ -18,6 +18,9 @@ public class AnomalyManager : Component
 	public List<AnomalyEntry> PossibleAnomalies { get; set; } = [];
 
 	[Property, Category( "Anomalies" )]
+	public float FirstAnomalyTime { get; set; } = 20f;
+
+	[Property, Category( "Anomalies" )]
 	public float MinAnomalyTime { get; set; } = 20f;
 
 	[Property, Category( "Anomalies" )]
@@ -83,18 +86,18 @@ public class AnomalyManager : Component
 
 	private readonly Logger Log = new( "Anomaly Manager" );
 
-	private float GetRandomAnomalyTime()
-	{
-		return Game.Random.Float( MinAnomalyTime, MaxAnomalyTime );
-	}
-
 	protected override void OnStart()
 	{
 		Instance = this;
-		_nextAnomaly = GetRandomAnomalyTime();
+		_nextAnomaly = FirstAnomalyTime;
 		_sinceStart = 0;
 
 		base.OnStart();
+	}
+
+	private float GetRandomAnomalyTime()
+	{
+		return Game.Random.Float( MinAnomalyTime, MaxAnomalyTime );
 	}
 
 	protected override void OnUpdate()
@@ -169,6 +172,7 @@ public class AnomalyManager : Component
 
 	public bool CanSetAnomalyActive( Anomaly anomaly )
 	{
+		
 		return anomaly?.IsValid() == true &&
 			anomaly.IsAvailable() &&
 			!ActiveAnomalies.Contains( anomaly );
