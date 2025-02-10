@@ -58,7 +58,7 @@
 											{
 												<div class="entry">
 													<label class="entry-rank">@( entry.Rank ).</label>
-													<img class="entry-avatar" src="avatar:@( entry.SteamId )"/>
+													<img class="entry-avatar" src="avatar:@( entry.SteamId )" alt="avatar"/>
 													<label class="entry-displayname">@( entry.DisplayName )</label>
 													<label class="entry-value">@( entry.Value )</label>
 												</div>
@@ -76,7 +76,7 @@
 											{
 												<div class="entry">
 													<label class="entry-rank">@( entry.Rank ).</label>
-													<img class="entry-avatar" src="avatar:@( entry.SteamId )"/>
+													<img class="entry-avatar" src="avatar:@( entry.SteamId )" alt="avatar"/>
 													<label class="entry-displayname">@( entry.DisplayName )</label>
 													<label class="entry-value">@( entry.Value )</label>
 												</div>
@@ -96,17 +96,17 @@
 							var globalStats = Stats.GetGlobalStats( Ident );
 							var mapStatGroups = new[]
 							{
-								("Total Plays", globalStats.Get( "plays" )),
-								("Total Completions", globalStats.Get( $"wins_on_map_{Map.Ident}" )),
-								("Total Losses", globalStats.Get( $"losses_on_map_{Map.Ident}" )),
-								("Total Restarts", globalStats.Get( $"restarts_on_map_{Map.Ident}" )),
-								("S Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_s" )),
-								("A Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_a" )),
-								("B Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_b" )),
-								("C Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_c" )),
-								("D Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_d" )),
-								("E Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_e" )),
-								("F Rank Completions", globalStats.Get( $"wins_on_map_{Map.Ident}_with_rank_f" ))
+								("Total Plays", globalStats.Get( $"Plays_{Map.Ident}" )),
+								("Total Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}" )),
+								("Total Losses", globalStats.Get( $"Losses_on_map_{Map.Ident}" )),
+								("Total Restarts", globalStats.Get( $"Restarts_on_map_{Map.Ident}" )),
+								("S Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_S" )),
+								("A Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_A" )),
+								("B Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_B" )),
+								("C Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_C" )),
+								("D Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_D" )),
+								("E Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_E" )),
+								("F Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_F" ))
 							};
 						}
 
@@ -124,17 +124,17 @@
 							var localStats = Stats.GetLocalPlayerStats( Ident );
 							var personalMapStats = new[]
 							{
-								("Total Plays", localStats.Get( $"plays_{Map.Ident}" )),
-								("Total Completions", localStats.Get( $"wins_on_map_{Map.Ident}" )),
-								("Total Losses", localStats.Get( $"losses_on_map_{Map.Ident}" )),
-								("Total Restarts", localStats.Get( $"restarts_on_map_{Map.Ident}" )),
-								("S Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_s" )),
-								("A Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_a" )),
-								("B Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_b" )),
-								("C Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_c" )),
-								("D Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_d" )),
-								("E Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_e" )),
-								("F Rank Completions", localStats.Get( $"wins_on_map_{Map.Ident}_with_rank_f" ))
+								("Total Plays", localStats.Get( $"Plays_{Map.Ident}" )),
+								("Total Completions", localStats.Get( $"Wins_on_map_{Map.Ident}" )),
+								("Total Losses", localStats.Get( $"Losses_on_map_{Map.Ident}" )),
+								("Total Restarts", localStats.Get( $"Restarts_on_map_{Map.Ident}" )),
+								("S Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_S" )),
+								("A Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_A" )),
+								("B Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_B" )),
+								("C Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_C" )),
+								("D Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_D" )),
+								("E Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_E" )),
+								("F Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_F" ))
 							};
 						}
 
