@@ -15,7 +15,7 @@ AnomalyList {
   cursor: none;
   width: 450px;
   bottom: 50px;
-  max-height: 400px;
+  max-height: 500px;
   left: 50px;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(12px);
@@ -34,7 +34,7 @@ AnomalyList {
 
   button {
     width: 100%;
-    height: 55px;
+    height: 70px;
     color: white;
     font-size: 20px;
     padding: 0 20px;

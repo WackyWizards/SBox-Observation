@@ -64,6 +64,8 @@ public class Anomaly : Component
 		CameraMalfunction,
 		[Title( "Intruder" )]
 		Intruder,
+		[Title( "Other" )]
+		Other
 	}
 }
 
