@@ -13,10 +13,39 @@ public class Map
 	public Observation.Platform.Achievement? WinAchievement { get; set; }
 	[Title( "S Rank Achievement" )] public Observation.Platform.Achievement? SRankAchievement { get; set; }
 
-	[JsonIgnore] public Rank? HighestRankAchieved => GetHighestRankAchieved() ?? Rank.F;
-	[JsonIgnore] public double? HighestPercentageAchieved => GetHighestPercentageAchieved() ?? 0.0;
+	[JsonIgnore, ReadOnly] public Rank? HighestRankAchieved
+	{
+		get
+		{
+			return GetHighestRankAchieved() ?? _highestRank;
+		}
+		private set
+		{
+			_highestRank = value;
+		}
+	}
+	[Hide] private Rank? _highestRank = Rank.F;
+	
+	[JsonIgnore, ReadOnly] public double HighestPercentageAchieved
+	{
+		get
+		{
+			return GetHighestPercentageAchieved() ?? _highestPercentage;
+		}
+		private set
+		{
+			_highestPercentage = value;
+		}
+	}
+	[Hide] private double _highestPercentage;
 
-	private const string GameIdent = "spoonstuff.observation";
+	[Hide] private const string GameIdent = "spoonstuff.observation";
+
+	public Map()
+	{
+		HighestRankAchieved = GetHighestRankAchieved();
+		HighestPercentageAchieved = GetHighestPercentageAchieved() ?? 0.0;
+	}
 
 	private Rank? GetHighestRankAchieved()
 	{
