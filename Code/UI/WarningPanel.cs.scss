@@ -1,7 +1,7 @@
 @import "/UI/Styles/Buttons.scss";
 
 // Variables
-$panel-bg-color: rgba(0, 0, 0, 0.99);
+$panel-bg-color: rgba(0, 0, 0, 0.5);
 $content-bg-color: rgba(20, 20, 20, 1);
 $box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
 
@@ -12,29 +12,30 @@ WarningPanel {
     align-items: center;
     justify-content: center;
     background-color: $panel-bg-color;
-    font-family: Poppins, sans-serif;
+    font-family: "IBM Plex Mono";
+    backdrop-filter: blur(10px);
     pointer-events: all;
     z-index: 999;
 
     > .main {
-        display: flex;
-        flex-direction: column;
+        pointer-events: all;
         width: 50%;
-        height: auto;
-        min-height: 300px;
-        padding: 32px 24px;
+        height: 45%;
         color: white;
-        background-color: $content-bg-color;
-        border-radius: 4px;
-        box-shadow: $box-shadow;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 10px black;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        text-shadow: 0 2px 2px black;
+        flex-direction: column;
+        padding: 50px;
         text-align: center;
         align-items: center;
         justify-content: center;
 
         .title {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 16px;
+            font-size:50px;
+            font-weight: 800;
+            margin-bottom: 25px;
         }
 
         .warning {
@@ -42,12 +43,13 @@ WarningPanel {
         }
 
         .buttons {
-            gap: 16px;
-            padding: 8px 0;
+            width: 100%;
+            justify-content: space-between;
+            gap: 5px;
 
             .button {
-                width: 350px;
-                max-width: 100%;
+                width: 100%;
+                margin: 25px 10px;
             }
         }
     }
