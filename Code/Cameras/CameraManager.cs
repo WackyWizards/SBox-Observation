@@ -79,8 +79,19 @@ public class CameraManager : Component
 		if ( !ActiveCamera.IsValid() || PossibleCameras.Count == 0 ) return;
 
 		var currentIndex = PossibleCameras.IndexOf( ActiveCamera );
-		var nextIndex = (currentIndex + 1) % PossibleCameras.Count;
-		SetActiveCamera( PossibleCameras[nextIndex] );
+		var nextIndex = currentIndex;
+
+		foreach ( var camera in PossibleCameras )
+		{
+			nextIndex = (nextIndex + 1) % PossibleCameras.Count;
+			if ( !CanActivateCamera( PossibleCameras[nextIndex] ) )
+			{
+				continue;
+			}
+
+			SetActiveCamera( PossibleCameras[nextIndex] );
+			return;
+		}
 	}
 
 	public void SetPreviousAvailableActive()
@@ -88,7 +99,28 @@ public class CameraManager : Component
 		if ( !ActiveCamera.IsValid() || PossibleCameras.Count == 0 ) return;
 
 		var currentIndex = PossibleCameras.IndexOf( ActiveCamera );
-		var prevIndex = (currentIndex - 1 + PossibleCameras.Count) % PossibleCameras.Count;
-		SetActiveCamera( PossibleCameras[prevIndex] );
+		var prevIndex = currentIndex;
+
+		foreach ( var camera in PossibleCameras )
+		{
+			prevIndex = (prevIndex - 1 + PossibleCameras.Count) % PossibleCameras.Count;
+			if ( !CanActivateCamera( PossibleCameras[prevIndex] ) )
+			{
+				continue;
+			}
+
+			SetActiveCamera( PossibleCameras[prevIndex] );
+			return;
+		}
+	}
+
+	public bool CanActivateCamera( Camera camera )
+	{
+		if ( AnomalyManager.Instance is {} anomalyManager )
+		{
+			return !anomalyManager.ActiveAnomalies.Contains( camera );
+		}
+
+		return camera.IsAvailable();
 	}
 }
