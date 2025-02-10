@@ -33,10 +33,16 @@ public class GameManager : Component
 		base.OnStart();
 	}
 
+	private static void GameStat( Rank rank, Map map )
+	{
+		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}", 1 );
+		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}", 1 );
+	}
+
 	public void EndGameInLoss( LoseReason reason )
 	{
 		Log.Info( "Game Lost!" );
-		
+
 		Sandbox.Services.Stats.Increment( "Losses", 1 );
 		Sandbox.Services.Stats.Increment( $"Losses_due_to_{reason}", 1 );
 
@@ -46,6 +52,7 @@ public class GameManager : Component
 
 			if ( AnomalyManager.Instance is {} anomalyManager )
 			{
+				GameStat( anomalyManager.Rank, activeMap );
 				Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
 				Sandbox.Services.Stats.SetValue( "Success_rate", anomalyManager.SuccessRate );
 				Sandbox.Services.Stats.SetValue( $"Success_rate_on_map_{activeMap.Ident}", anomalyManager.SuccessRate );
@@ -62,7 +69,7 @@ public class GameManager : Component
 	public void EndGameInWin()
 	{
 		Log.Info( "Game Win!" );
-		
+
 		Sandbox.Services.Stats.Increment( "Wins", 1 );
 		if ( MapManager.Instance?.ActiveMap is {} activeMap )
 		{
@@ -71,6 +78,7 @@ public class GameManager : Component
 
 			if ( AnomalyManager.Instance is {} anomalyManager )
 			{
+				GameStat( anomalyManager.Rank, activeMap );
 				Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
 				Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
 				Sandbox.Services.Stats.SetValue( "Success_rate", anomalyManager.SuccessRate );
@@ -78,7 +86,6 @@ public class GameManager : Component
 
 				if ( anomalyManager.Rank == Rank.S )
 				{
-					Sandbox.Services.Stats.Increment( $"Rank_S", 1 );
 					activeMap.SRankAchievement?.Unlock();
 				}
 			}
