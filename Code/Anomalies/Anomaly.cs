@@ -71,6 +71,7 @@ public class Anomaly : Component
 		[Title( "Audio Anomaly" )]
 		Audio,
 		[Title( "Camera Malfunction" )]
+		[RoomReport]
 		CameraMalfunction,
 		[Title( "Intruder" )]
 		Intruder,

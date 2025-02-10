@@ -88,11 +88,7 @@ public class Cursor : Component
 		// Define which anomaly types use room-based reporting
 		static bool UsesRoomBasedReporting( Anomaly.AnomalyType type )
 		{
-			return type switch
-			{
-				Anomaly.AnomalyType.CameraMalfunction => true,
-				_ => false
-			};
+			return type.GetAttributeOfType<RoomReportAttribute>() is not null;
 		}
 
 		void ReportCallback( Anomaly.AnomalyType type )
