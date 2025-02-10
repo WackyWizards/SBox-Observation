@@ -32,18 +32,51 @@
       width: 100%;
       height: 150px;
       flex-shrink: 0;
-      display: flex;
+      padding: 8px;
       background-color: rgba(255, 255, 255, 0.08);
       border: 2px solid rgba(255, 255, 255, 0.6);
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
       transition: all 0.2s ease-out;
+      
+      .label {
+        flex-shrink: 0;
+      }
+      
+      .stats {
+        flex-direction: column;
+      }
+      
+      .stat {
+        flex-direction: row;
+        font-size: 20px;
+        align-items: center;
+        
+        .iconpanel {
+          margin: 5px;
+        }
+        
+        .label {
+          margin-left: 2px;
+        }
+      }
 
       .map-name {
         font-size: 32px;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         font-weight: 600;
+        text-align: left;
+        margin-left: 10px;
+      }
+      
+      .map-rank {
+        &.s {
+          color: gold;
+          text-shadow: 0 1px 1px gold;
+        }
+      }
+      
+      .map-percentage {
+        margin-left: 5px;
       }
 
       .map-difficulty {
