@@ -1,0 +1,34 @@
+﻿@using System
+@using Sandbox.UI
+@using Observation
+
+@namespace Observation.UI
+@attribute [Hud( true )]
+@inherits Panel
+
+@if ( CameraManager.Instance is not {} cameraManager )
+{
+	return;
+}
+
+@* ReSharper disable CSharpWarnings::CS8974 *@
+<root>
+	@foreach ( var camera in cameraManager.PossibleCameras )
+	{
+		<button onclick="@( () => Report( camera.Room ) )">@camera.Room</button>
+	}
+</root>
+
+@code {
+	#nullable enable
+
+	public Anomaly.AnomalyType AnomalyType { get; set; }
+
+	public Action<string, Anomaly.AnomalyType>? OnReport { get; set; }
+
+	public void Report( string room )
+	{
+		OnReport?.Invoke( room, AnomalyType );
+		this.Hide();
+	}
+}

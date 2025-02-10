@@ -1,21 +1,10 @@
-﻿@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-AnomalyList {
+﻿RoomList {
   position: absolute;
   pointer-events: all;
   cursor: none;
   width: 450px;
   bottom: 50px;
-  max-height: 500px;
+  max-height: 400px;
   left: 50px;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(12px);

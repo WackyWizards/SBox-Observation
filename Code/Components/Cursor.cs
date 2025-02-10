@@ -73,7 +73,6 @@ public class Cursor : Component
 
 	private static void ShowAnomalyList( GameObject targetObject )
 	{
-
 		var hud = Hud.Instance;
 		if ( !hud.IsValid() )
 			return;
@@ -86,12 +85,85 @@ public class Cursor : Component
 		anomalyList.OnReport += ReportCallback;
 		return;
 
+		// Define which anomaly types use room-based reporting
+		static bool UsesRoomBasedReporting( Anomaly.AnomalyType type )
+		{
+			return type switch
+			{
+				Anomaly.AnomalyType.CameraMalfunction => true,
+				_ => false
+			};
+		}
+
 		void ReportCallback( Anomaly.AnomalyType type )
 		{
-			var room = CameraManager.Instance?.ActiveCamera?.Room ?? "N/A";
-			var reportConfirmation = hud.GetFirstElement<ReportConfirm>();
-			reportConfirmation?.Show( type, room, () => AnomalyManager.Instance?.Report( type, targetObject ) );
+			var selectedRoom = GetRoom( type );
+
+			if ( UsesRoomBasedReporting( type ) )
+			{
+				RoomSelection();
+				return;
+			}
+
+			CompleteReport( type, selectedRoom );
+		}
+
+		string GetRoom( Anomaly.AnomalyType type )
+		{
+			if ( !UsesRoomBasedReporting( type ) )
+			{
+				return CameraManager.Instance?.ActiveCamera?.Room ?? "N/A";
+			}
+
+			return "N/A";
+		}
+
+		void RoomSelection()
+		{
+			var roomList = Hud.GetElement<RoomList>();
+			if ( !roomList.IsValid() )
+				return;
+
+			roomList.Show();
+			roomList.OnReport += HandleRoomSelection;
+		}
+
+		void HandleRoomSelection( string room, Anomaly.AnomalyType anomalyType )
+		{
+			var roomList = Hud.GetElement<RoomList>();
+			if ( roomList.IsValid() )
+			{
+				roomList.OnReport -= HandleRoomSelection;
+			}
+
+			CompleteReport( anomalyType, room );
+		}
+
+		void CompleteReport( Anomaly.AnomalyType type, string room )
+		{
+			ShowReportConfirmation( type, room );
 			anomalyList.OnReport -= ReportCallback;
+		}
+
+		void ShowReportConfirmation( Anomaly.AnomalyType type, string room )
+		{
+			var reportConfirmation = hud.GetFirstElement<ReportConfirm>();
+			if ( !reportConfirmation.IsValid() )
+				return;
+
+			reportConfirmation.Show( type, room, () =>
+			{
+				if ( UsesRoomBasedReporting( type ) )
+				{
+					AnomalyManager.Instance?.Report( type, room );
+				}
+				else
+				{
+					AnomalyManager.Instance?.Report( type, targetObject );
+				}
+
+				Log.Info( $"Reporting {type} in room: {room}" );
+			} );
 		}
 	}
 
