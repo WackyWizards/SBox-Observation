@@ -5,6 +5,7 @@
 @attribute [Hud( true )]
 @inherits Panel
 
+@* ReSharper disable CSharpWarnings::CS8974 *@
 <root>
 	<label class="title" @ref="_title">@GetTitle()</label>
 	<label class="sub-title" @ref="_subTitle">@GetSubTitle( _isWin, _loseReason )</label>

@@ -21,6 +21,7 @@
 
 @code {
 	#nullable enable
+    
 	private static GameTimer? TimerInstance => GameTimer.Instance;
 	private static string ElapsedTime => TimerInstance?.GetDisplayTime() ?? "N/A";
 

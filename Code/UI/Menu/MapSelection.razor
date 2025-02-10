@@ -5,6 +5,7 @@
 @namespace Observation.UI
 @inherits MenuSubPanel
 
+@* ReSharper disable CSharpWarnings::CS8974 *@
 <root class="hidden">
 	<label class="title">Maps</label>
 
@@ -19,7 +20,7 @@
 						<div class="stat">
 							<i>star</i>
 							<label>Highest Rank: </label>
-							<label class="map-rank @(map.HighestRankAchieved)">@( map.HighestRankAchieved )</label>
+							<label class="map-rank @( map.HighestRankAchieved )">@( map.HighestRankAchieved )</label>
 						</div>
 						<div class="stat">
 							<i>trending_up</i>

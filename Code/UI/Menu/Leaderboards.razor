@@ -1,11 +1,11 @@
 ﻿@using System
 @using System.Threading.Tasks
-@using Sandbox.Network
 @using Sandbox.Services
 
 @namespace Observation.UI
 @inherits MenuSubPanel
 
+@* ReSharper disable CSharpWarnings::CS8974 *@
 <root class="hidden">
 	<div class="tab-selection">
 		<button class="@(_selectedTab == 0 ? "disabled" : "")" onclick="@( () => SelectTab( 0 ) )">Leaderboards</button>
