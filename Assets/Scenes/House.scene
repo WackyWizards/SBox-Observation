@@ -159,6 +159,26 @@
             },
             "Weight": 3,
             "MinTime": 500
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "abc08432-f34e-450a-b922-b3c5d1dbbf13",
+              "go": "2f514224-a531-4722-bf92-ee9f24322f99",
+              "component_type": "Enabler"
+            },
+            "Weight": 4,
+            "MinTime": 300
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "7d37cc0d-2e06-49d4-beae-02db0534db37",
+              "go": "7d8aab1e-e95b-40a7-87df-fc44d36cd217",
+              "component_type": "Enabler"
+            },
+            "Weight": 2,
+            "MinTime": 400
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -574,16 +594,14 @@
           "Position": "-79.48843,97.77988,36.49426",
           "Scale": "0.9185477,0.006542607,0.879942",
           "Tags": "anomaly",
-          "Enabled": true,
           "Components": [
             {
               "__type": "Sandbox.ModelRenderer",
               "__guid": "bce3037c-fbfc-4192-b178-673011fa288b",
-              "__enabled": false,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
               "MaterialGroup": null,
-              "MaterialOverride": "materials/anomalies/garry.vmat",
+              "MaterialOverride": "materials/anomalies/garry/garry.vmat",
               "Model": "models/dev/box.vmdl",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -2747,6 +2765,171 @@
                   "SortLayer": 0
                 }
               ]
+            }
+          ]
+        },
+        {
+          "__guid": "2f514224-a531-4722-bf92-ee9f24322f99",
+          "Flags": 0,
+          "Name": "Axe",
+          "Position": "-1252.296,745.3013,24.60339",
+          "Rotation": "0.00000002541439,-0.1305262,0.9914449,0.0000001930414",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "340d9969-a030-4994-8af5-ea4204e7c3bc",
+              "__enabled": false,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/axe/axe.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "76acb92b-0f0f-43bf-8b64-32702206f59f",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "32,32,32",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "abc08432-f34e-450a-b922-b3c5d1dbbf13",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "340d9969-a030-4994-8af5-ea4204e7c3bc",
+                  "go": "2f514224-a531-4722-bf92-ee9f24322f99",
+                  "component_type": "ModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Gardening",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            }
+          ]
+        },
+        {
+          "__guid": "7d8aab1e-e95b-40a7-87df-fc44d36cd217",
+          "Flags": 0,
+          "Name": "Blood",
+          "Position": "-1377.969,838.1066,-68.75366",
+          "Rotation": "-0.000000000000000000006776264,0.00000008940697,-0.00000000000008038873,-0.9999999",
+          "Scale": "5,5,1",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "ba846367-61a5-4b42-a7e4-780e9f19db92",
+              "__enabled": false,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/anomalies/blood/blood.vmat",
+              "Model": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,0.99"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "16d62209-9811-4a7d-bdb3-0f71b039222c",
+              "Center": "-2.322172,0,7.717353",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "34.49163,32,47.4347",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "7d37cc0d-2e06-49d4-beae-02db0534db37",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "ba846367-61a5-4b42-a7e4-780e9f19db92",
+                  "go": "7d8aab1e-e95b-40a7-87df-fc44d36cd217",
+                  "component_type": "ModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Gardening",
+              "ShowOnCamera": false,
+              "Type": "Other"
             }
           ]
         }
