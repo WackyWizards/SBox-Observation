@@ -1,3 +1,4 @@
+using System;
 using Observation.UI;
 using Sandbox.UI;
 
@@ -80,6 +81,10 @@ public class Cursor : Component
 		var anomalyList = hud.GetFirstElement<AnomalyList>();
 		if ( !anomalyList.IsValid() )
 			return;
+
+		anomalyList.AvailableTypes = Enum.GetValues<Anomaly.AnomalyType>()
+			.Where( AnomalyList.IsVisibleType )
+			.ToList();
 
 		anomalyList.Show();
 		anomalyList.OnReport += ReportCallback;

@@ -7,9 +7,9 @@
 @inherits Panel
 
 <root>
-	@foreach ( var anomalyType in Enum.GetValues<Anomaly.AnomalyType>() )
+	@foreach ( var anomalyType in AvailableTypes )
 	{
-		<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetTitle()</button>
+			<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetTitle()</button>
 	}
 </root>
 
@@ -18,13 +18,32 @@
 
 	public Action<Anomaly.AnomalyType>? OnReport { get; set; }
 
+	public List<Anomaly.AnomalyType> AvailableTypes { get; set; } = [];
+	
+	public static bool IsVisibleType( Anomaly.AnomalyType type )
+	{
+		if ( type.GetAttributeOfType<HideReportAttribute>() is null )
+			return true;
+		
+		if ( AnomalyManager.Instance is not {} anomalyManager || CameraManager.Instance is not {} cameraManager )
+			return false;
+			
+		if ( cameraManager.ActiveCamera is {} activeCamera )
+		{
+			return anomalyManager.ActiveAnomalies
+				.Any( x => x.Room == activeCamera.Room && x.Type == type );
+		}
+
+		return false;
+	}
+
 	public void Report( Anomaly.AnomalyType type )
 	{
 		if ( type == Anomaly.AnomalyType.CameraMalfunction )
 		{
 			SetCameraList( type );
 		}
-		
+
 		OnReport?.Invoke( type );
 
 		this.Hide();
@@ -37,5 +56,10 @@
 			return;
 
 		cameraList.AnomalyType = anomalyType;
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( AvailableTypes, AvailableTypes?.Count );
 	}
 }
