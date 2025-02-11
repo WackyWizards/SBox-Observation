@@ -6,7 +6,6 @@
       "Flags": 0,
       "Name": "game",
       "Enabled": true,
-      "NetworkMode": 1,
       "__Prefab": "prefabs/game.prefab",
       "__PrefabVariables": {
         "Active Anomalies": [],
@@ -24,11 +23,11 @@
           {
             "Anomaly": {
               "_type": "component",
-              "component_id": "be874132-6409-44a9-8ae2-21ee62380927",
+              "component_id": "3b31fa01-1120-4865-9e13-86fd7ee82970",
               "go": "e2637479-81c5-4083-9a85-ecb8ed7951ad",
-              "component_type": "Enabler"
+              "component_type": "ObjectMover"
             },
-            "Weight": 7,
+            "Weight": 6,
             "MinTime": null
           },
           {
@@ -140,6 +139,26 @@
             },
             "Weight": 7,
             "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "a0e1847f-af2c-46e9-91fe-734e9e346f9b",
+              "go": "276ddaf6-0507-49b9-8455-95ffa36feb77",
+              "component_type": "Camera"
+            },
+            "Weight": 3,
+            "MinTime": 500
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "34319e6b-9da1-41e5-b17c-1c5fcce6b127",
+              "go": "ece3f903-486d-4712-aca1-f5491da60a05",
+              "component_type": "Camera"
+            },
+            "Weight": 3,
+            "MinTime": 500
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -253,7 +272,7 @@
         {
           "__guid": "86ad7d93-afac-4ab2-9151-62e41813bfc4",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Living Room",
           "Position": "132.9828,235.3012,82.82397",
           "Rotation": "0.1203838,0.05700176,-0.9215968,0.3645782",
           "Tags": "maincamera",
@@ -294,14 +313,15 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Living Room"
+              "Room": "Living Room",
+              "ShowOnCamera": false
             }
           ]
         },
         {
           "__guid": "ece3f903-486d-4712-aca1-f5491da60a05",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Kitchen",
           "Position": "75.57434,-406.9869,82.82397",
           "Rotation": "0.1203838,0.05700176,-0.9215968,0.3645782",
           "Tags": "maincamera",
@@ -341,14 +361,15 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Kitchen"
+              "Room": "Kitchen",
+              "ShowOnCamera": false
             }
           ]
         },
         {
           "__guid": "4218ce27-4133-4699-9b87-ce0be4dc1329",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Entrance",
           "Position": "817.9995,173.7538,87.06909",
           "Rotation": "0.0336042,0.1398055,-0.2842377,0.9479104",
           "Tags": "maincamera",
@@ -388,16 +409,17 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Entrance"
+              "Room": "Entrance",
+              "ShowOnCamera": false
             }
           ]
         },
         {
           "__guid": "276ddaf6-0507-49b9-8455-95ffa36feb77",
           "Flags": 0,
-          "Name": "Camera",
-          "Position": "-280.7889,804.3707,87.83264",
-          "Rotation": "0.06993548,0.1575457,-0.4289418,0.8867341",
+          "Name": "Gardening",
+          "Position": "-279.4248,805.2436,87.83264",
+          "Rotation": "0.07195287,0.1434106,-0.4426376,0.8822291",
           "Tags": "maincamera",
           "Components": [
             {
@@ -405,7 +427,7 @@
               "__guid": "dc2088ad-de37-4cd6-8882-d0b722e8b68b",
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
-              "FieldOfView": 75,
+              "FieldOfView": 70,
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -435,14 +457,15 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Gardening"
+              "Room": "Gardening",
+              "ShowOnCamera": false
             }
           ]
         },
         {
           "__guid": "6bde0dbc-c26c-42db-8508-1930fd2dea27",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Study",
           "Position": "575.2834,408.1252,85.76599",
           "Rotation": "-0.07007211,0.1094542,0.4673682,0.874458",
           "Tags": "maincamera",
@@ -482,14 +505,15 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Study"
+              "Room": "Study",
+              "ShowOnCamera": false
             }
           ]
         },
         {
           "__guid": "7c220a3f-0f4c-440f-8d96-b38ae75d6b5e",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Lounge",
           "Position": "158.7572,379.7305,79.01208",
           "Rotation": "-0.05679229,0.1086465,0.4106853,0.9034975",
           "Tags": "maincamera",
@@ -529,7 +553,8 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Lounge"
+              "Room": "Lounge",
+              "ShowOnCamera": false
             }
           ]
         }
@@ -619,6 +644,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Entrance",
+              "ShowOnCamera": false,
               "Type": "Manipulation"
             }
           ]
@@ -627,7 +653,7 @@
           "__guid": "e2637479-81c5-4083-9a85-ecb8ed7951ad",
           "Flags": 0,
           "Name": "Plate",
-          "Position": "-1393.383,-240.0357,1.362549",
+          "Position": "-1393.644,-239.7662,2.197021",
           "Tags": "debris,anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
@@ -636,7 +662,6 @@
             {
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "bf9ac563-6f1d-461b-8dbb-2e0dd600594b",
-              "__enabled": false,
               "AnimationGraph": null,
               "BodyGroups": 18446744073709551615,
               "BoneMergeTarget": null,
@@ -679,9 +704,9 @@
               "Gravity": true,
               "LinearDamping": 0,
               "Locking": {
-                "X": false,
-                "Y": false,
-                "Z": false,
+                "X": true,
+                "Y": true,
+                "Z": true,
                 "Pitch": false,
                 "Yaw": false,
                 "Roll": false
@@ -700,34 +725,9 @@
               "StartAsleep": false
             },
             {
-              "__type": "Observation.Anomalies.Enabler",
-              "__guid": "be874132-6409-44a9-8ae2-21ee62380927",
-              "ComponentList": [
-                {
-                  "_type": "component",
-                  "component_id": "bf9ac563-6f1d-461b-8dbb-2e0dd600594b",
-                  "go": "e2637479-81c5-4083-9a85-ecb8ed7951ad",
-                  "component_type": "SkinnedModelRenderer"
-                }
-              ],
-              "GameObjects": [],
-              "Name": "",
-              "OnAfterActive": null,
-              "OnAfterClear": null,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "ReportType": "Cursor",
-              "Room": "Kitchen",
-              "Type": "Extra"
-            },
-            {
               "__type": "Sandbox.BoxCollider",
               "__guid": "ca53d1cf-0b60-4fd4-a7d2-cf54c6e6cb9d",
-              "Center": "0,0,1.874996",
+              "Center": "-0.9953651,0,1.874996",
               "Friction": null,
               "IsTrigger": false,
               "OnComponentDestroy": null,
@@ -740,10 +740,90 @@
               "OnObjectTriggerExit": null,
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
-              "Scale": "20,20,16.04988",
+              "Scale": "21.99073,20,16.04988",
               "Static": true,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.ObjectMover",
+              "__guid": "3b31fa01-1120-4865-9e13-86fd7ee82970",
+              "DefaultWorldTransform": {
+                "Position": "-1290.759,22.31538,1364.973",
+                "Scale": "1,1,1",
+                "Rotation": "0,0,0,1"
+              },
+              "DesiredWorldTransform": {
+                "Position": "-1286.395,63.37971,1319.685",
+                "Scale": "1,1,1",
+                "Rotation": "0.9999886,0,0,-0.004766609"
+              },
+              "Name": "Kitchen",
+              "OnAfterActive": {
+                "__version": 9,
+                "__guid": "fe1237ae-b404-4a60-8a0b-b66ecf15f6b1",
+                "__changeId": 12,
+                "UserData": {
+                  "Title": "On After Active",
+                  "ReferencedComponentTypes": []
+                },
+                "Variables": [],
+                "Nodes": [
+                  {
+                    "Id": 0,
+                    "Type": "input"
+                  },
+                  {
+                    "Id": 2,
+                    "Type": "resource.ref",
+                    "Properties": {
+                      "T": "Sandbox.SoundEvent",
+                      "value": "sounds/anomalies/plate falling.sound"
+                    },
+                    "UserData": {
+                      "Position": "48,60"
+                    }
+                  },
+                  {
+                    "Id": 3,
+                    "Type": "sound.play",
+                    "UserData": {
+                      "Position": "180,-0"
+                    }
+                  }
+                ],
+                "Links": [
+                  {
+                    "SrcId": 0,
+                    "SrcName": "_signal",
+                    "DstId": 3,
+                    "DstName": "_signal"
+                  },
+                  {
+                    "SrcId": 0,
+                    "SrcName": "_target",
+                    "DstId": 3,
+                    "DstName": "_this"
+                  },
+                  {
+                    "SrcId": 2,
+                    "SrcName": "_result",
+                    "DstId": 3,
+                    "DstName": "soundEvent"
+                  }
+                ]
+              },
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Movement"
             }
           ]
         },
@@ -851,6 +931,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Study",
+              "ShowOnCamera": false,
               "Type": "Movement"
             }
           ]
@@ -961,6 +1042,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Lounge",
+              "ShowOnCamera": false,
               "Type": "Movement"
             }
           ]
@@ -1091,6 +1173,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Living Room",
+              "ShowOnCamera": false,
               "Type": "Extra"
             }
           ]
@@ -1221,6 +1304,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Study",
+              "ShowOnCamera": false,
               "Type": "Extra"
             }
           ]
@@ -1327,6 +1411,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Living Room",
+              "ShowOnCamera": false,
               "Type": "Audio"
             }
           ]
@@ -1457,6 +1542,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Entrance",
+              "ShowOnCamera": false,
               "Type": "Movement"
             }
           ]
@@ -1558,6 +1644,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Entrance",
+              "ShowOnCamera": false,
               "SoundComponent": {
                 "_type": "component",
                 "component_id": "6d7ef09f-c487-4859-9583-ec001d8f5252",
@@ -1623,6 +1710,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Kitchen",
+              "ShowOnCamera": false,
               "Type": "Manipulation"
             }
           ],
@@ -2229,6 +2317,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Lounge",
+              "ShowOnCamera": false,
               "Type": "Disappearance"
             }
           ]
@@ -2391,6 +2480,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Entrance",
+              "ShowOnCamera": false,
               "Type": "Extra"
             }
           ]
@@ -2514,7 +2604,149 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Gardening",
+              "ShowOnCamera": false,
               "Type": "Disappearance"
+            }
+          ]
+        },
+        {
+          "__guid": "6ddea427-7199-4533-a073-3f75cd024058",
+          "Flags": 0,
+          "Name": "Eyes",
+          "Position": "-1505.278,1070.626,64.80139",
+          "Rotation": "0.144841,0.03881001,0.2558927,0.9550046",
+          "Scale": "1,0.05,1",
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "ff4613bb-99d3-4c00-aa1e-986a0a697a85",
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "0,0,0,1"
+            },
+            {
+              "__type": "Sandbox.SoundPointComponent",
+              "__guid": "4a2eedc9-4e0a-4f28-a902-5faa8a1d088f",
+              "Distance": 512,
+              "DistanceAttenuation": false,
+              "DistanceAttenuationOverride": false,
+              "Falloff": [
+                {
+                  "x": 0,
+                  "y": 1,
+                  "in": 3.1415927,
+                  "out": -3.1415927,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 1,
+                  "y": 0,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Force2d": false,
+              "MaxRepeatTime": 1,
+              "MinRepeatTime": 1,
+              "Occlusion": false,
+              "OcclusionOverride": false,
+              "OcclusionRadius": 32,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Pitch": 1,
+              "PlayOnStart": true,
+              "ReflectionOverride": false,
+              "Reflections": false,
+              "Repeat": false,
+              "SoundEvent": null,
+              "SoundOverride": false,
+              "StopOnNew": false,
+              "TargetMixer": {
+                "Name": "game",
+                "Id": "cad14b60-f498-4364-a56d-065aa8ead305"
+              },
+              "Volume": 1
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "55ee75d9-a6ad-418c-92ea-417cee0e25ce",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "ff4613bb-99d3-4c00-aa1e-986a0a697a85",
+                  "go": "6ddea427-7199-4533-a073-3f75cd024058",
+                  "component_type": "ModelRenderer"
+                },
+                {
+                  "_type": "component",
+                  "component_id": "4a2eedc9-4e0a-4f28-a902-5faa8a1d088f",
+                  "go": "6ddea427-7199-4533-a073-3f75cd024058",
+                  "component_type": "SoundPointComponent"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Gardening",
+              "ShowOnCamera": false,
+              "Type": "Other"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "efa6c915-8642-4f71-97a7-461d466386be",
+              "Flags": 0,
+              "Name": "Object",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Decal",
+                  "__guid": "d4ddf877-2486-48a0-b4fd-324dbde45e5a",
+                  "__version": 1,
+                  "AttenuationAngle": 1,
+                  "ColorTexture": null,
+                  "ColorTint": "255,255,255,255",
+                  "NormalTexture": null,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "RMOTexture": null,
+                  "Size": "32,32,32",
+                  "SortLayer": 0
+                }
+              ]
             }
           ]
         }
@@ -2625,6 +2857,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Kitchen",
+              "ShowOnCamera": false,
               "Type": "Extra"
             },
             {
@@ -2748,6 +2981,7 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Kitchen",
+              "ShowOnCamera": false,
               "Type": "Extra"
             },
             {
@@ -2818,7 +3052,8 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Room": null
+          "Room": null,
+          "ShowOnCamera": false
         }
       ]
     },
@@ -2865,7 +3100,8 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Room": null
+          "Room": null,
+          "ShowOnCamera": false
         }
       ]
     },

@@ -6,7 +6,6 @@
       "Flags": 0,
       "Name": "game",
       "Enabled": true,
-      "NetworkMode": 1,
       "__Prefab": "prefabs/game.prefab",
       "__PrefabVariables": {
         "Active Anomalies": [],
@@ -17,6 +16,66 @@
               "component_id": "35e030e0-baf8-4626-96f7-90ffea13c1e8",
               "go": "36cfcad7-cba1-47ec-989a-452018f6d3a5",
               "component_type": "Enabler"
+            },
+            "Weight": 7,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "72d69f60-97ab-43ed-904c-7d8b6925a56f",
+              "go": "342b1ba9-7ea0-4c36-8026-a224a84f516f",
+              "component_type": "Enabler"
+            },
+            "Weight": 7,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "c69fb0b7-11c3-4e3d-9f56-8cd01cc3a940",
+              "go": "45be671f-8b7c-4cbe-a074-a58b1360b97b",
+              "component_type": "Enabler"
+            },
+            "Weight": 3,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "dd121208-3cfb-4b29-b5a1-c9bffa3d0fca",
+              "go": "d1e135b1-3a7b-489b-b9ec-c4a967b49c11",
+              "component_type": "Enabler"
+            },
+            "Weight": 5,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "1681b156-4d38-4117-b949-a508c39b60d8",
+              "go": "a14a9857-850b-46d4-8647-01557fbe2feb",
+              "component_type": "Enabler"
+            },
+            "Weight": 7,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "697fe05d-c340-4b55-8e91-ca33503654a1",
+              "go": "50e58c51-f5d1-40f0-8a62-ff8b69326e32",
+              "component_type": "Enabler"
+            },
+            "Weight": 5,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "a6a2109e-19f4-424c-964f-ba58a08b4a8e",
+              "go": "855f836f-0967-4d4e-9b3b-729c1be72b95",
+              "component_type": "ObjectMover"
             },
             "Weight": 7,
             "MinTime": null
@@ -147,7 +206,8 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Reception"
+              "Room": "Reception",
+              "ShowOnCamera": false
             }
           ]
         },
@@ -155,8 +215,8 @@
           "__guid": "920b1d2e-7a4a-48ff-8b35-d66ab2dca6d2",
           "Flags": 0,
           "Name": "Camera",
-          "Position": "-477.0951,103.509,1492.433",
-          "Rotation": "0.1150281,-0.06716927,-0.8652201,-0.4833745",
+          "Position": "-775.8553,107.7639,1492.433",
+          "Rotation": "0.04623716,-0.1319572,-0.3316015,-0.9330004",
           "Tags": "maincamera",
           "Components": [
             {
@@ -164,7 +224,7 @@
               "__guid": "9fe84b54-c889-4b20-9e20-667a11a0bd14",
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
-              "FieldOfView": 60,
+              "FieldOfView": 75,
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -194,7 +254,8 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Break Room"
+              "Room": "Break Room",
+              "ShowOnCamera": false
             }
           ]
         },
@@ -241,7 +302,8 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Storage"
+              "Room": "Storage",
+              "ShowOnCamera": false
             }
           ]
         },
@@ -288,7 +350,8 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Office"
+              "Room": "Office",
+              "ShowOnCamera": false
             }
           ]
         },
@@ -335,7 +398,8 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Pool"
+              "Room": "Pool",
+              "ShowOnCamera": false
             }
           ]
         },
@@ -382,7 +446,8 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Room": "Basement"
+              "Room": "Basement",
+              "ShowOnCamera": false
             }
           ]
         }
@@ -527,38 +592,743 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Break Room",
+              "ShowOnCamera": false,
               "Type": "Extra"
             }
           ]
-        }
-      ]
-    },
-    {
-      "__guid": "65a9757b-0030-4e91-ad1c-e1ce089feccc",
-      "Flags": 0,
-      "Name": "2000_monitor",
-      "Position": "-449.516,1038.011,2981.727",
-      "Rotation": "0.0001688573,-0.00004935762,-0.959812,0.2806438",
-      "Enabled": true,
-      "Components": [
+        },
         {
-          "__type": "Sandbox.Prop",
-          "__guid": "6710c852-b7df-4902-8d9d-7460f3f8fd99",
-          "BodyGroups": 18446744073709551615,
-          "Health": 0,
-          "IsStatic": false,
-          "MaterialGroup": null,
-          "Model": "models/props/2000_monitor/2000_monitor.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnPropBreak": null,
-          "OnPropTakeDamage": null,
-          "StartAsleep": false,
-          "Tint": "1,1,1,1"
+          "__guid": "342b1ba9-7ea0-4c36-8026-a224a84f516f",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-883.3655,698.7145,-813.8479",
+          "Rotation": "0,0,0.3420202,-0.9396926",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "b329f861-83ee-44ec-aa28-52a10d2a59fe",
+              "__enabled": false,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/industry/mop/joe_mop_sign_real.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "ebe4f10a-ae27-4477-b0c9-cd6f90a3452a",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/3t/industry/mop/joe_mop_sign_real.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "bf747293-4629-43b9-9b91-5f722e6da502",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "72d69f60-97ab-43ed-904c-7d8b6925a56f",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "b329f861-83ee-44ec-aa28-52a10d2a59fe",
+                  "go": "342b1ba9-7ea0-4c36-8026-a224a84f516f",
+                  "component_type": "ModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Basement",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            }
+          ]
+        },
+        {
+          "__guid": "45be671f-8b7c-4cbe-a074-a58b1360b97b",
+          "Flags": 0,
+          "Name": "Computer",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "c69fb0b7-11c3-4e3d-9f56-8cd01cc3a940",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "65a9757b-0030-4e91-ad1c-e1ce089feccc"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "89b7d5cd-c3d3-4e38-b4d2-3b6cb74a470f"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Reception",
+              "ShowOnCamera": false,
+              "Type": "Disappearance"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "65a9757b-0030-4e91-ad1c-e1ce089feccc",
+              "Flags": 0,
+              "Name": "2000_monitor",
+              "Position": "412.4029,539.088,-132.553",
+              "Rotation": "0.0001688573,-0.00004935762,-0.959812,0.2806438",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "6710c852-b7df-4902-8d9d-7460f3f8fd99",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": false,
+                  "MaterialGroup": null,
+                  "Model": "models/props/2000_monitor/2000_monitor.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "89b7d5cd-c3d3-4e38-b4d2-3b6cb74a470f",
+              "Flags": 0,
+              "Name": "2000_keyboard (1)",
+              "Position": "400.8823,520.837,-132.5371",
+              "Rotation": "0,0,-0.9981211,0.06127498",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "149bd265-a9b9-410c-8f19-edcc90784742",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": false,
+                  "MaterialGroup": null,
+                  "Model": "models/props/2000_keyboard/2000_keyboard.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "d1e135b1-3a7b-489b-b9ec-c4a967b49c11",
+          "Flags": 0,
+          "Name": "Static",
+          "Position": "613.2216,-857.429,-110.405",
+          "Rotation": "0,0,-0.3007484,0.9537035",
+          "Scale": "0.02074078,0.4380878,0.3839523",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "1b3ec93e-efed-45c1-b5ee-fc22fa48de42",
+              "Center": "-4.081764,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "175,70,70",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "dd121208-3cfb-4b29-b5a1-c9bffa3d0fca",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "eebae749-6b0a-47af-b4f3-ebe015ed6bc1"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "1733b1f0-758d-4e25-b865-2b47b3f058dd"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "1e8ec486-9046-4e0c-9a75-b62ab0125c8e"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Break Room",
+              "ShowOnCamera": false,
+              "Type": "Manipulation"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "eebae749-6b0a-47af-b4f3-ebe015ed6bc1",
+              "Flags": 0,
+              "Name": "Sound Point",
+              "Position": "0.000482905,-0.0001540795,0",
+              "Components": [
+                {
+                  "__type": "Sandbox.SoundPointComponent",
+                  "__guid": "c7a1930d-42f5-4e62-a968-f4f2328d2d62",
+                  "Distance": 1000,
+                  "DistanceAttenuation": true,
+                  "DistanceAttenuationOverride": true,
+                  "Falloff": [
+                    {
+                      "x": 0,
+                      "y": 1,
+                      "in": 3.1415927,
+                      "out": -3.1415927,
+                      "mode": "Mirrored"
+                    },
+                    {
+                      "x": 1,
+                      "y": 0,
+                      "in": 0,
+                      "out": 0,
+                      "mode": "Mirrored"
+                    }
+                  ],
+                  "Force2d": false,
+                  "MaxRepeatTime": 1,
+                  "MinRepeatTime": 1,
+                  "Occlusion": false,
+                  "OcclusionOverride": false,
+                  "OcclusionRadius": 32,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Pitch": 1,
+                  "PlayOnStart": true,
+                  "ReflectionOverride": false,
+                  "Reflections": false,
+                  "Repeat": false,
+                  "SoundEvent": "sounds/anomalies/static.sound",
+                  "SoundOverride": false,
+                  "StopOnNew": false,
+                  "TargetMixer": {
+                    "Name": "game",
+                    "Id": "fcf074fa-2e22-4ac7-a5be-6430b5eb1ef4"
+                  },
+                  "Volume": 1
+                }
+              ]
+            },
+            {
+              "__guid": "1733b1f0-758d-4e25-b865-2b47b3f058dd",
+              "Flags": 0,
+              "Name": "Object",
+              "Position": "0.000482905,-0.0001540795,0",
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "20c65223-5674-40db-9e5f-6713a363d095",
+                  "BodyGroups": 18446744073709551615,
+                  "CreateAttachments": false,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Model": null,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "1e8ec486-9046-4e0c-9a75-b62ab0125c8e",
+              "Flags": 0,
+              "Name": "Spot Light",
+              "Rotation": "0,0,-1,0.0000001788139",
+              "Tags": "light_spot,light",
+              "Components": [
+                {
+                  "__type": "Sandbox.SpotLight",
+                  "__guid": "acb87b31-02c0-4307-b23f-2eb29853b960",
+                  "Attenuation": 1,
+                  "ConeInner": 0,
+                  "ConeOuter": 50,
+                  "Cookie": null,
+                  "FogMode": "Enabled",
+                  "FogStrength": 1,
+                  "LightColor": "0.91373,0.98039,1,1",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Radius": 500,
+                  "Shadows": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "a14a9857-850b-46d4-8647-01557fbe2feb",
+          "Flags": 0,
+          "Name": "Bottles",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "1681b156-4d38-4117-b949-a508c39b60d8",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "ee0982c3-0a53-4384-8bd8-90b2c1aead5f"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "f46b7a16-9328-439f-9b78-ab4c82e39957"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Office",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "ee0982c3-0a53-4384-8bd8-90b2c1aead5f",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "-158.1031,872.8472,-135.4583",
+              "Rotation": "0,0,0.3826835,0.9238795",
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "94c225d8-23f7-4ee6-a234-05f6b5767c21",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/wine/3t_winebottle.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "f46b7a16-9328-439f-9b78-ab4c82e39957",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "-152.7075,868.3992,-135.4583",
+              "Rotation": "0,0,0.3826835,0.9238795",
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "dda1ea42-a4a9-4baf-9a38-17871b286db7",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/wine/3t_winebottle.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "50e58c51-f5d1-40f0-8a62-ff8b69326e32",
+          "Flags": 0,
+          "Name": "Computer",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "697fe05d-c340-4b55-8e91-ca33503654a1",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "dd3275bf-a180-4bb6-8779-b4e439fc7218"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "76791ee2-a0da-4c76-a69d-5c4ee3722bd9"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Office",
+              "ShowOnCamera": false,
+              "Type": "Manipulation"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "dd3275bf-a180-4bb6-8779-b4e439fc7218",
+              "Flags": 0,
+              "Name": "Spot Light",
+              "Position": "-98.56256,861.9873,-116.407",
+              "Rotation": "0.3683962,0.6148845,0.5756216,0.3935243",
+              "Tags": "light_spot,light",
+              "Components": [
+                {
+                  "__type": "Sandbox.SpotLight",
+                  "__guid": "173df986-5fb3-4c87-bde3-74b0d37fab23",
+                  "Attenuation": 3,
+                  "ConeInner": 15,
+                  "ConeOuter": 28.19,
+                  "Cookie": null,
+                  "FogMode": "Enabled",
+                  "FogStrength": 1,
+                  "LightColor": "0.91373,0.98039,1,1",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Radius": 500,
+                  "Shadows": true
+                }
+              ]
+            },
+            {
+              "__guid": "76791ee2-a0da-4c76-a69d-5c4ee3722bd9",
+              "Flags": 0,
+              "Name": "Sound Point",
+              "Position": "-100.1883,866.8451,-116.7639",
+              "Rotation": "0,0,0.8634226,0.5044814",
+              "Components": [
+                {
+                  "__type": "Sandbox.SoundPointComponent",
+                  "__guid": "ac5d5523-7d47-43b1-9235-266e8d70cd08",
+                  "Distance": 1000,
+                  "DistanceAttenuation": true,
+                  "DistanceAttenuationOverride": true,
+                  "Falloff": [
+                    {
+                      "x": 0,
+                      "y": 1,
+                      "in": 3.1415927,
+                      "out": -3.1415927,
+                      "mode": "Mirrored"
+                    },
+                    {
+                      "x": 1,
+                      "y": 0,
+                      "in": 0,
+                      "out": 0,
+                      "mode": "Mirrored"
+                    }
+                  ],
+                  "Force2d": false,
+                  "MaxRepeatTime": 1,
+                  "MinRepeatTime": 1,
+                  "Occlusion": false,
+                  "OcclusionOverride": false,
+                  "OcclusionRadius": 32,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Pitch": 1,
+                  "PlayOnStart": true,
+                  "ReflectionOverride": false,
+                  "Reflections": false,
+                  "Repeat": false,
+                  "SoundEvent": "sounds/impacts/melee/impact-melee-flesh.sound",
+                  "SoundOverride": false,
+                  "StopOnNew": false,
+                  "TargetMixer": {
+                    "Name": "unknown",
+                    "Id": "00000000-0000-0000-0000-000000000000"
+                  },
+                  "Volume": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "855f836f-0967-4d4e-9b3b-729c1be72b95",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "509.9189,-374.1509,-172.5498",
+          "Rotation": "0,0,0.7071068,-0.7071068",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "6c23fdda-d3d6-42d6-81d2-6cca309be41c",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/office/cooler/joe_cooler.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "a58597ec-3626-4973-9300-7040f7469998",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/3t/office/cooler/joe_cooler.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "a6fea35f-5783-4f4d-b40f-5ff559d0a19c",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.ObjectMover",
+              "__guid": "a6a2109e-19f4-424c-964f-ba58a08b4a8e",
+              "DefaultWorldTransform": {
+                "Position": "-352,124.7721,2941.73",
+                "Scale": "1,1,1",
+                "Rotation": "0,0,0.7071068,-0.7071068"
+              },
+              "DesiredWorldTransform": {
+                "Position": "-236.6545,-202.7144,2941.729",
+                "Scale": "1,1,1",
+                "Rotation": "0,0,1,-0.00000004371139"
+              },
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Break Room",
+              "ShowOnCamera": false,
+              "Type": "Movement"
+            }
+          ]
         }
       ]
     },
@@ -621,21 +1391,22 @@
       ]
     },
     {
-      "__guid": "89b7d5cd-c3d3-4e38-b4d2-3b6cb74a470f",
+      "__guid": "30d48b04-32a7-4961-a2c4-520cafff60b2",
       "Flags": 0,
-      "Name": "2000_keyboard (1)",
-      "Position": "-461.0366,1019.76,2981.743",
-      "Rotation": "0,0,-0.9981211,0.06127498",
+      "Name": "donut_tint_mesh",
+      "Position": "-250.6977,-179.7269,2975.07",
+      "Rotation": "0,0,0.2059829,0.9785556",
+      "Scale": "0.2,0.2,0.2",
       "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.Prop",
-          "__guid": "149bd265-a9b9-410c-8f19-edcc90784742",
+          "__guid": "8d10a365-a565-475e-86d5-aa1cf9cbd4e4",
           "BodyGroups": 18446744073709551615,
           "Health": 0,
-          "IsStatic": false,
+          "IsStatic": true,
           "MaterialGroup": null,
-          "Model": "models/props/2000_keyboard/2000_keyboard.vmdl",
+          "Model": "models/food/donut/donut_tint_mesh.vmdl",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -646,6 +1417,63 @@
           "OnPropTakeDamage": null,
           "StartAsleep": false,
           "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "0ccf42e4-c2da-45dc-ac30-2fc78ac9150d",
+      "Flags": 0,
+      "Name": "donut_tint_mesh (1)",
+      "Position": "-253.613,-173.3774,2975.07",
+      "Rotation": "0,0,0.01461813,0.9998932",
+      "Scale": "0.2,0.2,0.2",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "30fdbce7-6c98-4b44-89ec-a27b6b0f06c9",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": true,
+          "MaterialGroup": null,
+          "Model": "models/food/donut/donut_tint_mesh.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "e28931f2-5b54-4371-a656-16846de27e66",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {
+            "X": false,
+            "Y": false,
+            "Z": false,
+            "Pitch": false,
+            "Yaw": false,
+            "Roll": false
+          },
+          "MassCenterOverride": "0,0,0",
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OverrideMassCenter": false,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
         }
       ]
     }
@@ -678,7 +1506,8 @@
   "Description": null,
   "__references": [
     "fish.2000_keyboard#58967",
-    "fish.2000_monitor#58965"
+    "fish.2000_monitor#58965",
+    "vidya.model-donut-static#69261"
   ],
   "__version": 2
 }
