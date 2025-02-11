@@ -79,6 +79,26 @@
             },
             "Weight": 7,
             "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "e1e90ed6-0427-43b4-b107-b6406e108e34",
+              "go": "ff8f4ead-e222-485f-bb88-a04ff149f94b",
+              "component_type": "Enabler"
+            },
+            "Weight": 3,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "47b04f2c-efdd-4942-afc5-9dcffbf9c097",
+              "go": "98580bc3-0bd1-4970-93f9-9d5176e17a7a",
+              "component_type": "Enabler"
+            },
+            "Weight": 0,
+            "MinTime": 950
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -167,7 +187,7 @@
           "Flags": 0,
           "Name": "Camera",
           "Position": "-483.7085,1007.17,1559.026",
-          "Rotation": "0.1197327,-0.06979756,-0.8645816,-0.483002",
+          "Rotation": "0.1254611,-0.05988421,-0.838707,-0.5265397",
           "Tags": "maincamera",
           "Enabled": true,
           "Components": [
@@ -176,7 +196,7 @@
               "__guid": "3e523fb4-fb27-484c-a2e3-5c95640ad575",
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
-              "FieldOfView": 60,
+              "FieldOfView": 75,
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -408,7 +428,7 @@
           "Flags": 0,
           "Name": "Camera",
           "Position": "-1486.564,1755.228,880.3552",
-          "Rotation": "-0.1982311,-0.07745917,0.9187812,-0.3324843",
+          "Rotation": "-0.199038,-0.07536153,0.9152189,-0.3421682",
           "Tags": "maincamera",
           "Components": [
             {
@@ -711,6 +731,8 @@
           "__guid": "45be671f-8b7c-4cbe-a074-a58b1360b97b",
           "Flags": 0,
           "Name": "Computer",
+          "Position": "416.6632,526.8698,-132.4724",
+          "Rotation": "0,0,-1,0.00000002980232",
           "Tags": "anomaly",
           "Enabled": true,
           "Components": [
@@ -745,6 +767,27 @@
               "Room": "Reception",
               "ShowOnCamera": false,
               "Type": "Disappearance"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "090df00d-acb9-403e-b47b-1cf8140b9fc4",
+              "Center": "5.656485,6.283922,3.115528",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "32.58674,44.56784,38.23105",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             }
           ],
           "Children": [
@@ -752,8 +795,8 @@
               "__guid": "65a9757b-0030-4e91-ad1c-e1ce089feccc",
               "Flags": 0,
               "Name": "2000_monitor",
-              "Position": "412.4029,539.088,-132.553",
-              "Rotation": "0.0001688573,-0.00004935762,-0.959812,0.2806438",
+              "Position": "0.7540278,-7.946167,0",
+              "Rotation": "0,0,0.258819,0.9659258",
               "Enabled": true,
               "Components": [
                 {
@@ -832,8 +875,7 @@
               "__guid": "89b7d5cd-c3d3-4e38-b4d2-3b6cb74a470f",
               "Flags": 0,
               "Name": "2000_keyboard (1)",
-              "Position": "400.8823,520.837,-132.5371",
-              "Rotation": "0,0,-0.9981211,0.06127498",
+              "Position": "15.79898,11.00549,0",
               "Enabled": true,
               "Components": [
                 {
@@ -1481,6 +1523,89 @@
               "Type": "Movement"
             }
           ]
+        },
+        {
+          "__guid": "ff8f4ead-e222-485f-bb88-a04ff149f94b",
+          "Flags": 0,
+          "Name": "Blood",
+          "Position": "-89.46558,172.4402,-197.1091",
+          "Rotation": "-0.00000006072187,0.00000006562362,0.6791626,-0.7339877",
+          "Scale": "5,5,1",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "d8c806fa-ae6d-4b04-baad-8470202112ab",
+              "__enabled": false,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/anomalies/blood/blood.vmat",
+              "Model": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,0.99"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "5d8356e4-f441-43cc-8b0e-43d72252a5ee",
+              "Center": "-2.322172,0,7.717353",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "34.49163,32,47.4347",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "e1e90ed6-0427-43b4-b107-b6406e108e34",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "d8c806fa-ae6d-4b04-baad-8470202112ab",
+                  "go": "ff8f4ead-e222-485f-bb88-a04ff149f94b",
+                  "component_type": "ModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Storage",
+              "ShowOnCamera": false,
+              "Type": "Other"
+            }
+          ]
         }
       ]
     },
@@ -1628,6 +1753,146 @@
           "StartAsleep": false
         }
       ]
+    },
+    {
+      "__guid": "a4b14d0f-b218-4705-af73-c4e8865444df",
+      "Flags": 0,
+      "Name": "Object",
+      "Position": "-844.0928,828.0519,2920.471",
+      "Scale": "1.15,1.15,1",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "165740c9-128f-41db-b5bc-5eb60bfc54c6",
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "MaterialGroup": null,
+          "MaterialOverride": "materials/metal_grate_a/metal_grate_a.vmat",
+          "Model": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "98580bc3-0bd1-4970-93f9-9d5176e17a7a",
+      "Flags": 0,
+      "Name": "rock_cliff_a",
+      "Position": "-1801.439,789.492,2749.429",
+      "Rotation": "0.1747318,-0.03624074,-0.3848361,0.9055699",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "78ee9fb8-7c04-46c6-861e-a534b804a5fd",
+          "__enabled": false,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/rust_nature/rocks/rock_cliff_a.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "dbb3bca4-9520-4d47-990a-4b38efa137c0",
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/rust_nature/rocks/rock_cliff_a.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "cbdc5d16-8535-4a89-986d-3006c319f447",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {
+            "X": true,
+            "Y": true,
+            "Z": true,
+            "Pitch": false,
+            "Yaw": false,
+            "Roll": false
+          },
+          "MassCenterOverride": "0,0,0",
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OverrideMassCenter": false,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Observation.Anomalies.Enabler",
+          "__guid": "47b04f2c-efdd-4942-afc5-9dcffbf9c097",
+          "ComponentList": [
+            {
+              "_type": "component",
+              "component_id": "78ee9fb8-7c04-46c6-861e-a534b804a5fd",
+              "go": "98580bc3-0bd1-4970-93f9-9d5176e17a7a",
+              "component_type": "ModelRenderer"
+            }
+          ],
+          "GameObjects": [],
+          "Name": "",
+          "OnAfterActive": null,
+          "OnAfterClear": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "ReportType": "Cursor",
+          "Room": "Pool",
+          "ShowOnCamera": false,
+          "Type": "Rock"
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -1659,6 +1924,8 @@
   "__references": [
     "fish.2000_keyboard#58967",
     "fish.2000_monitor#58965",
+    "rust.rock_cliff_a#25118",
+    "rustextended.metal_grate_a#43300",
     "vidya.model-donut-static#69261"
   ],
   "__version": 2

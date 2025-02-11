@@ -76,7 +76,10 @@ public class Anomaly : Component
 		[Title( "Intruder" )]
 		Intruder,
 		[Title( "Other" )]
-		Other
+		Other,
+		[Title("Inconvenient Rock")]
+		[HideReport]
+		Rock
 	}
 }
 

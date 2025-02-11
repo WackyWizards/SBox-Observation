@@ -11,7 +11,14 @@
 		<label class="title" @ref="Title">Confirm Report</label>
 
 		<label class="text" @ref="_text">You are attempting to report @( AnomalyType.GetTitle() ) in @( RoomName ).</label>
-		<label class="text">Are you sure?</label>
+		@if ( AnomalyType == Anomaly.AnomalyType.Rock )
+		{
+			<label class="text">It's really inconvenient.</label>
+		}
+		else
+		{
+			<label class="text">Are you sure?</label>
+		}
 
 		<div class="button-container">
 			<button icon="check_circle" onclick="@Confirm">Yes</button>
@@ -22,7 +29,7 @@
 
 @code {
 	#nullable enable
-    
+
 	public Label? Title { get; set; }
 
 	public string RoomName { get; set; } = "N/A";
@@ -48,7 +55,7 @@
 		{
 			OnDeny = onDeny;
 		}
-		
+
 		this.Show();
 	}
 
