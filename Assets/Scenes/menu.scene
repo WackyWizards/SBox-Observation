@@ -34,7 +34,9 @@
               "Difficulty": "Normal",
               "Scene": "scenes/house.scene",
               "WinAchievement": "WinHouse",
-              "SRankAchievement": "SRankHouse"
+              "HardWinAchievement": "WinHouseHard",
+              "SRankAchievement": "SRankHouse",
+              "SRankHardAchievement": "SRankHouseHard"
             },
             {
               "Ident": "pool",
@@ -43,7 +45,9 @@
               "Difficulty": "Normal",
               "Scene": "scenes/pool.scene",
               "WinAchievement": "WinPool",
-              "SRankAchievement": "SRankPool"
+              "HardWinAchievement": "WinPoolHard",
+              "SRankAchievement": "SRankPool",
+              "SRankHardAchievement": "SRankPoolHard"
             }
           ],
           "OnComponentDestroy": null,
@@ -72,7 +76,9 @@
             "Difficulty": "Normal",
             "Scene": null,
             "WinAchievement": null,
-            "SRankAchievement": null
+            "HardWinAchievement": null,
+            "SRankAchievement": null,
+            "SRankHardAchievement": null
           },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,

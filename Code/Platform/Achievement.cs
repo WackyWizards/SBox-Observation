@@ -6,10 +6,18 @@ public enum Achievement
 	WinHouse,
 	[Title( "win_pool" )]
 	WinPool,
+	[Title( "win_house_hard" )]
+	WinHouseHard,
+	[Title( "win_pool_hard" )]
+	WinPoolHard,
 	[Title( "s_rank_house" )]
 	SRankHouse,
 	[Title( "s_rank_pool" )]
-	SRankPool
+	SRankPool,
+	[Title( "s_house_hard" )]
+	SRankHouseHard,
+	[Title( "s_pool_hard" )]
+	SRankPoolHard
 }
 
 public static class AchievementExtensions

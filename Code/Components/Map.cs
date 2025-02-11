@@ -11,7 +11,9 @@ public class Map
 	public Difficulty Difficulty { get; set; } = Difficulty.Normal;
 	public SceneFile? Scene { get; set; }
 	public Observation.Platform.Achievement? WinAchievement { get; set; }
+	public Observation.Platform.Achievement? HardWinAchievement { get; set; }
 	[Title( "S Rank Achievement" )] public Observation.Platform.Achievement? SRankAchievement { get; set; }
+	[Title( "S Rank Achievement Hard" )] public Observation.Platform.Achievement? SRankHardAchievement { get; set; }
 
 	[JsonIgnore, ReadOnly] public Rank? HighestRankAchieved
 	{

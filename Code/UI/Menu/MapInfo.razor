@@ -27,6 +27,16 @@
 			</div>
 			<div class="tabs">
 				<div class="tab @( _selectedTab == 0 ? "" : "hidden" )">
+					<div class="subtab-selection">
+						<button disabled="@( Map.Difficulty == Difficulty.Normal )"
+						        onclick="@( () => SelectDifficulty( Difficulty.Normal ) )"
+						        tooltip="No fail report penalty.">Normal Difficulty
+						</button>
+						<button disabled="@( Map.Difficulty == Difficulty.Hard )"
+						        onclick="@( () => SelectDifficulty( Difficulty.Hard ) )"
+						        tooltip="Too many fail reports is a game over.">Hard Difficulty
+						</button>
+					</div>
 					<label class="title">@( Map.Name )</label>
 					<label class="map-difficulty">Difficulty: @( Map.Difficulty )</label>
 					<label class="map-description">@( Map.Description )</label>
@@ -59,7 +69,8 @@
 											{
 												<div class="entry">
 													<label class="entry-rank">@( entry.Rank ).</label>
-													<img class="entry-avatar" src="avatar:@( entry.SteamId )" alt="avatar"/>
+													<img class="entry-avatar" src="avatar:@( entry.SteamId )"
+													     alt="avatar"/>
 													<label class="entry-displayname">@( entry.DisplayName )</label>
 													<label class="entry-value">@( entry.Value )</label>
 												</div>
@@ -77,7 +88,8 @@
 											{
 												<div class="entry">
 													<label class="entry-rank">@( entry.Rank ).</label>
-													<img class="entry-avatar" src="avatar:@( entry.SteamId )" alt="avatar"/>
+													<img class="entry-avatar" src="avatar:@( entry.SteamId )"
+													     alt="avatar"/>
 													<label class="entry-displayname">@( entry.DisplayName )</label>
 													<label class="entry-value">@( entry.Value )</label>
 												</div>
@@ -175,6 +187,16 @@
 	{
 		_selectedLeaderboardTab = index;
 		_ = RefreshCurrentLeaderboard();
+	}
+
+	public void SelectDifficulty( Difficulty difficulty )
+	{
+		if ( Map is null )
+		{
+			return;
+		}
+
+		Map.Difficulty = difficulty;
 	}
 
 	private async Task RefreshCurrentLeaderboard()
