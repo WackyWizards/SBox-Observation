@@ -1,7 +1,6 @@
 @namespace Observation.UI
 
 @using System
-@using System.Runtime.Serialization.Json
 @using Sandbox.Audio
 @using Sandbox.UI
 @inherits PanelComponent
@@ -118,11 +117,9 @@
 
 	public void Tutorial( Action? onReturn = null )
 	{
-		Log.Error( "a" );
 		if ( !_tutorial.IsValid() )
 			return;
 
-		Log.Error( "b" );
 		_tutorial.Show();
 		_tutorial.OnReturn = onReturn;
 	}
