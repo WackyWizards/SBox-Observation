@@ -85,13 +85,13 @@
         "Can Activate Anomalies": true,
         "Successful Reports": 0,
         "Fail Reports": 0,
-        "Fail Reports Til Game Over": 5,
+        "Fail Reports Til Game Over": 999999,
         "Hold Time": 1,
-        "Fail Reports Til Warning": 3,
+        "Fail Reports Til Warning": 999999,
         "Max Anomalies Til Warning": 3,
         "Min Anomaly Time": 20,
         "Max Anomaly Time": 60,
-        "Win Time": 1080
+        "Win Time": 1440
       }
     },
     {
@@ -711,22 +711,27 @@
           "__guid": "45be671f-8b7c-4cbe-a074-a58b1360b97b",
           "Flags": 0,
           "Name": "Computer",
+          "Tags": "anomaly",
           "Enabled": true,
           "Components": [
             {
               "__type": "Observation.Anomalies.Enabler",
               "__guid": "c69fb0b7-11c3-4e3d-9f56-8cd01cc3a940",
-              "ComponentList": [],
-              "GameObjects": [
+              "ComponentList": [
                 {
-                  "_type": "gameobject",
-                  "go": "65a9757b-0030-4e91-ad1c-e1ce089feccc"
+                  "_type": "component",
+                  "component_id": "b625cb80-f50f-4917-bf65-3c2ef4c3e468",
+                  "go": "65a9757b-0030-4e91-ad1c-e1ce089feccc",
+                  "component_type": "ModelRenderer"
                 },
                 {
-                  "_type": "gameobject",
-                  "go": "89b7d5cd-c3d3-4e38-b4d2-3b6cb74a470f"
+                  "_type": "component",
+                  "component_id": "6e0b7e0a-7713-4c3f-a90c-d29770030dd4",
+                  "go": "89b7d5cd-c3d3-4e38-b4d2-3b6cb74a470f",
+                  "component_type": "ModelRenderer"
                 }
               ],
+              "GameObjects": [],
               "Name": "",
               "OnAfterActive": null,
               "OnAfterClear": null,
@@ -752,12 +757,12 @@
               "Enabled": true,
               "Components": [
                 {
-                  "__type": "Sandbox.Prop",
-                  "__guid": "6710c852-b7df-4902-8d9d-7460f3f8fd99",
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "b625cb80-f50f-4917-bf65-3c2ef4c3e468",
                   "BodyGroups": 18446744073709551615,
-                  "Health": 0,
-                  "IsStatic": false,
+                  "CreateAttachments": false,
                   "MaterialGroup": null,
+                  "MaterialOverride": null,
                   "Model": "models/props/2000_monitor/2000_monitor.vmdl",
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
@@ -765,10 +770,61 @@
                   "OnComponentFixedUpdate": null,
                   "OnComponentStart": null,
                   "OnComponentUpdate": null,
-                  "OnPropBreak": null,
-                  "OnPropTakeDamage": null,
-                  "StartAsleep": false,
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
                   "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "ca93b3e8-ad64-4164-bc1a-702df9d16ab0",
+                  "Friction": null,
+                  "IsTrigger": false,
+                  "Model": "models/props/2000_monitor/2000_monitor.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                },
+                {
+                  "__type": "Sandbox.Rigidbody",
+                  "__guid": "4048a5de-076f-43a6-bd1a-e936fb62dc4e",
+                  "AngularDamping": 0,
+                  "Gravity": true,
+                  "LinearDamping": 0,
+                  "Locking": {
+                    "X": true,
+                    "Y": true,
+                    "Z": true,
+                    "Pitch": false,
+                    "Yaw": false,
+                    "Roll": false
+                  },
+                  "MassCenterOverride": "0,0,0",
+                  "MassOverride": 0,
+                  "MotionEnabled": true,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OverrideMassCenter": false,
+                  "RigidbodyFlags": 0,
+                  "StartAsleep": false
                 }
               ]
             },
@@ -781,12 +837,12 @@
               "Enabled": true,
               "Components": [
                 {
-                  "__type": "Sandbox.Prop",
-                  "__guid": "149bd265-a9b9-410c-8f19-edcc90784742",
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "6e0b7e0a-7713-4c3f-a90c-d29770030dd4",
                   "BodyGroups": 18446744073709551615,
-                  "Health": 0,
-                  "IsStatic": false,
+                  "CreateAttachments": false,
                   "MaterialGroup": null,
+                  "MaterialOverride": null,
                   "Model": "models/props/2000_keyboard/2000_keyboard.vmdl",
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
@@ -794,10 +850,61 @@
                   "OnComponentFixedUpdate": null,
                   "OnComponentStart": null,
                   "OnComponentUpdate": null,
-                  "OnPropBreak": null,
-                  "OnPropTakeDamage": null,
-                  "StartAsleep": false,
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
                   "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "de646073-7318-40cb-b69f-d05653065ef9",
+                  "Friction": null,
+                  "IsTrigger": false,
+                  "Model": "models/props/2000_keyboard/2000_keyboard.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                },
+                {
+                  "__type": "Sandbox.Rigidbody",
+                  "__guid": "a16db84a-5eca-4c00-9900-2ff5e1886aa4",
+                  "AngularDamping": 0,
+                  "Gravity": true,
+                  "LinearDamping": 0,
+                  "Locking": {
+                    "X": true,
+                    "Y": true,
+                    "Z": true,
+                    "Pitch": false,
+                    "Yaw": false,
+                    "Roll": false
+                  },
+                  "MassCenterOverride": "0,0,0",
+                  "MassOverride": 0,
+                  "MotionEnabled": true,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OverrideMassCenter": false,
+                  "RigidbodyFlags": 0,
+                  "StartAsleep": false
                 }
               ]
             }
@@ -807,15 +914,16 @@
           "__guid": "d1e135b1-3a7b-489b-b9ec-c4a967b49c11",
           "Flags": 0,
           "Name": "Static",
-          "Position": "613.2216,-857.429,-110.405",
+          "Position": "595.2569,-844.8475,-110.4043",
           "Rotation": "0,0,-0.3007484,0.9537035",
           "Scale": "0.02074078,0.4380878,0.3839523",
+          "Tags": "anomaly",
           "Enabled": true,
           "Components": [
             {
               "__type": "Sandbox.BoxCollider",
               "__guid": "1b3ec93e-efed-45c1-b5ee-fc22fa48de42",
-              "Center": "-4.081764,0,0",
+              "Center": "-4.718048,-18.32998,-41.32291",
               "Friction": null,
               "IsTrigger": false,
               "OnComponentDestroy": null,
@@ -828,7 +936,7 @@
               "OnObjectTriggerExit": null,
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
-              "Scale": "175,70,70",
+              "Scale": "50,111.9756,237.8511",
               "Static": true,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"
@@ -871,7 +979,7 @@
               "__guid": "eebae749-6b0a-47af-b4f3-ebe015ed6bc1",
               "Flags": 0,
               "Name": "Sound Point",
-              "Position": "0.000482905,-0.0001540795,0",
+              "Position": "1058.406,-0.0002013635,0.0006359395",
               "Components": [
                 {
                   "__type": "Sandbox.SoundPointComponent",
@@ -927,7 +1035,7 @@
               "__guid": "1733b1f0-758d-4e25-b865-2b47b3f058dd",
               "Flags": 0,
               "Name": "Object",
-              "Position": "0.000482905,-0.0001540795,0",
+              "Position": "1058.406,-0.0002013635,0.0006359395",
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
@@ -958,6 +1066,7 @@
               "__guid": "1e8ec486-9046-4e0c-9a75-b62ab0125c8e",
               "Flags": 0,
               "Name": "Spot Light",
+              "Position": "1058.406,-0.0000468034,0.0006359395",
               "Rotation": "0,0,-1,0.0000001788139",
               "Tags": "light_spot,light",
               "Components": [
@@ -988,8 +1097,31 @@
           "__guid": "a14a9857-850b-46d4-8647-01557fbe2feb",
           "Flags": 0,
           "Name": "Bottles",
+          "Position": "-153.8279,870.0676,-127.2212",
+          "Tags": "anomaly",
           "Enabled": true,
           "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "5cfa783d-f276-43a6-aa58-e142042dc7e2",
+              "Center": "0,-0.7594404,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20.18073,20.60287,16.2187",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
             {
               "__type": "Observation.Anomalies.Enabler",
               "__guid": "1681b156-4d38-4117-b949-a508c39b60d8",
@@ -1024,8 +1156,7 @@
               "__guid": "ee0982c3-0a53-4384-8bd8-90b2c1aead5f",
               "Flags": 0,
               "Name": "prop_physics",
-              "Position": "-158.1031,872.8472,-135.4583",
-              "Rotation": "0,0,0.3826835,0.9238795",
+              "Position": "0,0,-8.095703",
               "NetworkOrphaned": 3,
               "OwnerTransfer": 0,
               "Components": [
@@ -1054,8 +1185,7 @@
               "__guid": "f46b7a16-9328-439f-9b78-ab4c82e39957",
               "Flags": 0,
               "Name": "prop_physics",
-              "Position": "-152.7075,868.3992,-135.4583",
-              "Rotation": "0,0,0.3826835,0.9238795",
+              "Position": "4.927795,-6.582275,-8.095703",
               "NetworkOrphaned": 3,
               "OwnerTransfer": 0,
               "Components": [
@@ -1086,8 +1216,31 @@
           "__guid": "50e58c51-f5d1-40f0-8a62-ff8b69326e32",
           "Flags": 0,
           "Name": "Computer",
+          "Position": "-105.4313,868.8505,-121.759",
+          "Tags": "anomaly",
           "Enabled": true,
           "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "e56e3f5f-8068-42bb-b79e-f2b851cca4e3",
+              "Center": "0.7328644,-29.8777,10.66042",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "56.20943,2.645962,53.16729",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
             {
               "__type": "Observation.Anomalies.Enabler",
               "__guid": "697fe05d-c340-4b55-8e91-ca33503654a1",
@@ -1122,16 +1275,16 @@
               "__guid": "dd3275bf-a180-4bb6-8779-b4e439fc7218",
               "Flags": 0,
               "Name": "Spot Light",
-              "Position": "-98.56256,861.9873,-116.407",
-              "Rotation": "0.3683962,0.6148845,0.5756216,0.3935243",
+              "Position": "9.116028,-9.208374,0",
+              "Rotation": "0,0,0.8660254,0.5000001",
               "Tags": "light_spot,light",
               "Components": [
                 {
                   "__type": "Sandbox.SpotLight",
                   "__guid": "173df986-5fb3-4c87-bde3-74b0d37fab23",
-                  "Attenuation": 3,
-                  "ConeInner": 15,
-                  "ConeOuter": 28.19,
+                  "Attenuation": 5,
+                  "ConeInner": 11.03,
+                  "ConeOuter": 28.54,
                   "Cookie": null,
                   "FogMode": "Enabled",
                   "FogStrength": 1,
@@ -1151,8 +1304,6 @@
               "__guid": "76791ee2-a0da-4c76-a69d-5c4ee3722bd9",
               "Flags": 0,
               "Name": "Sound Point",
-              "Position": "-100.1883,866.8451,-116.7639",
-              "Rotation": "0,0,0.8634226,0.5044814",
               "Components": [
                 {
                   "__type": "Sandbox.SoundPointComponent",
@@ -1212,6 +1363,7 @@
           "Name": "prop_physics",
           "Position": "509.9189,-374.1509,-172.5498",
           "Rotation": "0,0,0.7071068,-0.7071068",
+          "Tags": "anomaly",
           "Enabled": true,
           "NetworkOrphaned": 3,
           "OwnerTransfer": 0,
