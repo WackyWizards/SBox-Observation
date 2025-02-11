@@ -1,0 +1,94 @@
+{
+  "IsSubgraph": false,
+  "Path": "shaders/static.shdrgrph",
+  "Model": null,
+  "Title": null,
+  "Description": "",
+  "Category": null,
+  "Icon": null,
+  "AddToNodeLibrary": false,
+  "BlendMode": "Translucent",
+  "ShadingModel": "Lit",
+  "Domain": "Surface",
+  "PreviewSettings": {
+    "EnableShadows": true,
+    "ShowSkybox": true,
+    "BackgroundColor": "0,0,0,1",
+    "Tint": "1,1,1,1"
+  },
+  "nodes": [
+    {
+      "_class": "Result",
+      "DefaultOpacity": 1,
+      "DefaultRoughness": 1,
+      "DefaultMetalness": 0,
+      "DefaultAmbientOcclusion": 1,
+      "Identifier": "0",
+      "Position": "60,-108",
+      "HandleOffsets": {},
+      "Opacity": {
+        "Identifier": "1",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "FuzzyNoise",
+      "Identifier": "1",
+      "Position": "-120,-60",
+      "HandleOffsets": {},
+      "Coords": {
+        "Identifier": "6",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Time",
+      "Identifier": "2",
+      "Position": "-564,84",
+      "HandleOffsets": {}
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "3",
+      "Position": "-396,84",
+      "HandleOffsets": {},
+      "A": {
+        "Identifier": "2",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Step",
+      "DefaultInput": 0,
+      "DefaultEdge": 0.5,
+      "Identifier": "4",
+      "Position": "-384,-468",
+      "HandleOffsets": {}
+    },
+    {
+      "_class": "ScreenPosition",
+      "Identifier": "5",
+      "Position": "-576,-60",
+      "HandleOffsets": {}
+    },
+    {
+      "_class": "TileAndOffset",
+      "DefaultTile": "10,10",
+      "DefaultOffset": "0,0",
+      "WrapTo01": false,
+      "Identifier": "6",
+      "Position": "-300,-60",
+      "HandleOffsets": {},
+      "Coords": {
+        "Identifier": "5",
+        "Output": "XYZ"
+      },
+      "Offset": {
+        "Identifier": "3",
+        "Output": "Result"
+      }
+    }
+  ]
+}
