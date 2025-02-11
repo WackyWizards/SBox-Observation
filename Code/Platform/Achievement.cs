@@ -17,7 +17,11 @@ public enum Achievement
 	[Title( "s_house_hard" )]
 	SRankHouseHard,
 	[Title( "s_pool_hard" )]
-	SRankPoolHard
+	SRankPoolHard,
+	[Title( "win_all_maps" )]
+	WinAllMaps,
+	[Title( "s_all_maps" )]
+	SRankAllMaps
 }
 
 public static class AchievementExtensions

@@ -1,6 +1,6 @@
 ﻿namespace Observation;
 
-public class MapData : IDataFile<MapData>
+internal class MapData : IDataFile<MapData>
 {
 	public static MapData Data
 	{
@@ -14,7 +14,13 @@ public class MapData : IDataFile<MapData>
 
 	public const string FileName = "MapData.json";
 
-	public Dictionary<string, Rank> SRanks { get; set; } = [];
+	public const int MapAmount = 2;
+
+	public List<string> MapsPlayed { get; set; } = [];
+
+	public List<string> MapsWon { get; set; } = [];
+	
+	public List<string> SRanks { get; set; } = [];
 
 	public void Save()
 	{
