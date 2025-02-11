@@ -19,14 +19,28 @@ public class MapManager : Component
 		ActiveMap = map;
 		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}", 1 );
 		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}_with_difficulty_{map.Difficulty}", 1 );
-		
-		var mapData = MapData.Data;
-		var mapsPlayed = mapData.MapsPlayed;
-		if ( !mapsPlayed.Contains( map.Ident ) )
+
+		try
 		{
-			mapsPlayed.Add( map.Ident );
-			mapData.Save();
-			Sandbox.Services.Stats.Increment( "Unique_maps_played", 1 );
+			var mapData = MapData.Data;
+
+			if ( !MapData.CanSave )
+			{
+				Log.Error( "No map data found!" );
+				return;
+			}
+
+			var mapsPlayed = mapData.MapsPlayed;
+			if ( !mapsPlayed.Contains( map.Ident ) )
+			{
+				mapsPlayed.Add( map.Ident );
+				mapData.Save();
+				Sandbox.Services.Stats.Increment( "Unique_maps_played", 1 );
+			}
+		}
+		catch ( Exception ex )
+		{
+			Log.Warning( ex );
 		}
 	}
 

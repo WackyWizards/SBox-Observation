@@ -19,7 +19,7 @@ internal class MapData : IDataFile<MapData>
 	public List<string> MapsPlayed { get; set; } = [];
 
 	public List<string> MapsWon { get; set; } = [];
-	
+
 	public List<string> SRanks { get; set; } = [];
 
 	public void Save()
@@ -29,7 +29,7 @@ internal class MapData : IDataFile<MapData>
 			Log.Error( "Unable to save data! No data file exists!" );
 			return;
 		}
-		
+
 		FileSystem.Data.WriteJson( FileName, this );
 	}
 }
