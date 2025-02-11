@@ -100,32 +100,6 @@ MainMenu {
     }
   }
 
-  .achievements {
-    display: none;
-    position: absolute;
-    left: 50px;
-    bottom: 50px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    gap: 10px;
-
-    > img {
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      transition: all 0.2s ease;
-
-      &:hover {
-        transform: scale(1.1);
-      }
-
-      &.locked {
-        opacity: 0.2;
-      }
-    }
-  }
-
   .socials {
     font-size: 24px;
     align-items: center;

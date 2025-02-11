@@ -1,6 +1,7 @@
 @namespace Observation.UI
 
 @using System
+@using System.Runtime.Serialization.Json
 @using Sandbox.Audio
 @using Sandbox.UI
 @inherits PanelComponent
@@ -24,6 +25,7 @@
 		<div class="socials">
 			<i onclick="@Credits" tooltip="Credits">info</i>
 			<i onclick="@Leaderboards" tooltip="Leaderboards & Stats">leaderboard</i>
+			<i onclick="@Achievements" tooltip="Achievements">emoji_events</i>
 			<img alt="Discord" src="/materials/icons/discord-icon.svg" tooltip="Discord" onclick="@Discord"/>
 			<i onclick="@News" tooltip="News">newspaper</i>
 		</div>
@@ -34,15 +36,8 @@
 		<i onclick="@Credits" tooltip="Credits">info</i>
 		<i onclick="@Leaderboards" tooltip="Leaderboards & Stats">leaderboard</i>
 		<i onclick="@Tutorial" tooltip="How To Play">school</i>
+		<i onclick="@Achievements" tooltip="Achievements">trophy</i>
 		<img src="/materials/icons/discord-icon.svg" onclick="@Discord" tooltip="Discord" alt="Discord"/>
-	</div>
-
-	<div class="achievements">
-		@foreach ( var achievement in Sandbox.Services.Achievements.All )
-		{
-			<img class="@( achievement.IsUnlocked ? "unlocked" : "locked" )" src="@achievement.Icon"
-			     tooltip="@( achievement.Description )"/>
-		}
 	</div>
 
 	<div class="web-container hidden" @ref="_webContainer">
@@ -55,6 +50,7 @@
 	<Leaderboards @ref="_leaderboards" Menu="@this"></Leaderboards>
 	<Tutorial @ref="_tutorial" Menu="@this"></Tutorial>
 	<Credits @ref="_credits" Menu="@this"></Credits>
+	<Achievements @ref="_achievements" Menu="@this"></Achievements>
 </root>
 
 @code {
@@ -67,6 +63,7 @@
 	private Tutorial? _tutorial;
 	private Leaderboards? _leaderboards;
 	private Credits? _credits;
+	private Achievements? _achievements;
 
 	private Panel? _webContainer;
 	private WebPanel? _web;
@@ -128,6 +125,11 @@
 		Log.Error( "b" );
 		_tutorial.Show();
 		_tutorial.OnReturn = onReturn;
+	}
+
+	public void Achievements()
+	{
+		_achievements?.Show();
 	}
 
 	public void Leaderboards()

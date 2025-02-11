@@ -1,0 +1,80 @@
+﻿Achievements {
+  position: absolute;
+  pointer-events: all;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(40px) saturate(180%);
+  z-index: 100;
+
+  > .title {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 1.25rem;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+  
+  .achievements {
+    width: 50%;
+    height: 45%;
+    gap: 10px;
+    margin: 10px;
+    overflow-y: scroll;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    
+    > .achievement {
+      align-items: center;
+      flex-shrink: 0;
+      
+      &.locked {
+        opacity: 0.1;
+      }
+      
+      .achievement-icon {
+        width: 65px;
+        height: 65px;
+        margin: 15px;
+        flex-shrink: 0;
+      }
+      
+      .achievement-info {
+        flex-direction: column;
+        text-align: left;
+        font-size: 24px;
+        flex-grow: 1;
+      }
+      
+      .achievement-title {
+        font-size: 28px;
+        font-weight: 600;
+      }
+      
+      .achievement-score {
+        font-size: 28px;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  > .button-container {
+    width: 50%;
+    gap: 10px;
+
+    > button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
+  &.hidden {
+    display: none;
+  }
+}

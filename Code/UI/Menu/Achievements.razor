@@ -1,0 +1,25 @@
+﻿@namespace Observation.UI
+@inherits MenuSubPanel
+
+@* ReSharper disable CSharpWarnings::CS8974 *@
+<root class="hidden">
+	<label class="title">Achievements</label>
+
+	<div class="achievements">
+		@foreach ( var achievement in Sandbox.Services.Achievements.All.OrderByDescending( x => x.Score ) )
+		{
+			<div class="achievement @( achievement.IsUnlocked ? "unlocked" : "locked" )">
+				<img class="achievement-icon" src="@( achievement.Icon )" alt="Achievement Icon"/>
+				<div class="achievement-info">
+					<label class="achievement-title">@( achievement.Title )</label>
+					<label class="achievement-description">@( achievement.Description )</label>
+				</div>
+				<label class="achievement-score">@( achievement.Score )</label>
+			</div>
+		}
+	</div>
+
+	<div class="button-container">
+		<button icon="arrow_back" onclick="@Return">Return</button>
+	</div>
+</root>
