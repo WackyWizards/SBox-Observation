@@ -199,6 +199,16 @@
             },
             "Weight": 1,
             "MinTime": 500
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "f950c200-397f-4b7b-8994-33cf7d93d19c",
+              "go": "e7c9d6f0-3e23-48f7-bfd0-78f88d168a76",
+              "component_type": "ObjectMover"
+            },
+            "Weight": 6,
+            "MinTime": null
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -211,7 +221,7 @@
         "Max Anomalies Til Warning": 3,
         "Min Anomaly Time": 20,
         "Max Anomaly Time": 120,
-        "Win Time": 1440
+        "Win Time": 60
       }
     },
     {
@@ -313,8 +323,8 @@
           "__guid": "86ad7d93-afac-4ab2-9151-62e41813bfc4",
           "Flags": 0,
           "Name": "Living Room",
-          "Position": "132.9828,235.3012,82.82397",
-          "Rotation": "0.1203838,0.05700176,-0.9215968,0.3645782",
+          "Position": "138.3194,238.9249,82.82397",
+          "Rotation": "0.1149679,0.05485912,-0.9222881,0.3649068",
           "Tags": "maincamera",
           "Enabled": true,
           "Components": [
@@ -323,7 +333,7 @@
               "__guid": "9ca9990b-53c2-4be5-90b8-cda89df06b33",
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
-              "FieldOfView": 55,
+              "FieldOfView": 60,
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -2877,8 +2887,8 @@
           "__guid": "2f514224-a531-4722-bf92-ee9f24322f99",
           "Flags": 0,
           "Name": "Axe",
-          "Position": "-1252.296,745.3013,24.60339",
-          "Rotation": "0.00000002541439,-0.1305262,0.9914449,0.0000001930414",
+          "Position": "-1252.296,742.0405,24.60339",
+          "Rotation": "-0.004688002,-0.187537,0.6817845,-0.707091",
           "Tags": "anomaly",
           "Enabled": true,
           "Components": [
@@ -2890,7 +2900,7 @@
               "CreateAttachments": false,
               "MaterialGroup": null,
               "MaterialOverride": null,
-              "Model": "models/axe/axe.vmdl",
+              "Model": "models/props/trim_sheets/tools/woodaxe.vmdl",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -3163,9 +3173,9 @@
                 {
                   "__type": "Sandbox.SpotLight",
                   "__guid": "0049098e-58fc-4a58-a0bd-e3b39a11a766",
-                  "Attenuation": 1,
+                  "Attenuation": 0.51,
                   "ConeInner": 15,
-                  "ConeOuter": 63.92,
+                  "ConeOuter": 50.28,
                   "Cookie": null,
                   "FogMode": "Enabled",
                   "FogStrength": 1,
@@ -3238,6 +3248,114 @@
                   "Tint": "1,1,1,1"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "__guid": "e7c9d6f0-3e23-48f7-bfd0-78f88d168a76",
+          "Flags": 0,
+          "Name": "wooden_chair_a (2)",
+          "Position": "-167.7739,443.1601,-44.01685",
+          "Rotation": "0,0,0.6591774,0.7519876",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "330ac60e-d876-4e4b-8f3e-8446e3ef035e",
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/props/trim_sheets/chairs/wooden_chair_a.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "88d3c3e1-c708-4a3e-bf3b-fd802cc7227e",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/props/trim_sheets/chairs/wooden_chair_a.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "3c2c6962-061b-4492-a855-f6977820e4f6",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.ObjectMover",
+              "__guid": "f950c200-397f-4b7b-8994-33cf7d93d19c",
+              "DefaultWorldTransform": {
+                "Position": "-64.88916,705.2417,1318.759",
+                "Scale": "1,1,1",
+                "Rotation": "0,0,0.6591774,0.7519876"
+              },
+              "DesiredWorldTransform": {
+                "Position": "-146.2545,589.0509,1318.759",
+                "Scale": "1,1,1",
+                "Rotation": "0,0,0.9581828,0.2861564"
+              },
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Entrance",
+              "ShowOnCamera": false,
+              "Type": "Movement"
             }
           ]
         }
@@ -3368,6 +3486,1370 @@
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
               "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "66692dae-c261-4dbd-91b4-fe7803125b14",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "229.2963,-73.44151,112.274",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "a7fa921c-69c6-4078-a660-d5bef56fdd0b",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "d8d3066d-b03f-44d9-8d04-ebc4d9c2f1fa",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "c22bb4c2-3ecc-4021-a4ec-c51193ea812c",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "a7fa921c-69c6-4078-a660-d5bef56fdd0b",
+                  "go": "66692dae-c261-4dbd-91b4-fe7803125b14",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "7164b935-b28c-4e12-a4e1-b2e5cf324e7c",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "dda3fb9b-6878-4538-a3f9-8203105ee96b",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "229.2963,-73.44151,113.5614",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "804d7e2a-9c2a-4c02-91a5-dca0055b9f3e",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "b49f133a-0e4c-424f-bf0b-715ba3974fbf",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "ca416f40-19de-4e99-9316-b644f87c8463",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "804d7e2a-9c2a-4c02-91a5-dca0055b9f3e",
+                  "go": "dda3fb9b-6878-4538-a3f9-8203105ee96b",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "beeaae37-9840-4113-a2f4-71004ea75fde",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "6b11995f-df47-486d-b90e-eab85f945113",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "229.2963,-73.44151,112.8738",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "685fc97e-e3b7-4944-a752-15f48d4c2733",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "3b685782-a061-4b10-9c70-2bd211287ae4",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "5c4caa8c-35f4-4222-ac1a-d7213f7a53ce",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "685fc97e-e3b7-4944-a752-15f48d4c2733",
+                  "go": "6b11995f-df47-486d-b90e-eab85f945113",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "63dcb484-3f49-4cb6-a3bb-efb43c842e0e",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "98d1cb84-489c-408e-bb0c-1bd3ed0e5532",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "229.2963,-73.44151,114.1611",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "da103453-4e3d-475c-9508-a8ecd87210ef",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "50e15d1c-dcfb-456b-8965-ab3d9789238f",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "3cda2e17-db81-4c3f-bd77-73ef747b5399",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "da103453-4e3d-475c-9508-a8ecd87210ef",
+                  "go": "98d1cb84-489c-408e-bb0c-1bd3ed0e5532",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "5acab7ab-92f2-4fa5-8a87-1410729bd221",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "5fb6391f-a34e-406e-805d-11eac8be3a30",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "245.4301,-75.27018,111.6763",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "cc6051a5-9923-46a0-8b29-ba1610182942",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "2bc8ebe8-17c4-456f-bd3c-56ed20a0a3e6",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "d6870b7a-0a35-4a52-9911-3eb0851ef4df",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "cc6051a5-9923-46a0-8b29-ba1610182942",
+                  "go": "5fb6391f-a34e-406e-805d-11eac8be3a30",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "87089c26-691f-4c07-9ce5-ee1e990af779",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "dc8022ef-c47b-427e-a4f9-6c9cfe0b9a8e",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "229.2963,-73.44151,112.5692",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "552f03af-90f9-4c56-bcc4-be6a08066192",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "e4468dd9-0179-4153-a0df-03c50e694b16",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "05154225-a0a4-4af3-93ad-52019e186620",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "552f03af-90f9-4c56-bcc4-be6a08066192",
+                  "go": "dc8022ef-c47b-427e-a4f9-6c9cfe0b9a8e",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "da092bf8-762f-4b8a-bf31-6683b10e280e",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "30a0061a-dbef-484f-954b-555287382dc5",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "229.2963,-73.44151,113.8566",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "863e8b5f-affa-481a-8d4b-cd2e2ea8c8f5",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "e50983c0-6be7-4e3c-90ad-eecbb3a06967",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "42f1db8a-4b38-412a-b874-c0df61d57b9d",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "863e8b5f-affa-481a-8d4b-cd2e2ea8c8f5",
+                  "go": "30a0061a-dbef-484f-954b-555287382dc5",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "ad71f769-f18d-4823-9d15-f82976139360",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "3fa8fe9e-7829-445f-a970-931d6f7a1d0a",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "229.2963,-73.44151,113.1689",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "d9638233-bc38-4d6c-a7fe-e2ad190a2e82",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "50fab84b-47b1-4812-abf9-f8049e025299",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "3b0d4ace-4fbe-4980-a139-f3d245ccc52d",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "d9638233-bc38-4d6c-a7fe-e2ad190a2e82",
+                  "go": "3fa8fe9e-7829-445f-a970-931d6f7a1d0a",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "778b4625-e7da-4ae8-b563-5a70894bf240",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "8825bdb7-c730-45cb-b607-cc769a25859f",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "229.2963,-73.44151,114.4563",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "6022ffb9-0db6-4ba9-baaa-0a98ae9a18b5",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "a0b19ebf-0e01-4ec1-8582-41ec3eefc445",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "ce4ab3b1-bb50-4192-8100-aa4b086e6f1d",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "6022ffb9-0db6-4ba9-baaa-0a98ae9a18b5",
+                  "go": "8825bdb7-c730-45cb-b607-cc769a25859f",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "2031eccd-9580-44b3-93d1-774b7879c3df",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "b626c675-3749-43f1-b0dc-ba350c20e8e5",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "245.4301,-75.27018,111.9714",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "b31eeee9-d461-4073-be8f-1b45166981c9",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "cca671c6-6d2f-475e-b0b7-8193d11b5e36",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "7d04efbf-f7b2-4e45-ba57-f8daf39be42e",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "b31eeee9-d461-4073-be8f-1b45166981c9",
+                  "go": "b626c675-3749-43f1-b0dc-ba350c20e8e5",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "9697dd20-7193-4141-9199-8b4694cc1cee",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,12.29989",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ]
+        },
+        {
+          "__guid": "baa2ff38-7e50-4352-a4e4-89edae4a5701",
+          "Flags": 0,
+          "Name": "Plate",
+          "Position": "153.2593,-214.093,112.274",
+          "Tags": "debris",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "bc5cbb4e-fb64-41a0-a6b8-de337dc6778b",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_plate/joe_plate.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "d5452933-10ec-4d34-9077-77cba62e23e4",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "4a1255ff-2a62-44cd-9e3b-dee600abe331",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "bc5cbb4e-fb64-41a0-a6b8-de337dc6778b",
+                  "go": "baa2ff38-7e50-4352-a4e4-89edae4a5701",
+                  "component_type": "SkinnedModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "bcea99b3-1261-40cf-a219-e25a3bfb2200",
+              "Center": "0,0,1.404243",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "20,20,9.491405",
               "Static": true,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"
@@ -3513,7 +4995,7 @@
               "__guid": "30fa09b3-057f-47db-ad1f-2b2ad6f22c79",
               "BodyGroups": 18446744073709551615,
               "Health": 50,
-              "IsStatic": false,
+              "IsStatic": true,
               "MaterialGroup": null,
               "Model": "models/plants/plant2.vmdl",
               "OnComponentDestroy": null,
@@ -3530,10 +5012,68 @@
           ]
         },
         {
+          "__guid": "e737ad0a-837a-4d79-835c-aadbbcdb7551",
+          "Flags": 0,
+          "Name": "prop_physics (2)",
+          "Position": "1366.34,367.6573,67.35925",
+          "Rotation": "0,0,0.7071068,0.7071067",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "e9e2ada1-3696-4034-bd3d-3296cca3ff9e",
+              "BodyGroups": 18446744073709551615,
+              "Health": 50,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/plants/plant2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "5a95986b-5ea5-4ca9-b47d-c60510ab0961",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": false,
+                "Y": false,
+                "Z": false,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            }
+          ]
+        },
+        {
           "__guid": "690df7f6-329d-4780-9632-1cf86a576d18",
           "Flags": 0,
           "Name": "prop_physics (1)",
-          "Position": "226.319,-209.8324,112.938",
+          "Position": "226.319,-209.8324,113.1243",
           "Rotation": "0,0,0.7034106,0.7107836",
           "Enabled": true,
           "NetworkOrphaned": 3,
@@ -3805,6 +5345,522 @@
               "StartAsleep": false
             }
           ]
+        },
+        {
+          "__guid": "aee2dd42-7cf3-4dcb-9b7e-cc9a7dc1a2db",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "124.8945,-216.8692,112.6541",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "ed170c9f-f73e-4ffd-beea-d785518fec21",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/3t/plants/joe_pothos/joepothos_122222.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "bd24a8be-f497-4866-9eac-b6735bc3a32a",
+          "Flags": 0,
+          "Name": "cookies (1)",
+          "Position": "136.34,-206.6013,112.1809",
+          "Rotation": "0,0,0.517589,0.8556293",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "e7af50d5-8ea1-49ef-b1fe-6fc4b2f00942",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/packaged_food/cookies.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "1d9959bd-bb02-42be-af59-3f7823765a60",
+          "Flags": 0,
+          "Name": "toaster",
+          "Position": "167.936,-216.2768,112.173",
+          "Rotation": "0,0,-0.6087614,0.7933534",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "86425ecb-435c-45ad-bf7b-60de6d6ecd93",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/toaster/toaster.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "4221f8c8-1828-4b65-a9d7-2e62407a613c",
+          "Flags": 0,
+          "Name": "microwave",
+          "Position": "185.2654,-220.2555,112.6138",
+          "Rotation": "0.003686398,0.003686517,0.7070972,0.7070972",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "aeffb9d0-aea9-4ba7-870c-eb108af70ae1",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/microwave/microwave.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "9239e7ca-e58e-4a70-906d-48322f76f20c",
+          "Flags": 0,
+          "Name": "burger_box",
+          "Position": "269.4969,139.7537,112.3298",
+          "Rotation": "0,0,0.4372767,0.899327",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "dd270a44-22cf-4665-a879-57b504892da7",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/sbox_props/burger_box/burger_box.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "2fa9199a-b531-4c6b-97b6-3175b3f77ba1",
+          "Flags": 0,
+          "Name": "bugbody",
+          "Position": "350.4268,-213.5535,112.1539",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "548c0133-3404-41be-8c77-62b696d7f682",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/spraycans/bugbody.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "7a6edfbe-c0a8-4fcf-b698-c887e1e1c939",
+          "Flags": 0,
+          "Name": "chef_knife",
+          "Position": "308.9739,-214.3159,112.4054",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "25b37621-aca8-45d6-86c9-c23587e874a8",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/trim_sheets/kitchen/chef_knife.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "d1c5caea-12b3-4227-8817-06b8c666cb95",
+          "Flags": 0,
+          "Name": "wooden_chair_a",
+          "Position": "195.6802,140.194,108.7842",
+          "Rotation": "0,-1,0,0.0000001947072",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "c0c4728c-705c-41a1-837b-cc00d7169adb",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/trim_sheets/chairs/wooden_chair_a.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "cca778e0-c6b9-4db5-9028-8ddb29ce50ac",
+          "Flags": 0,
+          "Name": "wooden_chair_a (2)",
+          "Position": "192.8651,112.1683,66.89465",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "e0ab6a9a-1390-4c5b-a54c-13cb412c53d1",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/trim_sheets/chairs/wooden_chair_a.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "8cce6cf7-25dd-4c0c-8fa5-ebfa8c717b3f",
+          "Flags": 0,
+          "Name": "wooden_chair_a",
+          "Position": "192.8651,140.2434,66.89465",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "76ad590e-219d-41dd-899b-815c998a0af2",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/trim_sheets/chairs/wooden_chair_a.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "4fb713b5-710e-46c3-839e-26587dfefe61",
+          "Flags": 0,
+          "Name": "can_standard (2)",
+          "Position": "318.252,-227.7734,117.2115",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "9c4f3e60-72ea-491a-adb0-e74bc4e44807",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/packaged_food/can_standard.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "03cdc1be-7ad3-4eb1-b1d6-cfac25c7c6ff",
+          "Flags": 0,
+          "Name": "can_standard (1)",
+          "Position": "318.252,-227.7734,112.1564",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "65ec5fcb-414f-467b-981f-455a5cfdbd9d",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/packaged_food/can_standard.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "e1a56d19-86d4-4f6e-8f9e-0e48e85a3516",
+          "Flags": 0,
+          "Name": "can_standard",
+          "Position": "323.7084,-225.4554,112.1564",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "9513d42d-d296-4ff4-9d42-7cc750f1c866",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/packaged_food/can_standard.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "6a68160e-b2a6-4dc6-a82e-51eabbbcde9d",
+          "Flags": 0,
+          "Name": "can_small (1)",
+          "Position": "318.8782,-221.623,112.1539",
+          "Rotation": "0,0,-0.6393409,0.7689234",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "56f20aed-d472-439a-834f-46920be557b3",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/packaged_food/can_small.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "71ba677d-114e-43ff-a612-9e4b520b62ee",
+          "Flags": 0,
+          "Name": "can_small",
+          "Position": "328.6018,-221.623,112.1539",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "685d2a82-d85b-4e8f-94f9-702cf607787e",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/props/packaged_food/can_small.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "ff146e9e-a426-4444-9b62-0c30b23c6607",
+          "Flags": 0,
+          "Name": "cola_can",
+          "Position": "293.3053,-216.7156,112.1882",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "3de1bcfa-626c-4204-a6db-a31ee589ed0b",
+              "BodyGroups": 18446744073709551615,
+              "Health": 10,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/sbox_props/cola_can/cola_can.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "b01cefa4-1bb1-4a95-88fd-245cc492811d",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "126.0122,1243.354,106.4419",
+          "Rotation": "0,0,0.8788171,0.4771589",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "d345d721-b460-45f1-89b2-0dee3b4a3615",
+              "BodyGroups": 18446744073709551615,
+              "Health": 20,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/plants/plant2/plant2_pot_only.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "9efd350e-09a0-482c-a861-3a6de57f6641",
+          "Flags": 0,
+          "Name": "cigarettepack",
+          "Position": "1098.087,1130.526,107.0909",
+          "Rotation": "0.6741305,0.2151098,-0.6741112,0.211778",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "bfcdc38f-5e88-40c3-a566-8608bbe1792b",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/cigarettepack/cigarettepack.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
         }
       ]
     },
@@ -3932,8 +5988,20 @@
   "Title": null,
   "Description": null,
   "__references": [
+    "baik.cigarettepack#41723",
+    "facepunch.bugspray#44113",
+    "facepunch.burger_box#35828",
+    "facepunch.can_small#54510",
+    "facepunch.can_standard#54511",
+    "facepunch.chef_knife#45159",
+    "facepunch.cookies#55842",
     "facepunch.fire_particle_fast#60123",
+    "facepunch.microwave#83558",
+    "facepunch.soda_can#33662",
+    "facepunch.toaster#81171",
     "facepunch.tv#33694",
+    "facepunch.woodaxe#83834",
+    "facepunch.wooden_chair_a#43573",
     "fish.tv_stand#59029"
   ],
   "__version": 2
