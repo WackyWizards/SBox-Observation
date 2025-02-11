@@ -35,8 +35,11 @@ public class GameManager : Component
 
 	private static void GameStat( Rank rank, Map map )
 	{
+		Sandbox.Services.Stats.Increment( $"Game_over_with_difficulty_{map.Difficulty}", 1 );
 		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}", 1 );
+		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
 		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}", 1 );
+		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
 	}
 
 	public void EndGameInLoss( LoseReason reason )
@@ -49,11 +52,13 @@ public class GameManager : Component
 		if ( MapManager.Instance?.ActiveMap is {} activeMap )
 		{
 			Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}", 1 );
+			Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
 
 			if ( AnomalyManager.Instance is {} anomalyManager )
 			{
 				GameStat( anomalyManager.Rank, activeMap );
 				Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
+				Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{activeMap.Difficulty}", 1 );
 				Sandbox.Services.Stats.SetValue( "Success_rate", anomalyManager.SuccessRate );
 				Sandbox.Services.Stats.SetValue( $"Success_rate_on_map_{activeMap.Ident}", anomalyManager.SuccessRate );
 			}
@@ -74,12 +79,14 @@ public class GameManager : Component
 		if ( MapManager.Instance?.ActiveMap is {} activeMap )
 		{
 			Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}", 1 );
+			Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
 			activeMap.WinAchievement?.Unlock();
 
 			if ( AnomalyManager.Instance is {} anomalyManager )
 			{
 				GameStat( anomalyManager.Rank, activeMap );
 				Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
+				Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{activeMap.Difficulty}", 1 );
 				Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
 				Sandbox.Services.Stats.SetValue( "Success_rate", anomalyManager.SuccessRate );
 				Sandbox.Services.Stats.SetValue( $"Success_rate_on_map_{activeMap.Ident}", anomalyManager.SuccessRate );

@@ -18,6 +18,7 @@ public class MapManager : Component
 	{
 		ActiveMap = map;
 		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}", 1 );
+		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}_with_difficulty_{map.Difficulty}", 1 );
 	}
 
 	public void Restart()
@@ -33,5 +34,6 @@ public class MapManager : Component
 
 		Sandbox.Services.Stats.Increment( "Restarts", 1 );
 		Sandbox.Services.Stats.Increment( $"Restarts_on_map_{ActiveMap.Ident}", 1 );
+		Sandbox.Services.Stats.Increment( $"Restarts_on_map_{ActiveMap.Ident}_with_difficulty_{ActiveMap.Difficulty}", 1 );
 	}
 }
