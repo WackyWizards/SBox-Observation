@@ -219,9 +219,9 @@
         "Hold Time": 1,
         "Fail Reports Til Warning": 999999,
         "Max Anomalies Til Warning": 3,
-        "Min Anomaly Time": 20,
-        "Max Anomaly Time": 120,
-        "Win Time": 60
+        "Win Time": 60,
+        "Anomaly Time": "20 120",
+        "First Anomaly Time": "20 35"
       }
     },
     {

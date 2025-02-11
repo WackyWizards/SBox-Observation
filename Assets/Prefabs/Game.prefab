@@ -21,14 +21,14 @@
         "__type": "Observation.AnomalyManager",
         "__guid": "76365f3d-9320-4e93-b36b-fb176e261a87",
         "ActiveAnomalies": [],
+        "AnomalyTime": "20 120",
         "CanActivateAnomalies": true,
         "FailReports": 0,
         "FailReportsTilGameOver": 5,
         "FailReportsTilWarning": 3,
+        "FirstAnomalyTime": "20 35",
         "MaxAmountOfAnomalies": 5,
         "MaxAnomaliesTilWarning": 3,
-        "MaxAnomalyTime": 60,
-        "MinAnomalyTime": 20,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -36,7 +36,10 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "PossibleAnomalies": [],
-        "SuccessfulReports": 0
+        "Rank": "F",
+        "SuccessfulReports": 0,
+        "SuccessRate": 0,
+        "TotalReports": 0
       },
       {
         "__type": "Observation.Cursor",
@@ -205,32 +208,6 @@
         ]
       },
       {
-        "Id": "Min Anomaly Time",
-        "Title": "Min Anomaly Time",
-        "Description": null,
-        "Group": null,
-        "Order": 0,
-        "Targets": [
-          {
-            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
-            "Property": "MinAnomalyTime"
-          }
-        ]
-      },
-      {
-        "Id": "Max Anomaly Time",
-        "Title": "Max Anomaly Time",
-        "Description": null,
-        "Group": null,
-        "Order": 0,
-        "Targets": [
-          {
-            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
-            "Property": "MaxAnomalyTime"
-          }
-        ]
-      },
-      {
         "Id": "Win Time",
         "Title": "Win Time",
         "Description": null,
@@ -240,6 +217,32 @@
           {
             "Id": "98352bc1-135e-402b-b086-16a3c6e49220",
             "Property": "WinTime"
+          }
+        ]
+      },
+      {
+        "Id": "Anomaly Time",
+        "Title": "Anomaly Time",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "AnomalyTime"
+          }
+        ]
+      },
+      {
+        "Id": "First Anomaly Time",
+        "Title": "First Anomaly Time",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "76365f3d-9320-4e93-b36b-fb176e261a87",
+            "Property": "FirstAnomalyTime"
           }
         ]
       }

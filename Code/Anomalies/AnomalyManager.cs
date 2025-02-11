@@ -18,13 +18,10 @@ public class AnomalyManager : Component
 	public List<AnomalyEntry> PossibleAnomalies { get; set; } = [];
 
 	[Property, Category( "Anomalies" )]
-	public float FirstAnomalyTime { get; set; } = 20f;
+	public RangedFloat FirstAnomalyTime { get; set; } = (20f, 35f);
 
 	[Property, Category( "Anomalies" )]
-	public float MinAnomalyTime { get; set; } = 20f;
-
-	[Property, Category( "Anomalies" )]
-	public float MaxAnomalyTime { get; set; } = 60f;
+	public RangedFloat AnomalyTime { get; set; } = (25f, 120f);
 
 	[Property, Category( "Anomalies" )]
 	public int MaxAmountOfAnomalies { get; set; } = 5;
@@ -54,7 +51,6 @@ public class AnomalyManager : Component
 		{
 			return SuccessfulReports + FailReports;
 		}
-
 	}
 
 	[Property, Category( "Reports" )] public Rank Rank
@@ -89,15 +85,10 @@ public class AnomalyManager : Component
 	protected override void OnStart()
 	{
 		Instance = this;
-		_nextAnomaly = FirstAnomalyTime;
+		_nextAnomaly = FirstAnomalyTime.GetValue();
 		_sinceStart = 0;
 
 		base.OnStart();
-	}
-
-	private float GetRandomAnomalyTime()
-	{
-		return Game.Random.Float( MinAnomalyTime, MaxAnomalyTime );
 	}
 
 	protected override void OnUpdate()
@@ -116,7 +107,7 @@ public class AnomalyManager : Component
 			Log.Error( $"Error activating anomaly: {ex.Message}" );
 		}
 
-		_nextAnomaly = GetRandomAnomalyTime();
+		_nextAnomaly = AnomalyTime.GetValue();
 	}
 
 	[Button]
@@ -172,7 +163,7 @@ public class AnomalyManager : Component
 
 	public bool CanSetAnomalyActive( Anomaly anomaly )
 	{
-		
+
 		return anomaly?.IsValid() == true &&
 			anomaly.IsAvailable() &&
 			!ActiveAnomalies.Contains( anomaly );
