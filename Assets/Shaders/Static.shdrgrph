@@ -24,9 +24,9 @@
       "DefaultMetalness": 0,
       "DefaultAmbientOcclusion": 1,
       "Identifier": "0",
-      "Position": "60,-108",
+      "Position": "60,-84",
       "HandleOffsets": {},
-      "Opacity": {
+      "Emission": {
         "Identifier": "1",
         "Output": "Result"
       }
@@ -75,7 +75,7 @@
     },
     {
       "_class": "TileAndOffset",
-      "DefaultTile": "10,10",
+      "DefaultTile": "5,5",
       "DefaultOffset": "0,0",
       "WrapTo01": false,
       "Identifier": "6",

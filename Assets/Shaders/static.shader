@@ -88,10 +88,11 @@ PS
 		
 		float3 l_0 = i.vPositionSs.xyz;
 		float l_1 = g_flTime * 1;
-		float2 l_2 = TileAndOffsetUv( l_0.xy, float2( 10, 10 ), float2( l_1, l_1 ) );
+		float2 l_2 = TileAndOffsetUv( l_0.xy, float2( 5, 5 ), float2( l_1, l_1 ) );
 		float l_3 = FuzzyNoise( l_2 );
 		
-		m.Opacity = l_3;
+		m.Emission = float3( l_3, l_3, l_3 );
+		m.Opacity = 1;
 		m.Roughness = 1;
 		m.Metalness = 0;
 		m.AmbientOcclusion = 1;
