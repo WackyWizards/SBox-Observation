@@ -63,14 +63,14 @@ public class GameManager : Component
 		var anomalyManager = AnomalyManager.Instance;
 
 		GameStatistics.RecordWin( activeMap, anomalyManager );
-		UnlockAchievements( activeMap, anomalyManager );
+		UnlockWinAchievements( activeMap, anomalyManager );
 		ShowGameOverScreen( true );
 		PauseGame();
 	}
 
-	private static void UnlockAchievements( Map? activeMap, AnomalyManager? anomalyManager )
+	private static void UnlockWinAchievements( Map? activeMap, AnomalyManager? anomalyManager )
 	{
-		if ( activeMap == null ) return;
+		if ( activeMap is null ) return;
 
 		var mapData = MapData.Data;
 		if ( !mapData.MapsWon.Contains( activeMap.Ident ) )
@@ -119,6 +119,7 @@ public class GameManager : Component
 			menu?.OnGameEnd( true );
 		else if ( reason is not null )
 			menu?.OnGameLose( reason.Value );
+
 		menu?.Show();
 	}
 
@@ -168,12 +169,12 @@ internal class GameStatistics
 		Sandbox.Services.Stats.Increment( "Losses", 1 );
 		Sandbox.Services.Stats.Increment( $"Losses_due_to_{reason}", 1 );
 
-		if ( activeMap == null ) return;
+		if ( activeMap is null ) return;
 
 		Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}", 1 );
 		Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
 
-		if ( anomalyManager == null )
+		if ( !anomalyManager.IsValid() )
 		{
 			return;
 		}
@@ -187,12 +188,12 @@ internal class GameStatistics
 	{
 		Sandbox.Services.Stats.Increment( "Wins", 1 );
 
-		if ( activeMap == null ) return;
+		if ( activeMap is null ) return;
 
 		Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}", 1 );
 		Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
 
-		if ( anomalyManager != null )
+		if ( anomalyManager.IsValid() )
 		{
 			RecordGameStats( anomalyManager.Rank, activeMap );
 			RecordMapStats( activeMap, anomalyManager );
