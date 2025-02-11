@@ -18,7 +18,7 @@
               "component_type": "Enabler"
             },
             "Weight": 3,
-            "MinTime": 300
+            "MinTime": null
           },
           {
             "Anomaly": {
@@ -179,6 +179,26 @@
             },
             "Weight": 2,
             "MinTime": 400
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "25ef078d-6e75-4c7f-8ce3-ed59253e1ea6",
+              "go": "84c4b7c6-6500-47fb-b4c5-553f1f719681",
+              "component_type": "Enabler"
+            },
+            "Weight": 3,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "935a96cd-8fff-42f4-9147-008e1dc55093",
+              "go": "a8c74288-96af-4a09-8c2e-92a345946e91",
+              "component_type": "Enabler"
+            },
+            "Weight": 1,
+            "MinTime": 500
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -591,13 +611,15 @@
           "__guid": "dd1c4b9a-a400-4373-99b3-8c07cc3aeff5",
           "Flags": 0,
           "Name": "Cube",
-          "Position": "-79.48843,97.77988,36.49426",
+          "Position": "-79.48843,97.80219,36.49426",
           "Scale": "0.9185477,0.006542607,0.879942",
           "Tags": "anomaly",
+          "Enabled": true,
           "Components": [
             {
               "__type": "Sandbox.ModelRenderer",
               "__guid": "bce3037c-fbfc-4192-b178-673011fa288b",
+              "__enabled": false,
               "BodyGroups": 18446744073709551615,
               "CreateAttachments": false,
               "MaterialGroup": null,
@@ -662,6 +684,89 @@
               "OnComponentUpdate": null,
               "ReportType": "Cursor",
               "Room": "Entrance",
+              "ShowOnCamera": false,
+              "Type": "Manipulation"
+            }
+          ]
+        },
+        {
+          "__guid": "a8c74288-96af-4a09-8c2e-92a345946e91",
+          "Flags": 0,
+          "Name": "Cube",
+          "Position": "-767.4333,1068.917,35.04626",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Scale": "0.7833049,0.006542607,0.7553865",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "da22e406-e6ac-4c6a-94cc-c5f0f6eea6e1",
+              "__enabled": false,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/anomalies/cat/eee.vmat",
+              "Model": "models/dev/box.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "Off",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "45b3058d-8063-440c-b60c-6d3b9238e2cc",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "55.89993,512.1001,50",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "935a96cd-8fff-42f4-9147-008e1dc55093",
+              "ComponentList": [
+                {
+                  "_type": "component",
+                  "component_id": "da22e406-e6ac-4c6a-94cc-c5f0f6eea6e1",
+                  "go": "a8c74288-96af-4a09-8c2e-92a345946e91",
+                  "component_type": "ModelRenderer"
+                }
+              ],
+              "GameObjects": [],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Lounge",
               "ShowOnCamera": false,
               "Type": "Manipulation"
             }
@@ -2932,6 +3037,209 @@
               "Type": "Other"
             }
           ]
+        },
+        {
+          "__guid": "84c4b7c6-6500-47fb-b4c5-553f1f719681",
+          "Flags": 0,
+          "Name": "TV",
+          "Position": "-1364.559,287.4485,-2.593628",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "306663b4-778d-4c17-8476-c70ee64a4f19",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "32,32,32",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "25ef078d-6e75-4c7f-8ce3-ed59253e1ea6",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "b8e0f5da-7027-44a6-b4fa-5723eb2439db"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "f213996d-4776-4d67-9815-e6be0690793a"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Living Room",
+              "ShowOnCamera": false,
+              "Type": "Manipulation"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "b8e0f5da-7027-44a6-b4fa-5723eb2439db",
+              "Flags": 0,
+              "Name": "Sound Point",
+              "Components": [
+                {
+                  "__type": "Sandbox.SoundPointComponent",
+                  "__guid": "060a24a9-60e1-4efb-b158-411fe39ed31e",
+                  "Distance": 1000,
+                  "DistanceAttenuation": true,
+                  "DistanceAttenuationOverride": true,
+                  "Falloff": [
+                    {
+                      "x": 0,
+                      "y": 1,
+                      "in": 3.1415927,
+                      "out": -3.1415927,
+                      "mode": "Mirrored"
+                    },
+                    {
+                      "x": 1,
+                      "y": 0,
+                      "in": 0,
+                      "out": 0,
+                      "mode": "Mirrored"
+                    }
+                  ],
+                  "Force2d": false,
+                  "MaxRepeatTime": 1,
+                  "MinRepeatTime": 1,
+                  "Occlusion": false,
+                  "OcclusionOverride": false,
+                  "OcclusionRadius": 32,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Pitch": 1,
+                  "PlayOnStart": true,
+                  "ReflectionOverride": false,
+                  "Reflections": false,
+                  "Repeat": false,
+                  "SoundEvent": "sounds/anomalies/static.sound",
+                  "SoundOverride": false,
+                  "StopOnNew": false,
+                  "TargetMixer": {
+                    "Name": "unknown",
+                    "Id": "00000000-0000-0000-0000-000000000000"
+                  },
+                  "Volume": 1
+                }
+              ]
+            },
+            {
+              "__guid": "f213996d-4776-4d67-9815-e6be0690793a",
+              "Flags": 0,
+              "Name": "Spot Light",
+              "Position": "-8.556152,0,0",
+              "Rotation": "0,0,-1,0.0000002086163",
+              "Tags": "light_spot,light",
+              "Components": [
+                {
+                  "__type": "Sandbox.SpotLight",
+                  "__guid": "0049098e-58fc-4a58-a0bd-e3b39a11a766",
+                  "Attenuation": 1,
+                  "ConeInner": 15,
+                  "ConeOuter": 63.92,
+                  "Cookie": null,
+                  "FogMode": "Enabled",
+                  "FogStrength": 1,
+                  "LightColor": "0.91373,0.98039,1,1",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Radius": 500,
+                  "Shadows": true
+                }
+              ]
+            },
+            {
+              "__guid": "604181c2-61e5-4df3-a359-f7fa4d386a5e",
+              "Flags": 0,
+              "Name": "tv",
+              "Position": "4.929443,0.1855469,-16.9613",
+              "Rotation": "0,0,-1,0.0000001947072",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "f950bfa7-3e42-4c80-bc8c-639ddd628d3a",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 20,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/sbox_props/tv/tv.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "b804e4be-7d88-4564-99bc-2e57768b12d1",
+              "Flags": 0,
+              "Name": "tv_stand",
+              "Position": "3.5,-1.223328,-40.95801",
+              "Rotation": "0,0,-1,0.0000001490116",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "3fcaae50-da97-4a0f-b1c0-38b2f5466bc5",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/props/tv_stand/tv_stand.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -3189,6 +3497,314 @@
               "SurfaceVelocity": "0,0,0"
             }
           ]
+        },
+        {
+          "__guid": "ccd6ef82-6e7d-4912-9750-84923122fe11",
+          "Flags": 0,
+          "Name": "prop_physics (2)",
+          "Position": "283.6782,504.7222,67.35925",
+          "Rotation": "0,0,0.7071068,0.7071067",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "30fa09b3-057f-47db-ad1f-2b2ad6f22c79",
+              "BodyGroups": 18446744073709551615,
+              "Health": 50,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/plants/plant2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "690df7f6-329d-4780-9632-1cf86a576d18",
+          "Flags": 0,
+          "Name": "prop_physics (1)",
+          "Position": "226.319,-209.8324,112.938",
+          "Rotation": "0,0,0.7034106,0.7107836",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "3e8df83b-a817-4411-8787-55cf353fc192",
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/kitchen/joe_pan/joe_pan_2.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "a61ff538-6fe2-4031-af36-554082a3c624",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/3t/kitchen/joe_pan/joe_pan_2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "f52ddc06-891a-48cb-8525-1d2f455daa9a",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Sandbox.ParticleEffect",
+              "__guid": "a6ce2903-2506-4f8d-9eab-57f5f2fad2c1",
+              "__version": 1,
+              "Alpha": 1,
+              "ApplyAlpha": false,
+              "ApplyColor": false,
+              "ApplyRotation": true,
+              "ApplyShape": false,
+              "Bounce": 1,
+              "Brightness": 1,
+              "Bumpiness": 0,
+              "Collision": false,
+              "CollisionIgnore": null,
+              "CollisionRadius": 1,
+              "Damping": 0,
+              "DieOnCollisionChance": 0,
+              "Force": false,
+              "ForceDirection": "0,0,0",
+              "ForceScale": 1,
+              "ForceSpace": "World",
+              "Friction": 1,
+              "Gradient": {
+                "Type": "Constant",
+                "Evaluation": "Life",
+                "GradientA": {
+                  "blend": "Linear",
+                  "color": [
+                    {
+                      "t": 0.5,
+                      "c": "1,1,1,1"
+                    }
+                  ],
+                  "alpha": []
+                },
+                "GradientB": {
+                  "blend": "Linear",
+                  "color": [
+                    {
+                      "t": 0.5,
+                      "c": "1,1,1,1"
+                    }
+                  ],
+                  "alpha": []
+                },
+                "ConstantA": "1,1,1,1",
+                "ConstantB": "1,1,1,1"
+              },
+              "Lifetime": 5,
+              "MaxParticles": 1000,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnParticleCreated": null,
+              "OnParticleDestroyed": null,
+              "OrbitalForce": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+              },
+              "OrbitalPull": 0,
+              "PerParticleTimeScale": 1,
+              "Pitch": 0,
+              "PreWarm": 0,
+              "PushStrength": 0,
+              "Roll": 0,
+              "Scale": 1,
+              "SequenceId": 0,
+              "SequenceSpeed": 1,
+              "SequenceTime": 1,
+              "SheetSequence": false,
+              "Space": "World",
+              "StartDelay": 0,
+              "StartVelocity": 1,
+              "Stretch": 0,
+              "TimeScale": 1,
+              "Tint": "1,1,1,1",
+              "Yaw": 0
+            }
+          ]
+        },
+        {
+          "__guid": "eb900ba9-23be-49f4-87ec-1f818f327a0c",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "215.37,1238.304,106.442",
+          "Rotation": "0,0,0.5372996,-0.8433914",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "fde1edf8-42bb-493e-bbfc-e100e80afc85",
+              "__enabled": false,
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/plants/joe_watering_can/joe_watering_can.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "d2cad62d-74cd-4d65-842e-733cceb3070e",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/3t/plants/joe_watering_can/joe_watering_can.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "7b70f56b-7ef8-43c1-9b44-2c37f45974cf",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": false,
+                "Y": false,
+                "Z": false,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            }
+          ]
         }
       ]
     },
@@ -3287,283 +3903,6 @@
           "ShowOnCamera": false
         }
       ]
-    },
-    {
-      "__guid": "690df7f6-329d-4780-9632-1cf86a576d18",
-      "Flags": 0,
-      "Name": "prop_physics (1)",
-      "Position": "-1310.146,-203.5886,1364.803",
-      "Rotation": "0,0,0.7034106,0.7107836",
-      "Enabled": true,
-      "NetworkOrphaned": 3,
-      "OwnerTransfer": 0,
-      "Components": [
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "3e8df83b-a817-4411-8787-55cf353fc192",
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/3t/kitchen/joe_pan/joe_pan_2.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
-          },
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": true
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "a61ff538-6fe2-4031-af36-554082a3c624",
-          "Friction": null,
-          "IsTrigger": false,
-          "Model": "models/3t/kitchen/joe_pan/joe_pan_2.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Static": true,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.Rigidbody",
-          "__guid": "f52ddc06-891a-48cb-8525-1d2f455daa9a",
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Y": true,
-            "Z": true,
-            "Pitch": false,
-            "Yaw": false,
-            "Roll": false
-          },
-          "MassCenterOverride": "0,0,0",
-          "MassOverride": 0,
-          "MotionEnabled": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OverrideMassCenter": false,
-          "RigidbodyFlags": 0,
-          "StartAsleep": false
-        },
-        {
-          "__type": "Sandbox.ParticleEffect",
-          "__guid": "a6ce2903-2506-4f8d-9eab-57f5f2fad2c1",
-          "__version": 1,
-          "Alpha": 1,
-          "ApplyAlpha": false,
-          "ApplyColor": false,
-          "ApplyRotation": true,
-          "ApplyShape": false,
-          "Bounce": 1,
-          "Brightness": 1,
-          "Bumpiness": 0,
-          "Collision": false,
-          "CollisionIgnore": null,
-          "CollisionRadius": 1,
-          "Damping": 0,
-          "DieOnCollisionChance": 0,
-          "Force": false,
-          "ForceDirection": "0,0,0",
-          "ForceScale": 1,
-          "ForceSpace": "World",
-          "Friction": 1,
-          "Gradient": {
-            "Type": "Constant",
-            "Evaluation": "Life",
-            "GradientA": {
-              "blend": "Linear",
-              "color": [
-                {
-                  "t": 0.5,
-                  "c": "1,1,1,1"
-                }
-              ],
-              "alpha": []
-            },
-            "GradientB": {
-              "blend": "Linear",
-              "color": [
-                {
-                  "t": 0.5,
-                  "c": "1,1,1,1"
-                }
-              ],
-              "alpha": []
-            },
-            "ConstantA": "1,1,1,1",
-            "ConstantB": "1,1,1,1"
-          },
-          "Lifetime": 5,
-          "MaxParticles": 1000,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnParticleCreated": null,
-          "OnParticleDestroyed": null,
-          "OrbitalForce": {
-            "X": 0,
-            "Y": 0,
-            "Z": 0
-          },
-          "OrbitalPull": 0,
-          "PerParticleTimeScale": 1,
-          "Pitch": 0,
-          "PreWarm": 0,
-          "PushStrength": 0,
-          "Roll": 0,
-          "Scale": 1,
-          "SequenceId": 0,
-          "SequenceSpeed": 1,
-          "SequenceTime": 1,
-          "SheetSequence": false,
-          "Space": "World",
-          "StartDelay": 0,
-          "StartVelocity": 1,
-          "Stretch": 0,
-          "TimeScale": 1,
-          "Tint": "1,1,1,1",
-          "Yaw": 0
-        }
-      ]
-    },
-    {
-      "__guid": "eb900ba9-23be-49f4-87ec-1f818f327a0c",
-      "Flags": 0,
-      "Name": "prop_physics",
-      "Position": "-1321.095,1244.548,1358.307",
-      "Rotation": "0,0,0.5372996,-0.8433914",
-      "Enabled": true,
-      "NetworkOrphaned": 3,
-      "OwnerTransfer": 0,
-      "Components": [
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "fde1edf8-42bb-493e-bbfc-e100e80afc85",
-          "__enabled": false,
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/3t/plants/joe_watering_can/joe_watering_can.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
-          },
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": true
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "d2cad62d-74cd-4d65-842e-733cceb3070e",
-          "Friction": null,
-          "IsTrigger": false,
-          "Model": "models/3t/plants/joe_watering_can/joe_watering_can.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.Rigidbody",
-          "__guid": "7b70f56b-7ef8-43c1-9b44-2c37f45974cf",
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": false,
-            "Y": false,
-            "Z": false,
-            "Pitch": false,
-            "Yaw": false,
-            "Roll": false
-          },
-          "MassCenterOverride": "0,0,0",
-          "MassOverride": 0,
-          "MotionEnabled": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OverrideMassCenter": false,
-          "RigidbodyFlags": 0,
-          "StartAsleep": false
-        }
-      ]
     }
   ],
   "SceneProperties": {
@@ -3593,7 +3932,9 @@
   "Title": null,
   "Description": null,
   "__references": [
-    "facepunch.fire_particle_fast#60123"
+    "facepunch.fire_particle_fast#60123",
+    "facepunch.tv#33694",
+    "fish.tv_stand#59029"
   ],
   "__version": 2
 }
