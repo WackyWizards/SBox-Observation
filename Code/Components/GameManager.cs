@@ -9,7 +9,6 @@ namespace Observation;
 public class GameManager : Component
 {
 	public static GameManager? Instance { get; private set; }
-
 	[Property] public SceneFile? MenuScene { get; set; }
 
 	private static readonly Dictionary<Rank, int> Thresholds = [];
@@ -17,93 +16,113 @@ public class GameManager : Component
 	protected override void OnStart()
 	{
 		Instance = this;
+		InitializeRankThresholds();
+		InitializePlayerData();
+		ConfigureAnomalySettings();
+		base.OnStart();
+	}
 
+	private static void InitializeRankThresholds()
+	{
 		Thresholds.Clear();
-		var ranks = Enum.GetValues<Rank>();
-		foreach ( var rank in ranks )
+		foreach ( var rank in Enum.GetValues<Rank>() )
 		{
 			var threshold = rank.GetAttributeOfType<ThresholdAttribute>();
 			Thresholds.Add( rank, threshold.MinimumValue );
 		}
+	}
 
+	private static void InitializePlayerData()
+	{
 		var playerData = PlayerData.Data;
 		playerData.FirstTime = false;
 		playerData.Save();
-
-		base.OnStart();
 	}
 
-	private static void GameStat( Rank rank, Map map )
+	public void ConfigureAnomalySettings()
 	{
-		Sandbox.Services.Stats.Increment( $"Game_over_with_difficulty_{map.Difficulty}", 1 );
-		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}", 1 );
-		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
-		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}", 1 );
-		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
+		if ( MapManager.Instance?.ActiveMap is not {} activeMap || AnomalyManager.Instance is not {} anomalyManager )
+			return;
+
+		anomalyManager.SetFailReportLimits( activeMap.Difficulty );
 	}
 
 	public void EndGameInLoss( LoseReason reason )
 	{
 		Log.Info( "Game Lost!" );
 
-		Sandbox.Services.Stats.Increment( "Losses", 1 );
-		Sandbox.Services.Stats.Increment( $"Losses_due_to_{reason}", 1 );
-
-		if ( MapManager.Instance?.ActiveMap is {} activeMap )
-		{
-			Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}", 1 );
-			Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
-
-			if ( AnomalyManager.Instance is {} anomalyManager )
-			{
-				GameStat( anomalyManager.Rank, activeMap );
-				Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
-				Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{activeMap.Difficulty}", 1 );
-				Sandbox.Services.Stats.SetValue( "Success_rate", anomalyManager.SuccessRate );
-				Sandbox.Services.Stats.SetValue( $"Success_rate_on_map_{activeMap.Ident}", anomalyManager.SuccessRate );
-			}
-		}
-
-		var menu = Hud.GetElement<GameOver>();
-		menu?.OnGameLose( reason );
-		menu?.Show();
-
-		Scene.TimeScale = 0;
+		GameStatistics.RecordLoss( reason, MapManager.Instance?.ActiveMap, AnomalyManager.Instance );
+		ShowGameOverScreen( false, reason );
+		PauseGame();
 	}
 
 	public void EndGameInWin()
 	{
 		Log.Info( "Game Win!" );
+		var activeMap = MapManager.Instance?.ActiveMap;
+		var anomalyManager = AnomalyManager.Instance;
 
-		Sandbox.Services.Stats.Increment( "Wins", 1 );
-		if ( MapManager.Instance?.ActiveMap is {} activeMap )
+		GameStatistics.RecordWin( activeMap, anomalyManager );
+		UnlockAchievements( activeMap, anomalyManager );
+		ShowGameOverScreen( true );
+		PauseGame();
+	}
+
+	private static void UnlockAchievements( Map? activeMap, AnomalyManager? anomalyManager )
+	{
+		if ( activeMap == null ) return;
+
+		var mapData = MapData.Data;
+		if ( !mapData.MapsWon.Contains( activeMap.Ident ) )
 		{
-			Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}", 1 );
-			Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
-			activeMap.WinAchievement?.Unlock();
-
-			if ( AnomalyManager.Instance is {} anomalyManager )
-			{
-				GameStat( anomalyManager.Rank, activeMap );
-				Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
-				Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{activeMap.Difficulty}", 1 );
-				Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
-				Sandbox.Services.Stats.SetValue( "Success_rate", anomalyManager.SuccessRate );
-				Sandbox.Services.Stats.SetValue( $"Success_rate_on_map_{activeMap.Ident}", anomalyManager.SuccessRate );
-
-				if ( anomalyManager.Rank == Rank.S )
-				{
-					activeMap.SRankAchievement?.Unlock();
-				}
-			}
+			mapData.MapsWon.Add( activeMap.Ident );
 		}
 
-		var menu = Hud.GetElement<GameOver>();
-		menu?.OnGameEnd( true );
-		menu?.Show();
+		if ( mapData.MapsWon.Count == MapData.MapAmount )
+		{
+			Platform.Achievement.WinAllMaps.Unlock();
+		}
 
-		Scene.TimeScale = 0;
+		activeMap.WinAchievement?.Unlock();
+
+		if ( activeMap.Difficulty == Difficulty.Hard )
+		{
+			activeMap.HardWinAchievement?.Unlock();
+		}
+
+		if ( anomalyManager?.Rank != Rank.S )
+		{
+			return;
+		}
+
+		activeMap.SRankAchievement?.Unlock();
+		if ( !mapData.SRanks.Contains( activeMap.Ident ) )
+		{
+			mapData.SRanks.Add( activeMap.Ident );
+		}
+
+		if ( mapData.SRanks.Count == MapData.MapAmount )
+		{
+			Platform.Achievement.SRankAllMaps.Unlock();
+		}
+
+		if ( activeMap.Difficulty == Difficulty.Hard )
+		{
+			activeMap.SRankHardAchievement?.Unlock();
+		}
 	}
+
+	private static void ShowGameOverScreen( bool isWin, LoseReason? reason = null )
+	{
+		var menu = Hud.GetElement<GameOver>();
+		if ( isWin )
+			menu?.OnGameEnd( true );
+		else if ( reason is not null )
+			menu?.OnGameLose( reason.Value );
+		menu?.Show();
+	}
+
+	private static void PauseGame() => Game.ActiveScene.Scene.TimeScale = 0;
 
 	public void ToMenu()
 	{
@@ -114,7 +133,8 @@ public class GameManager : Component
 	public static Rank GetRank( int successRate )
 	{
 		if ( successRate is < 0 or > 100 )
-			throw new ArgumentOutOfRangeException( nameof( successRate ), "Success rate must be between 0 and 100" );
+			throw new ArgumentOutOfRangeException( nameof( successRate ),
+				"Success rate must be between 0 and 100" );
 
 		return Thresholds
 			.OrderByDescending( x => x.Value )
@@ -141,11 +161,66 @@ public class GameManager : Component
 	}
 }
 
-public enum Difficulty
+internal class GameStatistics
 {
-	Easy,
-	Normal,
-	Hard
+	internal static void RecordLoss( GameManager.LoseReason reason, Map? activeMap, AnomalyManager? anomalyManager )
+	{
+		Sandbox.Services.Stats.Increment( "Losses", 1 );
+		Sandbox.Services.Stats.Increment( $"Losses_due_to_{reason}", 1 );
+
+		if ( activeMap == null ) return;
+
+		Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}", 1 );
+		Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
+
+		if ( anomalyManager == null )
+		{
+			return;
+		}
+
+		RecordGameStats( anomalyManager.Rank, activeMap );
+		RecordMapStats( activeMap, anomalyManager );
+		RecordSuccessRate( activeMap, anomalyManager );
+	}
+
+	internal static void RecordWin( Map? activeMap, AnomalyManager? anomalyManager )
+	{
+		Sandbox.Services.Stats.Increment( "Wins", 1 );
+
+		if ( activeMap == null ) return;
+
+		Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}", 1 );
+		Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
+
+		if ( anomalyManager != null )
+		{
+			RecordGameStats( anomalyManager.Rank, activeMap );
+			RecordMapStats( activeMap, anomalyManager );
+			Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
+			RecordSuccessRate( activeMap, anomalyManager );
+		}
+	}
+
+	private static void RecordGameStats( Rank rank, Map map )
+	{
+		Sandbox.Services.Stats.Increment( $"Game_over_with_difficulty_{map.Difficulty}", 1 );
+		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}", 1 );
+		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
+		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}", 1 );
+		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
+	}
+
+	private static void RecordMapStats( Map map, AnomalyManager anomalyManager )
+	{
+		Sandbox.Services.Stats.Increment( $"Losses_on_map_{map.Ident}_with_rank_{anomalyManager.Rank}", 1 );
+		Sandbox.Services.Stats.Increment( $"Losses_on_map_{map.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{map.Difficulty}", 1 );
+	}
+
+	private static void RecordSuccessRate( Map map, AnomalyManager anomalyManager )
+	{
+		Sandbox.Services.Stats.Increment( "Success_rate", anomalyManager.SuccessRate );
+		Sandbox.Services.Stats.Increment( $"Success_rate_on_map_{map.Ident}", anomalyManager.SuccessRate );
+	}
 }
 
 public static class LoseReasonExtensions
@@ -154,5 +229,26 @@ public static class LoseReasonExtensions
 	{
 		var description = reason.GetAttributeOfType<DescriptionAttribute>();
 		return description.Value ?? reason.ToString();
+	}
+}
+
+public static class AnomalyManagerExtensions
+{
+	public static void SetFailReportLimits( this AnomalyManager anomalyManager, Difficulty difficulty )
+	{
+		switch ( difficulty )
+		{
+			case Difficulty.Easy:
+			case Difficulty.Normal:
+				anomalyManager.FailReportsTilWarning = int.MaxValue;
+				anomalyManager.FailReportsTilGameOver = int.MaxValue;
+				break;
+			case Difficulty.Hard:
+				anomalyManager.FailReportsTilWarning = 3;
+				anomalyManager.FailReportsTilGameOver = 6;
+				break;
+			default:
+				throw new ArgumentOutOfRangeException( nameof( difficulty ) );
+		}
 	}
 }
