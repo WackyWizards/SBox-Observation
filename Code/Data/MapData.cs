@@ -12,8 +12,6 @@ public class MapData : IDataFile<MapData>
 	}
 	private static MapData? _data;
 
-	public static bool CanSave => FileSystem.Data.FileExists( FileName );
-
 	public const string FileName = "MapData.json";
 
 	public const int MapAmount = 2;
@@ -26,12 +24,6 @@ public class MapData : IDataFile<MapData>
 
 	public void Save()
 	{
-		if ( !CanSave )
-		{
-			Log.Error( "Unable to save data! No data file exists!" );
-			return;
-		}
-
 		FileSystem.Data.WriteJson( FileName, this );
 	}
 }

@@ -12,8 +12,6 @@ public class PlayerData : IDataFile<PlayerData>
 	}
 	private static PlayerData? _data;
 
-	public static bool CanSave => FileSystem.Data.FileExists( FileName );
-
 	public const string FileName = "PlayerData.json";
 
 	/// <summary>
@@ -25,12 +23,6 @@ public class PlayerData : IDataFile<PlayerData>
 
 	public void Save()
 	{
-		if ( !CanSave )
-		{
-			Log.Error( "Unable to save data! No data file exists!" );
-			return;
-		}
-
 		FileSystem.Data.WriteJson( FileName, this );
 	}
 }

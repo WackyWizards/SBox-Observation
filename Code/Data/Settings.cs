@@ -12,8 +12,6 @@ public class Settings : IDataFile<Settings>
 	}
 	private static Settings? _data;
 
-	public static bool CanSave => FileSystem.Data.FileExists( FileName );
-
 	public const string FileName = "Settings.json";
 
 	public float MasterVolume { get; set; } = 0.5f;
@@ -23,12 +21,6 @@ public class Settings : IDataFile<Settings>
 	
 	public void Save()
 	{		
-		if ( !CanSave )
-		{
-			Log.Error( "Unable to save data! No data file exists!" );
-			return;
-		}
-		
 		FileSystem.Data.WriteJson( FileName, this );
 	}
 }
