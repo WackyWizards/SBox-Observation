@@ -83,11 +83,17 @@ public class GameManager : Component
 			Platform.Achievement.WinAllMaps.Unlock();
 		}
 
-		activeMap.WinAchievement?.Unlock();
-
-		if ( activeMap.Difficulty == Difficulty.Hard )
+		switch ( activeMap.Difficulty )
 		{
-			activeMap.HardWinAchievement?.Unlock();
+			case Difficulty.Easy:
+			case Difficulty.Normal:
+				activeMap.WinAchievement?.Unlock();
+				break;
+			case Difficulty.Hard:
+				activeMap.HardWinAchievement?.Unlock();
+				break;
+			default:
+				throw new ArgumentOutOfRangeException();
 		}
 
 		if ( anomalyManager?.Rank != Rank.S )
@@ -95,7 +101,16 @@ public class GameManager : Component
 			return;
 		}
 
-		activeMap.SRankAchievement?.Unlock();
+		switch ( activeMap.Difficulty )
+		{
+			case Difficulty.Easy or Difficulty.Normal:
+				activeMap.SRankAchievement?.Unlock();
+				break;
+			case Difficulty.Hard:
+				activeMap.SRankHardAchievement?.Unlock();
+				break;
+		}
+
 		if ( !mapData.SRanks.Contains( activeMap.Ident ) )
 		{
 			mapData.SRanks.Add( activeMap.Ident );
@@ -104,11 +119,6 @@ public class GameManager : Component
 		if ( mapData.SRanks.Count == MapData.MapAmount )
 		{
 			Platform.Achievement.SRankAllMaps.Unlock();
-		}
-
-		if ( activeMap.Difficulty == Difficulty.Hard )
-		{
-			activeMap.SRankHardAchievement?.Unlock();
 		}
 	}
 
