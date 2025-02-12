@@ -281,7 +281,7 @@ public static class AnomalyManagerExtensions
 				break;
 			case Difficulty.Hard:
 				anomalyManager.FailReportsTilWarning = 3;
-				anomalyManager.FailReportsTilGameOver = 6;
+				anomalyManager.FailReportsTilGameOver = 5;
 				break;
 			default:
 				throw new ArgumentOutOfRangeException( nameof( difficulty ) );
