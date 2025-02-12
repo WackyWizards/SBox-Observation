@@ -2,7 +2,7 @@
 
 internal class MapData : IDataFile<MapData>
 {
-	public static MapData Data
+	public static MapData? Data
 	{
 		get
 		{

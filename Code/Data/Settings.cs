@@ -2,7 +2,7 @@
 
 public class Settings : IDataFile<Settings>
 {
-	public static Settings Data
+	public static Settings? Data
 	{
 		get
 		{
