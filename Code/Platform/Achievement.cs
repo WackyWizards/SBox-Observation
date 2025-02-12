@@ -21,7 +21,9 @@ public enum Achievement
 	[Title( "win_all_maps" )]
 	WinAllMaps,
 	[Title( "s_all_maps" )]
-	SRankAllMaps
+	SRankAllMaps,
+	[Title( "inconvenient_roc" )]
+	InconvenientRock
 }
 
 public static class AchievementExtensions

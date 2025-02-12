@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Observation.Platform;
 using Sandbox.Diagnostics;
 using Sandbox.UI;
 using Observation.UI;
@@ -281,6 +282,12 @@ public class AnomalyManager : Component
 			SuccessfulReports++;
 			Sandbox.Services.Stats.Increment( "report_success", 1 );
 			Sandbox.Services.Stats.Increment( $"report_success_{type}", 1 );
+
+			if ( type == Anomaly.AnomalyType.Rock )
+			{
+				Platform.Achievement.InconvenientRock.Unlock();
+			}
+			
 			ClearAnomaly( anomaly );
 		}
 	}
