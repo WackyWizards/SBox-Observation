@@ -99,6 +99,56 @@
             },
             "Weight": 0,
             "MinTime": 950
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "01078c36-8bde-4768-bc55-7841dec4f436",
+              "go": "c707d759-47a6-4c35-ae43-c18be81052cb",
+              "component_type": "ObjectMover"
+            },
+            "Weight": 6,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "c90fafd0-2c27-40d4-9622-82802f7ec2ee",
+              "go": "51785540-c8b1-47af-8c55-d9cd2d0fc282",
+              "component_type": "Enabler"
+            },
+            "Weight": 2,
+            "MinTime": 750
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "5a462d3e-046e-494e-81d3-80be3a28d648",
+              "go": "d9fff941-b62f-457b-93fa-34fa48e35640",
+              "component_type": "Camera"
+            },
+            "Weight": 3,
+            "MinTime": 500
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "b3333092-50c3-47ec-bee2-35fef7b92c51",
+              "go": "920b1d2e-7a4a-48ff-8b35-d66ab2dca6d2",
+              "component_type": "Camera"
+            },
+            "Weight": 3,
+            "MinTime": 500
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "391b9649-9418-46d0-ad0e-e850bdf52d1e",
+              "go": "081d8293-1ba6-4255-96a6-6d1d264cae41",
+              "component_type": "Enabler"
+            },
+            "Weight": 6,
+            "MinTime": null
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -110,7 +160,8 @@
         "Fail Reports Til Warning": 999999,
         "Max Anomalies Til Warning": 3,
         "Win Time": 1440,
-        "Anomaly Time": "25 120"
+        "Anomaly Time": "25 120",
+        "First Anomaly Time": "20 35"
       }
     },
     {
@@ -184,7 +235,7 @@
         {
           "__guid": "06448d84-6f6a-437a-8ef9-6b7cdc294428",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Reception",
           "Position": "-483.7085,1007.17,1559.026",
           "Rotation": "0.1282318,-0.0540201,-0.8824622,-0.4493318",
           "Tags": "maincamera",
@@ -233,7 +284,7 @@
         {
           "__guid": "920b1d2e-7a4a-48ff-8b35-d66ab2dca6d2",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Break Room",
           "Position": "-775.8553,107.7639,1492.433",
           "Rotation": "0.04623716,-0.1319572,-0.3316015,-0.9330004",
           "Tags": "maincamera",
@@ -281,7 +332,7 @@
         {
           "__guid": "f6aed408-ac58-4aaf-bc73-ee8151aacf06",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Storage",
           "Position": "-1065.482,973.2225,1559.026",
           "Rotation": "0.2580702,-0.1127087,-0.8649887,-0.4153204",
           "Tags": "maincamera",
@@ -329,7 +380,7 @@
         {
           "__guid": "c858d4e6-b96c-4de2-98a4-14ff676b87e4",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Office",
           "Position": "-1350.606,1599.168,1515.505",
           "Rotation": "0.09278493,-0.2029729,-0.365373,-0.9037122",
           "Tags": "maincamera",
@@ -377,7 +428,7 @@
         {
           "__guid": "a39ab630-76b8-46f0-9df1-869be357587a",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Pool",
           "Position": "-2621.117,2057.401,1554.61",
           "Rotation": "-0.04800258,-0.1307045,0.376595,-0.9158539",
           "Tags": "maincamera",
@@ -425,7 +476,7 @@
         {
           "__guid": "d9fff941-b62f-457b-93fa-34fa48e35640",
           "Flags": 0,
-          "Name": "Camera",
+          "Name": "Basement",
           "Position": "-1486.564,1755.228,880.3552",
           "Rotation": "-0.199038,-0.07536153,0.9152189,-0.3421682",
           "Tags": "maincamera",
@@ -1712,6 +1763,597 @@
               "Type": "Rock"
             }
           ]
+        },
+        {
+          "__guid": "c707d759-47a6-4c35-ae43-c18be81052cb",
+          "Flags": 0,
+          "Name": "vendor",
+          "Position": "620.4139,912.662,-172.551",
+          "Rotation": "0,0,-1,0.0000001947072",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "d6a1c539-995b-4ebe-b000-957fca567d0b",
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/lab/vendor.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "035b6adb-8e30-489d-8d0d-ba9b7f4a8c32",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/lab/vendor.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "dc3c8788-bc0e-48cb-875b-39a03f824031",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": false,
+                "Yaw": false,
+                "Roll": false
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            },
+            {
+              "__type": "Observation.Anomalies.ObjectMover",
+              "__guid": "01078c36-8bde-4768-bc55-7841dec4f436",
+              "DefaultWorldTransform": {
+                "Position": "-241.505,1411.585,2941.729",
+                "Scale": "1,1,1",
+                "Rotation": "0,0,-1,0.0000001947072"
+              },
+              "DesiredWorldTransform": {
+                "Position": "-288.7246,1411.585,2958.49",
+                "Scale": "1,1,1",
+                "Rotation": "0.7105905,0.0000001383571,-0.7036058,0.0000001369971"
+              },
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Reception",
+              "ShowOnCamera": false,
+              "Type": "Movement"
+            }
+          ]
+        },
+        {
+          "__guid": "51785540-c8b1-47af-8c55-d9cd2d0fc282",
+          "Flags": 0,
+          "Name": "Radio",
+          "Position": "-46.11945,640.103,-122.2366",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "4ebc9ac1-7bd4-46e2-b800-830bcae34ba2",
+              "Center": "0,-14.26102,-0.04478836",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "32,36.08982,32.08958",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "c90fafd0-2c27-40d4-9622-82802f7ec2ee",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "02ab358d-6805-40af-af70-ede4b43ed221"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Office",
+              "ShowOnCamera": false,
+              "Type": "Audio"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "02ab358d-6805-40af-af70-ede4b43ed221",
+              "Flags": 0,
+              "Name": "Sound Point",
+              "Components": [
+                {
+                  "__type": "Sandbox.SoundPointComponent",
+                  "__guid": "813242ad-dc1e-45c4-94de-25e1ab10eb57",
+                  "Distance": 1000,
+                  "DistanceAttenuation": true,
+                  "DistanceAttenuationOverride": true,
+                  "Falloff": [
+                    {
+                      "x": 0,
+                      "y": 1,
+                      "in": 3.1415927,
+                      "out": -3.1415927,
+                      "mode": "Mirrored"
+                    },
+                    {
+                      "x": 1,
+                      "y": 0,
+                      "in": 0,
+                      "out": 0,
+                      "mode": "Mirrored"
+                    }
+                  ],
+                  "Force2d": false,
+                  "MaxRepeatTime": 1,
+                  "MinRepeatTime": 1,
+                  "Occlusion": false,
+                  "OcclusionOverride": false,
+                  "OcclusionRadius": 32,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Pitch": 1,
+                  "PlayOnStart": true,
+                  "ReflectionOverride": false,
+                  "Reflections": false,
+                  "Repeat": false,
+                  "SoundEvent": "sounds/anomalies/ape tavern podcast.sound",
+                  "SoundOverride": false,
+                  "StopOnNew": false,
+                  "TargetMixer": {
+                    "Name": "game",
+                    "Id": "1b7c101c-1a70-41d1-9060-6f560b64fe70"
+                  },
+                  "Volume": 1
+                }
+              ]
+            },
+            {
+              "__guid": "5204f35d-8464-4be6-aef3-05b29428400e",
+              "Flags": 0,
+              "Name": "radio",
+              "Position": "12.2442,-6.800049,-16.59937",
+              "Rotation": "-0.000000003331958,0.00000008934486,0.7674291,0.6411336",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "b111021c-a7f1-474d-a7dd-56a7917e8c91",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/condo_items/interactive/radio/radio/radio.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "081d8293-1ba6-4255-96a6-6d1d264cae41",
+          "Flags": 0,
+          "Name": "ShelfItems",
+          "Position": "-233.6248,198.5927,-120.9744",
+          "Scale": "1,1.975599,3.156049",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "386cf550-c2a3-4d82-a58f-65d151ca0a1f",
+              "Center": "0,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "32,32,32",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "391b9649-9418-46d0-ad0e-e850bdf52d1e",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "cfbed4fa-74f1-4232-84c2-7be68c037115"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "2efe263d-fb0e-4270-8e18-0fc37da53874"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "89f529ba-b49e-4760-a029-6232880a811d"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "eb589ada-54f9-4c3f-bbdc-4eda1140160b"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "a17ff64a-d306-4031-94b2-972536b17fd5"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "1ba69099-6d19-45c8-bba5-bb9323692260"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "e39f56ae-cb80-499f-8369-2c2c0615d806"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "d94501a4-0235-4bcf-a471-3275eea2e30a"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Storage Room",
+              "ShowOnCamera": false,
+              "Type": "Disappearance"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "cfbed4fa-74f1-4232-84c2-7be68c037115",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "1.128906,4.643938,-14.69269",
+              "Rotation": "0,0,-0.005265113,0.9999861",
+              "Scale": "1,0.5061755,0.3168518",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "3a419565-460f-46fd-8433-fc892649df9e",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/cardboard/box_1/joe_board_1.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "2efe263d-fb0e-4270-8e18-0fc37da53874",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "0.2990723,-1.854164,-14.78142",
+              "Rotation": "0,0,0.008726509,0.9999619",
+              "Scale": "1,0.5061755,0.3168518",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "479f67b3-f111-4b46-8055-d13f6b8e5f43",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/p_towel/p_powel.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "89f529ba-b49e-4760-a029-6232880a811d",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "0.2990723,-6.071264,-14.78142",
+              "Rotation": "0,0,0.008726509,0.9999619",
+              "Scale": "1,0.5061755,0.3168518",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "49ec5aea-384e-42c9-8c9e-1d4e21940695",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/p_towel/p_powel.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "eb589ada-54f9-4c3f-bbdc-4eda1140160b",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "1.128906,-5.041674,-8.583621",
+              "Rotation": "0,0,-0.04673794,0.9989071",
+              "Scale": "1,0.5061755,0.3168518",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "b56b1aa9-f9b6-4419-b0ab-4edd0031da13",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/cardboard/box_1/joe_board_1.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "a17ff64a-d306-4031-94b2-972536b17fd5",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "1.128906,4.643938,-8.583621",
+              "Rotation": "0,0,-0.005265113,0.9999861",
+              "Scale": "1,0.5061755,0.3168518",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "ee9f05f9-ca2e-4ad8-a698-e6e5245d2358",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/cardboard/box_1/joe_board_1.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "1ba69099-6d19-45c8-bba5-bb9323692260",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "1.128906,0.1569441,-2.433865",
+              "Rotation": "0,0,-0.005265113,0.9999861",
+              "Scale": "1,0.5061755,0.3168518",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "2f8930fa-943b-43a9-9463-824efd790584",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/cardboard/box_1/joe_board_1.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "e39f56ae-cb80-499f-8369-2c2c0615d806",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "3.219604,5.425198,9.868202",
+              "Rotation": "0,0,0.8949344,-0.4461977",
+              "Scale": "1,0.5061755,0.3168518",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "2f0a6b32-ae8a-41e9-9eba-ae1f141c4f76",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/white_buckets/bucket_4.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "d94501a4-0235-4bcf-a471-3275eea2e30a",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "0.682373,-7.293079,9.804305",
+              "Rotation": "0,0,0.2079116,-0.9781476",
+              "Scale": "1,0.5061755,0.3168518",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "e8bedfff-0e8a-4886-87ce-5b4809c37412",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/cardboard/box_2/joe_box_2.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1849,6 +2491,99 @@
           ]
         },
         {
+          "__guid": "93bef854-c922-4da0-bb96-d8d5a2161c2c",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-445.2109,-828.6987,19.62451",
+          "Rotation": "0,0,0.7071068,-0.7071068",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "a45d25b7-a53e-4a24-be17-fd1914697432",
+              "BodyGroups": 18446744073709551615,
+              "Health": 50,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/plants/plant2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "c24a13ce-c872-4bd7-bfce-1857c5f74edc",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-269.5888,720.3172,19.62451",
+          "Rotation": "0,0,0.7071068,-0.7071068",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "3f37c194-9a37-4814-887c-241090ed896f",
+              "BodyGroups": 18446744073709551615,
+              "Health": 50,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/plants/plant2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "5d2ef5a1-037e-4663-82c0-af486c4b7173",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-173.6971,618.7316,19.62476",
+          "Rotation": "0,0,0.7071068,-0.7071068",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "d281c6c6-3980-4a54-847e-bac82dd85ccf",
+              "BodyGroups": 18446744073709551615,
+              "Health": 50,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/plants/plant2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
           "__guid": "5c91e568-8f9a-420d-8247-c56066c4aaf8",
           "Flags": 0,
           "Name": "prop_physics",
@@ -1861,6 +2596,68 @@
             {
               "__type": "Sandbox.Prop",
               "__guid": "9a954d1c-bbf4-4533-8555-5f816ae3fa9a",
+              "BodyGroups": 18446744073709551615,
+              "Health": 50,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/plants/plant2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "591e8340-8021-43bd-8996-ff08d11b1b0d",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-600.3423,-828.6987,19.62451",
+          "Rotation": "0,0,0.7071068,-0.7071068",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "51f9be99-849a-4b6d-a794-042bc13c08a8",
+              "BodyGroups": 18446744073709551615,
+              "Health": 50,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/plants/plant2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "92cf8c19-9931-404e-8f34-46e490b8bff7",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-634.5753,476.5717,19.62476",
+          "Rotation": "0,0,0.7071068,-0.7071068",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "a5f5cc13-7d40-4d5e-856f-82ac72c2f7ac",
               "BodyGroups": 18446744073709551615,
               "Health": 50,
               "IsStatic": false,
@@ -2023,64 +2820,268 @@
               "StartAsleep": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "__guid": "0d24156f-e6f3-4ef6-bdc4-500278d7868a",
-      "Flags": 0,
-      "Name": "tea_cup",
-      "Position": "-457.3274,991.2463,2981.724",
-      "Rotation": "-0.00005377447,0.000167503,0.3056634,0.9521396",
-      "Enabled": true,
-      "Components": [
+        },
         {
-          "__type": "Sandbox.Prop",
-          "__guid": "b90c17e5-66c2-4719-a7de-7bea5090086a",
-          "BodyGroups": 18446744073709551615,
-          "Health": 0,
-          "IsStatic": false,
-          "MaterialGroup": null,
-          "Model": "teacup/tea_cup.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnPropBreak": null,
-          "OnPropTakeDamage": null,
-          "StartAsleep": false,
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
-      "__guid": "5204f35d-8464-4be6-aef3-05b29428400e",
-      "Flags": 0,
-      "Name": "radio",
-      "Position": "-895.7941,1132.226,2975.444",
-      "Rotation": "-0.000000003331958,0.00000008934486,0.7674291,0.6411336",
-      "Enabled": true,
-      "Components": [
+          "__guid": "9a77f258-319e-4a1a-9bd7-7f149a71c21d",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-725.1569,131.7775,52.92358",
+          "Rotation": "0,0,0.05174631,0.9986603",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "71f6fe9e-f50b-4671-91ae-db9c136c6519",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/3t/wine/3t_winebottle.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
         {
-          "__type": "Sandbox.Prop",
-          "__guid": "b111021c-a7f1-474d-a7dd-56a7917e8c91",
-          "BodyGroups": 18446744073709551615,
-          "Health": 0,
-          "IsStatic": true,
-          "MaterialGroup": null,
-          "Model": "models/condo_items/interactive/radio/radio/radio.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnPropBreak": null,
-          "OnPropTakeDamage": null,
-          "StartAsleep": false,
-          "Tint": "1,1,1,1"
+          "__guid": "d9bf94d5-0bbd-46cb-ad3b-f492f951d1a2",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-719.545,137.3397,52.92358",
+          "Rotation": "0,0,0.3826835,0.9238795",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "a1c7f3e4-bd17-4ad6-8a16-a46f3aaf7a84",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/3t/wine/3t_winebottle.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "f003fabe-8ffa-4d71-aa9a-585a9b8e1d91",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-702.6815,139.2628,53.1377",
+          "Rotation": "0,0,0.03489964,0.9993908",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "01bb0f6e-613e-4d41-9cff-d562d1a8bc1d",
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/3t/office/paper_box/joe_paper_box2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.ModelCollider",
+              "__guid": "9807d4df-dbfe-42df-8276-054a710fa945",
+              "Friction": null,
+              "IsTrigger": false,
+              "Model": "models/3t/office/paper_box/joe_paper_box2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "001074bd-1fb7-4cc1-9d89-04a733630a0b",
+              "AngularDamping": 0,
+              "Gravity": true,
+              "LinearDamping": 0,
+              "Locking": {
+                "X": true,
+                "Y": true,
+                "Z": true,
+                "Pitch": true,
+                "Yaw": true,
+                "Roll": true
+              },
+              "MassCenterOverride": "0,0,0",
+              "MassOverride": 0,
+              "MotionEnabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideMassCenter": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            }
+          ]
+        },
+        {
+          "__guid": "0d24156f-e6f3-4ef6-bdc4-500278d7868a",
+          "Flags": 0,
+          "Name": "tea_cup",
+          "Position": "-314.9054,5.706421,59.62012",
+          "Rotation": "-0.00005377447,0.000167503,0.3056634,0.9521396",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "b90c17e5-66c2-4719-a7de-7bea5090086a",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "teacup/tea_cup.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "d629846a-a776-4090-9f5b-b04d79247c96",
+          "Flags": 0,
+          "Name": "tavern_table",
+          "Position": "-112.7063,495.6984,19.625",
+          "Rotation": "0,0,-0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "2eb8263e-8b48-4665-8a6d-d88467c83505",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/furniture/tavern_table/tavern_table.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "1a8a9e33-4cf2-477a-aa80-8df516f04d0f",
+          "Flags": 0,
+          "Name": "vendor (1)",
+          "Position": "-99.08301,366.9394,19.625",
+          "Rotation": "0,0,-1,0.0000001947072",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "c4a8fd84-1b5d-43e0-bbb5-2476432c1782",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/lab/vendor.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "9f8f6eb2-8403-41d1-a070-201c883fea82",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-960.2111,-254.6674,19.625",
+          "Rotation": "0,0,0.6755903,0.7372773",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "477eb64d-084e-4793-b37a-189ffd462143",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/3t/bar_stuff/beer_barrel.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
         }
       ]
     }
@@ -2112,7 +3113,9 @@
   "Title": null,
   "Description": null,
   "__references": [
+    "ambi.vendor#51604",
     "baik.radio#19454",
+    "baik.taverntable#10764",
     "fish.2000_keyboard#58967",
     "fish.2000_monitor#58965",
     "rust.rock_cliff_a#25118",
