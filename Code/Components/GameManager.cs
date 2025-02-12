@@ -135,7 +135,7 @@ public class GameManager : Component
 		{
 			return;
 		}
-		
+
 		if ( !mapData.SRanks.Contains( activeMap.Ident ) )
 		{
 			mapData.SRanks.Add( activeMap.Ident );
@@ -166,7 +166,7 @@ public class GameManager : Component
 		Scene.Load( MenuScene );
 	}
 
-	public static Rank GetRank( int successRate )
+	private static Rank GetRank( int successRate )
 	{
 		if ( successRate is < 0 or > 100 )
 			throw new ArgumentOutOfRangeException( nameof( successRate ),
@@ -178,14 +178,25 @@ public class GameManager : Component
 			.Key;
 	}
 
-	public static (Rank rank, int percentage) GetRank( int successes, int total )
+	public static (Rank rank, int percentage) GetRank( int successes, int missedAnomalies, int total )
 	{
 		if ( total == 0 ) return (Rank.F, 0);
 
-		var percentage = (int)Math.Floor( (double)successes / total * 100 );
-		percentage = Math.Min( 100, Math.Max( 0, percentage ) );
+		var successPercentage = (double)successes / total * 100;
+		var anomalyPenalty = missedAnomalies > 0
+			? (double)missedAnomalies / (missedAnomalies + successes) * 100
+			: 0;
 
-		return (GetRank( percentage ), percentage);
+		var finalPercentage = (int)Math.Floor( successPercentage - anomalyPenalty );
+		finalPercentage = Math.Min( 100, Math.Max( 0, finalPercentage ) );
+
+		// Only allow 100% if there are no missed anomalies and all reports are successful
+		if ( finalPercentage == 100 && (missedAnomalies > 0 || successes != total) )
+		{
+			finalPercentage = 99;
+		}
+
+		return (GetRank( finalPercentage ), finalPercentage);
 	}
 
 	public enum LoseReason

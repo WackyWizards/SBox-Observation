@@ -58,7 +58,7 @@ public class AnomalyManager : Component
 	{
 		get
 		{
-			return GameManager.GetRank( SuccessfulReports, TotalReports ).rank;
+			return GameManager.GetRank( SuccessfulReports, ActiveAnomalies.Count, TotalReports ).rank;
 		}
 	}
 
@@ -66,7 +66,7 @@ public class AnomalyManager : Component
 	{
 		get
 		{
-			return GameManager.GetRank( SuccessfulReports, TotalReports ).percentage;
+			return GameManager.GetRank( SuccessfulReports, ActiveAnomalies.Count, TotalReports ).percentage;
 		}
 	}
 
@@ -78,7 +78,7 @@ public class AnomalyManager : Component
 	private TimeUntil _nextAnomaly;
 	private TimeSince _sinceStart;
 
-	private const string ActiveAnomaliesAlert = "Attention employee, multiple active anomalies detected in your area. Locate and send reports immediately.";
+	private const string ActiveAnomaliesAlert = "Attention employee, multiple active anomalies detected in your area. Locate and send reports ASAP.";
 	private const string FailReportsAlert = "Attention employee, excessive false reports detected. Please only report active anomalies.";
 
 	private readonly Logger Log = new( "Anomaly Manager" );
