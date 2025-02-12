@@ -36,7 +36,7 @@ public class CameraManager : Component
 		base.OnStart();
 	}
 
-	protected override void OnUpdate()
+	protected override void OnFixedUpdate()
 	{
 		if ( Input.Pressed( NextCameraInput ) )
 		{
@@ -47,8 +47,8 @@ public class CameraManager : Component
 		{
 			SetPreviousAvailableActive();
 		}
-
-		base.OnUpdate();
+		
+		base.OnFixedUpdate();
 	}
 
 	public void SetActiveCamera( Camera camera )

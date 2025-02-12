@@ -92,10 +92,8 @@ public class AnomalyManager : Component
 		base.OnStart();
 	}
 
-	protected override void OnUpdate()
+	protected override void OnFixedUpdate()
 	{
-		base.OnUpdate();
-
 		if ( !_nextAnomaly || !CanActivateAnomalies )
 			return;
 
@@ -109,6 +107,8 @@ public class AnomalyManager : Component
 		}
 
 		_nextAnomaly = AnomalyTime.GetValue();
+		
+		base.OnFixedUpdate();
 	}
 
 	[Button]
