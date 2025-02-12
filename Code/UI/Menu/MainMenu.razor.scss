@@ -127,6 +127,14 @@ MainMenu {
       }
     }
   }
+  
+  .active-tip {
+    bottom: 50px;
+    position: absolute;
+    font-size: 25px;
+    color: white;
+    z-index: 1;
+  }
 
   .web-container {
     pointer-events: all;

@@ -26,6 +26,7 @@
         {
           "__type": "Observation.UI.MainMenu",
           "__guid": "b90fe410-6992-4885-9422-7f4ad0d9c5e8",
+          "ActiveTip": "",
           "Maps": [
             {
               "Ident": "house",
@@ -55,7 +56,16 @@
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "PossibleTips": [
+            "Like the game? Consider leaving a positive review or joining the discord!",
+            "One must keep their eyes and ears open.",
+            "The Company expects great results from you.",
+            "Are you sure what you are seeing is even real?",
+            "The answer lies in the details.",
+            "Don't trust the company.",
+            "Trust the company."
+          ]
         }
       ]
     },
