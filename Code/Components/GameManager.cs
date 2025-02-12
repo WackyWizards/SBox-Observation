@@ -85,8 +85,7 @@ public class GameManager : Component
 
 		switch ( activeMap.Difficulty )
 		{
-			case Difficulty.Easy:
-			case Difficulty.Normal:
+			case Difficulty.Easy or Difficulty.Normal:
 				activeMap.WinAchievement?.Unlock();
 				break;
 			case Difficulty.Hard:
