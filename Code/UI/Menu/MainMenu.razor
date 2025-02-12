@@ -84,6 +84,12 @@
 		Mixer.FindMixerByName( "Game" ).Volume = settings.GameVolume;
 		Mixer.FindMixerByName( "UI" ).Volume = settings.UIVolume;
 
+		var menuMusic = Sound.Play( "MenuMusic" );
+		if ( menuMusic.IsValid() )
+		{
+			menuMusic.TargetMixer = Mixer.FindMixerByName( "Music" );
+		}
+
 		base.OnStart();
 	}
 
