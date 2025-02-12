@@ -62,6 +62,7 @@ public class CameraManager : Component
 		camera.GameObject.Enabled = true;
 
 		Hud.GetElement<AnomalyList>()?.Hide();
+		Hud.GetElement<RoomList>()?.Hide();
 		var sound = Sound.Play( "ui.button.deny" );
 		if ( sound.IsValid() )
 		{

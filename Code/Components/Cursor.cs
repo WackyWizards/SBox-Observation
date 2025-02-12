@@ -87,6 +87,7 @@ public class Cursor : Component
 			.ToList();
 
 		anomalyList.Show();
+		hud.GetFirstElement<RoomList>()?.Hide();
 		anomalyList.OnReport += ReportCallback;
 		return;
 
