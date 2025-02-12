@@ -17,7 +17,7 @@
               "go": "dd1c4b9a-a400-4373-99b3-8c07cc3aeff5",
               "component_type": "Enabler"
             },
-            "Weight": 3,
+            "Weight": 2,
             "MinTime": null
           },
           {
@@ -127,7 +127,7 @@
               "go": "e253b299-b274-43b3-b5c3-166809fef974",
               "component_type": "Enabler"
             },
-            "Weight": 2,
+            "Weight": 0,
             "MinTime": 350
           },
           {
@@ -167,7 +167,7 @@
               "go": "2f514224-a531-4722-bf92-ee9f24322f99",
               "component_type": "Enabler"
             },
-            "Weight": 4,
+            "Weight": 3,
             "MinTime": 300
           },
           {
@@ -208,6 +208,16 @@
               "component_type": "ObjectMover"
             },
             "Weight": 6,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "09240ecb-8503-4233-9f78-797775ededa5",
+              "go": "5fd77b3e-427d-458c-b3b1-02154ca517be",
+              "component_type": "Enabler"
+            },
+            "Weight": 7,
             "MinTime": null
           }
         ],
@@ -3358,6 +3368,316 @@
               "Type": "Movement"
             }
           ]
+        },
+        {
+          "__guid": "5fd77b3e-427d-458c-b3b1-02154ca517be",
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "-1338.266,-473.1994,17.4032",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "04ec0bb8-a932-4ca2-80ea-5eff0d21827f",
+              "Center": "22.81125,0,0",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "77.62253,32,32",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "09240ecb-8503-4233-9f78-797775ededa5",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "ff146e9e-a426-4444-9b62-0c30b23c6607"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "7a6edfbe-c0a8-4fcf-b698-c887e1e1c939"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "6a68160e-b2a6-4dc6-a82e-51eabbbcde9d"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "03cdc1be-7ad3-4eb1-b1d6-cfac25c7c6ff"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "4fb713b5-710e-46c3-839e-26587dfefe61"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "e1a56d19-86d4-4f6e-8f9e-0e48e85a3516"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "71ba677d-114e-43ff-a612-9e4b520b62ee"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "2fa9199a-b531-4c6b-97b6-3175b3f77ba1"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Kitchen",
+              "ShowOnCamera": false,
+              "Type": "Disappearance"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "ff146e9e-a426-4444-9b62-0c30b23c6607",
+              "Flags": 0,
+              "Name": "cola_can",
+              "Position": "-7.778442,0.6459656,-16.12598",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "3de1bcfa-626c-4204-a6db-a31ee589ed0b",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 10,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/sbox_props/cola_can/cola_can.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "7a6edfbe-c0a8-4fcf-b698-c887e1e1c939",
+              "Flags": 0,
+              "Name": "chef_knife",
+              "Position": "7.890137,3.04567,-15.90881",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "25b37621-aca8-45d6-86c9-c23587e874a8",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/props/trim_sheets/kitchen/chef_knife.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "6a68160e-b2a6-4dc6-a82e-51eabbbcde9d",
+              "Flags": 0,
+              "Name": "can_small (1)",
+              "Position": "17.79443,-4.261429,-16.16028",
+              "Rotation": "0,0,-0.6393409,0.7689234",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "56f20aed-d472-439a-834f-46920be557b3",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/props/packaged_food/can_small.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "03cdc1be-7ad3-4eb1-b1d6-cfac25c7c6ff",
+              "Flags": 0,
+              "Name": "can_standard (1)",
+              "Position": "17.16833,-10.41183,-16.15784",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "65ec5fcb-414f-467b-981f-455a5cfdbd9d",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/props/packaged_food/can_standard.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "4fb713b5-710e-46c3-839e-26587dfefe61",
+              "Flags": 0,
+              "Name": "can_standard (2)",
+              "Position": "17.16833,-10.41183,-11.10266",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "9c4f3e60-72ea-491a-adb0-e74bc4e44807",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/props/packaged_food/can_standard.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "e1a56d19-86d4-4f6e-8f9e-0e48e85a3516",
+              "Flags": 0,
+              "Name": "can_standard",
+              "Position": "22.62463,-8.093826,-16.15784",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "9513d42d-d296-4ff4-9d42-7cc750f1c866",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/props/packaged_food/can_standard.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "71ba677d-114e-43ff-a612-9e4b520b62ee",
+              "Flags": 0,
+              "Name": "can_small",
+              "Position": "27.51807,-4.261429,-16.16028",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "685d2a82-d85b-4e8f-94f9-702cf607787e",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/props/packaged_food/can_small.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "2fa9199a-b531-4c6b-97b6-3175b3f77ba1",
+              "Flags": 0,
+              "Name": "bugbody",
+              "Position": "49.34302,3.808075,-16.16028",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "548c0133-3404-41be-8c77-62b696d7f682",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/props/spraycans/bugbody.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -5493,62 +5813,6 @@
           ]
         },
         {
-          "__guid": "2fa9199a-b531-4c6b-97b6-3175b3f77ba1",
-          "Flags": 0,
-          "Name": "bugbody",
-          "Position": "350.4268,-213.5535,112.1539",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.Prop",
-              "__guid": "548c0133-3404-41be-8c77-62b696d7f682",
-              "BodyGroups": 18446744073709551615,
-              "Health": 0,
-              "IsStatic": false,
-              "MaterialGroup": null,
-              "Model": "models/props/spraycans/bugbody.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnPropBreak": null,
-              "OnPropTakeDamage": null,
-              "StartAsleep": false,
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "7a6edfbe-c0a8-4fcf-b698-c887e1e1c939",
-          "Flags": 0,
-          "Name": "chef_knife",
-          "Position": "308.9739,-214.3159,112.4054",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.Prop",
-              "__guid": "25b37621-aca8-45d6-86c9-c23587e874a8",
-              "BodyGroups": 18446744073709551615,
-              "Health": 0,
-              "IsStatic": false,
-              "MaterialGroup": null,
-              "Model": "models/props/trim_sheets/kitchen/chef_knife.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnPropBreak": null,
-              "OnPropTakeDamage": null,
-              "StartAsleep": false,
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
           "__guid": "d1c5caea-12b3-4227-8817-06b8c666cb95",
           "Flags": 0,
           "Name": "wooden_chair_a",
@@ -5620,175 +5884,6 @@
               "IsStatic": false,
               "MaterialGroup": null,
               "Model": "models/props/trim_sheets/chairs/wooden_chair_a.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnPropBreak": null,
-              "OnPropTakeDamage": null,
-              "StartAsleep": false,
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "4fb713b5-710e-46c3-839e-26587dfefe61",
-          "Flags": 0,
-          "Name": "can_standard (2)",
-          "Position": "318.252,-227.7734,117.2115",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.Prop",
-              "__guid": "9c4f3e60-72ea-491a-adb0-e74bc4e44807",
-              "BodyGroups": 18446744073709551615,
-              "Health": 0,
-              "IsStatic": false,
-              "MaterialGroup": null,
-              "Model": "models/props/packaged_food/can_standard.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnPropBreak": null,
-              "OnPropTakeDamage": null,
-              "StartAsleep": false,
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "03cdc1be-7ad3-4eb1-b1d6-cfac25c7c6ff",
-          "Flags": 0,
-          "Name": "can_standard (1)",
-          "Position": "318.252,-227.7734,112.1564",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.Prop",
-              "__guid": "65ec5fcb-414f-467b-981f-455a5cfdbd9d",
-              "BodyGroups": 18446744073709551615,
-              "Health": 0,
-              "IsStatic": false,
-              "MaterialGroup": null,
-              "Model": "models/props/packaged_food/can_standard.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnPropBreak": null,
-              "OnPropTakeDamage": null,
-              "StartAsleep": false,
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "e1a56d19-86d4-4f6e-8f9e-0e48e85a3516",
-          "Flags": 0,
-          "Name": "can_standard",
-          "Position": "323.7084,-225.4554,112.1564",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.Prop",
-              "__guid": "9513d42d-d296-4ff4-9d42-7cc750f1c866",
-              "BodyGroups": 18446744073709551615,
-              "Health": 0,
-              "IsStatic": false,
-              "MaterialGroup": null,
-              "Model": "models/props/packaged_food/can_standard.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnPropBreak": null,
-              "OnPropTakeDamage": null,
-              "StartAsleep": false,
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "6a68160e-b2a6-4dc6-a82e-51eabbbcde9d",
-          "Flags": 0,
-          "Name": "can_small (1)",
-          "Position": "318.8782,-221.623,112.1539",
-          "Rotation": "0,0,-0.6393409,0.7689234",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.Prop",
-              "__guid": "56f20aed-d472-439a-834f-46920be557b3",
-              "BodyGroups": 18446744073709551615,
-              "Health": 0,
-              "IsStatic": false,
-              "MaterialGroup": null,
-              "Model": "models/props/packaged_food/can_small.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnPropBreak": null,
-              "OnPropTakeDamage": null,
-              "StartAsleep": false,
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "71ba677d-114e-43ff-a612-9e4b520b62ee",
-          "Flags": 0,
-          "Name": "can_small",
-          "Position": "328.6018,-221.623,112.1539",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.Prop",
-              "__guid": "685d2a82-d85b-4e8f-94f9-702cf607787e",
-              "BodyGroups": 18446744073709551615,
-              "Health": 0,
-              "IsStatic": false,
-              "MaterialGroup": null,
-              "Model": "models/props/packaged_food/can_small.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnPropBreak": null,
-              "OnPropTakeDamage": null,
-              "StartAsleep": false,
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "ff146e9e-a426-4444-9b62-0c30b23c6607",
-          "Flags": 0,
-          "Name": "cola_can",
-          "Position": "293.3053,-216.7156,112.1882",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.Prop",
-              "__guid": "3de1bcfa-626c-4204-a6db-a31ee589ed0b",
-              "BodyGroups": 18446744073709551615,
-              "Health": 10,
-              "IsStatic": false,
-              "MaterialGroup": null,
-              "Model": "models/sbox_props/cola_can/cola_can.vmdl",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,

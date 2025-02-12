@@ -149,6 +149,36 @@
             },
             "Weight": 6,
             "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "ce69e1c9-08f1-4536-a46a-a8e554065bd3",
+              "go": "ad53f4df-4454-4703-b62c-3661852eaef0",
+              "component_type": "Enabler"
+            },
+            "Weight": 7,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "df8af8cc-a787-402a-aade-433d15c0b4d1",
+              "go": "c776e957-581b-47c0-96f3-229d414e3da1",
+              "component_type": "Enabler"
+            },
+            "Weight": 4,
+            "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "dff76ba8-d771-42c9-acd9-31cfbb7cb8f6",
+              "go": "5c66e5cf-7ea7-4725-bdfa-812721982079",
+              "component_type": "Enabler"
+            },
+            "Weight": 6,
+            "MinTime": null
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -1663,6 +1693,7 @@
           "Name": "rock_cliff_a",
           "Position": "-939.5203,290.569,-364.8511",
           "Rotation": "0.1747318,-0.03624074,-0.3848361,0.9055699",
+          "Tags": "anomaly",
           "Enabled": true,
           "Components": [
             {
@@ -2354,6 +2385,540 @@
               ]
             }
           ]
+        },
+        {
+          "__guid": "ad53f4df-4454-4703-b62c-3661852eaef0",
+          "Flags": 0,
+          "Name": "Bushes",
+          "Position": "201.1658,1301.076,-142.5652",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "b8d05251-953e-4b36-892c-d709f4ba8987",
+              "Center": "-0.9400177,-3.992025,47.60623",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "220.9458,39.98405,153.4959",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "ce69e1c9-08f1-4536-a46a-a8e554065bd3",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "828f3742-9aef-4b1e-b500-3a7ef82ffddb"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "5c91e568-8f9a-420d-8247-c56066c4aaf8"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Reception",
+              "ShowOnCamera": false,
+              "Type": "Disappearance"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "828f3742-9aef-4b1e-b500-3a7ef82ffddb",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "90.91034,-3.450439,-29.98633",
+              "Rotation": "0,0,0.7071068,-0.7071068",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "28472879-37fa-4ef1-a3aa-242f4f5f1852",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 50,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/plants/plant2.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "5c91e568-8f9a-420d-8247-c56066c4aaf8",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "-96.66998,-3.450439,-29.98633",
+              "Rotation": "0,0,0.7071068,-0.7071068",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "9a954d1c-bbf4-4533-8555-5f816ae3fa9a",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 50,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/plants/plant2.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "c776e957-581b-47c0-96f3-229d414e3da1",
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "-413.3365,-248.2906,-150.353",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "e0dc6d4d-275e-43e2-9343-323580d3ed8f",
+              "Center": "24.93067,-22.64508,29.18113",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "133.6031,109.2367,102.5737",
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "df8af8cc-a787-402a-aade-433d15c0b4d1",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "90172ec5-126b-4086-86d3-b1d6d118053c"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "dece0175-b73b-4378-9a51-f6df0311b4dd"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "17e8e313-1f4e-4e94-9d35-e68195777e4c"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "69fb30ec-4835-42ea-9aea-877e1f22a317"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Pool",
+              "ShowOnCamera": false,
+              "Type": "Extra"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "90172ec5-126b-4086-86d3-b1d6d118053c",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "-10.28357,-45.25943,-22.198",
+              "Rotation": "0,0,0.6982495,0.7158544",
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "37914e08-b0a8-4674-a5ad-295523e906a5",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/furniture/the_buckiest_lounge_chair/buckiest_lounge_chair.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "dece0175-b73b-4378-9a51-f6df0311b4dd",
+              "Flags": 0,
+              "Name": "table_round_a",
+              "Position": "-4.971191,7.279419,-22.198",
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "653e5109-0e15-4e65-9d7b-275b86425d81",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/props/trim_sheets/table/table_round_a.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "17e8e313-1f4e-4e94-9d35-e68195777e4c",
+              "Flags": 0,
+              "Name": "untitled_12",
+              "Position": "3.65686,8.259888,8.820068",
+              "Rotation": "0,0.00000001490116,0.9873037,0.1588438",
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "38eb2a0d-e98e-47b2-a9e5-18c060a373b5",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "assets/untitled_12.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "69fb30ec-4835-42ea-9aea-877e1f22a317",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "41.14929,0.5262756,-22.198",
+              "Rotation": "0,0,0.9890159,0.1478092",
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "87678995-18e3-4d3e-a8e7-0824a5c3f93e",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/furniture/the_buckiest_lounge_chair/buckiest_lounge_chair.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "5c66e5cf-7ea7-4725-bdfa-812721982079",
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "-616.2523,209.0461,-760.0005",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "df19b4a4-0757-4189-bd10-7c3fbd40735b",
+              "Center": "5.562664,-2.105946,-18.48761",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "124.065,101.2991,68.97523",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "dff76ba8-d771-42c9-acd9-31cfbb7cb8f6",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "66be8a86-74ff-4787-9084-995ad7e47e27"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "435c94b9-10a0-41f1-8a73-61e912b98b05"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "abd6c270-255b-44d3-8b7c-c41110b0a3cf"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "7c2db380-4a61-4a6e-a402-3376253e7cf1"
+                },
+                {
+                  "_type": "gameobject",
+                  "go": "626c6f37-7193-4b19-ade7-0e216bcf7b16"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Basement",
+              "ShowOnCamera": false,
+              "Type": "Disappearance"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "66be8a86-74ff-4787-9084-995ad7e47e27",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "1.240234,13.73102,-52.05322",
+              "Rotation": "0,0,0.7489557,0.6626201",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "2f141413-cc47-49a3-8256-84d9a4b13de1",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/crates/cube_crate_1/crate3_small.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "435c94b9-10a0-41f1-8a73-61e912b98b05",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "5.158203,-18.80707,-51.25415",
+              "Rotation": "0,0,0.7489557,0.6626201",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "b0845d0a-68a4-4c7a-b3d1-6cc13d704112",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/crates/cube_crate_1/crate3_small.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "abd6c270-255b-44d3-8b7c-c41110b0a3cf",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "-12.03979,-14.85425,-21.2417",
+              "Rotation": "0,0,0.7489557,0.6626201",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "afdac15d-1adb-4b37-a732-b4ca4c51082b",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/crates/cube_crate_1/crate3_small.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "7c2db380-4a61-4a6e-a402-3376253e7cf1",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "-31.85498,-8.258057,-51.25415",
+              "Rotation": "0,0,0.7489557,0.6626201",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "e0401080-706b-4493-b5d1-508f29861013",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/3t/industry/crates/cube_crate_1/crate3_small.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "626c6f37-7193-4b19-ade7-0e216bcf7b16",
+              "Flags": 0,
+              "Name": "prop_physics",
+              "Position": "43.87549,-17.37054,-52.55054",
+              "Enabled": true,
+              "NetworkOrphaned": 3,
+              "OwnerTransfer": 0,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "d577059f-299d-4861-b958-1e2c3a4e6ffc",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 60,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/sbox_props/oil_drum/oil_drum_explosive.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -2460,10 +3025,10 @@
           ]
         },
         {
-          "__guid": "828f3742-9aef-4b1e-b500-3a7ef82ffddb",
+          "__guid": "c2cb9527-6cad-4777-9d66-c803da01ac89",
           "Flags": 0,
           "Name": "prop_physics",
-          "Position": "-445.2109,804.6551,19.62451",
+          "Position": "-690.9612,400.759,19.62451",
           "Rotation": "0,0,0.7071068,-0.7071068",
           "Enabled": true,
           "NetworkOrphaned": 3,
@@ -2471,7 +3036,38 @@
           "Components": [
             {
               "__type": "Sandbox.Prop",
-              "__guid": "28472879-37fa-4ef1-a3aa-242f4f5f1852",
+              "__guid": "c53ce14f-bcac-4bb0-9c37-517455ab5467",
+              "BodyGroups": 18446744073709551615,
+              "Health": 50,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/plants/plant2.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "12bae734-b843-4850-adf5-1342cbe817d5",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-890.2784,466.5634,19.62476",
+          "Rotation": "0,0,0.7071068,-0.7071068",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "0d880edd-5751-4a55-920f-2a0ecbeb1a2e",
               "BodyGroups": 18446744073709551615,
               "Health": 50,
               "IsStatic": false,
@@ -2565,37 +3161,6 @@
             {
               "__type": "Sandbox.Prop",
               "__guid": "d281c6c6-3980-4a54-847e-bac82dd85ccf",
-              "BodyGroups": 18446744073709551615,
-              "Health": 50,
-              "IsStatic": false,
-              "MaterialGroup": null,
-              "Model": "models/plants/plant2.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnPropBreak": null,
-              "OnPropTakeDamage": null,
-              "StartAsleep": false,
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "5c91e568-8f9a-420d-8247-c56066c4aaf8",
-          "Flags": 0,
-          "Name": "prop_physics",
-          "Position": "-600.3423,804.6551,19.62451",
-          "Rotation": "0,0,0.7071068,-0.7071068",
-          "Enabled": true,
-          "NetworkOrphaned": 3,
-          "OwnerTransfer": 0,
-          "Components": [
-            {
-              "__type": "Sandbox.Prop",
-              "__guid": "9a954d1c-bbf4-4533-8555-5f816ae3fa9a",
               "BodyGroups": 18446744073709551615,
               "Health": 50,
               "IsStatic": false,
@@ -3082,6 +3647,99 @@
               "Tint": "1,1,1,1"
             }
           ]
+        },
+        {
+          "__guid": "2199fb83-5017-45bb-a81c-94734d6f5703",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-1391.35,17.14172,-620.3176",
+          "Rotation": "0,0,0.3007063,-0.9537168",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "f71531f8-4aa9-4597-8ad3-44902bacbc07",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/3t/skyscraper/john_smith_water_drum.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "b75faeec-09cb-439e-8c48-25e39a450616",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-1415.446,38.03937,-620.3176",
+          "Rotation": "0,0,0.3007063,-0.9537168",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "5c9879d7-c907-41f4-9565-59819d2cc995",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/3t/skyscraper/john_smith_water_drum.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "9aa1016c-3839-4c1b-a64e-ffc0e117ccb0",
+          "Flags": 0,
+          "Name": "prop_physics",
+          "Position": "-1402.082,-15.63336,-620.3176",
+          "Rotation": "0,0,0.3007063,-0.9537168",
+          "Enabled": true,
+          "NetworkOrphaned": 3,
+          "OwnerTransfer": 0,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "3adde4e8-0dc9-4e3a-922c-9b607a16b2f2",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": false,
+              "MaterialGroup": null,
+              "Model": "models/3t/skyscraper/john_smith_water_drum.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
         }
       ]
     }
@@ -3116,8 +3774,10 @@
     "ambi.vendor#51604",
     "baik.radio#19454",
     "baik.taverntable#10764",
+    "facepunch.tablerounda#83538",
     "fish.2000_keyboard#58967",
     "fish.2000_monitor#58965",
+    "polyrats.untitled_12#13948",
     "rust.rock_cliff_a#25118",
     "rustextended.metal_grate_a#43300",
     "titanovsky.tea_cup#54122",
