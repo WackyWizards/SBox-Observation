@@ -96,9 +96,10 @@ public class GameManager : Component
 			if ( !mapData.MapsWon.Contains( activeMap.Ident ) )
 			{
 				mapData.MapsWon.Add( activeMap.Ident );
+				mapData.Save();
 			}
 
-			if ( mapData.MapsWon.Count == MapData.MapAmount )
+			if ( mapData.MapsWon.Count >= MapData.MapAmount )
 			{
 				Platform.Achievement.WinAllMaps.Unlock();
 			}
@@ -139,9 +140,10 @@ public class GameManager : Component
 		if ( !mapData.SRanks.Contains( activeMap.Ident ) )
 		{
 			mapData.SRanks.Add( activeMap.Ident );
+			mapData.Save();
 		}
 
-		if ( mapData.SRanks.Count == MapData.MapAmount )
+		if ( mapData.SRanks.Count >= MapData.MapAmount )
 		{
 			Platform.Achievement.SRankAllMaps.Unlock();
 		}
