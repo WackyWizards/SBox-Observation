@@ -81,10 +81,20 @@
 	protected override void OnStart()
 	{
 		var settings = Observation.Settings.Data;
-		Mixer.FindMixerByName( "Master" ).Volume = settings.MasterVolume;
-		Mixer.FindMixerByName( "Music" ).Volume = settings.MusicVolume;
-		Mixer.FindMixerByName( "Game" ).Volume = settings.GameVolume;
-		Mixer.FindMixerByName( "UI" ).Volume = settings.UIVolume;
+
+		if ( settings is null )
+		{
+			FileSystem.Data.WriteJson( Observation.Settings.FileName, new Observation.Settings() );
+			settings = Observation.Settings.Data;
+		}
+
+		if ( settings is not null )
+		{
+			Mixer.FindMixerByName( "Master" ).Volume = settings.MasterVolume;
+			Mixer.FindMixerByName( "Music" ).Volume = settings.MusicVolume;
+			Mixer.FindMixerByName( "Game" ).Volume = settings.GameVolume;
+			Mixer.FindMixerByName( "UI" ).Volume = settings.UIVolume;
+		}
 
 		MenuMusic = Sound.Play( "MenuMusic" );
 		if ( MenuMusic.IsValid() )
@@ -127,7 +137,13 @@
 	{
 		var data = PlayerData.Data;
 
-		if ( data.FirstTime )
+		if ( data is null )
+		{
+			FileSystem.Data.WriteJson( PlayerData.FileName, new PlayerData() );
+			data = PlayerData.Data;
+		}
+
+		if ( data?.FirstTime ?? true )
 		{
 			// ReSharper disable AccessToModifiedClosure
 			WarningPanel? warning = null;

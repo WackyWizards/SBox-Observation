@@ -6,9 +6,11 @@ public class PlayerData : IDataFile<PlayerData>
 	{
 		get
 		{
-			return FileSystem.Data.ReadJson( FileName, new PlayerData() );
+			_data = FileSystem.Data.ReadJson( FileName, new PlayerData() );
+			return _data;
 		}
 	}
+	private static PlayerData? _data;
 
 	public static bool CanSave => FileSystem.Data.FileExists( FileName );
 

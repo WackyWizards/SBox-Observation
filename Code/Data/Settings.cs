@@ -6,9 +6,11 @@ public class Settings : IDataFile<Settings>
 	{
 		get
 		{
-			return FileSystem.Data.ReadJson( FileName, new Settings() );
+			_data = FileSystem.Data.ReadJson( FileName, new Settings() );
+			return _data;
 		}
 	}
+	private static Settings? _data;
 
 	public static bool CanSave => FileSystem.Data.FileExists( FileName );
 

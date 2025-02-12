@@ -1,14 +1,16 @@
 ﻿namespace Observation;
 
-internal class MapData : IDataFile<MapData>
+public class MapData : IDataFile<MapData>
 {
 	public static MapData? Data
 	{
 		get
 		{
-			return FileSystem.Data.ReadJson( FileName, new MapData() );
+			_data = FileSystem.Data.ReadJson( FileName, new MapData() );
+			return _data;
 		}
 	}
+	private static MapData? _data;
 
 	public static bool CanSave => FileSystem.Data.FileExists( FileName );
 

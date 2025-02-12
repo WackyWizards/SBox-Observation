@@ -35,6 +35,17 @@ public class GameManager : Component
 	private static void InitializePlayerData()
 	{
 		var playerData = PlayerData.Data;
+
+		if ( playerData is null )
+		{
+			FileSystem.Data.WriteJson( PlayerData.FileName, new PlayerData() );
+			playerData = PlayerData.Data;
+		}
+
+		if ( playerData is null )
+		{
+			return;
+		}
 		playerData.FirstTime = false;
 		playerData.Save();
 	}
@@ -73,14 +84,24 @@ public class GameManager : Component
 		if ( activeMap is null ) return;
 
 		var mapData = MapData.Data;
-		if ( !mapData.MapsWon.Contains( activeMap.Ident ) )
+
+		if ( mapData is null )
 		{
-			mapData.MapsWon.Add( activeMap.Ident );
+			FileSystem.Data.WriteJson( MapData.FileName, new MapData() );
+			mapData = MapData.Data;
 		}
 
-		if ( mapData.MapsWon.Count == MapData.MapAmount )
+		if ( mapData is not null )
 		{
-			Platform.Achievement.WinAllMaps.Unlock();
+			if ( !mapData.MapsWon.Contains( activeMap.Ident ) )
+			{
+				mapData.MapsWon.Add( activeMap.Ident );
+			}
+
+			if ( mapData.MapsWon.Count == MapData.MapAmount )
+			{
+				Platform.Achievement.WinAllMaps.Unlock();
+			}
 		}
 
 		switch ( activeMap.Difficulty )
@@ -110,6 +131,11 @@ public class GameManager : Component
 				break;
 		}
 
+		if ( mapData is null )
+		{
+			return;
+		}
+		
 		if ( !mapData.SRanks.Contains( activeMap.Ident ) )
 		{
 			mapData.SRanks.Add( activeMap.Ident );

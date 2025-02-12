@@ -20,28 +20,28 @@ public class MapManager : Component
 		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}", 1 );
 		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}_with_difficulty_{map.Difficulty}", 1 );
 
-		try
-		{
-			var mapData = MapData.Data;
+		var mapData = MapData.Data;
 
-			if ( !MapData.CanSave )
-			{
-				Log.Error( "No map data found!" );
-				return;
-			}
-
-			var mapsPlayed = mapData.MapsPlayed;
-			if ( !mapsPlayed.Contains( map.Ident ) )
-			{
-				mapsPlayed.Add( map.Ident );
-				mapData.Save();
-				Sandbox.Services.Stats.Increment( "Unique_maps_played", 1 );
-			}
-		}
-		catch ( Exception ex )
+		if ( mapData is null )
 		{
-			Log.Warning( ex );
+			FileSystem.Data.WriteJson( MapData.FileName, new MapData() );
+			mapData = MapData.Data;
 		}
+
+		if ( mapData is null )
+		{
+			return;
+		}
+		var mapsPlayed = mapData.MapsPlayed;
+
+		if ( mapsPlayed.Contains( map.Ident ) )
+		{
+			return;
+		}
+
+		mapsPlayed.Add( map.Ident );
+		mapData.Save();
+		Sandbox.Services.Stats.Increment( "Unique_maps_played", 1 );
 	}
 
 	public void Restart()
