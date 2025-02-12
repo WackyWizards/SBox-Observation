@@ -225,7 +225,9 @@
 			Log.Error( "Unable to play a null map!" );
 			return;
 		}
-
+		
+		Menu?.MenuMusic?.Stop();
+		
 		MapManager.Instance?.SetMap( Map );
 		var scene = Map.Scene;
 		Scene.Load( scene );

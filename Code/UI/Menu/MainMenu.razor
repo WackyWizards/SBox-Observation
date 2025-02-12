@@ -62,6 +62,8 @@
 	[Property] public List<string?> PossibleTips { get; set; } = [];
 
 	[Property] public string ActiveTip { get; set; } = string.Empty;
+	
+	[Property] public SoundHandle? MenuMusic { get; set; }
 
 	private MapSelection? _mapSelection;
 	private Settings? _settings;
@@ -84,10 +86,10 @@
 		Mixer.FindMixerByName( "Game" ).Volume = settings.GameVolume;
 		Mixer.FindMixerByName( "UI" ).Volume = settings.UIVolume;
 
-		var menuMusic = Sound.Play( "MenuMusic" );
-		if ( menuMusic.IsValid() )
+		MenuMusic = Sound.Play( "MenuMusic" );
+		if ( MenuMusic.IsValid() )
 		{
-			menuMusic.TargetMixer = Mixer.FindMixerByName( "Music" );
+			MenuMusic.TargetMixer = Mixer.FindMixerByName( "Music" );
 		}
 
 		base.OnStart();
