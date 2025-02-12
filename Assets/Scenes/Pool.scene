@@ -98,7 +98,7 @@
               "component_type": "Enabler"
             },
             "Weight": 0,
-            "MinTime": 950
+            "MinTime": 700
           },
           {
             "Anomaly": {
@@ -118,7 +118,7 @@
               "component_type": "Enabler"
             },
             "Weight": 2,
-            "MinTime": 750
+            "MinTime": 550
           },
           {
             "Anomaly": {
@@ -128,7 +128,7 @@
               "component_type": "Camera"
             },
             "Weight": 3,
-            "MinTime": 500
+            "MinTime": 400
           },
           {
             "Anomaly": {
@@ -138,7 +138,7 @@
               "component_type": "Camera"
             },
             "Weight": 3,
-            "MinTime": 500
+            "MinTime": 400
           },
           {
             "Anomaly": {
@@ -189,9 +189,9 @@
         "Hold Time": 1,
         "Fail Reports Til Warning": 999999,
         "Max Anomalies Til Warning": 3,
-        "Win Time": 1440,
-        "Anomaly Time": "25 120",
-        "First Anomaly Time": "20 35"
+        "Win Time": 960,
+        "Anomaly Time": "25 90",
+        "First Anomaly Time": "20 30"
       }
     },
     {

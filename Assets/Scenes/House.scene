@@ -78,7 +78,7 @@
               "component_type": "Enabler"
             },
             "Weight": 4,
-            "MinTime": 450
+            "MinTime": 250
           },
           {
             "Anomaly": {
@@ -108,7 +108,7 @@
               "component_type": "Enabler"
             },
             "Weight": 3,
-            "MinTime": 600
+            "MinTime": 500
           },
           {
             "Anomaly": {
@@ -128,7 +128,7 @@
               "component_type": "Enabler"
             },
             "Weight": 0,
-            "MinTime": 350
+            "MinTime": 400
           },
           {
             "Anomaly": {
@@ -148,7 +148,7 @@
               "component_type": "Camera"
             },
             "Weight": 3,
-            "MinTime": 500
+            "MinTime": 400
           },
           {
             "Anomaly": {
@@ -158,7 +158,7 @@
               "component_type": "Camera"
             },
             "Weight": 3,
-            "MinTime": 500
+            "MinTime": 400
           },
           {
             "Anomaly": {
@@ -168,7 +168,7 @@
               "component_type": "Enabler"
             },
             "Weight": 3,
-            "MinTime": 300
+            "MinTime": 100
           },
           {
             "Anomaly": {
@@ -229,9 +229,9 @@
         "Hold Time": 1,
         "Fail Reports Til Warning": 999999,
         "Max Anomalies Til Warning": 3,
-        "Win Time": 1440,
-        "Anomaly Time": "20 120",
-        "First Anomaly Time": "20 35"
+        "Win Time": 960,
+        "Anomaly Time": "20 90",
+        "First Anomaly Time": "20 30"
       }
     },
     {
