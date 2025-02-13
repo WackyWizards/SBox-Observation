@@ -11,8 +11,8 @@ PauseMenu {
   flex-direction: column;
   background-color: black;
   font-family: "IBM Plex Mono";
-  opacity: 0.9;
   backdrop-filter: blur(4px);
+  opacity: 0.9;
   z-index: 999;
   transition: all 0.1s linear;
   

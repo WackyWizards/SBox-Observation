@@ -19,7 +19,16 @@
 				<label class="title">Missed Anomalies</label>
 				@foreach ( var anomaly in anomalyManager.ActiveAnomalies )
 				{
-					<label>@( anomaly.Type.GetTitle() ) in @( anomaly.Room )</label>
+					var type = anomaly.Type;
+
+					if ( type is Anomaly.AnomalyType.Rock )
+					{
+						<label>??? in ???</label>
+					}
+					else
+					{
+						<label>@( type.GetTitle() ) in @( anomaly.Room )</label>
+					}
 				}
 			</div>
 		}
