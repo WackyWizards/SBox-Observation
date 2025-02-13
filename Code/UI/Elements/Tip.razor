@@ -1,0 +1,54 @@
+﻿@using Sandbox.UI
+
+@namespace Observation.UI
+@inherits Panel
+
+<root>
+	<label @ref="_tipLabel"></label>
+</root>
+
+@code {
+	public List<string?> PossibleTips { get; set; } = new()
+	{
+		"Like the game? Consider leaving a positive review or joining the discord!",
+		"One must keep their eyes and ears open.",
+		"The Company expects great results from you.",
+		"Are you sure what you are seeing is even real?",
+		"The answer lies in the details.",
+		"Don't trust the company.",
+		"Trust the company.",
+		"Check out other Ape Tavern games!"
+	};
+
+	public string ActiveTip { get; set; } = string.Empty;
+	
+	private TimeUntil _nextTip = 30;
+	private TimeUntil _nextChar = 0.1f;
+	private Label? _tipLabel;
+	private string _displayText = string.Empty;
+	private int _index = 0;
+	
+	public override void Tick()
+	{
+		if ( _tipLabel?.IsValid() is not true )
+			return;
+
+		_tipLabel.Text = _displayText;
+
+		if ( _nextTip && _index == _displayText.Length )
+		{
+			ActiveTip = Game.Random.FromList( PossibleTips ) ?? string.Empty;
+			_displayText = string.Empty;
+			_index = 0;
+			_nextTip = 30;
+		}
+
+		if ( _index >= ActiveTip.Length || !_nextChar )
+			return;
+
+		_displayText += ActiveTip[_index++];
+		_nextChar = 0.1f;
+		
+		base.Tick();
+	}
+}

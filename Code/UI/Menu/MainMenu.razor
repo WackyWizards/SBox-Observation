@@ -44,7 +44,7 @@
 		<button onclick="@CloseWebPanel">Close</button>
 	</div>
 
-	<label class="active-tip" @ref="_tipLabel"></label>
+	<Tip></Tip>
 
 	<MapSelection @ref="_mapSelection" Menu="@this"></MapSelection>
 	<Settings @ref="_settings" Menu="@this"></Settings>
@@ -58,12 +58,8 @@
 	#nullable enable
 
 	[Property, InlineEditor, WideMode] public List<Map> Maps { get; set; } = [];
-
-	[Property] public List<string?> PossibleTips { get; set; } = [];
-
-	[Property] public string ActiveTip { get; set; } = string.Empty;
 	
-	[Property] public SoundHandle? MenuMusic { get; set; }
+	public SoundHandle? MenuMusic { get; set; }
 
 	private MapSelection? _mapSelection;
 	private Settings? _settings;
@@ -103,34 +99,6 @@
 		}
 
 		base.OnStart();
-	}
-
-	private TimeUntil _nextTip = 30;
-	private TimeUntil _nextChar = 0.1f;
-	private Label? _tipLabel;
-	private string _displayText = string.Empty;
-	private int _index = 0;
-
-	protected override void OnFixedUpdate()
-	{
-		if ( _tipLabel?.IsValid() is not true )
-			return;
-
-		_tipLabel.Text = _displayText;
-
-		if ( _nextTip && _index == _displayText.Length )
-		{
-			ActiveTip = Game.Random.FromList( PossibleTips ) ?? string.Empty;
-			_displayText = string.Empty;
-			_index = 0;
-			_nextTip = 30;
-		}
-
-		if ( _index >= ActiveTip.Length || !_nextChar )
-			return;
-
-		_displayText += ActiveTip[_index++];
-		_nextChar = 0.1f;
 	}
 
 	public void Play()
