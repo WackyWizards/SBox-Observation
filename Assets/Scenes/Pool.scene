@@ -179,6 +179,16 @@
             },
             "Weight": 6,
             "MinTime": null
+          },
+          {
+            "Anomaly": {
+              "_type": "component",
+              "component_id": "5859b436-5d46-4e09-a5b2-08928dff41a4",
+              "go": "4b34244e-8673-4aee-87be-a4fcde03ee03",
+              "component_type": "Enabler"
+            },
+            "Weight": 1,
+            "MinTime": 500
           }
         ],
         "Max Amount Of Anomalies": 5,
@@ -2926,6 +2936,71 @@
           "Name": "Object",
           "Position": "393.5854,179.9002,-173.7292",
           "Enabled": true
+        },
+        {
+          "__guid": "4b34244e-8673-4aee-87be-a4fcde03ee03",
+          "Flags": 0,
+          "Name": "TeddyBear",
+          "Position": "-1395.243,688.3395,-815.5293",
+          "Rotation": "0,0,0.05717947,0.9983639",
+          "Tags": "anomaly",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Observation.Anomalies.Enabler",
+              "__guid": "5859b436-5d46-4e09-a5b2-08928dff41a4",
+              "ComponentList": [],
+              "GameObjects": [
+                {
+                  "_type": "gameobject",
+                  "go": "d1601b5b-e699-4c92-92f8-ee232fa572aa"
+                }
+              ],
+              "Name": "",
+              "OnAfterActive": null,
+              "OnAfterClear": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ReportType": "Cursor",
+              "Room": "Basement",
+              "ShowOnCamera": false,
+              "Type": "Intruder"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "3a764ec9-37aa-4834-b98c-b7f3913fa2c6",
+              "Center": "0,0,33.30905",
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "Scale": "32,32,98.61809",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "d1601b5b-e699-4c92-92f8-ee232fa572aa",
+              "Flags": 0,
+              "Name": "teddybear",
+              "__Prefab": "prefabs/anomalies/teddybear.prefab",
+              "__PrefabVariables": {}
+            }
+          ]
         }
       ]
     },
