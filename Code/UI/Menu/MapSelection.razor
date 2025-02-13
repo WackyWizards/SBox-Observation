@@ -14,13 +14,22 @@
 		{
 			foreach ( var map in Maps )
 			{
+				var isSRanked = MapData.Data is not null && MapData.Data.SRanks.Contains( map.Ident );
+				
 				<div class="map" onclick="@( () => SelectMap( map ) )">
 					<label class="map-name">@( map.Name )</label>
 					<div class="stats">
 						<div class="stat">
 							<i>star</i>
 							<label>Highest Rank: </label>
-							<label class="map-rank @( map.HighestRankAchieved )">@( map.HighestRankAchieved )</label>
+							@if ( !isSRanked )
+							{
+								<label class="map-rank @( map.HighestRankAchieved )">@( map.HighestRankAchieved )</label>
+							}
+							else
+							{
+								<label class="map-rank S">S</label>
+							}
 						</div>
 						<div class="stat">
 							<i>trending_up</i>
@@ -42,7 +51,7 @@
 	#nullable enable
 
 	private List<Map>? Maps => Menu?.Maps;
-
+	
 	public void SelectMap( Map map )
 	{
 		var mapPanel = AddChild<MapInfo>();
