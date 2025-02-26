@@ -3,18 +3,10 @@ using Sandbox.UI;
 
 namespace Observation;
 
-public class Pause : Component
+public class PauseManager : Singleton<PauseManager>
 {
-	public static Pause? Instance { get; private set; }
-
 	[Property, ReadOnly] public bool IsPaused => Scene.TimeScale == 0;
 	
-	protected override void OnStart()
-	{
-		Instance = this;
-		base.OnStart();
-	}
-
 	protected override void OnUpdate()
 	{
 		if ( Input.EscapePressed )

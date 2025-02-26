@@ -53,17 +53,6 @@
         "OnComponentUpdate": null
       },
       {
-        "__type": "Observation.Pause",
-        "__guid": "03d339e0-6eee-4518-b90b-db7c10b86e3e",
-        "IsPaused": false,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null
-      },
-      {
         "__type": "Observation.GameTimer",
         "__guid": "98352bc1-135e-402b-b086-16a3c6e49220",
         "OnComponentDestroy": null,
@@ -73,6 +62,17 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "WinTime": 1440
+      },
+      {
+        "__type": "Observation.PauseManager",
+        "__guid": "7361f510-09a9-46f4-8c70-574d45c74fe3",
+        "IsPaused": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [],
