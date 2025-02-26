@@ -5,10 +5,8 @@ using Sandbox.UI;
 
 namespace Observation;
 
-public class CameraManager : Component
+public sealed class CameraManager : Singleton<CameraManager>
 {
-	public static CameraManager? Instance { get; private set; }
-
 	[Property, ReadOnly] public Camera? ActiveCamera { get; set; }
 	[Property] public List<Camera> PossibleCameras { get; set; } = [];
 
@@ -17,16 +15,9 @@ public class CameraManager : Component
 
 	protected override void OnStart()
 	{
-		Instance = this;
-
-		//foreach ( var camera in Scene.GetAllComponents<CameraComponent>() )
-		//{
-		//	camera.GameObject.Enabled = false;
-		//}
-
 		if ( PossibleCameras.Count > 0 )
 		{
-			var firstEnabledCamera = PossibleCameras.FirstOrDefault( x => GameObject.Enabled );
+			var firstEnabledCamera = PossibleCameras.FirstOrDefault( _ => GameObject.Enabled );
 			if ( firstEnabledCamera.IsValid() )
 			{
 				SetActiveCamera( firstEnabledCamera );
@@ -63,6 +54,7 @@ public class CameraManager : Component
 
 		Hud.GetElement<AnomalyList>()?.Hide();
 		Hud.GetElement<RoomList>()?.Hide();
+		
 		var sound = Sound.Play( "ui.button.deny" );
 		if ( sound.IsValid() )
 		{

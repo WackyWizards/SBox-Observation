@@ -1,15 +1,11 @@
-﻿using System;
-namespace Observation;
+﻿namespace Observation;
 
-public class MapManager : Component
+public sealed class MapManager : Singleton<MapManager>
 {
-	public static MapManager? Instance { get; private set; }
-
 	[Property, InlineEditor, ReadOnly] public Map? ActiveMap { get; private set; }
 
 	protected override void OnStart()
 	{
-		Instance = this;
 		GameObject.Flags = GameObjectFlags.DontDestroyOnLoad;
 		base.OnStart();
 	}

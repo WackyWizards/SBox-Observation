@@ -3,7 +3,7 @@ using Sandbox.UI;
 
 namespace Observation;
 
-public class PauseManager : Singleton<PauseManager>
+public sealed class PauseManager : Singleton<PauseManager>
 {
 	[Property, ReadOnly] public bool IsPaused => Scene.TimeScale == 0;
 	

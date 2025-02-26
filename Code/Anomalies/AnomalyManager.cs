@@ -8,10 +8,8 @@ using CollectionExtensions=System.Collections.Generic.CollectionExtensions;
 
 namespace Observation;
 
-public class AnomalyManager : Component
+public sealed class AnomalyManager : Singleton<AnomalyManager>
 {
-	public static AnomalyManager? Instance { get; private set; }
-
 	[Property, Category( "Anomalies" )]
 	public List<Anomaly> ActiveAnomalies { get; set; } = [];
 
@@ -85,7 +83,6 @@ public class AnomalyManager : Component
 
 	protected override void OnStart()
 	{
-		Instance = this;
 		_nextAnomaly = FirstAnomalyTime.GetValue();
 		_sinceStart = 0;
 

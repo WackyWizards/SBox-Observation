@@ -4,10 +4,8 @@ using Sandbox.UI;
 
 namespace Observation;
 
-public class Cursor : Component
+public sealed class Cursor : Singleton<Cursor>
 {
-	public static Cursor? Instance { get; private set; }
-
 	/// <summary>
 	/// Duration required to hold the mouse button for interaction.
 	/// </summary>
@@ -20,7 +18,6 @@ public class Cursor : Component
 
 	protected override void OnStart()
 	{
-		Instance = this;
 		_reportTimer = HoldTime;
 		HideMouse();
 

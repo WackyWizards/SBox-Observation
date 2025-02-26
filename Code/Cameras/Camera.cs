@@ -6,10 +6,8 @@ public class Camera : Anomaly
 
 	public override ReportType ReportType => ReportType.Room;
 
-	private static CameraManager? CameraManager => CameraManager.Instance;
-
 	public override bool IsAvailable()
 	{
-		return CameraManager?.ActiveCamera != this;
+		return CameraManager.Instance?.ActiveCamera != this;
 	}
 }

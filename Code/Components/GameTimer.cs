@@ -1,10 +1,9 @@
 ﻿using System;
+
 namespace Observation;
 
-public class GameTimer : Component
+public sealed class GameTimer : Singleton<GameTimer>
 {
-	public static GameTimer? Instance { get; private set; }
-
 	[Property] public float WinTime { get; set; } = 1080;
 
 	public TimeSince SinceStart { get; set; }
@@ -12,7 +11,6 @@ public class GameTimer : Component
 
 	protected override void OnStart()
 	{
-		Instance = this;
 		SinceStart = 0;
 		UntilVictory = WinTime;
 

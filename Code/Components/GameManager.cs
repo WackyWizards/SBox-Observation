@@ -2,20 +2,17 @@
 using Sandbox.UI;
 using Observation.Platform;
 using Observation.UI;
-using Achievement=Observation.Platform.Achievement;
 
 namespace Observation;
 
-public class GameManager : Component
+public sealed class GameManager : Singleton<GameManager>
 {
-	public static GameManager? Instance { get; private set; }
 	[Property] public SceneFile? MenuScene { get; set; }
 
 	private static readonly Dictionary<Rank, int> Thresholds = [];
 
 	protected override void OnStart()
 	{
-		Instance = this;
 		InitializeRankThresholds();
 		InitializePlayerData();
 		ConfigureAnomalySettings();
