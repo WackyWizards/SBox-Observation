@@ -17,23 +17,16 @@ public class MapManager : Component
 	public void SetMap( Map map )
 	{
 		ActiveMap = map;
-		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}", 1 );
 		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}_with_difficulty_{map.Difficulty}", 1 );
 
 		var mapData = MapData.Data;
 
 		if ( mapData is null )
 		{
-			FileSystem.Data.WriteJson( MapData.FileName, new MapData() );
-			mapData = MapData.Data;
-		}
-
-		if ( mapData is null )
-		{
 			return;
 		}
+		
 		var mapsPlayed = mapData.MapsPlayed;
-
 		if ( mapsPlayed.Contains( map.Ident ) )
 		{
 			return;

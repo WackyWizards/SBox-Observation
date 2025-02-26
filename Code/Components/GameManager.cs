@@ -35,17 +35,11 @@ public class GameManager : Component
 	private static void InitializePlayerData()
 	{
 		var playerData = PlayerData.Data;
-
-		if ( playerData is null )
-		{
-			FileSystem.Data.WriteJson( PlayerData.FileName, new PlayerData() );
-			playerData = PlayerData.Data;
-		}
-
 		if ( playerData is null )
 		{
 			return;
 		}
+		
 		playerData.FirstTime = false;
 		playerData.Save();
 	}
@@ -54,6 +48,8 @@ public class GameManager : Component
 	{
 		if ( MapManager.Instance?.ActiveMap is not {} activeMap || AnomalyManager.Instance is not {} anomalyManager )
 			return;
+		
+		
 
 		anomalyManager.SetFailReportLimits( activeMap.Difficulty );
 	}
@@ -84,13 +80,6 @@ public class GameManager : Component
 		if ( activeMap is null ) return;
 
 		var mapData = MapData.Data;
-
-		if ( mapData is null )
-		{
-			FileSystem.Data.WriteJson( MapData.FileName, new MapData() );
-			mapData = MapData.Data;
-		}
-
 		if ( mapData is not null )
 		{
 			if ( !mapData.MapsWon.Contains( activeMap.Ident ) )
@@ -219,7 +208,6 @@ internal class GameStatistics
 
 		if ( activeMap is null ) return;
 
-		Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}", 1 );
 		Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
 
 		if ( !anomalyManager.IsValid() )
@@ -235,33 +223,28 @@ internal class GameStatistics
 	internal static void RecordWin( Map? activeMap, AnomalyManager? anomalyManager )
 	{
 		Sandbox.Services.Stats.Increment( "Wins", 1 );
-
+		
 		if ( activeMap is null ) return;
 
-		Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}", 1 );
 		Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
 
 		if ( anomalyManager.IsValid() )
 		{
+			Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
 			RecordGameStats( anomalyManager.Rank, activeMap );
 			RecordMapStats( activeMap, anomalyManager );
-			Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
 			RecordSuccessRate( activeMap, anomalyManager );
 		}
 	}
 
 	private static void RecordGameStats( Rank rank, Map map )
 	{
-		Sandbox.Services.Stats.Increment( $"Game_over_with_difficulty_{map.Difficulty}", 1 );
-		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}", 1 );
 		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
-		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}", 1 );
 		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
 	}
 
 	private static void RecordMapStats( Map map, AnomalyManager anomalyManager )
 	{
-		Sandbox.Services.Stats.Increment( $"Losses_on_map_{map.Ident}_with_rank_{anomalyManager.Rank}", 1 );
 		Sandbox.Services.Stats.Increment( $"Losses_on_map_{map.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{map.Difficulty}", 1 );
 	}
 
@@ -287,8 +270,7 @@ public static class AnomalyManagerExtensions
 	{
 		switch ( difficulty )
 		{
-			case Difficulty.Easy:
-			case Difficulty.Normal:
+			case Difficulty.Easy or Difficulty.Normal:
 				anomalyManager.FailReportsTilWarning = int.MaxValue;
 				anomalyManager.FailReportsTilGameOver = int.MaxValue;
 				break;
