@@ -19,24 +19,26 @@ public class Map
 	{
 		get
 		{
-			return GetHighestRankAchieved() ?? _highestRank;
-		}
-		private set
-		{
-			_highestRank = value;
+			var rank = GetHighestRankAchieved();
+			if ( rank.HasValue )
+			{
+				_highestRank = rank;
+			}
+			return _highestRank;
 		}
 	}
-	[Hide] private Rank? _highestRank = Rank.F;
-	
+	[Hide] private Rank? _highestRank;
+
 	[JsonIgnore, ReadOnly] public double HighestPercentageAchieved
 	{
 		get
 		{
-			return GetHighestPercentageAchieved() ?? _highestPercentage;
-		}
-		private set
-		{
-			_highestPercentage = value;
+			var percentage = GetHighestPercentageAchieved();
+			if ( percentage.HasValue )
+			{
+				_highestPercentage = percentage.Value;
+			}
+			return _highestPercentage;
 		}
 	}
 	[Hide] private double _highestPercentage;
@@ -45,8 +47,11 @@ public class Map
 
 	public Map()
 	{
-		HighestRankAchieved = GetHighestRankAchieved();
-		HighestPercentageAchieved = GetHighestPercentageAchieved() ?? 0.0;
+		var initialRank = GetHighestRankAchieved();
+		_highestRank = initialRank ?? Rank.F;
+
+		var initialPercentage = GetHighestPercentageAchieved();
+		_highestPercentage = initialPercentage ?? 0.0;
 	}
 
 	private Rank? GetHighestRankAchieved()
