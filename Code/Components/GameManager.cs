@@ -195,7 +195,7 @@ public sealed class GameManager : Singleton<GameManager>
 	}
 }
 
-internal class GameStatistics
+class GameStatistics
 {
 	internal static void RecordLoss( GameManager.LoseReason reason, Map? activeMap, AnomalyManager? anomalyManager )
 	{
@@ -220,12 +220,15 @@ internal class GameStatistics
 		
 		if ( activeMap is null ) return;
 
-		if ( anomalyManager.IsValid() )
+		if ( !anomalyManager.IsValid() )
 		{
-			Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{activeMap.Difficulty}", 1 );
-			RecordGameStats( anomalyManager.Rank, activeMap );
-			RecordSuccessRate( activeMap, anomalyManager );
+			return;
 		}
+		
+		Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
+		Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{activeMap.Difficulty}", 1 );
+		RecordGameStats( anomalyManager.Rank, activeMap );
+		RecordSuccessRate( activeMap, anomalyManager );
 	}
 
 	private static void RecordGameStats( Rank rank, Map map )
