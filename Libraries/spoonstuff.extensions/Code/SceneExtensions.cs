@@ -6,7 +6,7 @@ namespace Sandbox;
 public static class SceneExtensions
 {
 	/// <summary>
-	/// Searches the scene for any objects marked with the flag <seealso cref="GameObjectFlags.DontDestroyOnLoad"/> and destroys them.
+	/// Searches the scene for any gameobjects with the DontDestroyOnLoad flag and destroys them.
 	/// </summary>
 	/// <param name="scene">The scene to search in.</param>
 	/// <param name="ignored">Component types to ignore deletion.</param>
