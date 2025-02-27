@@ -13,6 +13,7 @@ public sealed class MapManager : Singleton<MapManager>
 	public void SetMap( Map map )
 	{
 		ActiveMap = map;
+		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}", 1 );
 		Sandbox.Services.Stats.Increment( $"Plays_{map.Ident}_with_difficulty_{map.Difficulty}", 1 );
 
 		var mapData = MapData.Data;

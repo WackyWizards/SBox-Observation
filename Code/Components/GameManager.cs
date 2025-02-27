@@ -43,7 +43,10 @@ public sealed class GameManager : Singleton<GameManager>
 
 	private static void ConfigureAnomalySettings()
 	{
-		if ( MapManager.Instance?.ActiveMap is not {} activeMap || AnomalyManager.Instance is not {} anomalyManager )
+		if ( MapManager.Instance?.ActiveMap is not {} activeMap )
+			return;
+
+		if ( AnomalyManager.Instance is not {} anomalyManager )
 			return;
 		
 		anomalyManager.SetFailReportLimits( activeMap.Difficulty );
@@ -145,7 +148,10 @@ public sealed class GameManager : Singleton<GameManager>
 		menu?.Show();
 	}
 
-	private static void PauseGame() => Game.ActiveScene.Scene.TimeScale = 0;
+	private static void PauseGame()
+	{
+		Game.ActiveScene.Scene.TimeScale = 0;
+	}
 
 	public void ToMenu()
 	{
