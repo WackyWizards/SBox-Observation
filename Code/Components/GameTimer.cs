@@ -21,7 +21,7 @@ public sealed class GameTimer : Singleton<GameTimer>
 	{
 		if ( UntilVictory )
 		{
-			GameManager.Instance?.EndGameInWin();
+			GameManager.EndGameInWin();
 			UntilVictory = int.MaxValue;
 		}
 

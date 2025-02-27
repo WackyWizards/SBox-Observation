@@ -156,7 +156,7 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		}
 
 		CanActivateAnomalies = false;
-		GameManager.Instance?.EndGameInLoss( GameManager.LoseReason.TooManyAnomalies );
+		GameManager.EndGameInLoss( GameManager.LoseReason.TooManyAnomalies );
 	}
 
 	public bool CanSetAnomalyActive( Anomaly anomaly )
@@ -310,7 +310,7 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		if ( FailReports >= FailReportsTilGameOver )
 		{
 			reportingScreen.Hide();
-			GameManager.Instance?.EndGameInLoss( GameManager.LoseReason.FailReports );
+			GameManager.EndGameInLoss( GameManager.LoseReason.FailReports );
 			return;
 		}
 

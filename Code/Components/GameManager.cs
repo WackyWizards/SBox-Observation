@@ -41,17 +41,15 @@ public sealed class GameManager : Singleton<GameManager>
 		playerData.Save();
 	}
 
-	public void ConfigureAnomalySettings()
+	private static void ConfigureAnomalySettings()
 	{
 		if ( MapManager.Instance?.ActiveMap is not {} activeMap || AnomalyManager.Instance is not {} anomalyManager )
 			return;
 		
-		
-
 		anomalyManager.SetFailReportLimits( activeMap.Difficulty );
 	}
 
-	public void EndGameInLoss( LoseReason reason )
+	public static void EndGameInLoss( LoseReason reason )
 	{
 		Log.Info( "Game Lost!" );
 
@@ -60,9 +58,10 @@ public sealed class GameManager : Singleton<GameManager>
 		PauseGame();
 	}
 
-	public void EndGameInWin()
+	public static void EndGameInWin()
 	{
 		Log.Info( "Game Win!" );
+		
 		var activeMap = MapManager.Instance?.ActiveMap;
 		var anomalyManager = AnomalyManager.Instance;
 
@@ -236,7 +235,6 @@ internal class GameStatistics
 
 	private static void RecordGameStats( Rank rank, Map map )
 	{
-		Sandbox.Services.Stats.Increment( $"Game_over_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
 		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
 	}
 
