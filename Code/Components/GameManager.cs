@@ -204,15 +204,13 @@ internal class GameStatistics
 
 		if ( activeMap is null ) return;
 
-		Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
-
 		if ( !anomalyManager.IsValid() )
 		{
 			return;
 		}
-
+		
+		Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{activeMap.Difficulty}", 1 );
 		RecordGameStats( anomalyManager.Rank, activeMap );
-		RecordMapStats( activeMap, anomalyManager );
 		RecordSuccessRate( activeMap, anomalyManager );
 	}
 
@@ -222,13 +220,10 @@ internal class GameStatistics
 		
 		if ( activeMap is null ) return;
 
-		Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_difficulty_{activeMap.Difficulty}", 1 );
-
 		if ( anomalyManager.IsValid() )
 		{
-			Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
+			Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{activeMap.Difficulty}", 1 );
 			RecordGameStats( anomalyManager.Rank, activeMap );
-			RecordMapStats( activeMap, anomalyManager );
 			RecordSuccessRate( activeMap, anomalyManager );
 		}
 	}
@@ -236,11 +231,6 @@ internal class GameStatistics
 	private static void RecordGameStats( Rank rank, Map map )
 	{
 		Sandbox.Services.Stats.Increment( $"Game_over_on_map_{map.Ident}_with_rank_{rank}_with_difficulty_{map.Difficulty}", 1 );
-	}
-
-	private static void RecordMapStats( Map map, AnomalyManager anomalyManager )
-	{
-		Sandbox.Services.Stats.Increment( $"Losses_on_map_{map.Ident}_with_rank_{anomalyManager.Rank}_with_difficulty_{map.Difficulty}", 1 );
 	}
 
 	private static void RecordSuccessRate( Map map, AnomalyManager anomalyManager )
