@@ -47,6 +47,5 @@ public sealed class MapManager : Singleton<MapManager>
 
 		Sandbox.Services.Stats.Increment( "Restarts", 1 );
 		Sandbox.Services.Stats.Increment( $"Restarts_on_map_{ActiveMap.Ident}", 1 );
-		Sandbox.Services.Stats.Increment( $"Restarts_on_map_{ActiveMap.Ident}_with_difficulty_{ActiveMap.Difficulty}", 1 );
 	}
 }
