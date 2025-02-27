@@ -167,7 +167,7 @@
 	<div class="button-container">
 		@if ( _selectedTab == 0 )
 		{
-			<button icon="refresh" onclick="@Refresh">Refresh</button>
+			<button icon="refresh" onclick="@(async () => { await RefreshLeaderboard(); } )">Refresh</button>
 		}
 		<button icon="arrow_back" onclick="@Return">Return</button>
 	</div>
@@ -185,16 +185,16 @@
 		_selectedTab = index;
 	}
 
-	private void SelectLeaderboardTab( int index )
+	private async Task SelectLeaderboardTab( int index )
 	{
 		_selectedLeaderboardTab = index;
-		_ = RefreshCurrentLeaderboard();
+		await RefreshLeaderboard();
 	}
 
 	private Sandbox.Services.Leaderboards.Board2? SRankBoard;
 	private Sandbox.Services.Leaderboards.Board2? WinsBoard;
 
-	private async Task RefreshCurrentLeaderboard()
+	private async Task RefreshLeaderboard()
 	{
 		switch ( _selectedLeaderboardTab )
 		{
@@ -213,11 +213,6 @@
 		}
 	}
 
-	public async Task Refresh()
-	{
-		await RefreshCurrentLeaderboard();
-	}
-
 	private static string GetRank( int position )
 	{
 		return position switch
@@ -234,10 +229,17 @@
 		return id == Connection.Local.SteamId;
 	}
 
-	protected override void OnAfterTreeRender( bool firstTime )
+	protected override async void OnAfterTreeRender( bool firstTime )
 	{
-		_ = Refresh();
-		base.OnAfterTreeRender( firstTime );
+		try
+		{
+			await RefreshLeaderboard();
+			base.OnAfterTreeRender( firstTime );
+		}
+		catch
+		{
+			// Ignored.
+		}
 	}
 
 	protected override int BuildHash()
