@@ -1,4 +1,7 @@
-﻿namespace Observation;
+﻿using System.Collections.Generic;
+using Sandbox;
+
+namespace kEllie.Utils;
 
 public abstract class PanelSingleton<T> : PanelComponent, IHotloadManaged where T : PanelSingleton<T>
 {

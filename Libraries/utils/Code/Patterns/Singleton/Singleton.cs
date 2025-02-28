@@ -1,4 +1,7 @@
-﻿namespace Observation;
+﻿using System.Collections.Generic;
+using Sandbox;
+
+namespace kEllie.Utils;
 
 public abstract class Singleton<T> : Component, IHotloadManaged where T : Singleton<T>
 {
