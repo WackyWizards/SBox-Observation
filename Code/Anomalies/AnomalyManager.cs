@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Observation.Platform;
 using Sandbox.Diagnostics;
 using Sandbox.UI;
 using Observation.UI;
+using Observation.Platform;
 using kEllie.Utils;
 using CollectionExtensions=System.Collections.Generic.CollectionExtensions;
 
@@ -53,7 +53,8 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		}
 	}
 
-	[Property, Category( "Reports" )] public Rank Rank
+	[Property, Category( "Reports" )] 
+	public Rank Rank
 	{
 		get
 		{
@@ -61,7 +62,8 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		}
 	}
 
-	[Property, Category( "Reports" )] public int SuccessRate
+	[Property, Category( "Reports" )] 
+	public int SuccessRate
 	{
 		get
 		{

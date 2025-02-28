@@ -70,12 +70,15 @@ public sealed class CameraManager : Singleton<CameraManager>
 
 	public void SetNextAvailableActive()
 	{
-		if ( !ActiveCamera.IsValid() || PossibleCameras.Count == 0 ) return;
+		if ( !ActiveCamera.IsValid() || PossibleCameras.Count == 0 )
+		{
+			return;
+		}
 
 		var currentIndex = PossibleCameras.IndexOf( ActiveCamera );
 		var nextIndex = currentIndex;
 
-		foreach ( var camera in PossibleCameras )
+		foreach ( var _ in PossibleCameras )
 		{
 			nextIndex = (nextIndex + 1) % PossibleCameras.Count;
 			if ( !CanActivateCamera( PossibleCameras[nextIndex] ) )
@@ -95,7 +98,7 @@ public sealed class CameraManager : Singleton<CameraManager>
 		var currentIndex = PossibleCameras.IndexOf( ActiveCamera );
 		var prevIndex = currentIndex;
 
-		foreach ( var camera in PossibleCameras )
+		foreach ( var _ in PossibleCameras )
 		{
 			prevIndex = (prevIndex - 1 + PossibleCameras.Count) % PossibleCameras.Count;
 			if ( !CanActivateCamera( PossibleCameras[prevIndex] ) )
@@ -108,7 +111,7 @@ public sealed class CameraManager : Singleton<CameraManager>
 		}
 	}
 
-	public bool CanActivateCamera( Camera camera )
+	public static bool CanActivateCamera( Camera camera )
 	{
 		if ( AnomalyManager.Instance is {} anomalyManager )
 		{
