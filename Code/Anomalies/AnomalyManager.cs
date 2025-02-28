@@ -4,6 +4,7 @@ using Observation.Platform;
 using Sandbox.Diagnostics;
 using Sandbox.UI;
 using Observation.UI;
+using kEllie.Utils;
 using CollectionExtensions=System.Collections.Generic.CollectionExtensions;
 
 namespace Observation;

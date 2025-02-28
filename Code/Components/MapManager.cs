@@ -1,4 +1,6 @@
-﻿namespace Observation;
+﻿using kEllie.Utils;
+
+namespace Observation;
 
 public sealed class MapManager : Singleton<MapManager>
 {

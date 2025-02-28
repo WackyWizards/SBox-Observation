@@ -2,6 +2,7 @@
 using Observation.UI;
 using Sandbox.Audio;
 using Sandbox.UI;
+using kEllie.Utils;
 
 namespace Observation;
 

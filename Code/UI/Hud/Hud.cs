@@ -1,22 +1,23 @@
 ﻿using Sandbox.UI;
+using kEllie.Utils;
 
 namespace Observation.UI;
 
 [Icon( "desktop_windows" )]
 [EditorHandle( "materials/gizmo/ui.png" )]
 [Description( "Represents a full screen empty canvas." )]
-public class Hud : PanelComponent
+public class Hud : PanelSingleton<Hud>
 {
-	public static Hud? Instance { get; private set; }
-	
 	protected override void OnStart()
 	{
-		Instance = this;
-		
 		foreach ( var element in TypeLibrary.GetAttributes<HudAttribute>() )
 		{
 			var instance = TypeLibrary.Create<Panel>( element.TargetType );
-			if ( instance == null ) continue;
+			if ( instance is null )
+			{
+				continue;
+			}
+			
 			AddElement( instance, element.Hidden );
 		}
 
