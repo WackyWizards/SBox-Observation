@@ -5,8 +5,10 @@
 @attribute [Hud]
 @inherits Panel
 
-@if (!CameraManager.IsValid())
+@if ( !CameraManager.IsValid() )
+{
 	return;
+}
 
 @* ReSharper disable CSharpWarnings::CS8974 *@
 <root>
@@ -18,24 +20,24 @@
 
 @code {
 	#nullable enable
-    
+
 	private static CameraManager? CameraManager => CameraManager.Instance;
 	private static Camera? ActiveCamera => CameraManager?.ActiveCamera;
 
 	public static void NextCamera()
 	{
-		if ( CameraManager?.PossibleCameras == null || !CameraManager.PossibleCameras.Any() ) 
+		if ( CameraManager?.PossibleCameras is null || !CameraManager.PossibleCameras.Any() )
 			return;
 
 		if ( !ActiveCamera.IsValid() )
 			return;
-		
+
 		CameraManager.SetNextAvailableActive();
 	}
 
 	public static void LastCamera()
 	{
-		if ( CameraManager?.PossibleCameras == null || !CameraManager.PossibleCameras.Any() ) 
+		if ( CameraManager?.PossibleCameras is null || !CameraManager.PossibleCameras.Any() )
 			return;
 
 		if ( !ActiveCamera.IsValid() )

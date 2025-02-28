@@ -5,15 +5,14 @@
 @attribute [Hud]
 @inherits Panel
 
-@{
-	var timerInstance = GameTimer.Instance;
-	if ( !timerInstance.IsValid() )
-		return;
+@if ( !GameTimer.Instance.IsValid() )
+{
+	return;
 }
 
 <root>
 	<label class="timer">@ElapsedTime</label>
-	@if ( CameraManager.Instance?.ActiveCamera is { Name: { } cameraName } )
+	@if ( CameraManager.Instance?.ActiveCamera is { Name: {} cameraName } )
 	{
 		<label class="camera-name">@cameraName</label>
 	}
@@ -21,7 +20,7 @@
 
 @code {
 	#nullable enable
-    
+
 	private static GameTimer? TimerInstance => GameTimer.Instance;
 	private static string ElapsedTime => TimerInstance?.GetDisplayTime() ?? "N/A";
 

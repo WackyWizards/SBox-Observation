@@ -1,5 +1,4 @@
-﻿@using System
-@using Sandbox.Audio
+﻿@using Sandbox.Audio
 @using Sandbox.UI
 
 @namespace Observation.UI
@@ -39,6 +38,11 @@
 	public static void Save()
 	{
 		var data = Observation.Settings.Data;
+		if ( data is null )
+		{
+			return;
+		}
+		
 		data.MasterVolume = Master.Volume;
 
 		foreach ( var mixer in Mixers )
