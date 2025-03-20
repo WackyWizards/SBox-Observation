@@ -21,6 +21,7 @@
           "Opacity": 1,
           "Scale": 1,
           "ScaleStrategy": "ConsistentHeight",
+          "TargetCamera": null,
           "ZIndex": 100
         },
         {
@@ -37,17 +38,6 @@
               "HardWinAchievement": "WinHouseHard",
               "SRankAchievement": "SRankHouse",
               "SRankHardAchievement": "SRankHouseHard"
-            },
-            {
-              "Ident": "pool",
-              "Name": "Pool",
-              "Description": "Drained long ago, yet the floor is still damp. Faint wet footprints appear and vanish. Something drags along the tiled bottom, just out of sight. The diving board creaks under an unseen weight. Do not linger near the drain.",
-              "Difficulty": "Normal",
-              "Scene": "scenes/pool.scene",
-              "WinAchievement": "WinPool",
-              "HardWinAchievement": "WinPoolHard",
-              "SRankAchievement": "SRankPool",
-              "SRankHardAchievement": "SRankPoolHard"
             }
           ],
           "OnComponentDestroy": null,
@@ -129,6 +119,7 @@
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "FieldOfView": 60,
+          "FovAxis": "Horizontal",
           "IsMainCamera": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
