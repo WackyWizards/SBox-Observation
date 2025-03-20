@@ -97,7 +97,7 @@
               "go": "98580bc3-0bd1-4970-93f9-9d5176e17a7a",
               "component_type": "Enabler"
             },
-            "Weight": 0,
+            "Weight": 1,
             "MinTime": 700
           },
           {
@@ -187,7 +187,7 @@
               "go": "4b34244e-8673-4aee-87be-a4fcde03ee03",
               "component_type": "Enabler"
             },
-            "Weight": 1,
+            "Weight": 2,
             "MinTime": 500
           }
         ],
@@ -287,6 +287,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 75,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -335,6 +336,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 75,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -383,6 +385,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 80,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -431,6 +434,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 90,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -479,6 +483,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 80,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -527,6 +532,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 90,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -1525,6 +1531,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
