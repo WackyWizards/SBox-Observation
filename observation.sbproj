@@ -8,7 +8,7 @@
   "Resources": "/Materials/*\n/Sounds/*\n/Fonts/*\n/Models/*\n/Shaders/*",
   "PackageReferences": [],
   "EditorReferences": null,
-  "IsWhitelistDisabled": false,
+  "IsStandaloneOnly": false,
   "Metadata": {
     "MaxPlayers": 1,
     "MinPlayers": 1,
