@@ -78,13 +78,6 @@
 	protected override void OnStart()
 	{
 		var settings = Observation.Settings.Data;
-
-		if ( settings is null )
-		{
-			FileSystem.Data.WriteJson( Observation.Settings.FileName, new Observation.Settings() );
-			settings = Observation.Settings.Data;
-		}
-
 		if ( settings is not null )
 		{
 			Mixer.FindMixerByName( "Master" ).Volume = settings.MasterVolume;
