@@ -38,6 +38,17 @@
               "HardWinAchievement": "WinHouseHard",
               "SRankAchievement": "SRankHouse",
               "SRankHardAchievement": "SRankHouseHard"
+            },
+            {
+              "Ident": "pool",
+              "Name": "Pool",
+              "Description": "Drained long ago, yet the floor is still damp. Faint wet footprints appear and vanish. Something drags along the tiled bottom, just out of sight. The diving board creaks under an unseen weight. Do not linger near the drain.",
+              "Difficulty": "Normal",
+              "Scene": "scenes/pool.scene",
+              "WinAchievement": "WinPool",
+              "HardWinAchievement": "WinPoolHard",
+              "SRankAchievement": "SRankPool",
+              "SRankHardAchievement": "SRankPoolHard"
             }
           ],
           "OnComponentDestroy": null,
@@ -47,7 +58,8 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "4c785802-0a55-4f67-806b-59b7ce0e9446",
@@ -77,7 +89,8 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "39b92c0d-9a15-435d-994f-9a200d71e155",
@@ -102,7 +115,8 @@
           "Shadows": true,
           "SkyColor": "0,0,0,0"
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "d7036ab9-5586-47e4-bfee-37cf1f4ae6f5",
@@ -137,7 +151,8 @@
           "ZFar": 10000,
           "ZNear": 10
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "8cc2f648-40f1-4827-8b8a-69a2c6969b0e",
@@ -160,7 +175,8 @@
           "SkyMaterial": "materials/skybox/skybox_overcast_02.vmat",
           "Tint": "0.07907,0.07907,0.07907,1"
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "75beb876-4c49-40e9-81fa-7ec48be1a126",
@@ -190,7 +206,8 @@
           "Radius": 500,
           "Shadows": true
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "2dcdf035-44ea-41f2-889f-dcb4fbb467ba",
@@ -220,18 +237,14 @@
           "Radius": 500,
           "Shadows": true
         }
-      ]
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
-    "FixedUpdateFrequency": 50,
-    "MaxFixedUpdates": 5,
-    "NetworkFrequency": 30,
     "NetworkInterpolation": true,
-    "PhysicsSubSteps": 1,
-    "ThreadedAnimation": true,
     "TimeScale": 1,
-    "UseFixedUpdate": true,
+    "WantsSystemScene": true,
     "Metadata": {},
     "NavMesh": {
       "Enabled": false,
