@@ -334,6 +334,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 60,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -382,6 +383,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 55,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -430,6 +432,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 70,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -478,6 +481,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 70,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -526,6 +530,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 65,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -574,6 +579,7 @@
               "BackgroundColor": "0,0,0,1",
               "ClearFlags": "All",
               "FieldOfView": 65,
+              "FovAxis": "Horizontal",
               "IsMainCamera": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -817,6 +823,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -2248,6 +2255,7 @@
                     "vectors": {},
                     "rotations": {}
                   },
+                  "PlaybackRate": 1,
                   "RenderOptions": {
                     "GameLayer": true,
                     "OverlayLayer": false,
@@ -2702,6 +2710,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -3100,7 +3109,7 @@
           "__guid": "84c4b7c6-6500-47fb-b4c5-553f1f719681",
           "Flags": 0,
           "Name": "TV",
-          "Position": "-1364.559,287.4485,-2.593628",
+          "Position": "-1364.559,287.4485,6.948853",
           "Tags": "anomaly",
           "Enabled": true,
           "Components": [
@@ -3255,35 +3264,6 @@
                   "IsStatic": true,
                   "MaterialGroup": null,
                   "Model": "models/sbox_props/tv/tv.vmdl",
-                  "OnComponentDestroy": null,
-                  "OnComponentDisabled": null,
-                  "OnComponentEnabled": null,
-                  "OnComponentFixedUpdate": null,
-                  "OnComponentStart": null,
-                  "OnComponentUpdate": null,
-                  "OnPropBreak": null,
-                  "OnPropTakeDamage": null,
-                  "StartAsleep": false,
-                  "Tint": "1,1,1,1"
-                }
-              ]
-            },
-            {
-              "__guid": "b804e4be-7d88-4564-99bc-2e57768b12d1",
-              "Flags": 0,
-              "Name": "tv_stand",
-              "Position": "3.5,-1.223328,-40.95801",
-              "Rotation": "0,0,-1,0.0000001490116",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "Sandbox.Prop",
-                  "__guid": "3fcaae50-da97-4a0f-b1c0-38b2f5466bc5",
-                  "BodyGroups": 18446744073709551615,
-                  "Health": 0,
-                  "IsStatic": true,
-                  "MaterialGroup": null,
-                  "Model": "models/props/tv_stand/tv_stand.vmdl",
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -3761,6 +3741,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -3885,6 +3866,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -4009,6 +3991,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -4133,6 +4116,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -4257,6 +4241,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -4381,6 +4366,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -4505,6 +4491,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -4629,6 +4616,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -4753,6 +4741,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -4877,6 +4866,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -5001,6 +4991,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -5125,6 +5116,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -5249,6 +5241,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -5342,7 +5335,7 @@
           "__guid": "ccd6ef82-6e7d-4912-9750-84923122fe11",
           "Flags": 0,
           "Name": "prop_physics (2)",
-          "Position": "283.6782,504.7222,67.35925",
+          "Position": "283.6783,493.0494,67.35913",
           "Rotation": "0,0,0.7071068,0.7071067",
           "Enabled": true,
           "NetworkOrphaned": 3,
@@ -5463,6 +5456,7 @@
                 "vectors": {},
                 "rotations": {}
               },
+              "PlaybackRate": 1,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -5832,6 +5826,7 @@
           "BackgroundColor": "0,0,0,1",
           "ClearFlags": "All",
           "FieldOfView": 65,
+          "FovAxis": "Horizontal",
           "IsMainCamera": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -5880,6 +5875,7 @@
           "BackgroundColor": "0,0,0,1",
           "ClearFlags": "All",
           "FieldOfView": 60,
+          "FovAxis": "Horizontal",
           "IsMainCamera": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -5911,6 +5907,35 @@
           "OnComponentUpdate": null,
           "Room": null,
           "ShowOnCamera": false
+        }
+      ]
+    },
+    {
+      "__guid": "32fc60cf-f14b-4c8b-9f58-66eeaf8f1fba",
+      "Flags": 0,
+      "Name": "wooden_desk_02",
+      "Position": "-1255.2,551.9792,1318.74",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "6532a14e-bf3d-4a17-a74e-094892e12d10",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/props/trim_sheets/desk/wooden_desk/wooden_desk_02.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
         }
       ]
     }
@@ -5956,7 +5981,7 @@
     "facepunch.tv#33694",
     "facepunch.woodaxe#83834",
     "facepunch.wooden_chair_a#43573",
-    "fish.tv_stand#59029"
+    "facepunch.wooden_desk_02#43581"
   ],
   "__version": 2
 }
