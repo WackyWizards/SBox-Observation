@@ -12,7 +12,7 @@ FEATURES
 MODES
 {
 	Forward();
-	Depth();
+	Depth( S_MODE_DEPTH );
 	ToolsShadingComplexity( "tools_shading_complexity.shader" );
 }
 
@@ -71,7 +71,10 @@ VS
 PS
 {
 	#include "common/pixel.hlsl"
-
+	
+	DynamicCombo( D_RENDER_BACKFACES, 0..1, Sys( ALL ) );
+	RenderState( CullMode, D_RENDER_BACKFACES ? NONE : BACK );
+	
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
 		
