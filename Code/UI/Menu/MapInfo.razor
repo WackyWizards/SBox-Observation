@@ -105,7 +105,7 @@
 					<label class="title">Global Map Stats</label>
 					<div class="stats">
 						@{
-							var globalStats = Stats.GetGlobalStats( Ident );
+							var globalStats = Stats.GetGlobalStats( Game.Ident );
 							var mapStatGroups = new[]
 							{
 								("Total Plays", globalStats.Get( $"Plays_{Map.Ident}" )),
@@ -132,7 +132,7 @@
 					<label class="title">Personal Map Stats</label>
 					<div class="stats">
 						@{
-							var localStats = Stats.GetLocalPlayerStats( Ident );
+							var localStats = Stats.GetLocalPlayerStats( Game.Ident );
 							var personalMapStats = new[]
 							{
 								("Total Plays", localStats.Get( $"Plays_{Map.Ident}" )),
@@ -162,7 +162,6 @@
 @code {
 	#nullable enable
 
-	private const string Ident = "spoonstuff.observation";
 	private int _selectedTab = 0;
 	private int _selectedLeaderboardTab = 0;
 
@@ -203,12 +202,12 @@
 		switch ( _selectedLeaderboardTab )
 		{
 			case 0:
-				SRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Ident, $"Wins_on_map_{Map.Ident}_with_rank_S" );
+				SRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}_with_rank_S" );
 				SRankBoard.CenterOnMe();
 				await SRankBoard.Refresh();
 				break;
 			case 1:
-				CompletionsBoard = Sandbox.Services.Leaderboards.GetFromStat( Ident, $"Wins_on_map_{Map.Ident}" );
+				CompletionsBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}" );
 				CompletionsBoard.CenterOnMe();
 				await CompletionsBoard.Refresh();
 				break;
@@ -222,8 +221,14 @@
 			Log.Error( "Unable to play a null map!" );
 			return;
 		}
-		
-		Menu?.MenuMusic?.Stop();
+
+		if ( Menu.IsValid() )
+		{
+			if ( Menu.MenuMusic.IsValid() )
+			{
+				Menu.MenuMusic.Stop();
+			}
+		}
 		
 		MapManager.Instance?.SetMap( Map );
 		var scene = Map.Scene;

@@ -77,7 +77,7 @@
 			<label class="title">Global Stats</label>
 			<div class="stats">
 				@{
-					var globalStats = Stats.GetGlobalStats( Ident );
+					var globalStats = Stats.GetGlobalStats( Game.Ident );
 					var statGroups = new[]
 					{
 						("Wins", globalStats.Get( "Wins" )),
@@ -121,7 +121,7 @@
 			<label class="title">Personal Stats</label>
 			<div class="stats">
 				@{
-					var localStats = Stats.GetLocalPlayerStats( Ident );
+					var localStats = Stats.GetLocalPlayerStats( Game.Ident );
 					var personalStatGroups = new[]
 					{
 						("Wins", localStats.Get( "Wins" )),
@@ -174,7 +174,6 @@
 @code {
 	#nullable enable
 
-	private const string Ident = "spoonstuff.observation";
 	private int _selectedTab;
 	private int _selectedLeaderboardTab;
 
@@ -197,13 +196,13 @@
 		switch ( _selectedLeaderboardTab )
 		{
 			case 0:
-				SRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Ident, "Wins_with_rank_S" );
+				SRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, "Wins_with_rank_S" );
 				SRankBoard.MaxEntries = 50;
 				SRankBoard.CenterOnMe();
 				await SRankBoard.Refresh();
 				break;
 			case 1:
-				WinsBoard = Sandbox.Services.Leaderboards.GetFromStat( Ident, "Wins" );
+				WinsBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, "Wins" );
 				WinsBoard.MaxEntries = 50;
 				WinsBoard.CenterOnMe();
 				await WinsBoard.Refresh();
