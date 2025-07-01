@@ -3,14 +3,23 @@
   "GameObjects": [
     {
       "__guid": "526000c4-7080-4a70-9aaf-db204c80b638",
+      "__version": 1,
       "Flags": 0,
       "Name": "Menu",
       "Position": "149.3263,149.3264,-211.1794",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.ScreenPanel",
           "__guid": "0fb1c3f5-bec2-4851-99d6-ad25405b00e1",
+          "__enabled": true,
           "AutoScreenScale": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -27,6 +36,7 @@
         {
           "__type": "Observation.UI.MainMenu",
           "__guid": "b90fe410-6992-4885-9422-7f4ad0d9c5e8",
+          "__enabled": true,
           "Maps": [
             {
               "Ident": "house",
@@ -51,6 +61,7 @@
               "SRankHardAchievement": "SRankPoolHard"
             }
           ],
+          "Music": "sounds/menumusic.sound",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -63,14 +74,23 @@
     },
     {
       "__guid": "4c785802-0a55-4f67-806b-59b7ce0e9446",
+      "__version": 1,
       "Flags": 0,
       "Name": "Map",
       "Position": "-905.3802,-939.2909,3168.378",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Observation.MapManager",
           "__guid": "d8e45543-8644-427e-a6bc-bdbb3d7d27dd",
+          "__enabled": true,
           "ActiveMap": {
             "Ident": "",
             "Name": "",
@@ -94,15 +114,23 @@
     },
     {
       "__guid": "39b92c0d-9a15-435d-994f-9a200d71e155",
+      "__version": 1,
       "Flags": 0,
       "Name": "Sun",
       "Position": "26.94003,133.1632,122.3691",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
       "Tags": "light_directional,light",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.DirectionalLight",
           "__guid": "017b726f-3721-49fb-8ce2-dd76f74a0422",
+          "__enabled": true,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
@@ -120,16 +148,23 @@
     },
     {
       "__guid": "d7036ab9-5586-47e4-bfee-37cf1f4ae6f5",
+      "__version": 1,
       "Flags": 0,
       "Name": "Camera",
       "Position": "26.93006,-145.6124,102.0695",
       "Rotation": "-0.2244541,-0.01620021,0.07014226,0.9718221",
+      "Scale": "1,1,1",
       "Tags": "maincamera",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.CameraComponent",
           "__guid": "d5b7b65f-b9b1-45e7-9e5e-4e115bd36438",
+          "__enabled": true,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "FieldOfView": 60,
@@ -156,15 +191,23 @@
     },
     {
       "__guid": "8cc2f648-40f1-4827-8b8a-69a2c6969b0e",
+      "__version": 1,
       "Flags": 0,
       "Name": "2D Skybox",
       "Position": "23.71902,-15.33096,59.09221",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
       "Tags": "skybox",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.SkyBox2D",
           "__guid": "c99e2e10-1d25-4767-ae73-ebc43c53d602",
+          "__enabled": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -180,16 +223,23 @@
     },
     {
       "__guid": "75beb876-4c49-40e9-81fa-7ec48be1a126",
+      "__version": 1,
       "Flags": 0,
       "Name": "Spot Light",
       "Position": "-0.00001907349,-96,128",
       "Rotation": "0,0.7071067,0,0.7071068",
+      "Scale": "1,1,1",
       "Tags": "light_spot,light",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.SpotLight",
           "__guid": "50806c77-1e9b-4cb7-b9b3-097496e19c8d",
+          "__enabled": true,
           "Attenuation": 1,
           "ConeInner": 15,
           "ConeOuter": 45,
@@ -211,16 +261,23 @@
     },
     {
       "__guid": "2dcdf035-44ea-41f2-889f-dcb4fbb467ba",
+      "__version": 1,
       "Flags": 0,
       "Name": "Spot Light (1)",
       "Position": "-0.00001907349,96,128",
       "Rotation": "0,0.7071067,0,0.7071068",
+      "Scale": "1,1,1",
       "Tags": "light_spot,light",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.SpotLight",
           "__guid": "cd5c8936-888a-4d8a-8a18-eb7b884e46d4",
+          "__enabled": true,
           "Attenuation": 1,
           "ConeInner": 15,
           "ConeOuter": 45,
@@ -259,9 +316,9 @@
       "IncludedBodies": ""
     }
   },
-  "ResourceVersion": 2,
+  "ResourceVersion": 3,
   "Title": null,
   "Description": null,
   "__references": [],
-  "__version": 2
+  "__version": 3
 }
