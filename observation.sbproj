@@ -5,7 +5,7 @@
   "Ident": "observation",
   "Schema": 1,
   "IncludeSourceFiles": false,
-  "Resources": "/Materials/*\n/Sounds/*\n/Fonts/*\n/Models/*\n/Shaders/*",
+  "Resources": "/Fonts/*\n/Materials/*\n/Models/*\n/Sounds/*\n/Shaders/*\n/Videos/*",
   "PackageReferences": [],
   "EditorReferences": null,
   "Mounts": null,
