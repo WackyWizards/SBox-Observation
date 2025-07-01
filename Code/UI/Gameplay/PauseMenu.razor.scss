@@ -17,8 +17,11 @@ PauseMenu {
   transition: all 0.1s linear;
   
   > .title {
+    font-family: "IBM Plex Mono";
     font-weight: 500;
-    font-size: 80px;
+    font-size: 64px;
+    margin: 5px 0;
+    text-transform: uppercase;
     color: white;
   }
   
