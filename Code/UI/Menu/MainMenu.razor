@@ -52,14 +52,18 @@
 	<Tutorial @ref="_tutorial" Menu="@this"></Tutorial>
 	<Credits @ref="_credits" Menu="@this"></Credits>
 	<Achievements @ref="_achievements" Menu="@this"></Achievements>
+	<VideoPanel class="splashscreen" @ref="_splashScreen"></VideoPanel>
 </root>
 
 @code {
 	#nullable enable
 
-	[Property, InlineEditor, WideMode] 
-    public List<Map> Maps { get; set; } = [];
-	
+	[Property, InlineEditor, WideMode]
+	public List<Map> Maps { get; set; } = [];
+
+	[Property]
+	public SoundEvent? Music { get; set; }
+
 	public SoundHandle? MenuMusic { get; set; }
 
 	private MapSelection? _mapSelection;
@@ -68,12 +72,36 @@
 	private Leaderboards? _leaderboards;
 	private Credits? _credits;
 	private Achievements? _achievements;
+	private VideoPanel? _splashScreen;
 
 	private Panel? _webContainer;
 	private WebPanel? _web;
 
 	private const string DiscordInvite = "https://discord.gg/kKU6a4AYNk";
 	private const string NewsUrl = "https://sbox.game/spoonstuff/observation/news";
+
+	protected override void OnTreeFirstBuilt()
+	{
+		if ( _splashScreen.IsValid() )
+		{
+			_splashScreen.Play( "/videos/KUO_SPLASH.mp4" );
+			_splashScreen.OnVideoEnd += () =>
+			{
+				_splashScreen.Hide();
+
+				if ( !Music.IsValid() )
+					return;
+
+				if ( MenuMusic.IsValid() )
+					return;
+
+				MenuMusic = GameObject.PlaySound( Music );
+				MenuMusic.TargetMixer = Mixer.FindMixerByName( "Music" );
+			};
+		}
+
+		base.OnTreeFirstBuilt();
+	}
 
 	protected override void OnStart()
 	{
@@ -84,12 +112,6 @@
 			Mixer.FindMixerByName( "Music" ).Volume = settings.MusicVolume;
 			Mixer.FindMixerByName( "Game" ).Volume = settings.GameVolume;
 			Mixer.FindMixerByName( "UI" ).Volume = settings.UIVolume;
-		}
-
-		MenuMusic = Sound.Play( "MenuMusic" );
-		if ( MenuMusic.IsValid() )
-		{
-			MenuMusic.TargetMixer = Mixer.FindMixerByName( "Music" );
 		}
 
 		base.OnStart();
@@ -109,19 +131,19 @@
 		{
 			// ReSharper disable AccessToModifiedClosure
 			WarningPanel? warning = null;
-			warning = new WarningPanel( "Tutorial", "It appears it is your first time playing! Would you like to read on how to play?", new List<Button>()
-			{
-				new( "Yes", "check_circle", () =>
+			warning = new WarningPanel( "Tutorial", "It appears it is your first time playing! Would you like to read on how to play?", [
+				new Button( "Yes", "check_circle", () =>
 				{
 					warning?.Delete();
 					Tutorial( () => _mapSelection?.Show() );
 				} ),
-				new( "No", "cancel", () =>
+
+				new Button( "No", "cancel", () =>
 				{
 					_mapSelection?.Show();
 					warning?.Delete();
 				} )
-			} );
+			] );
 			Panel.AddChild( warning );
 		}
 		else
