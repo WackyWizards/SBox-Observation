@@ -66,7 +66,7 @@ public sealed class Cursor : Singleton<Cursor>
 
 	public static void HideMouse()
 	{
-		Mouse.Visible = false;
+		Mouse.Visibility = MouseVisibility.Hidden;
 		Mouse.CursorType = "none";
 	}
 
