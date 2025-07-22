@@ -64,9 +64,9 @@ public sealed class Cursor : Singleton<Cursor>
 		_isHolding = false;
 	}
 
-	public static void HideMouse()
+	private static void HideMouse()
 	{
-		Mouse.Visibility = MouseVisibility.Hidden;
+		//Mouse.Visibility = MouseVisibility.Hidden;
 		Mouse.CursorType = "none";
 	}
 
@@ -167,7 +167,7 @@ public sealed class Cursor : Singleton<Cursor>
 		}
 	}
 
-	public GameObject? RunRay()
+	private GameObject? RunRay()
 	{
 		if ( !Camera.IsValid() )
 			return null;
