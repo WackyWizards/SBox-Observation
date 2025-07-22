@@ -1,0 +1,11 @@
+{
+    "ui.game.title": "Observation",
+    "ui.button.close": "Close",
+    "ui.button.continue": "Continue",
+    "ui.button.return": "Return",
+    "ui.button.refresh": "Refresh",
+    "ui.button.save": "Save",
+    "ui.button.yes": "Yes",
+    "ui.button.no": "No",
+    "ui.keybind.input": "Press Any Key"
+}

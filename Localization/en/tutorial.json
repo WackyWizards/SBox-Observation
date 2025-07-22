@@ -1,0 +1,20 @@
+{
+    "tutorial.intro.title": "Introduction",
+    "tutorial.intro.text": "As an Observer, your core responsibility is to maintain surveillance of security camera feeds and report any anomalous activity within the designated area. Your shift encompasses the hours of 00:00 to 06:00 (midnight to 6 AM). This orientation guide has been designed to facilitate your transition into this critical position. We anticipate your valuable contributions to our team.",
+    "tutorial.camera.title": "Camera Operations",
+    "tutorial.camera.text": "To navigate between surveillance feeds, utilize these approved methods:",
+    "tutorial.camera.list.1": "Access the designated navigation controls positioned on either side of the monitoring interface.",
+    "tutorial.camera.list.2": "Alternatively, employ the A/D directional keys on your keyboard for efficient feed transitions.",
+    "tutorial.report.title": "Reporting Operations",
+    "tutorial.report.text.1": "Follow this standardized procedure for anomaly reporting:",
+    "tutorial.report.list.1": "Position your cursor over the area of concern.",
+    "tutorial.report.list.2": "Initiate the reporting interface by maintaining pressure on the left mouse button.",
+    "tutorial.report.list.3": "Categorize the anomaly using the appropriate classification.",
+    "tutorial.report.list.4": "Review and submit your anomaly report.",
+    "tutorial.report.text.2": "Please note: Consistent submission of inaccurate reports may adversely affect your performance evaluation and may result in termination of your employment contract.",
+    "tutorial.tips.title": "Operating Protocols",
+    "tutorial.tips.text": "Adhere to these essential operational standards:",
+    "tutorial.tips.list.1": "Maintain consistent surveillance across all designated camera feeds.",
+    "tutorial.tips.list.2": "Exercise heightened awareness regarding environmental variations and anomalies.",
+    "tutorial.tips.list.3": "Implement prompt response protocols while maintaining reporting accuracy."
+}

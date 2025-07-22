@@ -1,0 +1,12 @@
+{
+    "ui.credits.title": "Credits",
+    "ui.credits.credit.game": "Game By",
+    "ui.credits.credit.menumusic": "Menu Music",
+    "ui.credits.credit.sounds": "Varioues sounds from freesound.org",
+    "ui.credits.credit.sounds.license": "Licensed under CC0",
+    "ui.credits.credit.models": "Various models from sbox.game",
+    "ui.credits.credit.models.license": "Various licenses",
+    "ui.credits.credit.inspiration": "Inspired by the game \"I'm On Observation Duty\"",
+    "ui.credits.disclaimer.title": "Legal Disclaimer",
+    "ui.credits.disclaimer.text": "This game respects the original rights of the authors to the above used assets. If you believe your work is used unjustly, please contact us at contact.kuo.team@gmail.com"
+}

@@ -1,0 +1,6 @@
+{
+    "warning.tutorial.title": "Tutorial",
+    "warning.tutorial.text": "It appears it is your first time playing! Would you like to read on how to play?",
+    "warning.activeanomalies": "Attention employee, multiple active anomalies detected in your area. Locate and send reports ASAP.",
+    "warning.failreports": "Attention employee, excessive false reports detected. Please only report active anomalies."
+}

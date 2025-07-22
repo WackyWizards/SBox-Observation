@@ -1,0 +1,7 @@
+{
+    "ui.settings.title": "Settings",
+    "ui.settings.mastervolume": "Master Volume",
+    "ui.settings.musicvolume": "Music Volume",
+    "ui.settings.gamevolume": "Game Volume",
+    "ui.settings.uivolume": "UI Volume"
+}

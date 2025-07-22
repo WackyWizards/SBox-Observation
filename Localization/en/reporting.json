@@ -1,0 +1,14 @@
+{
+    "ui.report.confirm.title": "Confirm Report",
+    "ui.report.confirm.text": "You are attempting to report {0} in {1}.<br>Are you sure?",
+    "report.extraobject": "Extra Object",
+    "report.movement": "Object Movement",
+    "report.manipulation": "Object Manipulation",
+    "report.disappearance": "Object Disappearance",
+    "report.audio": "Audio Anomaly",
+    "report.cameramalfunction": "Camera Malfunction",
+    "report.intruder": "Intruder",
+    "report.other": "Other",
+    "report.rock": "Inconvenient Rock",
+    "report.rock.confirm.text": "It's really quite inconvenient."
+}

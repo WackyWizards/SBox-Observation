@@ -1,0 +1,23 @@
+{
+    "ui.mapinfo.play": "Play",
+    "ui.mapinfo.tab.leaderboard": "Leaderboard",
+    "ui.mapinfo.tab.globalstats": "Global Stats",
+    "ui.mapinfo.tab.localstats": "Local Stats",
+    "ui.mapinfo.subtab.srank": "S-Rank",
+    "ui.mapinfo.subtab.completions": "Completions",
+    "ui.mapinfo.difficulty": "Difficulty",
+    "ui.mapinfo.difficulty.normal": "Normal",
+    "ui.mapinfo.difficulty.hard": "Hard",
+    "ui.mapinfo.difficulty.normal.tooltip": "No fail report penalty.",
+    "ui.mapinfo.difficulty.hard.tooltip": "Too many fail reports is a game over.",
+    "ui.mapinfo.stats.plays": "Total Plays",
+    "ui.mapinfo.stats.wins": "Total Completions",
+    "ui.mapinfo.stats.losses": "Total Losses",
+    "ui.mapinfo.stats.restarts": "Total Restarts",
+    "ui.mapinfo.stats.srank": "S Rank Completions",
+    "ui.mapinfo.stats.arank": "A Rank Completions",
+    "ui.mapinfo.stats.brank": "B Rank Completions",
+    "ui.mapinfo.stats.crank": "C Rank Completions",
+    "ui.mapinfo.stats.drank": "D Rank Completions",
+    "ui.mapinfo.stats.erank": "E Rank Completions"
+}

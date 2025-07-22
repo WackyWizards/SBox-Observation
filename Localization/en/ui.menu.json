@@ -1,0 +1,11 @@
+{
+    "ui.menu.play": "Play Game",
+    "ui.menu.tutorial": "How To Play",
+    "ui.menu.settings": "Settings",
+    "ui.menu.quit": "Quit Game",
+    "ui.menu.tooltip.statistics": "Leaderboards & Stats",
+    "ui.menu.tooltip.achievements": "Achievements",
+    "ui.menu.tooltip.credits": "Credits",
+    "ui.menu.tooltip.discord": "Discord",
+    "ui.menu.tooltip.news": "News"
+}
