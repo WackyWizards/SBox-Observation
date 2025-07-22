@@ -11,49 +11,34 @@
 	{
 		<div class="map">
 			<div class="tab-selection">
-				<button class="@( _selectedTab == 0 ? "disabled" : "" )" onclick="@( () => SelectTab( 0 ) )">
-					Play
-				</button>
-				<button class="@( _selectedTab == 1 ? "disabled" : "" )" onclick="@( () => SelectTab( 1 ) )">
-					Leaderboards
-				</button>
-				<button class="@( _selectedTab == 2 ? "disabled" : "" )" onclick="@( () => SelectTab( 2 ) )">
-					Global Stats
-				</button>
-				<button class="@( _selectedTab == 3 ? "disabled" : "" )" onclick="@( () => SelectTab( 3 ) )">
-					Personal Stats
-				</button>
+				<button class="@( _selectedTab == 0 ? "disabled" : "" )" onclick="@( () => SelectTab( 0 ) )">#ui.mapinfo.play</button>
+				<button class="@( _selectedTab == 1 ? "disabled" : "" )" onclick="@( () => SelectTab( 1 ) )">#ui.mapinfo.tab.leaderboard</button>
+				<button class="@( _selectedTab == 2 ? "disabled" : "" )" onclick="@( () => SelectTab( 2 ) )">#ui.mapinfo.tab.globalstats</button>
+				<button class="@( _selectedTab == 3 ? "disabled" : "" )" onclick="@( () => SelectTab( 3 ) )">#ui.mapinfo.tab.localstats</button>
 			</div>
 			<div class="tabs">
 				<div class="tab @( _selectedTab == 0 ? "" : "hidden" )">
 					<div class="subtab-selection">
-						<button disabled="@( Map.Difficulty == Difficulty.Normal )"
-						        onclick="@( () => SelectDifficulty( Difficulty.Normal ) )"
-						        tooltip="No fail report penalty.">Normal Difficulty
-						</button>
-						<button disabled="@( Map.Difficulty == Difficulty.Hard )"
-						        onclick="@( () => SelectDifficulty( Difficulty.Hard ) )"
-						        tooltip="Too many fail reports is a game over.">Hard Difficulty
-						</button>
+						<button disabled="@( Map.Difficulty == Difficulty.Normal )" onclick="@( () => SelectDifficulty( Difficulty.Normal ) )" tooltip="#ui.mapinfo.difficulty.normal.tooltip">#ui.mapinfo.difficulty.normal</button>
+						<button disabled="@( Map.Difficulty == Difficulty.Hard )" onclick="@( () => SelectDifficulty( Difficulty.Hard ) )" tooltip="#ui.mapinfo.difficulty.hard.tooltip">#ui.mapinfo.difficulty.hard</button>
 					</div>
 					<label class="title">@( Map.Name )</label>
-					<label class="map-difficulty">Difficulty: @( Map.Difficulty )</label>
+					<div class="map-difficulty" style="gap: 4px;">
+						<label>#ui.mapinfo.difficulty</label>:
+						<label>#ui.mapinfo.difficulty.@( Map.Difficulty )</label>
+					</div>
 					<label class="map-description">@( Map.Description )</label>
 					<div class="button-container">
-						<button icon="play_arrow" onclick="@Play">Play</button>
-						<button icon="arrow_back" onclick="@Return">Return</button>
+						<button icon="play_arrow" onclick="@Play">#ui.mapinfo.play</button>
+						<button icon="arrow_back" onclick="@Return">#ui.button.return</button>
 					</div>
 				</div>
 
 				<div class="tab @( _selectedTab == 1 ? "" : "hidden" )">
-					<label class="title">Map Leaderboards</label>
+					<label class="title">#ui.mapinfo.tab.leaderboard</label>
 					<div class="subtab-selection">
-						<button onclick="@( () => SelectLeaderboardTab( 0 ) )"
-						        class="@( _selectedLeaderboardTab == 0 ? "disabled" : "" )">S-Rank
-						</button>
-						<button onclick="@( () => SelectLeaderboardTab( 1 ) )"
-						        class="@( _selectedLeaderboardTab == 1 ? "disabled" : "" )">Completions
-						</button>
+						<button onclick="@( () => SelectLeaderboardTab( 0 ) )" class="@( _selectedLeaderboardTab == 0 ? "disabled" : "" )">#ui.mapinfo.subtab.srank</button>
+						<button onclick="@( () => SelectLeaderboardTab( 1 ) )" class="@( _selectedLeaderboardTab == 1 ? "disabled" : "" )">#ui.mapinfo.subtab.completions</button>
 					</div>
 
 					<div class="subtab">
@@ -61,15 +46,14 @@
 						{
 							case 0:
 								{
-									if ( SRankBoard is not null )
+									if ( _sRankBoard is not null )
 									{
 										<div class="leaderboard">
-											@foreach ( var entry in SRankBoard.Entries )
+											@foreach ( var entry in _sRankBoard.Entries )
 											{
 												<div class="entry">
 													<label class="entry-rank">@( entry.Rank ).</label>
-													<img class="entry-avatar" src="avatar:@( entry.SteamId )"
-													     alt="avatar"/>
+													<img class="entry-avatar" src="avatar:@( entry.SteamId )" alt="avatar"/>
 													<label class="entry-displayname">@( entry.DisplayName )</label>
 													<label class="entry-value">@( entry.Value )</label>
 												</div>
@@ -80,15 +64,14 @@
 								}
 							case 1:
 								{
-									if ( CompletionsBoard is not null )
+									if ( _completionsBoard is not null )
 									{
 										<div class="leaderboard">
-											@foreach ( var entry in CompletionsBoard.Entries )
+											@foreach ( var entry in _completionsBoard.Entries )
 											{
 												<div class="entry">
 													<label class="entry-rank">@( entry.Rank ).</label>
-													<img class="entry-avatar" src="avatar:@( entry.SteamId )"
-													     alt="avatar"/>
+													<img class="entry-avatar" src="avatar:@( entry.SteamId )" alt="avatar"/>
 													<label class="entry-displayname">@( entry.DisplayName )</label>
 													<label class="entry-value">@( entry.Value )</label>
 												</div>
@@ -102,55 +85,61 @@
 				</div>
 
 				<div class="tab @( _selectedTab == 2 ? "" : "hidden" )">
-					<label class="title">Global Map Stats</label>
+					<label class="title">#ui.mapinfo.tab.globalstats</label>
 					<div class="stats">
 						@{
 							var globalStats = Stats.GetGlobalStats( Game.Ident );
 							var mapStatGroups = new[]
 							{
-								("Total Plays", globalStats.Get( $"Plays_{Map.Ident}" )),
-								("Total Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}" )),
-								("Total Losses", globalStats.Get( $"Losses_on_map_{Map.Ident}" )),
-								("Total Restarts", globalStats.Get( $"Restarts_on_map_{Map.Ident}" )),
-								("S Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_S" )),
-								("A Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_A" )),
-								("B Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_B" )),
-								("C Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_C" )),
-								("D Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_D" )),
-								("E Rank Completions", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_E" ))
+								("#ui.mapinfo.stats.plays", globalStats.Get( $"Plays_{Map.Ident}" )),
+								("#ui.mapinfo.stats.wins", globalStats.Get( $"Wins_on_map_{Map.Ident}" )),
+								("#ui.mapinfo.stats.losses", globalStats.Get( $"Losses_on_map_{Map.Ident}" )),
+								("#ui.mapinfo.stats.restarts", globalStats.Get( $"Restarts_on_map_{Map.Ident}" )),
+								("#ui.mapinfo.stats.srank", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_S" )),
+								("#ui.mapinfo.stats.arank", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_A" )),
+								("#ui.mapinfo.stats.brank", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_B" )),
+								("#ui.mapinfo.stats.crank", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_C" )),
+								("#ui.mapinfo.stats.drank", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_D" )),
+								("#ui.mapinfo.stats.erank", globalStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_E" ))
 							};
 						}
 
 						@foreach ( var (label, stat) in mapStatGroups )
 						{
-							<label>@label: @( stat.Sum )</label>
+							<div>
+								<label>@( label )</label>:
+								<label>@( stat.Sum )</label>
+							</div>
 						}
 					</div>
 				</div>
 
 				<div class="tab @( _selectedTab == 3 ? "" : "hidden" )">
-					<label class="title">Personal Map Stats</label>
+					<label class="title">#ui.mapinfo.tab.localstats</label>
 					<div class="stats">
 						@{
 							var localStats = Stats.GetLocalPlayerStats( Game.Ident );
 							var personalMapStats = new[]
 							{
-								("Total Plays", localStats.Get( $"Plays_{Map.Ident}" )),
-								("Total Completions", localStats.Get( $"Wins_on_map_{Map.Ident}" )),
-								("Total Losses", localStats.Get( $"Losses_on_map_{Map.Ident}" )),
-								("Total Restarts", localStats.Get( $"Restarts_on_map_{Map.Ident}" )),
-								("S Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_S" )),
-								("A Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_A" )),
-								("B Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_B" )),
-								("C Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_C" )),
-								("D Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_D" )),
-								("E Rank Completions", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_E" ))
+								("#ui.mapinfo.stats.plays", localStats.Get( $"Plays_{Map.Ident}" )),
+								("#ui.mapinfo.stats.wins", localStats.Get( $"Wins_on_map_{Map.Ident}" )),
+								("#ui.mapinfo.stats.losses", localStats.Get( $"Losses_on_map_{Map.Ident}" )),
+								("#ui.mapinfo.stats.restarts", localStats.Get( $"Restarts_on_map_{Map.Ident}" )),
+								("#ui.mapinfo.stats.srank", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_S" )),
+								("#ui.mapinfo.stats.arank", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_A" )),
+								("#ui.mapinfo.stats.brank", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_B" )),
+								("#ui.mapinfo.stats.crank", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_C" )),
+								("#ui.mapinfo.stats.drank", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_D" )),
+								("#ui.mapinfo.stats.erank", localStats.Get( $"Wins_on_map_{Map.Ident}_with_rank_E" ))
 							};
 						}
 
 						@foreach ( var (label, stat) in personalMapStats )
 						{
-							<label>@label: @( stat.Sum )</label>
+							<div>
+								<label>@( label )</label>:
+								<label>@( stat.Sum )</label>
+							</div>
 						}
 					</div>
 				</div>
@@ -167,8 +156,8 @@
 
 	public Map? Map { get; set; }
 
-	private Sandbox.Services.Leaderboards.Board2? SRankBoard;
-	private Sandbox.Services.Leaderboards.Board2? CompletionsBoard;
+	private Sandbox.Services.Leaderboards.Board2? _sRankBoard;
+	private Sandbox.Services.Leaderboards.Board2? _completionsBoard;
 
 	private void SelectTab( int index )
 	{
@@ -185,7 +174,7 @@
 		_ = RefreshCurrentLeaderboard();
 	}
 
-	public void SelectDifficulty( Difficulty difficulty )
+	private void SelectDifficulty( Difficulty difficulty )
 	{
 		if ( Map is null )
 		{
@@ -202,19 +191,19 @@
 		switch ( _selectedLeaderboardTab )
 		{
 			case 0:
-				SRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}_with_rank_S" );
-				SRankBoard.CenterOnMe();
-				await SRankBoard.Refresh();
+				_sRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}_with_rank_S" );
+				_sRankBoard.CenterOnMe();
+				await _sRankBoard.Refresh();
 				break;
 			case 1:
-				CompletionsBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}" );
-				CompletionsBoard.CenterOnMe();
-				await CompletionsBoard.Refresh();
+				_completionsBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}" );
+				_completionsBoard.CenterOnMe();
+				await _completionsBoard.Refresh();
 				break;
 		}
 	}
 
-	public void Play()
+	private void Play()
 	{
 		if ( Map is null )
 		{
@@ -251,6 +240,6 @@
 
 	protected override int BuildHash()
 	{
-		return HashCode.Combine( Map, _selectedTab, _selectedLeaderboardTab, CompletionsBoard, SRankBoard );
+		return HashCode.Combine( Map, _selectedTab, _selectedLeaderboardTab, _completionsBoard, _sRankBoard );
 	}
 }

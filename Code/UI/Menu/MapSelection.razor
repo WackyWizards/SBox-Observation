@@ -5,7 +5,7 @@
 
 @* ReSharper disable CSharpWarnings::CS8974 *@
 <root class="hidden">
-	<label class="title">Maps</label>
+	<label class="title">#ui.maps.title</label>
 
 	<div class="maps">
 		@if ( Maps is not null )
@@ -19,7 +19,7 @@
 					<div class="stats">
 						<div class="stat">
 							<i>star</i>
-							<label>Highest Rank: </label>
+							<label>#ui.maps.highest.rank</label>
 							@if ( !isSRanked )
 							{
 								<label class="map-rank @( map.HighestRankAchieved )">@( map.HighestRankAchieved )</label>
@@ -31,7 +31,7 @@
 						</div>
 						<div class="stat">
 							<i>trending_up</i>
-							<label>Highest Percentage: </label>
+							<label>#ui.maps.highest.percentage</label>
 							<label class="map-percentage">@( map.HighestPercentageAchieved )%</label>
 						</div>
 					</div>
@@ -41,7 +41,7 @@
 	</div>
 
 	<div class="button-container">
-		<button icon="arrow_back" onclick="@Return">Return</button>
+		<button icon="arrow_back" onclick="@Return">#ui.button.return</button>
 	</div>
 </root>
 

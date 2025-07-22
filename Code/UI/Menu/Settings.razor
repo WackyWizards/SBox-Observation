@@ -6,28 +6,35 @@
 
 @* ReSharper disable CSharpWarnings::CS8974 *@
 <root class="hidden">
-	<label class="title">Settings</label>
+	<label class="title">#ui.settings.title</label>
 	
 	<div class="settings">
 		<div class="settings-group">
 			<div class="setting">
-				<label class="setting-label">@( Master.Name ) Volume</label>
-				<SliderControl Value:bind="@Master.Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )" onclick="@Save"></SliderControl>
+				<label class="setting-label">#ui.settings.mastervolume</label>
+				<SliderControl Value:bind="@Master.Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )"></SliderControl>
 			</div>
-			
-			@foreach ( var mixer in Mixers )
-			{
-				<div class="setting">
-					<label class="setting-label">@( mixer.Name ) Volume</label>
-					<SliderControl Value:bind="@mixer.Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )" onclick="@Save"></SliderControl>
-				</div>
-			}
+
+			<div class="setting">
+				<label class="setting-label">#ui.settings.musicvolume</label>
+				<SliderControl Value:bind="@Mixer.FindMixerByName( "Music" ).Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )"></SliderControl>
+			</div>
+
+			<div class="setting">
+				<label class="setting-label">#ui.settings.gamevolume</label>
+				<SliderControl Value:bind="@Mixer.FindMixerByName( "Game" ).Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )"></SliderControl>
+			</div>
+
+			<div class="setting">
+				<label class="setting-label">#ui.settings.uivolume</label>
+				<SliderControl Value:bind="@Mixer.FindMixerByName( "UI" ).Volume" Min="@( 0 )" Max="@( 1 )" Step="@( 0.1f )"></SliderControl>
+			</div>
 		</div>
 	</div>
 	
 	<div class="button-container">
-		<button icon="save" onclick="@Save">Save</button>
-		<button icon="arrow_back" onclick="@Return">Return</button>
+		<button icon="save" onclick="@Save">#ui.button.save</button>
+		<button icon="arrow_back" onclick="@Return">#ui.button.return</button>
 	</div>
 </root>
 

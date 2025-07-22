@@ -79,11 +79,11 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 	private TimeUntil _nextAnomaly;
 	private TimeSince _sinceStart;
 
-	private const string ActiveAnomaliesAlert = "Attention employee, multiple active anomalies detected in your area. Locate and send reports ASAP.";
-	private const string FailReportsAlert = "Attention employee, excessive false reports detected. Please only report active anomalies.";
+	private const string ActiveAnomaliesAlert = "#warning.activeanomalies";
+	private const string FailReportsAlert = "#warning.failreports";
 
-	private readonly Logger Log = new( "Anomaly Manager" );
-
+	private static readonly Logger Log = new( "Anomaly Manager" );
+	
 	protected override void OnStart()
 	{
 		_nextAnomaly = FirstAnomalyTime.GetValue();
@@ -150,7 +150,11 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		if ( ActiveAnomalies.Count == MaxAnomaliesTilWarning )
 		{
 			var alert = Hud.GetElement<Alert>();
-			alert?.WriteText( ActiveAnomaliesAlert );
+			
+			// Get the localized phrase by removing the # and searching the language.
+			var keyWithoutHash = ActiveAnomaliesAlert[1..];
+			var phrase = Language.GetPhrase( keyWithoutHash );
+			alert?.WriteText( phrase );
 		}
 
 		if ( ActiveAnomalies.Count < MaxAmountOfAnomalies )
@@ -164,7 +168,6 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 
 	public bool CanSetAnomalyActive( Anomaly anomaly )
 	{
-
 		return anomaly?.IsValid() == true &&
 			anomaly.IsAvailable() &&
 			!ActiveAnomalies.Contains( anomaly );
@@ -307,7 +310,11 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		if ( FailReports == FailReportsTilWarning )
 		{
 			var alert = Hud.GetElement<Alert>();
-			alert?.WriteText( FailReportsAlert );
+			
+			// Get the localized phrase by removing the # and searching the language.
+			var keyWithoutHash = FailReportsAlert[1..];
+			var phrase = Language.GetPhrase( keyWithoutHash );
+			alert?.WriteText( phrase );
 		}
 
 		if ( FailReports >= FailReportsTilGameOver )

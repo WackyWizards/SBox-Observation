@@ -3,23 +3,45 @@
 
 @* ReSharper disable CSharpWarnings::CS8974 *@
 <root class="hidden">
-	<label class="title">Achievements</label>
+	<label class="title">#achievements.title</label>
 
 	<div class="achievements">
-		@foreach ( var achievement in Sandbox.Services.Achievements.All.OrderByDescending( x => x.Score ) )
+		@foreach ( var achievement in _achievements )
 		{
-			<div class="achievement @( achievement.IsUnlocked ? "unlocked" : "locked" )">
-				<img class="achievement-icon" src="@( achievement.Icon )" alt="Achievement Icon"/>
+			<div class="achievement @( achievement.Achievement.IsUnlocked ? "unlocked" : "locked" )">
+				<img class="achievement-icon" src="@( achievement.Achievement.Icon )" alt="Achievement Icon"/>
 				<div class="achievement-info">
-					<label class="achievement-title">@( achievement.Title )</label>
-					<label class="achievement-description">@( achievement.Description )</label>
+					<label class="achievement-title">@( achievement.NameLocalizationKey )</label>
+					<label class="achievement-description">@( achievement.DescriptionLocalizationKey )</label>
 				</div>
-				<label class="achievement-score">@( achievement.Score )</label>
+				<label class="achievement-score">@( achievement.Achievement.Score )</label>
 			</div>
 		}
 	</div>
 
 	<div class="button-container">
-		<button icon="arrow_back" onclick="@Return">Return</button>
+		<button icon="arrow_back" onclick="@Return">#ui.button.return</button>
 	</div>
 </root>
+
+@code {
+	private readonly List<AchievementModel> _achievements = [];
+
+	public Achievements()
+	{
+		var achievements = Sandbox.Services.Achievements.All;
+		_achievements.AddRange( achievements.Select( achievement => new AchievementModel
+		{
+			NameLocalizationKey = $"#achievement.{achievement.Name}.name", 
+			DescriptionLocalizationKey = $"#achievement.{achievement.Name}.description", 
+			Achievement = achievement
+		}));
+	}
+
+	private readonly struct AchievementModel
+	{
+		public required string NameLocalizationKey { get; init; }
+		public required string DescriptionLocalizationKey { get; init; }
+		public required Achievement Achievement { get; init; }
+	}
+}

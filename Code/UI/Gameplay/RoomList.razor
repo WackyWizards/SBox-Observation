@@ -15,7 +15,7 @@
 <root>
 	@foreach ( var camera in cameraManager.PossibleCameras )
 	{
-		<button onclick="@( () => Report( camera.Room ) )">@camera.Room</button>
+		<button onclick="@( () => Report( camera.Name ) )">@camera.Name</button>
 	}
 </root>
 
@@ -26,7 +26,7 @@
 
 	public Action<string, Anomaly.AnomalyType>? OnReport { get; set; }
 
-	public void Report( string room )
+	private void Report( string room )
 	{
 		OnReport?.Invoke( room, AnomalyType );
 		this.Hide();

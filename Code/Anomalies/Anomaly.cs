@@ -60,24 +60,24 @@ public class Anomaly : Component
 
 	public enum AnomalyType
 	{
-		[Title( "Extra Object" )]
+		[Title( "#report.extraobject" )]
 		Extra,
-		[Title( "Object Movement" )]
+		[Title( "#report.movement" )]
 		Movement,
-		[Title( "Object Manipulation" )]
+		[Title( "#report.manipulation" )]
 		Manipulation,
-		[Title( "Object Disappearance" )]
+		[Title( "#report.disappearance" )]
 		Disappearance,
-		[Title( "Audio Anomaly" )]
+		[Title( "#report.audio" )]
 		Audio,
-		[Title( "Camera Malfunction" )]
+		[Title( "#report.cameramalfunction" )]
 		[RoomReport]
 		CameraMalfunction,
-		[Title( "Intruder" )]
+		[Title( "#report.intruder" )]
 		Intruder,
-		[Title( "Other" )]
+		[Title( "#report.other" )]
 		Other,
-		[Title("Inconvenient Rock")]
+		[Title("#report.rock")]
 		[HideReport]
 		Rock
 	}

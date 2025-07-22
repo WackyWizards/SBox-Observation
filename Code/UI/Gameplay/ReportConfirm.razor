@@ -8,43 +8,40 @@
 @* ReSharper disable CSharpWarnings::CS8974 *@
 <root>
 	<div class="main">
-		<label class="title" @ref="Title">Confirm Report</label>
-
-		<label class="text" @ref="_text">You are attempting to report @( AnomalyType.GetTitle() ) in @( RoomName ).</label>
+		<label class="title" @ref="Title">#ui.report.confirm.title</label>
+		<label class="text" @ref="_text" IsRich="@( true )">@_localizedText</label>
 		@if ( AnomalyType == Anomaly.AnomalyType.Rock )
 		{
-			<label class="text">It's really inconvenient.</label>
-		}
-		else
-		{
-			<label class="text">Are you sure?</label>
+			<label class="text" IsRich="@( true )">#report.rock.confirm.text</label>
 		}
 
 		<div class="button-container">
-			<button icon="check_circle" onclick="@Confirm">Yes</button>
-			<button icon="cancel" onclick="@Deny">No</button>
+			<button icon="check_circle" onclick="@Confirm">#ui.button.yes</button>
+			<button icon="cancel" onclick="@Deny">#ui.button.no</button>
 		</div>
 	</div>
 </root>
 
 @code {
-	#nullable enable
+#nullable enable
 
-	public Label? Title { get; set; }
+	private Label? Title { get; set; }
 
-	public string RoomName { get; set; } = "N/A";
+	private string RoomName { get; set; } = "N/A";
 
-	public Anomaly.AnomalyType AnomalyType { get; set; }
+	private Anomaly.AnomalyType AnomalyType { get; set; }
 
-	public Action? OnConfirm { get; set; }
-	public Action? OnDeny { get; set; }
+	private Action? OnConfirm { get; set; }
+	private Action? OnDeny { get; set; }
 
 	private Label? _text;
+	private string? _localizedText;
 
 	public void Show( Anomaly.AnomalyType type, string room, Action? onConfirm = null, Action? onDeny = null )
 	{
 		AnomalyType = type;
 		RoomName = room;
+		_localizedText = GetFormattedText();
 
 		if ( onConfirm is not null )
 		{
@@ -59,20 +56,37 @@
 		this.Show();
 	}
 
-	public void Confirm()
+	private void Confirm()
 	{
 		OnConfirm?.Invoke();
 		this.Hide();
 	}
 
-	public void Deny()
+	private void Deny()
 	{
 		OnDeny?.Invoke();
 		this.Hide();
 	}
 
+	private string GetFormattedText()
+	{
+		const string key = "ui.report.confirm.text";
+		var confirmationPhrase = Language.GetPhrase( key );
+
+		var anomalyTypeTitle = AnomalyType.GetTitle();
+		var typeDisplayName = anomalyTypeTitle.StartsWith( "#" )
+			? Language.GetPhrase( anomalyTypeTitle[1..] )
+			: anomalyTypeTitle;
+
+		var roomDisplayName = RoomName.StartsWith( "#" )
+			? Language.GetPhrase( RoomName[1..] )
+			: RoomName;
+
+		return string.Format( confirmationPhrase, typeDisplayName, roomDisplayName );
+	}
+
 	protected override int BuildHash()
 	{
-		return HashCode.Combine( Title, Title?.Text, AnomalyType, _text, _text?.Text );
+		return HashCode.Combine( Title, Title?.Text, AnomalyType, _text, _text?.Text, _localizedText );
 	}
 }

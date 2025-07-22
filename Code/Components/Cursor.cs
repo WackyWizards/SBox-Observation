@@ -112,7 +112,7 @@ public sealed class Cursor : Singleton<Cursor>
 		{
 			if ( !UsesRoomBasedReporting( type ) )
 			{
-				return CameraManager.Instance?.ActiveCamera?.Room ?? "N/A";
+				return CameraManager.Instance?.ActiveCamera?.Name ?? "N/A";
 			}
 
 			return "N/A";
