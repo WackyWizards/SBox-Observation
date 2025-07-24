@@ -221,7 +221,9 @@
 		
 		MapManager.Instance?.SetMap( Map );
 		var scene = Map.Scene;
-		Scene.Load( scene );
+		var loadOptions = new SceneLoadOptions();
+		loadOptions.SetScene( scene );
+		Game.ChangeScene( loadOptions );
 	}
 
 	protected override void Return()
