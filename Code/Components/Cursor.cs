@@ -97,18 +97,18 @@ public sealed class Cursor : Singleton<Cursor>
 
 		void ReportCallback( Anomaly.AnomalyType type )
 		{
-			var selectedRoom = GetRoom( type );
+			var selectedRoom = GetRoomName( type );
 
 			if ( UsesRoomBasedReporting( type ) )
 			{
-				RoomSelection();
+				OpenRoomSelection();
 				return;
 			}
 
 			CompleteReport( type, selectedRoom );
 		}
 
-		string GetRoom( Anomaly.AnomalyType type )
+		string GetRoomName( Anomaly.AnomalyType type )
 		{
 			if ( !UsesRoomBasedReporting( type ) )
 			{
@@ -118,7 +118,7 @@ public sealed class Cursor : Singleton<Cursor>
 			return "N/A";
 		}
 
-		void RoomSelection()
+		void OpenRoomSelection()
 		{
 			var roomList = Hud.GetElement<RoomList>();
 			if ( !roomList.IsValid() )
@@ -162,7 +162,19 @@ public sealed class Cursor : Singleton<Cursor>
 					AnomalyManager.Instance?.Report( type, targetObject );
 				}
 
-				Log.Info( $"Reporting {type} in room: {room}" );
+				string roomName;
+				if ( room.StartsWith( '#' ) )
+				{
+					var roomNameLocalizationKey = room[1..];
+					var roomLocalizedName = Language.GetPhrase( roomNameLocalizationKey );
+					roomName = roomLocalizedName;
+				}
+				else
+				{
+					roomName = room;
+				}
+				
+				Log.Info( $"Reporting {type} in room: {roomName}" );
 			} );
 		}
 	}
