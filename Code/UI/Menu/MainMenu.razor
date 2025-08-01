@@ -75,6 +75,11 @@
 
 	protected override void OnTreeFirstBuilt()
 	{
+		// Capture references for the asynchronous lambda
+		// Prevent the issue of these being null by the time the lambda executes.
+		var gameObject = GameObject;
+		var mixer = Mixer.FindMixerByName( "Music" );
+		
 		if ( _splashScreen.IsValid() )
 		{
 			_splashScreen.Play( "/videos/KUO_SPLASH.mp4" );
@@ -88,8 +93,11 @@
 				if ( MenuMusic.IsValid() )
 					return;
 
-				MenuMusic = GameObject.PlaySound( Music );
-				MenuMusic.TargetMixer = Mixer.FindMixerByName( "Music" );
+				MenuMusic = gameObject?.PlaySound( Music );
+				if ( MenuMusic is not null && mixer is not null )
+				{
+					MenuMusic.TargetMixer = mixer;
+				}
 			};
 		}
 
