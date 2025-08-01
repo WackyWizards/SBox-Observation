@@ -33,7 +33,7 @@ public static class CollectionExtensions
 		list.Insert( randomIndex, item );
 	}
 
-	public static int HashCombine<T>( this IEnumerable<T> e, Func<T, decimal> selector )
+	public static int HashCombine<T, TKey>( this IEnumerable<T> e, Func<T, TKey> selector )
 	{
 		return e.Aggregate( 0, ( current, el ) => HashCode.Combine( current, selector.Invoke( el ) ) );
 	}
