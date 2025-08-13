@@ -17,20 +17,6 @@ MainMenu {
   color: white;
   font-family: "IBM Plex Mono";
 
-  .stats {
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    font-size: 24px;
-    gap: 5px;
-    margin: 10px;
-    overflow-y: scroll;
-
-    * {
-      flex-shrink: 0;
-    }
-  }
-
   .container {
     width: $container-width;
     height: $container-height;

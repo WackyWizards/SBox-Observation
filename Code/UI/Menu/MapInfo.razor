@@ -22,7 +22,7 @@
 						<button disabled="@( Map.Difficulty == Difficulty.Normal )" onclick="@( () => SelectDifficulty( Difficulty.Normal ) )" tooltip="#ui.mapinfo.difficulty.normal.tooltip">#ui.mapinfo.difficulty.normal</button>
 						<button disabled="@( Map.Difficulty == Difficulty.Hard )" onclick="@( () => SelectDifficulty( Difficulty.Hard ) )" tooltip="#ui.mapinfo.difficulty.hard.tooltip">#ui.mapinfo.difficulty.hard</button>
 					</div>
-					<label class="title">@( Map.Name )</label>
+					<label class="map-name">@( Map.Name )</label>
 					<div class="map-difficulty" style="gap: 4px;">
 						<label>#ui.mapinfo.difficulty</label>:
 						<label>#ui.mapinfo.difficulty.@( Map.Difficulty )</label>
