@@ -7,15 +7,3 @@
 <root>
 	<label @ref="Report">Verifying Report...</label>
 </root>
-
-@code {
-	#nullable enable
-    
-	public Label? Report;
-
-	public void SetReport( bool validReport )
-	{
-		if ( Report.IsValid() )
-			Report.Text = validReport ? "Anomaly Cleared!" : "No Anomalies Found!";
-	}
-}

@@ -12,9 +12,6 @@ public class WarningPanel : Panel
 
 	private readonly Panel _buttonContainer;
 
-	/// <summary>
-	/// Constructs a WarningPanel with a title, warning message, and optional buttons.
-	/// </summary>
 	public WarningPanel( string title, string warning, List<Button>? buttons = null )
 	{
 		var main = Add.Panel( "main" );

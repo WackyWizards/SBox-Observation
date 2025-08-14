@@ -1,4 +1,3 @@
-@using Observation.Cameras;
 @using Sandbox.UI;
 
 @namespace Observation.UI
@@ -17,32 +16,3 @@
 		<button @onclick="@NextCamera">&gt;</button>
 	</div>
 </root>
-
-@code {
-	#nullable enable
-
-	private static CameraManager? CameraManager => CameraManager.Instance;
-	private static Camera? ActiveCamera => CameraManager?.ActiveCamera;
-
-	private static void NextCamera()
-	{
-		if ( CameraManager?.PossibleCameras is null || !CameraManager.PossibleCameras.Any() )
-			return;
-
-		if ( !ActiveCamera.IsValid() )
-			return;
-
-		CameraManager.SetNextAvailableActive();
-	}
-
-	private static void LastCamera()
-	{
-		if ( CameraManager?.PossibleCameras is null || !CameraManager.PossibleCameras.Any() )
-			return;
-
-		if ( !ActiveCamera.IsValid() )
-			return;
-
-		CameraManager.SetPreviousAvailableActive();
-	}
-}

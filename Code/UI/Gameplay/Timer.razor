@@ -1,5 +1,4 @@
-﻿@using System;
-@using Sandbox.UI;
+﻿@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud]
@@ -17,15 +16,3 @@
 		<label class="camera-name">@(cameraName)</label>
 	}
 </root>
-
-@code {
-	#nullable enable
-
-	private static GameTimer? TimerInstance => GameTimer.Instance;
-	private static string ElapsedTime => TimerInstance?.GetDisplayTime() ?? "N/A";
-
-	protected override int BuildHash()
-	{
-		return HashCode.Combine( TimerInstance?.SinceStart.Relative );
-	}
-}

@@ -5,19 +5,3 @@
 @inherits Panel
 
 <root/>
-
-@code {
-	public async void HideMouse()
-	{
-		try
-		{
-			this.Show();
-			await Task.DelayRealtime( 100 );
-			this.Hide();
-		}
-		catch
-		{
-			// Ignored.
-		}
-	}
-}

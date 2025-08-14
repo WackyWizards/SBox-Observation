@@ -1,6 +1,4 @@
-﻿@using System;
-
-@namespace Observation.UI
+﻿@namespace Observation.UI
 @inherits MenuSubPanel
 
 @* ReSharper disable CSharpWarnings::CS8974 *@
@@ -44,21 +42,3 @@
 		<button icon="arrow_back" @onclick="@Return">#ui.button.return</button>
 	</div>
 </root>
-
-@code {
-#nullable enable
-
-	private List<Map>? Maps => Menu?.Maps;
-
-	private void SelectMap( Map map )
-	{
-		var mapPanel = AddChild<MapInfo>();
-		mapPanel.Map = map;
-		mapPanel.Menu = Menu;
-	}
-
-	protected override int BuildHash()
-	{
-		return HashCode.Combine( Maps, Maps?.Count, Maps?.HashCombine( x => x.HighestRankAchieved ) );
-	}
-}
