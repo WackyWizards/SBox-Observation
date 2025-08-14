@@ -1,4 +1,4 @@
-﻿@using Sandbox.UI
+﻿@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud( true )]
@@ -8,10 +8,10 @@
 <root>
 	<label class="title">Game Paused</label>
 	<div class="button-container">
-		<button icon="arrow_back" onclick="@Return">Return</button>
-		<button icon="refresh" onclick="@Restart">Restart</button>
-		<button icon="settings" onclick="@Settings">Settings</button>
-		<button icon="home" onclick="@Menu">Main Menu</button>
+		<button icon="arrow_back" @onclick="@Return">Return</button>
+		<button icon="refresh" @onclick="@Restart">Restart</button>
+		<button icon="settings" @onclick="@Settings">Settings</button>
+		<button icon="home" @onclick="@Menu">Main Menu</button>
 	</div>
 	
 	<Settings @ref="_settings"></Settings>
@@ -22,17 +22,17 @@
 
 	private Settings? _settings;
 
-	public static void Return()
+	private static void Return()
 	{
 		PauseManager.Instance?.UnpauseGame();
 	}
 
-	public static void Restart()
+	private static void Restart()
 	{
 		MapManager.Instance?.Restart();
 	}
 
-	public void Settings()
+	private void Settings()
 	{
 		if ( _settings.IsValid() )
 		{
@@ -40,7 +40,7 @@
 		}
 	}
 
-	public static void Menu()
+	private static void Menu()
 	{
 		GameManager.Instance?.ToMenu();
 	}

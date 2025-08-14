@@ -1,5 +1,5 @@
-﻿@using System
-@using Sandbox.UI
+﻿@using System;
+@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud( true )]
@@ -8,7 +8,7 @@
 <root>
 	@foreach ( var anomalyType in AvailableTypes )
 	{
-			<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetTitle()</button>
+		<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetTitle()</button>
 	}
 </root>
 
@@ -36,7 +36,7 @@
 		return false;
 	}
 
-	public void Report( Anomaly.AnomalyType type )
+	private void Report( Anomaly.AnomalyType type )
 	{
 		if ( type == Anomaly.AnomalyType.CameraMalfunction )
 		{
@@ -48,7 +48,7 @@
 		this.Hide();
 	}
 
-	public static void SetCameraList( Anomaly.AnomalyType anomalyType )
+	private static void SetCameraList( Anomaly.AnomalyType anomalyType )
 	{
 		var cameraList = Hud.GetElement<RoomList>();
 		if ( !cameraList.IsValid() )

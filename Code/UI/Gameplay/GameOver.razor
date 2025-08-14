@@ -1,5 +1,5 @@
-﻿@using System
-@using Sandbox.UI
+﻿@using System;
+@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud( true )]
@@ -14,7 +14,6 @@
 	{
 		if ( anomalyManager.ActiveAnomalies.Any() )
 		{
-
 			<div class="missed-anomalies">
 				<label class="title">Missed Anomalies</label>
 				@foreach ( var anomaly in anomalyManager.ActiveAnomalies )
@@ -40,8 +39,8 @@
 	}
 
 	<div class="button-container">
-		<button icon="refresh" onclick="@PlayAgain">Play Again</button>
-		<button icon="home" onclick="@Return">Return To Menu</button>
+		<button icon="refresh" @onclick="@PlayAgain">Play Again</button>
+		<button icon="home" @onclick="@Return">Return To Menu</button>
 	</div>
 </root>
 
@@ -75,12 +74,12 @@
 		_loseReason = reason;
 	}
 
-	public static void PlayAgain()
+	private static void PlayAgain()
 	{
 		MapManager.Instance?.Restart();
 	}
 
-	public static void Return()
+	private static void Return()
 	{
 		GameManager.Instance?.ToMenu();
 	}

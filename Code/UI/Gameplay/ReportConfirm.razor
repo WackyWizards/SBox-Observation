@@ -1,5 +1,5 @@
-﻿@using System
-@using Sandbox.UI
+﻿@using System;
+@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud( true )]
@@ -9,15 +9,15 @@
 <root>
 	<div class="main">
 		<label class="title" @ref="Title">#ui.report.confirm.title</label>
-		<label class="text" @ref="_text" IsRich="@( true )">@_localizedText</label>
+		<label class="text" IsRich="@( true )" @ref="_text">@_localizedText</label>
 		@if ( AnomalyType == Anomaly.AnomalyType.Rock )
 		{
 			<label class="text" IsRich="@( true )">#report.rock.confirm.text</label>
 		}
 
 		<div class="button-container">
-			<button icon="check_circle" onclick="@Confirm">#ui.button.yes</button>
-			<button icon="cancel" onclick="@Deny">#ui.button.no</button>
+			<button icon="check_circle" @onclick="@Confirm">#ui.button.yes</button>
+			<button icon="cancel" @onclick="@Deny">#ui.button.no</button>
 		</div>
 	</div>
 </root>

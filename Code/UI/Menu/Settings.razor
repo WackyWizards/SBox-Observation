@@ -1,5 +1,5 @@
-﻿@using Sandbox.Audio
-@using Sandbox.UI
+﻿@using Sandbox.Audio;
+@using Sandbox.UI;
 
 @namespace Observation.UI
 @inherits MenuSubPanel
@@ -33,16 +33,16 @@
 	</div>
 	
 	<div class="button-container">
-		<button icon="save" onclick="@Save">#ui.button.save</button>
-		<button icon="arrow_back" onclick="@Return">#ui.button.return</button>
+		<button icon="save" @onclick="@Save">#ui.button.save</button>
+		<button icon="arrow_back" @onclick="@Return">#ui.button.return</button>
 	</div>
 </root>
 
 @code {
 	private static Mixer Master => Mixer.Master;
 	private static Mixer[] Mixers => Mixer.Master.GetChildren();
-	
-	public static void Save()
+
+	private static void Save()
 	{
 		var data = Observation.Settings.Data;
 		if ( data is null )

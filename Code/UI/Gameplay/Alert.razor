@@ -1,8 +1,8 @@
-﻿@using System
-@using System.Threading
-@using System.Threading.Tasks
-@using Sandbox.Audio
-@using Sandbox.UI
+﻿@using System;
+@using System.Threading;
+@using System.Threading.Tasks;
+@using Sandbox.Audio;
+@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud( true )]
@@ -30,7 +30,7 @@
 
 		if ( !_isWriting )
 		{
-			_ = ProcessTextQueue(); // Fire and forget
+			_ = ProcessTextQueue();
 		}
 	}
 

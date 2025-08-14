@@ -1,6 +1,6 @@
-﻿@using System
-@using System.Threading.Tasks
-@using Sandbox.Services
+﻿@using System;
+@using System.Threading.Tasks;
+@using Sandbox.Services;
 
 @namespace Observation.UI
 @inherits MenuSubPanel
@@ -8,9 +8,9 @@
 @* ReSharper disable CSharpWarnings::CS8974 *@
 <root class="hidden">
 	<div class="tab-selection">
-		<button class="@(_selectedTab == 0 ? "disabled" : "")" onclick="@( () => SelectTab( 0 ) )">#ui.leaderboards.tab.leaderboards</button>
-		<button class="@(_selectedTab == 1 ? "disabled" : "")"  onclick="@( () => SelectTab( 1 ) )">#ui.leaderboards.tab.globalstats</button>
-		<button class="@(_selectedTab == 2 ? "disabled" : "")"  onclick="@( () => SelectTab( 2 ) )">#ui.leaderboards.tab.localstats</button>
+		<button class="@(_selectedTab == 0 ? "disabled" : "")" @onclick="@( () => SelectTab( 0 ) )">#ui.leaderboards.tab.leaderboards</button>
+		<button class="@(_selectedTab == 1 ? "disabled" : "")" @onclick="@( () => SelectTab( 1 ) )">#ui.leaderboards.tab.globalstats</button>
+		<button class="@(_selectedTab == 2 ? "disabled" : "")" @onclick="@( () => SelectTab( 2 ) )">#ui.leaderboards.tab.localstats</button>
 	</div>
 
 	<div class="tabs">
@@ -18,8 +18,8 @@
 			<label class="title">#ui.leaderboards.tab.leaderboards</label>
 
 			<div class="subtab-selection">
-				<button onclick="@( () => SelectLeaderboardTab( 0 ) )" class="@( _selectedLeaderboardTab == 0 ? "disabled" : "" )">#ui.leaderboards.boards.srank</button>
-				<button onclick="@( () => SelectLeaderboardTab( 1 ) )" class="@( _selectedLeaderboardTab == 1 ? "disabled" : "" )">#ui.leaderboards.boards.completions</button>
+				<button @onclick="@( () => SelectLeaderboardTab( 0 ) )" class="@( _selectedLeaderboardTab == 0 ? "disabled" : "" )">#ui.leaderboards.boards.srank</button>
+				<button @onclick="@( () => SelectLeaderboardTab( 1 ) )" class="@( _selectedLeaderboardTab == 1 ? "disabled" : "" )">#ui.leaderboards.boards.completions</button>
 			</div>
 
 			<div class="subtab">
@@ -167,9 +167,9 @@
 	<div class="button-container">
 		@if ( _selectedTab == 0 )
 		{
-			<button icon="refresh" onclick="@(async () => { await RefreshLeaderboard(); } )">#ui.button.refresh</button>
+			<button icon="refresh" @onclick="@( async () => { await RefreshLeaderboard(); } )">#ui.button.refresh</button>
 		}
-		<button icon="arrow_back" onclick="@Return">#ui.button.return</button>
+		<button icon="arrow_back" @onclick="@Return">#ui.button.return</button>
 	</div>
 </root>
 

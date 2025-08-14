@@ -1,5 +1,5 @@
-﻿@using System
-@using Sandbox.UI
+﻿@using System;
+@using Sandbox.UI;
 
 @namespace Observation.UI
 @inherits MenuSubPanel
@@ -7,8 +7,8 @@
 @* ReSharper disable CSharpWarnings::CS8974 *@
 <root class="hidden">
 	<div class="tab-selection">
-		<button onclick="@LastTab" disabled="@IsFirstTab">&lt;</button>
-		<button onclick="@NextTab" disabled="@IsLastTab">&gt;</button>
+		<button @onclick="@LastTab" disabled="@IsFirstTab">&lt;</button>
+		<button @onclick="@NextTab" disabled="@IsLastTab">&gt;</button>
 	</div>
 	
 	<div class="tutorial">
@@ -52,7 +52,7 @@
 	</div>
 
 	<div class="button-container">
-		<button icon="arrow_back" onclick="@Return">#ui.button.return</button>
+		<button icon="arrow_back" @onclick="@Return">#ui.button.return</button>
 	</div>
 </root>
 
@@ -65,14 +65,14 @@
 	private bool IsFirstTab => CurrentTabIndex == 0;
 	private bool IsLastTab => CurrentTabIndex == _tabs?.ChildrenCount - 1;
 
-	public void NextTab()
+	private void NextTab()
 	{
 		if ( IsLastTab || _tabs == null ) return;
 		CurrentTabIndex++;
 		StateHasChanged();
 	}
 
-	public void LastTab()
+	private void LastTab()
 	{
 		if ( IsFirstTab ) return;
 		CurrentTabIndex--;

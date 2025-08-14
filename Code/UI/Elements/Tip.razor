@@ -1,4 +1,4 @@
-﻿@using Sandbox.UI
+﻿@using Sandbox.UI;
 
 @namespace Observation.UI
 @inherits Panel
@@ -8,7 +8,7 @@
 </root>
 
 @code {
-#nullable enable
+	#nullable enable
 
 	private List<string> PossibleTips { get; set; } =
 	[
@@ -56,5 +56,4 @@
 
 		base.Tick();
 	}
-
 }

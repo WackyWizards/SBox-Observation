@@ -6,9 +6,9 @@ namespace Observation.UI;
 
 public class WarningPanel : Panel
 {
-	public List<Button> Buttons { get; private set; } = [];
+	private List<Button> Buttons { get; set; } = [];
 
-	public Action? OnClose { get; set; } = null;
+	private Action? OnClose { get; set; } = null;
 
 	private readonly Panel _buttonContainer;
 
@@ -38,10 +38,7 @@ public class WarningPanel : Panel
 		AddButtonsToContainer( Buttons );
 	}
 
-	/// <summary>
-	/// Closes the panel, triggering the OnClose action if assigned.
-	/// </summary>
-	public void Close()
+	private void Close()
 	{
 		OnClose?.Invoke();
 		Delete();

@@ -1,5 +1,5 @@
-﻿@using System
-@using Sandbox.UI
+﻿@using System;
+@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud]
@@ -14,7 +14,7 @@
 @code {
 	#nullable enable
 
-	public TimeSince SinceStartedHold { get; set; }
+    private TimeSince SinceStartedHold { get; set; }
 
 	private bool IsHolding { get; set; }
 

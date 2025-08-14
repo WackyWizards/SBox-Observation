@@ -1,6 +1,6 @@
-﻿@using System
-@using Sandbox.UI
-@using Observation
+﻿@using System;
+@using Sandbox.UI;
+@using Observation;
 
 @namespace Observation.UI
 @attribute [Hud( true )]
@@ -15,7 +15,7 @@
 <root>
 	@foreach ( var camera in cameraManager.PossibleCameras )
 	{
-		<button onclick="@( () => Report( camera.Name ) )">@camera.Name</button>
+		<button @onclick="@( () => Report( camera.Name ) )">@(camera.Name)</button>
 	}
 </root>
 

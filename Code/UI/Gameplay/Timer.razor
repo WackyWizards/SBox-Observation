@@ -1,5 +1,5 @@
-﻿@using System
-@using Sandbox.UI
+﻿@using System;
+@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud]
@@ -11,10 +11,10 @@
 }
 
 <root>
-	<label class="timer">@ElapsedTime</label>
+	<label class="timer">@(ElapsedTime)</label>
 	@if ( CameraManager.Instance?.ActiveCamera is { Name: {} cameraName } )
 	{
-		<label class="camera-name">@cameraName</label>
+		<label class="camera-name">@(cameraName)</label>
 	}
 </root>
 
