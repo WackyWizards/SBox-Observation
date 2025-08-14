@@ -2,7 +2,7 @@
 
 public class PlayerData : IDataFile<PlayerData>
 {
-	public static PlayerData? Data
+	public static PlayerData Data
 	{
 		get
 		{
@@ -12,7 +12,7 @@ public class PlayerData : IDataFile<PlayerData>
 	}
 	private static PlayerData? _data;
 
-	public const string FileName = "PlayerData.json";
+	private const string FileName = "PlayerData.json";
 
 	/// <summary>
 	/// Is this the players first time playing the game?
