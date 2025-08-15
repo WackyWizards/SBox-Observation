@@ -53,7 +53,9 @@ public partial class Cursor
 	private string GetHoldProgress()
 	{
 		if ( !IsHolding )
+		{
 			return "transform: scale(0);";
+		}
 
 		var progress = Math.Min( SinceStartedHold / GetHoldTime(), 1.0f );
 		return $"transform: scale({progress});";

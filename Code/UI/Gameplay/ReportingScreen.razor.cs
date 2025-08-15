@@ -9,6 +9,8 @@ public partial class ReportingScreen
 	public void SetReport( bool validReport )
 	{
 		if ( Report.IsValid() )
+		{
 			Report.Text = validReport ? "Anomaly Cleared!" : "No Anomalies Found!";
+		}
 	}
 }

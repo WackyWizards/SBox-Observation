@@ -31,7 +31,10 @@ public partial class Alert
 
 	private async Task ProcessTextQueue()
 	{
-		if ( _isWriting ) return;
+		if ( _isWriting )
+		{
+			return;
+		}
 		_isWriting = true;
 
 		try
@@ -63,8 +66,10 @@ public partial class Alert
 
 		try
 		{
-			if ( _text == null )
+			if ( _text is null )
+			{
 				return;
+			}
 
 			_text.Text = "";
 			this.Show();

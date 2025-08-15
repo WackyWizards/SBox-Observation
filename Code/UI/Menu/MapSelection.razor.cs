@@ -6,7 +6,9 @@ public partial class MapSelection
 {
 	private List<Map>? Maps => Menu?.Maps;
 
+#pragma warning disable CA1822
 	private void SelectMap( Map map )
+#pragma warning restore CA1822
 	{
 		var mapPanel = AddChild<MapInfo>();
 		mapPanel.Map = map;

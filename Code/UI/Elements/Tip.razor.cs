@@ -26,7 +26,9 @@ public partial class Tip
 	public override void Tick()
 	{
 		if ( !_tipLabel.IsValid() )
+		{
 			return;
+		}
 
 		_tipLabel.Text = _displayText;
 
@@ -35,6 +37,7 @@ public partial class Tip
 			// Select random tip and get its localized phrase.
 			var selectedTip = Game.Random.FromList( PossibleTips! ) ?? string.Empty;
 			var tipKey = selectedTip.TrimStart( '#' );
+			
 			ActiveTip = Language.GetPhrase( tipKey );
 
 			_displayText = string.Empty;
@@ -43,7 +46,9 @@ public partial class Tip
 		}
 
 		if ( _index >= ActiveTip.Length || !_nextChar )
+		{
 			return;
+		}
 
 		_displayText += ActiveTip[_index++];
 		_nextChar = 0.1f;

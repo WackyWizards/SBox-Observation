@@ -19,7 +19,7 @@ public class WarningPanel : Panel
 		main.Add.Label( warning, "warning" );
 
 		_buttonContainer = main.Add.Panel( "buttons" );
-		if ( buttons != null )
+		if ( buttons is not null )
 		{
 			InitializeButtons( buttons );
 		}

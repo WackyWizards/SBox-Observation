@@ -39,10 +39,14 @@ public partial class MainMenu
 				_splashScreen.Hide();
 
 				if ( !Music.IsValid() )
+				{
 					return;
+				}
 
 				if ( MenuMusic.IsValid() )
+				{
 					return;
+				}
 
 				MenuMusic = gameObject?.PlaySound( Music );
 				if ( MenuMusic is not null && mixer is not null )
@@ -58,28 +62,18 @@ public partial class MainMenu
 	protected override void OnStart()
 	{
 		var settings = Observation.Settings.Data;
-		if ( settings is not null )
-		{
-			Mixer.FindMixerByName( "Master" ).Volume = settings.MasterVolume;
-			Mixer.FindMixerByName( "Music" ).Volume = settings.MusicVolume;
-			Mixer.FindMixerByName( "Game" ).Volume = settings.GameVolume;
-			Mixer.FindMixerByName( "UI" ).Volume = settings.UIVolume;
-		}
+		Mixer.FindMixerByName( "Master" ).Volume = settings.MasterVolume;
+		Mixer.FindMixerByName( "Music" ).Volume = settings.MusicVolume;
+		Mixer.FindMixerByName( "Game" ).Volume = settings.GameVolume;
+		Mixer.FindMixerByName( "UI" ).Volume = settings.UIVolume;
 
 		base.OnStart();
 	}
 
 	private void Play()
 	{
-		var data = PlayerData.Data;
-
-		if ( data is null )
-		{
-			FileSystem.Data.WriteJson( PlayerData.FileName, new PlayerData() );
-			data = PlayerData.Data;
-		}
-
-		if ( data?.FirstTime ?? true )
+		var playerData = PlayerData.Data;
+		if ( playerData.FirstTime )
 		{
 			// ReSharper disable AccessToModifiedClosure
 			WarningPanel? warning = null;
@@ -112,7 +106,9 @@ public partial class MainMenu
 	private void Tutorial( Action? onReturn = null )
 	{
 		if ( !_tutorial.IsValid() )
+		{
 			return;
+		}
 
 		_tutorial.Show();
 		_tutorial.OnReturn = onReturn;
@@ -137,14 +133,18 @@ public partial class MainMenu
 	{
 		_webContainer.Show();
 		if ( _web.IsValid() )
+		{
 			_web.Url = DiscordInvite;
+		}
 	}
 
 	private void News()
 	{
 		_webContainer.Show();
 		if ( _web.IsValid() )
+		{
 			_web.Url = NewsUrl;
+		}
 	}
 
 	private void CloseWebPanel()

@@ -11,15 +11,18 @@ public partial class AnomalyList
 	public static bool IsVisibleType( Anomaly.AnomalyType type )
 	{
 		if ( type.GetAttributeOfType<HideReportAttribute>() is null )
+		{
 			return true;
+		}
 
 		if ( AnomalyManager.Instance is not { } anomalyManager || CameraManager.Instance is not { } cameraManager )
+		{
 			return false;
+		}
 
 		if ( cameraManager.ActiveCamera is { } activeCamera )
 		{
-			return anomalyManager.ActiveAnomalies
-				.Any( x => x.Room == activeCamera.Room && x.Type == type );
+			return anomalyManager.ActiveAnomalies.Any( x => x.Room == activeCamera.Room && x.Type == type );
 		}
 
 		return false;
@@ -33,7 +36,6 @@ public partial class AnomalyList
 		}
 
 		OnReport?.Invoke( type );
-
 		this.Hide();
 	}
 
@@ -41,7 +43,9 @@ public partial class AnomalyList
 	{
 		var cameraList = Hud.GetElement<RoomList>();
 		if ( !cameraList.IsValid() )
+		{
 			return;
+		}
 
 		cameraList.AnomalyType = anomalyType;
 	}

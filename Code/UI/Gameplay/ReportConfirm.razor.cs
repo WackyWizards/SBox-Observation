@@ -50,12 +50,14 @@ public partial class ReportConfirm
 		const string key = "ui.report.confirm.text";
 		var confirmationPhrase = Language.GetPhrase( key );
 
+		// Get the localized anomaly type name
 		var anomalyTypeTitle = AnomalyType.GetTitle();
-		var typeDisplayName = anomalyTypeTitle.StartsWith( "#" )
+		var typeDisplayName = "#".StartsWith( anomalyTypeTitle )
 			? Language.GetPhrase( anomalyTypeTitle[1..] )
 			: anomalyTypeTitle;
 
-		var roomDisplayName = RoomName.StartsWith( "#" )
+		// Get the localized room name
+		var roomDisplayName = "#".StartsWith( RoomName )
 			? Language.GetPhrase( RoomName[1..] )
 			: RoomName;
 

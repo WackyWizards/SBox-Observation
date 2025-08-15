@@ -11,7 +11,7 @@
 		<div class="button-container">
 			<button icon="play_arrow" @onclick="@Play">#ui.menu.play</button>
 			<button icon="settings" @onclick="@Settings">#ui.menu.settings</button>
-			<button icon="school" @onclick="@Tutorial">#ui.menu.tutorial</button>
+			<button icon="school" @onclick="@(() => Tutorial())">#ui.menu.tutorial</button>
 			<button icon="exit_to_app" @onclick="@Game.Close">#ui.menu.quit</button>
 		</div>
 

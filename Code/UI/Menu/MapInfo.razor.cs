@@ -40,13 +40,15 @@ public partial class MapInfo
 
 	private async Task RefreshCurrentLeaderboard()
 	{
-		if ( Map is null ) return;
+		if ( Map is null )
+		{
+			return;
+		}
 
 		switch ( _selectedLeaderboardTab )
 		{
 			case 0:
-				_sRankBoard =
-					Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}_with_rank_S" );
+				_sRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}_with_rank_S" );
 				_sRankBoard.CenterOnMe();
 				await _sRankBoard.Refresh();
 				break;
@@ -66,18 +68,16 @@ public partial class MapInfo
 			return;
 		}
 
-		if ( Menu.IsValid() )
+		if ( Menu.IsValid() && Menu.MenuMusic.IsValid() )
 		{
-			if ( Menu.MenuMusic.IsValid() )
-			{
-				Menu.MenuMusic.Stop();
-			}
+			Menu.MenuMusic.Stop();
 		}
 
+		// Set and load the map.
 		MapManager.Instance?.SetMap( Map );
-		var scene = Map.Scene;
+		// I wonder who thought this was good API design at FP lol.
 		var loadOptions = new SceneLoadOptions();
-		loadOptions.SetScene( scene );
+		loadOptions.SetScene( Map.Scene );
 		Game.ChangeScene( loadOptions );
 	}
 

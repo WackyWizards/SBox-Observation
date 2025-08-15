@@ -10,22 +10,19 @@ public partial class Settings
 	private static void Save()
 	{
 		var data = Observation.Settings.Data;
-		if ( data is null )
-		{
-			return;
-		}
-
 		data.MasterVolume = Master.Volume;
 
+		// Loop through each sub-mixer and save its volume
 		foreach ( var mixer in Mixers )
 		{
+			// Settings volume property names follow the convention "<MixerName>Volume"
 			var propertyName = mixer.Name + "Volume";
 			var volume = mixer.Volume;
 			var success = TypeLibrary.SetProperty( data, propertyName, volume );
 
 			if ( !success )
 			{
-				Log.Error( "Unable to set volume property in settings, is it properly named?" );
+				Log.Error( "Unable to set mixer volume property in settings, is it properly named?" );
 			}
 		}
 
