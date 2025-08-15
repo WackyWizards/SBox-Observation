@@ -202,9 +202,9 @@ public sealed class GameManager : Singleton<GameManager>
 
 	public enum LoseReason
 	{
-		[Description( "Too many failed reports" )]
+		[Description( "#ui.gameover.lose.failreports" )]
 		FailReports,
-		[Description( "Too many active anomalies" )]
+		[Description( "#ui.gameover.lose.toomanyanomalies" )]
 		TooManyAnomalies
 	}
 }

@@ -13,12 +13,12 @@ public partial class GameOver
 
 	private string GetTitle()
 	{
-		return _isWin ? "Shift Complete" : "Notice Of Dismissal";
+		return _isWin ? "#ui.gameover.win.title" : "#ui.gameover.lose.title";
 	}
 
 	private static string GetSubTitle( bool victory, GameManager.LoseReason reason )
 	{
-		return victory ? "Congratulations!" : reason.GetDescription();
+		return victory ? "#ui.gameover.congratulations" : reason.GetDescription();
 	}
 
 	public void OnGameEnd( bool victory )
@@ -30,6 +30,24 @@ public partial class GameOver
 	{
 		_isWin = false;
 		_loseReason = reason;
+	}
+	
+	private string GetFormattedText( Anomaly anomaly )
+	{
+		const string key = "ui.gameover.missedanomaly";
+		var confirmationPhrase = Language.GetPhrase( key );
+
+		// Get the localized anomaly type name
+		var anomalyTypeTitle = anomaly.Type.GetTitle();
+		var typeDisplayName = anomalyTypeTitle.StartsWith( '#' )
+			? Language.GetPhrase( anomalyTypeTitle[1..] )
+			: anomalyTypeTitle;
+
+		// Get the localized room name
+		var roomName = anomaly.Room;
+		var roomDisplayName = Language.GetPhrase( roomName );
+
+		return string.Format( confirmationPhrase, typeDisplayName, roomDisplayName );
 	}
 
 	private static void PlayAgain()

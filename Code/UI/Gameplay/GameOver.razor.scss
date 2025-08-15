@@ -51,12 +51,15 @@ GameOver {
   }
   
   .rank {
-    width: 50%;
+    width: 100%;
+    align-items: center;
     flex-direction: column;
+    gap: 4px;
     
     .actual-rank {
       font-size: 35px;
       font-weight: 500;
+      gap: 4px;
     }
     
     .percentage {

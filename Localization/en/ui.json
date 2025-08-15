@@ -3,9 +3,11 @@
     "ui.button.close": "Close",
     "ui.button.continue": "Continue",
     "ui.button.return": "Return",
+    "ui.button.returntomenu": "Return To Menu",
     "ui.button.refresh": "Refresh",
     "ui.button.save": "Save",
     "ui.button.yes": "Yes",
     "ui.button.no": "No",
+    "ui.button.replay": "Play Again",
     "ui.keybind.input": "Press Any Key"
 }

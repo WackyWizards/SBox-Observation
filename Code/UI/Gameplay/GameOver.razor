@@ -9,12 +9,12 @@
 	<label class="title" @ref="_title">@GetTitle()</label>
 	<label class="sub-title" @ref="_subTitle">@GetSubTitle( _isWin, _loseReason )</label>
 
-	@if ( AnomalyManager.Instance is {} anomalyManager )
+	@if ( AnomalyManager.Instance is { } anomalyManager )
 	{
 		if ( anomalyManager.ActiveAnomalies.Any() )
 		{
 			<div class="missed-anomalies">
-				<label class="title">Missed Anomalies</label>
+				<label class="title">#ui.gameover.missedanomalies</label>
 				@foreach ( var anomaly in anomalyManager.ActiveAnomalies )
 				{
 					var type = anomaly.Type;
@@ -25,20 +25,23 @@
 					}
 					else
 					{
-						<label>@( type.GetTitle() ) in @( anomaly.Room )</label>
+						<label>@GetFormattedText( anomaly )</label>
 					}
 				}
 			</div>
 		}
 		
 		<div class="rank">
-			<label class="actual-rank">Rank: @( anomalyManager.Rank )</label>
+			<div class="actual-rank">
+				<label>Rank:</label>
+				<label>@( anomalyManager.Rank )</label>
+			</div>
 			<label class="percentage">@( anomalyManager.SuccessRate )%</label>
 		</div>
 	}
 
 	<div class="button-container">
-		<button icon="refresh" @onclick="@PlayAgain">Play Again</button>
-		<button icon="home" @onclick="@Return">Return To Menu</button>
+		<button icon="refresh" @onclick="@PlayAgain">#ui.button.replay</button>
+		<button icon="home" @onclick="@Return">#ui.button.returntomenu</button>
 	</div>
 </root>
