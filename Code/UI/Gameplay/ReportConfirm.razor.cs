@@ -52,12 +52,12 @@ public partial class ReportConfirm
 
 		// Get the localized anomaly type name
 		var anomalyTypeTitle = AnomalyType.GetTitle();
-		var typeDisplayName = "#".StartsWith( anomalyTypeTitle )
+		var typeDisplayName = anomalyTypeTitle.StartsWith( '#' )
 			? Language.GetPhrase( anomalyTypeTitle[1..] )
 			: anomalyTypeTitle;
 
 		// Get the localized room name
-		var roomDisplayName = "#".StartsWith( RoomName )
+		var roomDisplayName = RoomName.StartsWith( '#' )
 			? Language.GetPhrase( RoomName[1..] )
 			: RoomName;
 
