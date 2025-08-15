@@ -5,7 +5,6 @@ using Sandbox.UI;
 using Observation.UI;
 using Observation.Platform;
 using kEllie.Utils;
-using CollectionExtensions=System.Collections.Generic.CollectionExtensions;
 
 namespace Observation;
 
@@ -15,37 +14,37 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 	public List<Anomaly> ActiveAnomalies { get; set; } = [];
 
 	[Property, Category( "Anomalies" ), InlineEditor, WideMode]
-	public List<AnomalyEntry> PossibleAnomalies { get; set; } = [];
+	private List<AnomalyEntry> PossibleAnomalies { get; set; } = [];
 
 	[Property, Category( "Anomalies" )]
-	public RangedFloat FirstAnomalyTime { get; set; } = (20f, 35f);
+	private RangedFloat FirstAnomalyTime { get; set; } = (20f, 35f);
 
 	[Property, Category( "Anomalies" )]
-	public RangedFloat AnomalyTime { get; set; } = (25f, 120f);
+	private RangedFloat AnomalyTime { get; set; } = (25f, 120f);
 
 	[Property, Category( "Anomalies" )]
-	public int MaxAmountOfAnomalies { get; set; } = 5;
+	private int MaxAmountOfAnomalies { get; set; } = 5;
 
 	[Property, Category( "Anomalies" )]
-	public int MaxAnomaliesTilWarning { get; set; } = 3;
+	private int MaxAnomaliesTilWarning { get; set; } = 3;
 
 	[Property, Category( "Anomalies" )]
-	public bool CanActivateAnomalies { get; private set; } = true;
+	private bool CanActivateAnomalies { get; set; } = true;
 
 	[Property, Category( "Reports" )]
-	public int SuccessfulReports { get; private set; }
+	private int SuccessfulReports { get; set; }
 
 	[Property, Category( "Reports" )]
-	public int FailReports { get; private set; }
+	private int FailReports { get; set; }
 
 	[Property, Category( "Reports" )]
-	public int FailReportsTilWarning { get; set; } = 3;
+	private int FailReportsTilWarning { get; set; } = 3;
 
 	[Property, Category( "Reports" )]
-	public int FailReportsTilGameOver { get; set; } = 5;
+	private int FailReportsTilGameOver { get; set; } = 5;
 
 	[Property, Category( "Reports" )]
-	public int TotalReports
+	private int TotalReports
 	{
 		get
 		{
@@ -53,7 +52,7 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		}
 	}
 
-	[Property, Category( "Reports" )] 
+	[Property, Category( "Reports" )]
 	public Rank Rank
 	{
 		get
@@ -62,7 +61,7 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		}
 	}
 
-	[Property, Category( "Reports" )] 
+	[Property, Category( "Reports" )]
 	public int SuccessRate
 	{
 		get
@@ -88,14 +87,14 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 	{
 		_nextAnomaly = FirstAnomalyTime.GetValue();
 		_sinceStart = 0;
-
-		base.OnStart();
 	}
 
 	protected override void OnFixedUpdate()
 	{
 		if ( !_nextAnomaly || !CanActivateAnomalies )
+		{
 			return;
+		}
 
 		try
 		{
@@ -107,16 +106,16 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		}
 
 		_nextAnomaly = AnomalyTime.GetValue();
-		
-		base.OnFixedUpdate();
 	}
 
 	[Button]
 	private void TryActivateRandomAnomaly()
 	{
 		var anomaly = GetRandomPossibleAnomaly();
-		if ( anomaly is null || !anomaly.IsValid() )
+		if ( !anomaly.IsValid() )
+		{
 			return;
+		}
 
 		SetAnomalyActive( anomaly );
 	}
@@ -124,7 +123,9 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 	private void SetAnomalyActive( Anomaly anomaly )
 	{
 		if ( !CanSetAnomalyActive( anomaly ) )
+		{
 			return;
+		}
 
 		ActiveAnomalies.Add( anomaly );
 
@@ -139,9 +140,7 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		anomaly.OnAnomalyActive();
 		OnAnomalyActivated?.Invoke( anomaly );
 
-		if ( Game.IsEditor )
-			Log.Info( $"Activated anomaly: {anomaly}" );
-
+		Log.EditorLog( $"Activated anomaly: {anomaly}" );
 		CheckAnomalyWarningThresholds();
 	}
 
@@ -166,14 +165,14 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		GameManager.EndGameInLoss( GameManager.LoseReason.TooManyAnomalies );
 	}
 
-	public bool CanSetAnomalyActive( Anomaly anomaly )
+	private bool CanSetAnomalyActive( Anomaly anomaly )
 	{
-		return anomaly?.IsValid() == true &&
+		return anomaly.IsValid() &&
 			anomaly.IsAvailable() &&
 			!ActiveAnomalies.Contains( anomaly );
 	}
 
-	public Anomaly? GetRandomPossibleAnomaly()
+	private Anomaly? GetRandomPossibleAnomaly()
 	{
 		var availableAnomalies = PossibleAnomalies
 			.Where( x =>
@@ -183,7 +182,9 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 			.ToList();
 
 		if ( availableAnomalies.Count == 0 )
+		{
 			return null;
+		}
 
 		var totalWeight = availableAnomalies.Sum( x => x.Weight );
 
@@ -205,7 +206,9 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 	private bool IsPassedMinTime( AnomalyEntry entry )
 	{
 		if ( !entry.MinTime.HasValue )
+		{
 			return true;
+		}
 
 		return _sinceStart >= entry.MinTime.Value;
 	}
@@ -213,8 +216,10 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 	public async Task Report( Anomaly.AnomalyType type, string room )
 	{
 		var reportingScreen = await ShowReportingScreen();
-		if ( reportingScreen is null )
+		if ( !reportingScreen.IsValid() )
+		{
 			return;
+		}
 
 		try
 		{
@@ -234,7 +239,9 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 	{
 		var reportingScreen = await ShowReportingScreen();
 		if ( !reportingScreen.IsValid() )
+		{
 			return;
+		}
 
 		try
 		{
@@ -254,7 +261,9 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 	{
 		var reportingScreen = Hud.GetElement<ReportingScreen>();
 		if ( !reportingScreen.IsValid() )
+		{
 			return null;
+		}
 
 		if ( reportingScreen.Report.IsValid() )
 		{
@@ -331,10 +340,12 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 	private Anomaly? GetValidActiveAnomaly( GameObject gameObject )
 	{
 		if ( !gameObject.IsValid() )
+		{
 			return null;
+		}
 
 		var anomaly = gameObject.Components.Get<Anomaly>();
-		return anomaly is { IsValid: true } && ActiveAnomalies.Contains( anomaly ) ? anomaly : null;
+		return anomaly.IsValid() && ActiveAnomalies.Contains( anomaly ) ? anomaly : null;
 	}
 
 	private Anomaly? GetValidActiveAnomaly( string room )
@@ -354,7 +365,7 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 		anomaly.OnAnomalyClear();
 
 		// Restore original weight if available, otherwise use a default value
-		var weight = CollectionExtensions.GetValueOrDefault( _removedAnomalies, anomaly, 1.0f );
+		var weight = _removedAnomalies.GetValueOrDefault( anomaly, 1.0f );
 		PossibleAnomalies.Add( new AnomalyEntry
 		{
 			Anomaly = anomaly, Weight = weight
@@ -362,6 +373,23 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 
 		OnAnomalyCleared?.Invoke( anomaly );
 		Log.Info( $"Cleared anomaly: {anomaly}" );
+	}
+	
+	public void SetFailReportLimits( Difficulty difficulty )
+	{
+		switch ( difficulty )
+		{
+			case Difficulty.Easy or Difficulty.Normal:
+				FailReportsTilWarning = int.MaxValue;
+				FailReportsTilGameOver = int.MaxValue;
+				break;
+			case Difficulty.Hard:
+				FailReportsTilWarning = 3;
+				FailReportsTilGameOver = 5;
+				break;
+			default:
+				throw new ArgumentOutOfRangeException( nameof(difficulty) );
+		}
 	}
 }
 

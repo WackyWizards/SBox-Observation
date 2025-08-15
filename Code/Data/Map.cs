@@ -6,16 +6,27 @@ namespace Observation;
 public class Map
 {
 	public string Ident { get; set; } = string.Empty;
-	public string Name { get; set; } = string.Empty;
-	public string Description { get; set; } = string.Empty;
-	public Difficulty Difficulty { get; set; } = Difficulty.Normal;
-	public SceneFile? Scene { get; set; }
-	public Observation.Platform.Achievement? WinAchievement { get; set; }
-	public Observation.Platform.Achievement? HardWinAchievement { get; set; }
-	[Title( "S Rank Achievement" )] public Observation.Platform.Achievement? SRankAchievement { get; set; }
-	[Title( "S Rank Achievement Hard" )] public Observation.Platform.Achievement? SRankHardAchievement { get; set; }
 
-	[JsonIgnore, ReadOnly] public Rank? HighestRankAchieved
+	public string Name { get; set; } = string.Empty;
+
+	public string Description { get; set; } = string.Empty;
+
+	public Difficulty Difficulty { get; set; } = Difficulty.Normal;
+
+	public SceneFile? Scene { get; set; }
+
+	public Observation.Platform.Achievement? WinAchievement { get; set; }
+
+	public Observation.Platform.Achievement? HardWinAchievement { get; set; }
+
+	[Title( "S Rank Achievement" )] 
+	public Observation.Platform.Achievement? SRankAchievement { get; set; }
+	
+	[Title( "S Rank Achievement Hard" )] 
+	public Observation.Platform.Achievement? SRankHardAchievement { get; set; }
+
+	[JsonIgnore, Hide]
+	public Rank? HighestRankAchieved
 	{
 		get
 		{
@@ -24,12 +35,16 @@ public class Map
 			{
 				_highestRank = rank;
 			}
+
 			return _highestRank;
 		}
 	}
-	[Hide] private Rank? _highestRank;
 
-	[JsonIgnore, ReadOnly] public double HighestPercentageAchieved
+	[Hide] 
+	private Rank? _highestRank;
+
+	[JsonIgnore, Hide]
+	public double HighestPercentageAchieved
 	{
 		get
 		{
@@ -38,12 +53,13 @@ public class Map
 			{
 				_highestPercentage = percentage.Value;
 			}
+
 			return _highestPercentage;
 		}
 	}
-	[Hide] private double _highestPercentage;
 
-	[Hide] private const string GameIdent = "spoonstuff.observation";
+	[Hide] 
+	private double _highestPercentage;
 
 	public Map()
 	{
@@ -56,7 +72,7 @@ public class Map
 
 	private Rank? GetHighestRankAchieved()
 	{
-		var stats = Sandbox.Services.Stats.GetLocalPlayerStats( GameIdent );
+		var stats = Sandbox.Services.Stats.GetLocalPlayerStats( Game.Ident );
 
 		foreach ( var rank in Enum.GetValues<Rank>().OrderBy( r => r ) )
 		{
@@ -72,7 +88,7 @@ public class Map
 
 	private double? GetHighestPercentageAchieved()
 	{
-		var stats = Sandbox.Services.Stats.GetLocalPlayerStats( GameIdent );
+		var stats = Sandbox.Services.Stats.GetLocalPlayerStats( Game.Ident );
 
 		var statName = $"Success_rate_on_map_{Ident}";
 		if ( stats.TryGet( statName, out var stat ) )

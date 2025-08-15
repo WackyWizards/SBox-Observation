@@ -1,0 +1,9 @@
+{
+    "ui.gameover.win.title": "Shift Complete",
+    "ui.gameover.lose.title": "Notice Of Dismissal",
+    "ui.gameover.congratulations": "Congratulations!",
+    "ui.gameover.lose.failreports": "Too many failed reports",
+    "ui.gameover.lose.toomanyanomalies": "Too many active anomalies",
+    "ui.gameover.missedanomalies": "Missed Anomalies",
+    "ui.gameover.missedanomaly": "{0} in {1}"
+}

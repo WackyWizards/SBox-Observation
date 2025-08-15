@@ -6,15 +6,12 @@ namespace Observation.UI;
 
 public class WarningPanel : Panel
 {
-	public List<Button> Buttons { get; private set; } = [];
+	private List<Button> Buttons { get; set; } = [];
 
-	public Action? OnClose { get; set; } = null;
+	private Action? OnClose { get; set; } = null;
 
 	private readonly Panel _buttonContainer;
 
-	/// <summary>
-	/// Constructs a WarningPanel with a title, warning message, and optional buttons.
-	/// </summary>
 	public WarningPanel( string title, string warning, List<Button>? buttons = null )
 	{
 		var main = Add.Panel( "main" );
@@ -22,7 +19,7 @@ public class WarningPanel : Panel
 		main.Add.Label( warning, "warning" );
 
 		_buttonContainer = main.Add.Panel( "buttons" );
-		if ( buttons != null )
+		if ( buttons is not null )
 		{
 			InitializeButtons( buttons );
 		}
@@ -38,10 +35,7 @@ public class WarningPanel : Panel
 		AddButtonsToContainer( Buttons );
 	}
 
-	/// <summary>
-	/// Closes the panel, triggering the OnClose action if assigned.
-	/// </summary>
-	public void Close()
+	private void Close()
 	{
 		OnClose?.Invoke();
 		Delete();

@@ -5,21 +5,29 @@ namespace Observation;
 [Category( "Anomalies" )]
 public class Anomaly : Component
 {
-	[Property] public virtual string Name { get; set; } = string.Empty;
+	[Property]
+	public virtual string Name { get; set; } = string.Empty;
 
-	[Property] public virtual string Room { get; set; } = string.Empty;
+	[Property]
+	public virtual string Room { get; set; } = string.Empty;
 
-	[Property] public virtual AnomalyType Type { get; set; }
+	[Property]
+	public virtual AnomalyType Type { get; set; }
 
-	[Property] public virtual ReportType ReportType { get; set; }
+	[Property]
+	public virtual ReportType ReportType { get; set; }
 
 	/// <summary>
 	/// If this anomaly can be activated while it's in view of a camera.
 	/// </summary>
-	[Property] public bool ShowOnCamera { get; set; } = false;
+	[Property]
+	private bool ShowOnCamera { get; set; } = false;
 
-	[Property] public Action<GameObject>? OnAfterActive { get; set; }
-	[Property] public Action<GameObject>? OnAfterClear { get; set; }
+	[Property]
+	public Action<GameObject>? OnAfterActive { get; set; }
+	
+	[Property]
+	public Action<GameObject>? OnAfterClear { get; set; }
 
 	protected bool IsActive => AnomalyManager.Instance.IsValid() && AnomalyManager.Instance.ActiveAnomalies.Contains( this );
 
@@ -29,7 +37,9 @@ public class Anomaly : Component
 	public virtual void OnAnomalyActive()
 	{
 		if ( GameObject.IsValid() )
+		{
 			OnAfterActive?.Invoke( GameObject );
+		}
 	}
 
 	/// <summary>
@@ -38,7 +48,9 @@ public class Anomaly : Component
 	public virtual void OnAnomalyClear()
 	{
 		if ( GameObject.IsValid() )
+		{
 			OnAfterClear?.Invoke( GameObject );
+		}
 	}
 
 	/// <summary>
@@ -50,9 +62,11 @@ public class Anomaly : Component
 		{
 			return true;
 		}
-		
-		if ( CameraManager.Instance?.ActiveCamera is not {} activeCamera )
+
+		if ( CameraManager.Instance?.ActiveCamera is not { } activeCamera )
+		{
 			return false;
+		}
 
 		// Check if the active camera's name is different from the room name.
 		return !string.Equals( activeCamera.Name, Room, StringComparison.OrdinalIgnoreCase );
@@ -77,7 +91,7 @@ public class Anomaly : Component
 		Intruder,
 		[Title( "#report.other" )]
 		Other,
-		[Title("#report.rock")]
+		[Title( "#report.rock" )]
 		[HideReport]
 		Rock
 	}

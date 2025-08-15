@@ -2,7 +2,7 @@
 
 public class Settings : IDataFile<Settings>
 {
-	public static Settings? Data
+	public static Settings Data
 	{
 		get
 		{
@@ -12,7 +12,7 @@ public class Settings : IDataFile<Settings>
 	}
 	private static Settings? _data;
 
-	public const string FileName = "Settings.json";
+	private const string FileName = "Settings.json";
 
 	public float MasterVolume { get; set; } = 0.5f;
 	public float GameVolume { get; set; } = 0.5f;

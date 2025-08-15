@@ -1,5 +1,4 @@
-@using Observation.Cameras
-@using Sandbox.UI
+@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud]
@@ -13,36 +12,7 @@
 @* ReSharper disable CSharpWarnings::CS8974 *@
 <root>
 	<div class="buttons">
-		<button onclick="@LastCamera">&lt;</button>
-		<button onclick="@NextCamera">&gt;</button>
+		<button @onclick="@LastCamera">&lt;</button>
+		<button @onclick="@NextCamera">&gt;</button>
 	</div>
 </root>
-
-@code {
-	#nullable enable
-
-	private static CameraManager? CameraManager => CameraManager.Instance;
-	private static Camera? ActiveCamera => CameraManager?.ActiveCamera;
-
-	public static void NextCamera()
-	{
-		if ( CameraManager?.PossibleCameras is null || !CameraManager.PossibleCameras.Any() )
-			return;
-
-		if ( !ActiveCamera.IsValid() )
-			return;
-
-		CameraManager.SetNextAvailableActive();
-	}
-
-	public static void LastCamera()
-	{
-		if ( CameraManager?.PossibleCameras is null || !CameraManager.PossibleCameras.Any() )
-			return;
-
-		if ( !ActiveCamera.IsValid() )
-			return;
-
-		CameraManager.SetPreviousAvailableActive();
-	}
-}

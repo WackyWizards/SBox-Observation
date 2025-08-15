@@ -5,28 +5,27 @@ namespace Observation;
 
 public sealed class GameTimer : Singleton<GameTimer>
 {
-	[Property] public float WinTime { get; set; } = 1080;
+	[Property]
+	private float WinTime { get; set; } = 1080;
 
-	public TimeSince SinceStart { get; set; }
-	public TimeUntil UntilVictory { get; set; }
+	public TimeSince SinceStart { get; private set; }
+	private TimeUntil UntilVictory { get; set; }
 
 	protected override void OnStart()
 	{
 		SinceStart = 0;
 		UntilVictory = WinTime;
-
-		base.OnStart();
 	}
 
 	protected override void OnUpdate()
 	{
-		if ( UntilVictory )
+		if ( !UntilVictory )
 		{
-			GameManager.EndGameInWin();
-			UntilVictory = int.MaxValue;
+			return;
 		}
 
-		base.OnUpdate();
+		GameManager.EndGameInWin();
+		UntilVictory = int.MaxValue;
 	}
 
 	public string GetDisplayTime()

@@ -2,7 +2,7 @@
 
 public class MapData : IDataFile<MapData>
 {
-	public static MapData? Data
+	public static MapData Data
 	{
 		get
 		{
@@ -12,8 +12,12 @@ public class MapData : IDataFile<MapData>
 	}
 	private static MapData? _data;
 
-	public const string FileName = "MapData.json";
+	private const string FileName = "MapData.json";
 
+	/// <summary>
+	/// Amount of maps in the game.
+	/// Update when new ones are added.
+	/// </summary>
 	public const int MapAmount = 2;
 
 	public List<string> MapsPlayed { get; set; } = [];

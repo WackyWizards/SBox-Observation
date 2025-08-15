@@ -2,10 +2,15 @@
 
 public class Enabler : Anomaly
 {
-	[Property] public override AnomalyType Type { get; set; } = AnomalyType.Extra;
+	[Property]
+	public override AnomalyType Type { get; set; } = AnomalyType.Extra;
 
-	[Property] public List<GameObject> GameObjects { get; set; } = [];
-	[Property] public List<Component> ComponentList { get; set; } = [];
+	// ReSharper disable CollectionNeverUpdated.Local
+	[Property]
+	private List<GameObject> GameObjectList { get; set; } = [];
+	
+	[Property]
+	private List<Component> ComponentList { get; set; } = [];
 
 	public override void OnAnomalyActive()
 	{
@@ -19,9 +24,9 @@ public class Enabler : Anomaly
 		base.OnAnomalyClear();
 	}
 
-	public void Toggle()
+	private void Toggle()
 	{
-		foreach ( var gameObject in GameObjects.Where( x => x.IsValid() ) )
+		foreach ( var gameObject in GameObjectList.Where( x => x.IsValid() ) )
 		{
 			gameObject.Enabled = !gameObject.Enabled;
 		}
@@ -34,7 +39,7 @@ public class Enabler : Anomaly
 
 	public void Enable()
 	{
-		foreach ( var gameObject in GameObjects.Where( x => x.IsValid() ) )
+		foreach ( var gameObject in GameObjectList.Where( x => x.IsValid() ) )
 		{
 			gameObject.Enabled = true;
 		}
@@ -47,7 +52,7 @@ public class Enabler : Anomaly
 
 	public void Disable()
 	{
-		foreach ( var gameObject in GameObjects.Where( x => x.IsValid() ) )
+		foreach ( var gameObject in GameObjectList.Where( x => x.IsValid() ) )
 		{
 			gameObject.Enabled = false;
 		}

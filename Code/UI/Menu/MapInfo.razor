@@ -1,6 +1,4 @@
-﻿@using System
-@using System.Threading.Tasks
-@using Sandbox.Services
+﻿@using Sandbox.Services;
 
 @namespace Observation.UI
 @inherits MenuSubPanel
@@ -11,34 +9,35 @@
 	{
 		<div class="map">
 			<div class="tab-selection">
-				<button class="@( _selectedTab == 0 ? "disabled" : "" )" onclick="@( () => SelectTab( 0 ) )">#ui.mapinfo.play</button>
-				<button class="@( _selectedTab == 1 ? "disabled" : "" )" onclick="@( () => SelectTab( 1 ) )">#ui.mapinfo.tab.leaderboard</button>
-				<button class="@( _selectedTab == 2 ? "disabled" : "" )" onclick="@( () => SelectTab( 2 ) )">#ui.mapinfo.tab.globalstats</button>
-				<button class="@( _selectedTab == 3 ? "disabled" : "" )" onclick="@( () => SelectTab( 3 ) )">#ui.mapinfo.tab.localstats</button>
+				<button class="@( _selectedTab == 0 ? "disabled" : "" )" @onclick="@( () => SelectTab( 0 ) )">#ui.mapinfo.play</button>
+				<button class="@( _selectedTab == 1 ? "disabled" : "" )" @onclick="@( () => SelectTab( 1 ) )">#ui.mapinfo.tab.leaderboard</button>
+				<button class="@( _selectedTab == 2 ? "disabled" : "" )" @onclick="@( () => SelectTab( 2 ) )">#ui.mapinfo.tab.globalstats</button>
+				<button class="@( _selectedTab == 3 ? "disabled" : "" )" @onclick="@( () => SelectTab( 3 ) )">#ui.mapinfo.tab.localstats</button>
 			</div>
+			
 			<div class="tabs">
 				<div class="tab @( _selectedTab == 0 ? "" : "hidden" )">
 					<div class="subtab-selection">
-						<button disabled="@( Map.Difficulty == Difficulty.Normal )" onclick="@( () => SelectDifficulty( Difficulty.Normal ) )" tooltip="#ui.mapinfo.difficulty.normal.tooltip">#ui.mapinfo.difficulty.normal</button>
-						<button disabled="@( Map.Difficulty == Difficulty.Hard )" onclick="@( () => SelectDifficulty( Difficulty.Hard ) )" tooltip="#ui.mapinfo.difficulty.hard.tooltip">#ui.mapinfo.difficulty.hard</button>
+						<button disabled="@( Map.Difficulty == Difficulty.Normal )" @onclick="@( () => SelectDifficulty( Difficulty.Normal ) )" tooltip="#ui.mapinfo.difficulty.normal.tooltip">#ui.mapinfo.difficulty.normal</button>
+						<button disabled="@( Map.Difficulty == Difficulty.Hard )" @onclick="@( () => SelectDifficulty( Difficulty.Hard ) )" tooltip="#ui.mapinfo.difficulty.hard.tooltip">#ui.mapinfo.difficulty.hard</button>
 					</div>
 					<label class="map-name">@( Map.Name )</label>
-					<div class="map-difficulty" style="gap: 4px;">
+					<div class="map-difficulty">
 						<label>#ui.mapinfo.difficulty</label>:
 						<label>#ui.mapinfo.difficulty.@( Map.Difficulty )</label>
 					</div>
 					<label class="map-description">@( Map.Description )</label>
 					<div class="button-container">
-						<button icon="play_arrow" onclick="@Play">#ui.mapinfo.play</button>
-						<button icon="arrow_back" onclick="@Return">#ui.button.return</button>
+						<button icon="play_arrow" @onclick="@Play">#ui.mapinfo.play</button>
+						<button icon="arrow_back" @onclick="@Return">#ui.button.return</button>
 					</div>
 				</div>
 
 				<div class="tab @( _selectedTab == 1 ? "" : "hidden" )">
 					<label class="title">#ui.mapinfo.tab.leaderboard</label>
 					<div class="subtab-selection">
-						<button onclick="@( () => SelectLeaderboardTab( 0 ) )" class="@( _selectedLeaderboardTab == 0 ? "disabled" : "" )">#ui.mapinfo.subtab.srank</button>
-						<button onclick="@( () => SelectLeaderboardTab( 1 ) )" class="@( _selectedLeaderboardTab == 1 ? "disabled" : "" )">#ui.mapinfo.subtab.completions</button>
+						<button class="@( _selectedLeaderboardTab == 0 ? "disabled" : "" )" @onclick="@( () => SelectLeaderboardTab( 0 ) )">#ui.mapinfo.subtab.srank</button>
+						<button class="@( _selectedLeaderboardTab == 1 ? "disabled" : "" )" @onclick="@( () => SelectLeaderboardTab( 1 ) )">#ui.mapinfo.subtab.completions</button>
 					</div>
 
 					<div class="subtab">
@@ -147,101 +146,3 @@
 		</div>
 	}
 </root>
-
-@code {
-	#nullable enable
-
-	private int _selectedTab = 0;
-	private int _selectedLeaderboardTab = 0;
-
-	public Map? Map { get; set; }
-
-	private Sandbox.Services.Leaderboards.Board2? _sRankBoard;
-	private Sandbox.Services.Leaderboards.Board2? _completionsBoard;
-
-	private void SelectTab( int index )
-	{
-		_selectedTab = index;
-		if ( index == 1 )
-		{
-			_ = RefreshCurrentLeaderboard();
-		}
-	}
-
-	private void SelectLeaderboardTab( int index )
-	{
-		_selectedLeaderboardTab = index;
-		_ = RefreshCurrentLeaderboard();
-	}
-
-	private void SelectDifficulty( Difficulty difficulty )
-	{
-		if ( Map is null )
-		{
-			return;
-		}
-
-		Map.Difficulty = difficulty;
-	}
-
-	private async Task RefreshCurrentLeaderboard()
-	{
-		if ( Map is null ) return;
-
-		switch ( _selectedLeaderboardTab )
-		{
-			case 0:
-				_sRankBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}_with_rank_S" );
-				_sRankBoard.CenterOnMe();
-				await _sRankBoard.Refresh();
-				break;
-			case 1:
-				_completionsBoard = Sandbox.Services.Leaderboards.GetFromStat( Game.Ident, $"Wins_on_map_{Map.Ident}" );
-				_completionsBoard.CenterOnMe();
-				await _completionsBoard.Refresh();
-				break;
-		}
-	}
-
-	private void Play()
-	{
-		if ( Map is null )
-		{
-			Log.Error( "Unable to play a null map!" );
-			return;
-		}
-
-		if ( Menu.IsValid() )
-		{
-			if ( Menu.MenuMusic.IsValid() )
-			{
-				Menu.MenuMusic.Stop();
-			}
-		}
-		
-		MapManager.Instance?.SetMap( Map );
-		var scene = Map.Scene;
-		var loadOptions = new SceneLoadOptions();
-		loadOptions.SetScene( scene );
-		Game.ChangeScene( loadOptions );
-	}
-
-	protected override void Return()
-	{
-		Delete();
-	}
-
-	protected override void OnAfterTreeRender( bool firstTime )
-	{
-		if ( _selectedTab == 1 )
-		{
-			_ = RefreshCurrentLeaderboard();
-		}
-		base.OnAfterTreeRender( firstTime );
-	}
-
-	protected override int BuildHash()
-	{
-		return HashCode.Combine( Map, _selectedTab, _selectedLeaderboardTab, _completionsBoard, _sRankBoard );
-	}
-}

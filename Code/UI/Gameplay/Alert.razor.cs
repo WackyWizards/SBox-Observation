@@ -1,0 +1,131 @@
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Sandbox.Audio;
+using Sandbox.UI;
+
+namespace Observation.UI;
+
+public partial class Alert
+{
+	private Label? _text;
+	private CancellationTokenSource? _currentWriteTask;
+	
+	private readonly Queue<(string text, TaskCompletionSource<bool> completion)> _textQueue = new();
+	
+	private bool _isWriting;
+	
+	private const int CharacterDelay = 150;
+	private const int DisplayTime = 2000;
+
+	public void WriteText( string text )
+	{
+		var completion = new TaskCompletionSource<bool>();
+		_textQueue.Enqueue( (text, completion) );
+
+		if ( !_isWriting )
+		{
+			_ = ProcessTextQueue();
+		}
+	}
+
+	private async Task ProcessTextQueue()
+	{
+		if ( _isWriting )
+		{
+			return;
+		}
+		_isWriting = true;
+
+		try
+		{
+			while ( _textQueue.Count > 0 )
+			{
+				var (text, completion) = _textQueue.Dequeue();
+				try
+				{
+					await WriteTextInternal( text );
+					completion.SetResult( true );
+				}
+				catch ( Exception ex )
+				{
+					completion.SetException( ex );
+				}
+			}
+		}
+		finally
+		{
+			_isWriting = false;
+		}
+	}
+
+	private async Task WriteTextInternal( string text )
+	{
+		using var cts = new CancellationTokenSource();
+		_currentWriteTask = cts;
+
+		try
+		{
+			if ( _text is null )
+			{
+				return;
+			}
+
+			_text.Text = "";
+			this.Show();
+
+			var buffer = new System.Text.StringBuilder( text.Length );
+
+			foreach ( var character in text )
+			{
+				cts.Token.ThrowIfCancellationRequested();
+
+				buffer.Append( character );
+				_text.Text = buffer.ToString();
+
+				if ( character != ' ' )
+				{
+					PlayTypeSound();
+				}
+
+				await Task.Delay( CharacterDelay, cts.Token );
+			}
+
+			await Task.Delay( DisplayTime, cts.Token );
+			this.Hide();
+		}
+		catch ( OperationCanceledException )
+		{
+			this.Hide();
+		}
+		finally
+		{
+			_currentWriteTask?.Dispose();
+			_currentWriteTask = null;
+		}
+	}
+
+	private static void PlayTypeSound()
+	{
+		var textSound = Sound.Play( "AlertBlip" );
+		if ( textSound.IsValid() )
+		{
+			textSound.TargetMixer = Mixer.FindMixerByName( "UI" );
+		}
+	}
+
+	public void StopWriting()
+	{
+		_textQueue.Clear();
+		_currentWriteTask?.Cancel();
+		_currentWriteTask?.Dispose();
+		_currentWriteTask = null;
+		this.Hide();
+	}
+
+	[ConCmd]
+	private static void Test()
+	{
+		Hud.GetElement<Alert>()?.WriteText( "This is a testing message." );
+	}
+}

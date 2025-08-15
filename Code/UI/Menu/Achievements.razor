@@ -20,28 +20,6 @@
 	</div>
 
 	<div class="button-container">
-		<button icon="arrow_back" onclick="@Return">#ui.button.return</button>
+		<button icon="arrow_back" @onclick="@Return">#ui.button.return</button>
 	</div>
 </root>
-
-@code {
-	private readonly List<AchievementModel> _achievements = [];
-
-	public Achievements()
-	{
-		var achievements = Sandbox.Services.Achievements.All;
-		_achievements.AddRange( achievements.Select( achievement => new AchievementModel
-		{
-			NameLocalizationKey = $"#achievement.{achievement.Name}.name", 
-			DescriptionLocalizationKey = $"#achievement.{achievement.Name}.description", 
-			Achievement = achievement
-		}));
-	}
-
-	private readonly struct AchievementModel
-	{
-		public required string NameLocalizationKey { get; init; }
-		public required string DescriptionLocalizationKey { get; init; }
-		public required Achievement Achievement { get; init; }
-	}
-}

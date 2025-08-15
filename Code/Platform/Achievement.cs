@@ -28,7 +28,7 @@ public enum Achievement
 
 public static class AchievementExtensions
 {
-	public static string GetTitle( this Achievement achievement )
+	private static string GetTitle( this Achievement achievement )
 	{
 		var title = achievement.GetAttributeOfType<TitleAttribute>();
 		return title.Value ?? achievement.ToString();

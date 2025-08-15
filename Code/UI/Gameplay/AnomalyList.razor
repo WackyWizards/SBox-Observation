@@ -1,5 +1,4 @@
-﻿@using System
-@using Sandbox.UI
+﻿@using Sandbox.UI;
 
 @namespace Observation.UI
 @attribute [Hud( true )]
@@ -8,57 +7,6 @@
 <root>
 	@foreach ( var anomalyType in AvailableTypes )
 	{
-			<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetTitle()</button>
+		<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetTitle()</button>
 	}
 </root>
-
-@code {
-	#nullable enable
-
-	public Action<Anomaly.AnomalyType>? OnReport { get; set; }
-
-	public List<Anomaly.AnomalyType> AvailableTypes { get; set; } = [];
-	
-	public static bool IsVisibleType( Anomaly.AnomalyType type )
-	{
-		if ( type.GetAttributeOfType<HideReportAttribute>() is null )
-			return true;
-		
-		if ( AnomalyManager.Instance is not {} anomalyManager || CameraManager.Instance is not {} cameraManager )
-			return false;
-			
-		if ( cameraManager.ActiveCamera is {} activeCamera )
-		{
-			return anomalyManager.ActiveAnomalies
-				.Any( x => x.Room == activeCamera.Room && x.Type == type );
-		}
-
-		return false;
-	}
-
-	public void Report( Anomaly.AnomalyType type )
-	{
-		if ( type == Anomaly.AnomalyType.CameraMalfunction )
-		{
-			SetCameraList( type );
-		}
-
-		OnReport?.Invoke( type );
-
-		this.Hide();
-	}
-
-	public static void SetCameraList( Anomaly.AnomalyType anomalyType )
-	{
-		var cameraList = Hud.GetElement<RoomList>();
-		if ( !cameraList.IsValid() )
-			return;
-
-		cameraList.AnomalyType = anomalyType;
-	}
-
-	protected override int BuildHash()
-	{
-		return HashCode.Combine( AvailableTypes, AvailableTypes?.Count );
-	}
-}
