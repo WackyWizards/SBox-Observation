@@ -6,8 +6,13 @@ namespace Observation.UI;
 
 public partial class MainMenu
 {
-	[Property, InlineEditor, WideMode] public List<Map> Maps { get; set; } = [];
-	[Property] public SoundEvent? Music { get; set; }
+	[Property, InlineEditor, WideMode] 
+	public List<Map> Maps { get; set; } = [];
+	
+	public int MapAmount => Maps.Count;
+	
+	[Property] 
+	public SoundEvent? Music { get; set; }
 	
 	public SoundHandle? MenuMusic { get; set; }
 	

@@ -8,7 +8,8 @@ namespace Observation;
 
 public sealed class GameManager : Singleton<GameManager>
 {
-	[Property] public SceneFile? MenuScene { get; set; }
+	[Property]
+	public SceneFile? MenuScene { get; set; }
 
 	private static readonly Dictionary<Rank, int> Thresholds = [];
 
@@ -17,7 +18,6 @@ public sealed class GameManager : Singleton<GameManager>
 		InitializeRankThresholds();
 		InitializePlayerData();
 		ConfigureAnomalySettings();
-		base.OnStart();
 	}
 
 	private static void InitializeRankThresholds()
@@ -33,23 +33,22 @@ public sealed class GameManager : Singleton<GameManager>
 	private static void InitializePlayerData()
 	{
 		var playerData = PlayerData.Data;
-		if ( playerData is null )
-		{
-			return;
-		}
-		
 		playerData.FirstTime = false;
 		playerData.Save();
 	}
 
 	private static void ConfigureAnomalySettings()
 	{
-		if ( MapManager.Instance?.ActiveMap is not {} activeMap )
+		if ( MapManager.Instance?.ActiveMap is not { } activeMap )
+		{
 			return;
+		}
 
-		if ( AnomalyManager.Instance is not {} anomalyManager )
+		if ( AnomalyManager.Instance is not { } anomalyManager )
+		{
 			return;
-		
+		}
+
 		anomalyManager.SetFailReportLimits( activeMap.Difficulty );
 	}
 
@@ -65,7 +64,7 @@ public sealed class GameManager : Singleton<GameManager>
 	public static void EndGameInWin()
 	{
 		Log.Info( "Game Win!" );
-		
+
 		var activeMap = MapManager.Instance?.ActiveMap;
 		var anomalyManager = AnomalyManager.Instance;
 
@@ -77,21 +76,21 @@ public sealed class GameManager : Singleton<GameManager>
 
 	private static void UnlockWinAchievements( Map? activeMap, AnomalyManager? anomalyManager )
 	{
-		if ( activeMap is null ) return;
+		if ( activeMap is null )
+		{
+			return;
+		}
 
 		var mapData = MapData.Data;
-		if ( mapData is not null )
+		if ( !mapData.MapsWon.Contains( activeMap.Ident ) )
 		{
-			if ( !mapData.MapsWon.Contains( activeMap.Ident ) )
-			{
-				mapData.MapsWon.Add( activeMap.Ident );
-				mapData.Save();
-			}
+			mapData.MapsWon.Add( activeMap.Ident );
+			mapData.Save();
+		}
 
-			if ( mapData.MapsWon.Count >= MapData.MapAmount )
-			{
-				Platform.Achievement.WinAllMaps.Unlock();
-			}
+		if ( mapData.MapsWon.Count >= MapData.MapAmount )
+		{
+			Platform.Achievement.WinAllMaps.Unlock();
 		}
 
 		switch ( activeMap.Difficulty )
@@ -103,7 +102,7 @@ public sealed class GameManager : Singleton<GameManager>
 				activeMap.HardWinAchievement?.Unlock();
 				break;
 			default:
-				throw new ArgumentOutOfRangeException();
+				throw new ArgumentOutOfRangeException( nameof(activeMap) );
 		}
 
 		if ( anomalyManager?.Rank != Rank.S )
@@ -121,11 +120,6 @@ public sealed class GameManager : Singleton<GameManager>
 				break;
 		}
 
-		if ( mapData is null )
-		{
-			return;
-		}
-
 		if ( !mapData.SRanks.Contains( activeMap.Ident ) )
 		{
 			mapData.SRanks.Add( activeMap.Ident );
@@ -140,13 +134,22 @@ public sealed class GameManager : Singleton<GameManager>
 
 	private static void ShowGameOverScreen( bool isWin, LoseReason? reason = null )
 	{
-		var menu = Hud.GetElement<GameOver>();
-		if ( isWin )
-			menu?.OnGameEnd( true );
-		else if ( reason is not null )
-			menu?.OnGameLose( reason.Value );
+		var gameOverPanel = Hud.GetElement<GameOver>();
+		if ( !gameOverPanel.IsValid() )
+		{
+			return;
+		}
 
-		menu?.Show();
+		if ( isWin )
+		{
+			gameOverPanel.OnGameEnd( true );
+		}
+		else if ( reason is not null )
+		{
+			gameOverPanel.OnGameLose( reason.Value );
+		}
+
+		gameOverPanel.Show();
 	}
 
 	private static void PauseGame()
@@ -163,8 +166,9 @@ public sealed class GameManager : Singleton<GameManager>
 	private static Rank GetRank( int successRate )
 	{
 		if ( successRate is < 0 or > 100 )
-			throw new ArgumentOutOfRangeException( nameof( successRate ),
-				"Success rate must be between 0 and 100" );
+		{
+			throw new ArgumentOutOfRangeException( nameof(successRate), "Success rate must be between 0 and 100" );
+		}
 
 		return Thresholds
 			.OrderByDescending( x => x.Value )
@@ -174,7 +178,10 @@ public sealed class GameManager : Singleton<GameManager>
 
 	public static (Rank rank, int percentage) GetRank( int successes, int missedAnomalies, int total )
 	{
-		if ( total == 0 ) return (Rank.F, 0);
+		if ( total == 0 )
+		{
+			return (Rank.F, 0);
+		}
 
 		var successPercentage = (double)successes / total * 100;
 		var anomalyPenalty = missedAnomalies > 0
@@ -202,20 +209,23 @@ public sealed class GameManager : Singleton<GameManager>
 	}
 }
 
-class GameStatistics
+internal static class GameStatistics
 {
 	internal static void RecordLoss( GameManager.LoseReason reason, Map? activeMap, AnomalyManager? anomalyManager )
 	{
 		Sandbox.Services.Stats.Increment( "Losses", 1 );
 		Sandbox.Services.Stats.Increment( $"Losses_due_to_{reason}", 1 );
 
-		if ( activeMap is null ) return;
+		if ( activeMap is null )
+		{
+			return;
+		}
 
 		if ( !anomalyManager.IsValid() )
 		{
 			return;
 		}
-		
+
 		Sandbox.Services.Stats.Increment( $"Losses_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
 		RecordGameStats( anomalyManager.Rank, activeMap );
 		RecordSuccessRate( activeMap, anomalyManager );
@@ -224,14 +234,17 @@ class GameStatistics
 	internal static void RecordWin( Map? activeMap, AnomalyManager? anomalyManager )
 	{
 		Sandbox.Services.Stats.Increment( "Wins", 1 );
-		
-		if ( activeMap is null ) return;
+
+		if ( activeMap is null )
+		{
+			return;
+		}
 
 		if ( !anomalyManager.IsValid() )
 		{
 			return;
 		}
-		
+
 		Sandbox.Services.Stats.Increment( $"Wins_with_rank_{anomalyManager.Rank}", 1 );
 		Sandbox.Services.Stats.Increment( $"Wins_on_map_{activeMap.Ident}_with_rank_{anomalyManager.Rank}", 1 );
 		RecordGameStats( anomalyManager.Rank, activeMap );
@@ -256,25 +269,5 @@ public static class LoseReasonExtensions
 	{
 		var description = reason.GetAttributeOfType<DescriptionAttribute>();
 		return description.Value ?? reason.ToString();
-	}
-}
-
-public static class AnomalyManagerExtensions
-{
-	public static void SetFailReportLimits( this AnomalyManager anomalyManager, Difficulty difficulty )
-	{
-		switch ( difficulty )
-		{
-			case Difficulty.Easy or Difficulty.Normal:
-				anomalyManager.FailReportsTilWarning = int.MaxValue;
-				anomalyManager.FailReportsTilGameOver = int.MaxValue;
-				break;
-			case Difficulty.Hard:
-				anomalyManager.FailReportsTilWarning = 3;
-				anomalyManager.FailReportsTilGameOver = 5;
-				break;
-			default:
-				throw new ArgumentOutOfRangeException( nameof( difficulty ) );
-		}
 	}
 }

@@ -6,23 +6,26 @@ namespace Observation;
 
 public sealed class PauseManager : Singleton<PauseManager>
 {
-	[Property, ReadOnly] public bool IsPaused => Scene.TimeScale == 0;
+	[Property, ReadOnly]
+	private bool IsPaused => Scene.TimeScale == 0;
 	
 	protected override void OnUpdate()
 	{
-		if ( Input.EscapePressed )
+		if ( !Input.EscapePressed )
 		{
-			Input.EscapePressed = false;
-			PauseGame();
+			return;
 		}
-		
-		base.OnUpdate();
+
+		Input.EscapePressed = false;
+		PauseGame();
 	}
 
-	public void PauseGame()
+	private void PauseGame()
 	{
 		if ( !CanPause() )
+		{
 			return;
+		}
 		
 		Scene.TimeScale = 0;
 		Hud.GetElement<PauseMenu>()?.Show();

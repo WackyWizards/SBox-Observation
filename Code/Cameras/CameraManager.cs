@@ -8,11 +8,18 @@ namespace Observation;
 
 public sealed class CameraManager : Singleton<CameraManager>
 {
-	[Property, ReadOnly] public Camera? ActiveCamera { get; set; }
-	[Property] public List<Camera> PossibleCameras { get; set; } = [];
+	[Property, ReadOnly] 
+	public Camera? ActiveCamera { get; private set; }
 
-	[Property, Category( "Inputs" ), InputAction] public string NextCameraInput { get; set; } = "nextcamera";
-	[Property, Category( "Inputs" ), InputAction] public string LastCameraInput { get; set; } = "lastcamera";
+	[Property]
+	// ReSharper disable once CollectionNeverUpdated.Global
+	public List<Camera> PossibleCameras { get; set; } = [];
+
+	[Property, Category( "Inputs" ), InputAction]
+	private string NextCameraInput { get; set; } = "nextcamera";
+
+	[Property, Category( "Inputs" ), InputAction]
+	private string LastCameraInput { get; set; } = "lastcamera";
 
 	protected override void OnStart()
 	{
@@ -24,8 +31,6 @@ public sealed class CameraManager : Singleton<CameraManager>
 				SetActiveCamera( firstEnabledCamera );
 			}
 		}
-
-		base.OnStart();
 	}
 
 	protected override void OnFixedUpdate()
@@ -39,11 +44,9 @@ public sealed class CameraManager : Singleton<CameraManager>
 		{
 			SetPreviousAvailableActive();
 		}
-		
-		base.OnFixedUpdate();
 	}
 
-	public void SetActiveCamera( Camera camera )
+	private void SetActiveCamera( Camera camera )
 	{
 		if ( ActiveCamera.IsValid() )
 		{
@@ -55,7 +58,7 @@ public sealed class CameraManager : Singleton<CameraManager>
 
 		Hud.GetElement<AnomalyList>()?.Hide();
 		Hud.GetElement<RoomList>()?.Hide();
-		
+
 		var sound = Sound.Play( "ui.button.deny" );
 		if ( sound.IsValid() )
 		{
@@ -63,7 +66,7 @@ public sealed class CameraManager : Singleton<CameraManager>
 		}
 	}
 
-	public static void DisableCamera( Camera camera )
+	private static void DisableCamera( Camera camera )
 	{
 		camera.GameObject.Enabled = false;
 	}
@@ -93,7 +96,10 @@ public sealed class CameraManager : Singleton<CameraManager>
 
 	public void SetPreviousAvailableActive()
 	{
-		if ( !ActiveCamera.IsValid() || PossibleCameras.Count == 0 ) return;
+		if ( !ActiveCamera.IsValid() || PossibleCameras.Count == 0 )
+		{
+			return;
+		}
 
 		var currentIndex = PossibleCameras.IndexOf( ActiveCamera );
 		var prevIndex = currentIndex;
@@ -111,9 +117,9 @@ public sealed class CameraManager : Singleton<CameraManager>
 		}
 	}
 
-	public static bool CanActivateCamera( Camera camera )
+	private static bool CanActivateCamera( Camera camera )
 	{
-		if ( AnomalyManager.Instance is {} anomalyManager )
+		if ( AnomalyManager.Instance is { } anomalyManager )
 		{
 			return !anomalyManager.ActiveAnomalies.Contains( camera );
 		}

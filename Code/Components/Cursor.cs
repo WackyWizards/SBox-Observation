@@ -1,6 +1,6 @@
 using System;
-using Observation.UI;
 using Sandbox.UI;
+using Observation.UI;
 using kEllie.Utils;
 
 namespace Observation;
@@ -10,7 +10,8 @@ public sealed class Cursor : Singleton<Cursor>
 	/// <summary>
 	/// Duration required to hold the mouse button for interaction.
 	/// </summary>
-	[Property] public float HoldTime { get; set; } = 2f;
+	[Property]
+	public float HoldTime { get; set; } = 2f;
 
 	private CameraComponent Camera => Scene.Camera;
 
@@ -21,8 +22,6 @@ public sealed class Cursor : Singleton<Cursor>
 	{
 		_reportTimer = HoldTime;
 		HideMouse();
-
-		base.OnStart();
 	}
 
 	protected override void OnUpdate()
@@ -59,14 +58,16 @@ public sealed class Cursor : Singleton<Cursor>
 	private void TriggerMouseHeldAction()
 	{
 		var targetObject = RunRay();
-		ShowAnomalyList( targetObject! );
+		if ( targetObject.IsValid() )
+		{
+			ShowAnomalyList( targetObject );
+		}
 
 		_isHolding = false;
 	}
 
 	private static void HideMouse()
 	{
-		//Mouse.Visibility = MouseVisibility.Hidden;
 		Mouse.CursorType = "none";
 	}
 
@@ -74,11 +75,15 @@ public sealed class Cursor : Singleton<Cursor>
 	{
 		var hud = Hud.Instance;
 		if ( !hud.IsValid() )
+		{
 			return;
+		}
 
 		var anomalyList = hud.GetFirstElement<AnomalyList>();
 		if ( !anomalyList.IsValid() )
+		{
 			return;
+		}
 
 		anomalyList.AvailableTypes = Enum.GetValues<Anomaly.AnomalyType>()
 			.Where( AnomalyList.IsVisibleType )
@@ -122,7 +127,9 @@ public sealed class Cursor : Singleton<Cursor>
 		{
 			var roomList = Hud.GetElement<RoomList>();
 			if ( !roomList.IsValid() )
+			{
 				return;
+			}
 
 			roomList.Show();
 			roomList.OnReport += HandleRoomSelection;
@@ -149,7 +156,9 @@ public sealed class Cursor : Singleton<Cursor>
 		{
 			var reportConfirmation = hud.GetFirstElement<ReportConfirm>();
 			if ( !reportConfirmation.IsValid() )
+			{
 				return;
+			}
 
 			reportConfirmation.Show( type, room, () =>
 			{
@@ -163,6 +172,7 @@ public sealed class Cursor : Singleton<Cursor>
 				}
 
 				string roomName;
+				// If the name is a localized string, get the phrase.
 				if ( room.StartsWith( '#' ) )
 				{
 					var roomNameLocalizationKey = room[1..];
@@ -173,7 +183,7 @@ public sealed class Cursor : Singleton<Cursor>
 				{
 					roomName = room;
 				}
-				
+
 				Log.Info( $"Reporting {type} in room: {roomName}" );
 			} );
 		}
@@ -182,7 +192,9 @@ public sealed class Cursor : Singleton<Cursor>
 	private GameObject? RunRay()
 	{
 		if ( !Camera.IsValid() )
+		{
 			return null;
+		}
 
 		var trace = RunSphereRay();
 		return trace?.GameObject;
@@ -191,7 +203,9 @@ public sealed class Cursor : Singleton<Cursor>
 	private SceneTraceResult? RunSphereRay()
 	{
 		if ( !Camera.IsValid() )
+		{
 			return null;
+		}
 
 		var ray = Camera.ScreenPixelToRay( Mouse.Position );
 		var worldPhysics = Game.ActiveScene.GetAllObjects( true ).FirstOrDefault( x => x.Name == "World Physics" );
