@@ -6,12 +6,12 @@
 
 @* ReSharper disable CSharpWarnings::CS8974 *@
 <root>
-	<label class="title">Game Paused</label>
+	<label class="title">#ui.paused.title</label>
 	<div class="button-container">
-		<button icon="arrow_back" @onclick="@Return">Return</button>
-		<button icon="refresh" @onclick="@Restart">Restart</button>
-		<button icon="settings" @onclick="@Settings">Settings</button>
-		<button icon="home" @onclick="@Menu">Main Menu</button>
+		<button icon="arrow_back" @onclick="@Return">#ui.button.return</button>
+		<button icon="refresh" @onclick="@Restart">#ui.button.replay</button>
+		<button icon="settings" @onclick="@Settings">#ui.menu.settings</button>
+		<button icon="home" @onclick="@Menu">#ui.button.returntomenu</button>
 	</div>
 	
 	<Settings @ref="_settings"></Settings>

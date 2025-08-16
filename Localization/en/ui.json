@@ -1,5 +1,6 @@
 {
     "ui.game.title": "Observation",
+    "ui.paused.title": "Game Paused",
     "ui.button.close": "Close",
     "ui.button.continue": "Continue",
     "ui.button.return": "Return",
