@@ -1,0 +1,18 @@
+{
+    "ui.report.confirm.title": "Vahvista raportti",
+    "ui.report.confirm.text": "Olet raportoimassa kohteen {0} huoneessa {1}.<br>Oletko varma?",
+    "ui.report.verifying": "Raporttia vahvistetaan...",
+    "ui.report.clear": "Poikkeama selvitetty",
+    "ui.report.none": "Poikkeamia ei löydetty",
+    "ui.report.wrongtype": "Väärä poikkeamatyyppi, hylätään",
+    "report.extraobject": "Lisäobjekti",
+    "report.movement": "Objektin liike",
+    "report.manipulation": "Objektin manipulointi",
+    "report.disappearance": "Objektin katoaminen",
+    "report.audio": "Äänipoikkeama",
+    "report.cameramalfunction": "Kameravika",
+    "report.intruder": "Tunkeutuja",
+    "report.other": "Muu",
+    "report.rock": "Hankala kivi",
+    "report.rock.confirm.text": "Se on todella aika hankala."
+}

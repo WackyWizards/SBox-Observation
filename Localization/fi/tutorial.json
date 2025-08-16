@@ -1,0 +1,20 @@
+{
+    "tutorial.intro.title": "Johdanto",
+    "tutorial.intro.text": "Tarkkailijana ydintehtäväsi on valvoa turvakamerasyötteitä ja raportoida kaikki poikkeavat ilmiöt määrätyllä alueella. Vuorosi kattaa ajan 00:00–06:00 (keskiyöstä aamuun). Tämä perehdytysopas on laadittu helpottamaan siirtymistäsi tähän kriittiseen tehtävään. Odotamme arvokasta panostasi tiimillemme.",
+    "tutorial.camera.title": "Kameratoiminnot",
+    "tutorial.camera.text": "Vaihtaaksesi valvontakamerasyötteiden välillä, käytä näitä hyväksyttyjä menetelmiä:",
+    "tutorial.camera.list.1": "Käytä seurantapaneelin kummallakin puolella olevia navigointipainikkeita.",
+    "tutorial.camera.list.2": "Vaihtoehtoisesti käytä näppäimistösi A/D-suuntanäppäimiä nopeaan syötteiden vaihtoon.",
+    "tutorial.report.title": "Raportointitoiminnot",
+    "tutorial.report.text.1": "Seuraa tätä vakiomenettelyä poikkeamien raportoinnissa:",
+    "tutorial.report.list.1": "Siirrä kursori huolta aiheuttavan alueen päälle.",
+    "tutorial.report.list.2": "Avaa raportointikäyttöliittymä pitämällä hiiren vasenta painiketta painettuna.",
+    "tutorial.report.list.3": "Luokittele poikkeama asianmukaiseen kategoriaan.",
+    "tutorial.report.list.4": "Tarkista ja lähetä raportti poikkeamasta.",
+    "tutorial.report.text.2": "Huomio: Toistuvat virheelliset raportit voivat heikentää suoriutumisarviointiasi ja johtaa työsuhteesi päättymiseen.",
+    "tutorial.tips.title": "Toimintaprotokollat",
+    "tutorial.tips.text": "Noudata näitä olennaisia toimintastandardeja:",
+    "tutorial.tips.list.1": "Pidä jatkuvaa valvontaa kaikissa määrätyissä kamerasuötteissä.",
+    "tutorial.tips.list.2": "Kiinnitä erityistä huomiota ympäristön muutoksiin ja poikkeamiin.",
+    "tutorial.tips.list.3": "Toteuta välittömät vasteprotokollat, mutta säilytä raportoinnin tarkkuus."
+}

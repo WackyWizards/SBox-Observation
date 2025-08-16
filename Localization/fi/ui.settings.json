@@ -1,0 +1,7 @@
+{
+    "ui.settings.title": "Asetukset",
+    "ui.settings.mastervolume": "Pää-ääni",
+    "ui.settings.musicvolume": "Musiikkiääni",
+    "ui.settings.gamevolume": "Peliääni",
+    "ui.settings.uivolume": "UI-ääni"
+}

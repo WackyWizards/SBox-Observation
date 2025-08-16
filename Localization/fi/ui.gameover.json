@@ -1,0 +1,9 @@
+{
+    "ui.gameover.win.title": "Vuoro päättyi",
+    "ui.gameover.lose.title": "Irtisanomisilmoitus",
+    "ui.gameover.congratulations": "Onnittelut!",
+    "ui.gameover.lose.failreports": "Liian monta virheraporttia",
+    "ui.gameover.lose.toomanyanomalies": "Liian monta aktiivista poikkeamaa",
+    "ui.gameover.missedanomalies": "Havaitsematta jääneet poikkeamat",
+    "ui.gameover.missedanomaly": "{0} huoneessa {1}"
+}

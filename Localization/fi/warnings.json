@@ -1,0 +1,6 @@
+{
+    "warning.tutorial.title": "Opastus",
+    "warning.tutorial.text": "Näyttää siltä, että tämä on ensimmäinen pelikertasi! Haluatko lukea ohjeet pelaamiseen?",
+    "warning.activeanomalies": "Huomio työntekijä, alueellasi on havaittu useita aktiivisia poikkeavuuksia. Paikanna ja lähetä raportit välittömästi.",
+    "warning.failreports": "Huomio työntekijä, liiallisia virheellisiä raportteja havaittu. Ilmoita vain aktiivisista poikkeavuuksista."
+}

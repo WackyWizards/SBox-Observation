@@ -1,0 +1,23 @@
+{
+    "ui.mapinfo.play": "Pelaa",
+    "ui.mapinfo.tab.leaderboard": "Tulostaulukko",
+    "ui.mapinfo.tab.globalstats": "Globaalit tilastot",
+    "ui.mapinfo.tab.localstats": "Paikalliset tilastot",
+    "ui.mapinfo.subtab.srank": "S-sijoitus",
+    "ui.mapinfo.subtab.completions": "Läpipeluukerrat",
+    "ui.mapinfo.difficulty": "Vaikeustaso",
+    "ui.mapinfo.difficulty.normal": "Normaali",
+    "ui.mapinfo.difficulty.hard": "Vaikea",
+    "ui.mapinfo.difficulty.normal.tooltip": "Ei rangaistusta virheraporteista.",
+    "ui.mapinfo.difficulty.hard.tooltip": "Liian monta virheraporttia johtaa pelin päättymiseen.",
+    "ui.mapinfo.stats.plays": "Pelit yhteensä",
+    "ui.mapinfo.stats.wins": "Läpipeluut yhteensä",
+    "ui.mapinfo.stats.losses": "Häviöt yhteensä",
+    "ui.mapinfo.stats.restarts": "Uudelleenkäynnistykset yhteensä",
+    "ui.mapinfo.stats.srank": "S-sijoituksen läpipeluukerrat",
+    "ui.mapinfo.stats.arank": "A-sijoituksen läpipeluukerrat",
+    "ui.mapinfo.stats.brank": "B-sijoituksen läpipeluukerrat",
+    "ui.mapinfo.stats.crank": "C-sijoituksen läpipeluukerrat",
+    "ui.mapinfo.stats.drank": "D-sijoituksen läpipeluukerrat",
+    "ui.mapinfo.stats.erank": "E-sijoituksen läpipeluukerrat"
+}

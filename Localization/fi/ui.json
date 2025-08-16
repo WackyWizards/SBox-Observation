@@ -1,0 +1,14 @@
+{
+    "ui.game.title": "Observation",
+    "ui.paused.title": "Peli Tauolla",
+    "ui.button.close": "Sulje",
+    "ui.button.continue": "Jatka",
+    "ui.button.return": "Palaa",
+    "ui.button.returntomenu": "Palaa valikkoon",
+    "ui.button.refresh": "Päivitä",
+    "ui.button.save": "Tallenna",
+    "ui.button.yes": "Kyllä",
+    "ui.button.no": "Ei",
+    "ui.button.replay": "Pelaa uudelleen",
+    "ui.keybind.input": "Paina mitä tahansa näppäintä"
+}

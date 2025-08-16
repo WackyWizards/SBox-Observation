@@ -1,0 +1,12 @@
+{
+    "ui.credits.title": "Tekijät",
+    "ui.credits.credit.game": "Pelin tekijä",
+    "ui.credits.credit.menumusic": "Valikkomusiikki",
+    "ui.credits.credit.sounds": "Eri äänet freesound.org-sivustolta",
+    "ui.credits.credit.sounds.license": "Lisensoitu CC0-lisenssillä",
+    "ui.credits.credit.models": "Eri mallit sbox.game-palvelusta",
+    "ui.credits.credit.models.license": "Eri lisenssejä",
+    "ui.credits.credit.inspiration": "Inspiraationa peli \"I'm On Observation Duty\"",
+    "ui.credits.disclaimer.title": "Oikeudellinen vastuuvapaus",
+    "ui.credits.disclaimer.text": "Tämä peli kunnioittaa alkuperäisten tekijöiden oikeuksia yllä mainittuihin materiaaleihin. Jos uskot, että työtäsi on käytetty epäoikeudenmukaisesti, ota yhteyttä osoitteeseen contact.kuo.team@gmail.com"
+}

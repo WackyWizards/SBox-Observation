@@ -1,0 +1,11 @@
+{
+    "ui.menu.play": "Pelaa peliä",
+    "ui.menu.tutorial": "Opastus",
+    "ui.menu.settings": "Asetukset",
+    "ui.menu.quit": "Lopeta peli",
+    "ui.menu.tooltip.statistics": "Tulostaulukot ja tilastot",
+    "ui.menu.tooltip.achievements": "Saavutukset",
+    "ui.menu.tooltip.credits": "Tekijät",
+    "ui.menu.tooltip.discord": "Discord",
+    "ui.menu.tooltip.news": "Uutiset"
+}

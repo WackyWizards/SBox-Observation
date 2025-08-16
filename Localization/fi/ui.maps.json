@@ -1,0 +1,9 @@
+{
+    "ui.maps.title": "Kartat",
+    "ui.maps.home.name": "Perhekoti",
+    "ui.maps.home.description": "Entinen korkean profiilin henkilöiden asuinpaikka. Hylätty tuntemattomista syistä. Valot syttyvät ilman sähköä, yläkerran ikkunoissa on nähty varjomaisia hahmoja. Tarkasta tilat. Älä huomioi äänia, jotka kutsuvat tyhjistä huoneista.",
+    "ui.maps.pool.name": "Uima-allas",
+    "ui.maps.pool.description": "Tyhjennetty kauan sitten, mutta lattia on yhä kostea. Himmeitä märkiä jalanjälkiä ilmestyy ja katoaa. Jotain laahaa laatoitettua pohjaa pitkin, juuri näkökentän ulkopuolella. Hyppylauta narisee näkymättömän painon alla. Älä viivy tyhjennysaukon lähettyvillä.",
+    "ui.maps.highest.rank": "Korkein saavutettu sijoitus: ",
+    "ui.maps.highest.percentage": "Korkein saavutettu prosentti: "
+}
