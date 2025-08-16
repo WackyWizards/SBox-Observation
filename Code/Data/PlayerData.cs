@@ -29,11 +29,11 @@ public class PlayerData : IDataFile<PlayerData>
 
 public enum ObserverRank
 {
-	[Title( "New Hire" )]
+	[Title( "#rank.newbie" )]
 	Newbie,
-	[Title( "Veteran Employee" )]
+	[Title( "#rank.veteran" )]
 	Veteran,
-	[Title( "Manager" )]
+	[Title( "#rank.manager" )]
 	Manager
 }
 
