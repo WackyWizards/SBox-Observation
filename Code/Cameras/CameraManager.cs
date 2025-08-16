@@ -8,7 +8,7 @@ namespace Observation;
 
 public sealed class CameraManager : Singleton<CameraManager>
 {
-	[Property, ReadOnly] 
+	[Property, ReadOnly]
 	public Camera? ActiveCamera { get; private set; }
 
 	[Property]

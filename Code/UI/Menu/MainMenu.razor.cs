@@ -66,8 +66,6 @@ public partial class MainMenu
 		Mixer.FindMixerByName( "Music" ).Volume = settings.MusicVolume;
 		Mixer.FindMixerByName( "Game" ).Volume = settings.GameVolume;
 		Mixer.FindMixerByName( "UI" ).Volume = settings.UIVolume;
-
-		base.OnStart();
 	}
 
 	private void Play()

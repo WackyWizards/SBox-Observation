@@ -2,41 +2,41 @@
 
 public enum Achievement
 {
-	[Title( "win_house" )]
+	[Ident( "win_house" )]
 	WinHouse,
-	[Title( "win_pool" )]
+	[Ident( "win_pool" )]
 	WinPool,
-	[Title( "win_house_hard" )]
+	[Ident( "win_house_hard" )]
 	WinHouseHard,
-	[Title( "win_pool_hard" )]
+	[Ident( "win_pool_hard" )]
 	WinPoolHard,
-	[Title( "s_rank_house" )]
+	[Ident( "s_rank_house" )]
 	SRankHouse,
-	[Title( "s_rank_pool" )]
+	[Ident( "s_rank_pool" )]
 	SRankPool,
-	[Title( "s_house_hard" )]
+	[Ident( "s_house_hard" )]
 	SRankHouseHard,
-	[Title( "s_pool_hard" )]
+	[Ident( "s_pool_hard" )]
 	SRankPoolHard,
-	[Title( "win_all_maps" )]
+	[Ident( "win_all_maps" )]
 	WinAllMaps,
-	[Title( "s_all_maps" )]
+	[Ident( "s_all_maps" )]
 	SRankAllMaps,
-	[Title( "inconvenient_roc" )]
+	[Ident( "inconvenient_roc" )]
 	InconvenientRock
 }
 
 public static class AchievementExtensions
 {
-	private static string GetTitle( this Achievement achievement )
+	private static string GetIdent( this Achievement achievement )
 	{
-		var title = achievement.GetAttributeOfType<TitleAttribute>();
-		return title.Value ?? achievement.ToString();
+		var ident = achievement.GetAttributeOfType<IdentAttribute>();
+		return ident.Value;
 	}
 
 	public static void Unlock( this Achievement achievement )
 	{
-		var ident = achievement.GetTitle();
+		var ident = achievement.GetIdent();
 		Sandbox.Services.Achievements.Unlock( ident );
 
 		Log.Info( $"Unlocked achievement: {ident}" );
