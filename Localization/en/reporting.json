@@ -1,6 +1,10 @@
 {
     "ui.report.confirm.title": "Confirm Report",
     "ui.report.confirm.text": "You are attempting to report {0} in {1}.<br>Are you sure?",
+    "ui.report.verifying": "Verifying Report...",
+    "ui.report.clear": "Anomaly Cleared",
+    "ui.report.none": "No Anomalies Found",
+    "ui.report.wrongtype": "Incorrect Anomaly Type, Dismissing",
     "report.extraobject": "Extra Object",
     "report.movement": "Object Movement",
     "report.manipulation": "Object Manipulation",
