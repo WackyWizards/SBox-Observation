@@ -22,13 +22,13 @@
     "ui.stats.reportsuccesscameramalfunction": "Successful Camera Malfunction Reports",
     "ui.stats.reportsuccessintruder": "Successful Intruder Reports",
     "ui.stats.reportsuccessother": "Successful Other Reports",
-    "ui.stats.reportfail": "Fail Reports",
-    "ui.stats.reportfailextra": "Successful Extra Object Reports",
-    "ui.stats.reportfailmovement": "Successful Object Movement Reports",
-    "ui.stats.reportfailmanipulation": "Successful Object Manipulation Reports",
-    "ui.stats.reportfaildisappearance": "Successful Object Disappearance Reports",
-    "ui.stats.reportfailaudio": "Successful Audio Anomaly Reports",
-    "ui.stats.reportfailcameramalfunction": "Successful Camera Malfunction Reports",
-    "ui.stats.reportfailintruder": "Successful Intruder Reports",
-    "ui.stats.reportfailother": "Successful Other Reports"
+    "ui.stats.reportfail": "Failed Reports",
+    "ui.stats.reportfailextra": "Failed Extra Object Reports",
+    "ui.stats.reportfailmovement": "Failed Object Movement Reports",
+    "ui.stats.reportfailmanipulation": "Failed Object Manipulation Reports",
+    "ui.stats.reportfaildisappearance": "Failed Object Disappearance Reports",
+    "ui.stats.reportfailaudio": "Failed Audio Anomaly Reports",
+    "ui.stats.reportfailcameramalfunction": "Failed Camera Malfunction Reports",
+    "ui.stats.reportfailintruder": "Failed Intruder Reports",
+    "ui.stats.reportfailother": "Failed Other Reports"
 }
