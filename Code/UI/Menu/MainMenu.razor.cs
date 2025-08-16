@@ -6,15 +6,13 @@ namespace Observation.UI;
 
 public partial class MainMenu
 {
-	[Property, InlineEditor, WideMode] 
+	[Property, InlineEditor, WideMode]
 	public List<Map> Maps { get; set; } = [];
 	
-	public int MapAmount => Maps.Count;
-	
-	[Property] 
+	[Property]
 	public SoundEvent? Music { get; set; }
 	
-	public SoundHandle? MenuMusic { get; set; }
+	public SoundHandle? MenuMusic { get; private set; }
 	
 	private MapSelection? _mapSelection;
 	private Settings? _settings;
@@ -31,9 +29,6 @@ public partial class MainMenu
 
 	protected override void OnTreeFirstBuilt()
 	{
-		// Capture references for the asynchronous lambda
-		// Prevent the issue of these being null by the time the lambda executes.
-		var gameObject = GameObject;
 		var mixer = Mixer.FindMixerByName( "Music" );
 
 		if ( _splashScreen.IsValid() )
@@ -53,7 +48,7 @@ public partial class MainMenu
 					return;
 				}
 
-				MenuMusic = gameObject?.PlaySound( Music );
+				MenuMusic = GameObject?.PlaySound( Music );
 				if ( MenuMusic is not null && mixer is not null )
 				{
 					MenuMusic.TargetMixer = mixer;
