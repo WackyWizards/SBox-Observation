@@ -202,9 +202,9 @@ public sealed class GameManager : Singleton<GameManager>
 
 	public enum LoseReason
 	{
-		[Description( "#ui.gameover.lose.failreports" )]
+		[Title( "#ui.gameover.lose.failreports" )]
 		FailReports,
-		[Description( "#ui.gameover.lose.toomanyanomalies" )]
+		[Title( "#ui.gameover.lose.toomanyanomalies" )]
 		TooManyAnomalies
 	}
 }
@@ -265,9 +265,9 @@ internal static class GameStatistics
 
 public static class LoseReasonExtensions
 {
-	public static string GetDescription( this GameManager.LoseReason reason )
+	public static string GetTitle( this GameManager.LoseReason reason )
 	{
-		var description = reason.GetAttributeOfType<DescriptionAttribute>();
-		return description.Value ?? reason.ToString();
+		var title = reason.GetAttributeOfType<TitleAttribute>();
+		return title.Value;
 	}
 }

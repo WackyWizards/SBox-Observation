@@ -18,7 +18,7 @@ public partial class GameOver
 
 	private static string GetSubTitle( bool victory, GameManager.LoseReason reason )
 	{
-		return victory ? "#ui.gameover.congratulations" : reason.GetDescription();
+		return victory ? "#ui.gameover.congratulations" : reason.GetTitle();
 	}
 
 	public void OnGameEnd( bool victory )
