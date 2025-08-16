@@ -267,7 +267,7 @@ public sealed class AnomalyManager : Singleton<AnomalyManager>
 
 		if ( reportingScreen.Report.IsValid() )
 		{
-			reportingScreen.Report.Text = "Verifying Report...";
+			reportingScreen.Report.Text = "#ui.report.verifying";
 		}
 		reportingScreen.Show();
 
