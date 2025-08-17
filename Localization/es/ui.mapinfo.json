@@ -1,0 +1,23 @@
+{
+    "ui.mapinfo.play": "Jugar",
+    "ui.mapinfo.tab.leaderboard": "Clasificación",
+    "ui.mapinfo.tab.globalstats": "Estadísticas Globales",
+    "ui.mapinfo.tab.localstats": "Estadísticas Locales",
+    "ui.mapinfo.subtab.srank": "Rango S",
+    "ui.mapinfo.subtab.completions": "Completaciones",
+    "ui.mapinfo.difficulty": "Dificultad",
+    "ui.mapinfo.difficulty.normal": "Normal",
+    "ui.mapinfo.difficulty.hard": "Difícil",
+    "ui.mapinfo.difficulty.normal.tooltip": "No hay penalización por informes fallidos.",
+    "ui.mapinfo.difficulty.hard.tooltip": "Demasiados informes fallidos harán que pierdas.",
+    "ui.mapinfo.stats.plays": "Total de Partidas Jugadas",
+    "ui.mapinfo.stats.wins": "Total de Completaciones",
+    "ui.mapinfo.stats.losses": "Total de Pérdidas",
+    "ui.mapinfo.stats.restarts": "Total de Reinicios",
+    "ui.mapinfo.stats.srank": "Completaciones Rango S",
+    "ui.mapinfo.stats.arank": "Completaciones Rango A",
+    "ui.mapinfo.stats.brank": "Completaciones Rango B",
+    "ui.mapinfo.stats.crank": "Completaciones Rango C",
+    "ui.mapinfo.stats.drank": "Completaciones Rango D",
+    "ui.mapinfo.stats.erank": "Completaciones Rango E"
+}

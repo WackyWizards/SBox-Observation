@@ -1,0 +1,20 @@
+{
+    "tutorial.intro.title": "Introducción",
+    "tutorial.intro.text": "Como Observador, tu responsabilidad principal es mantener la vigilancia de las cámaras de seguridad y reportar cualquier actividad anómala en el área designada. Tu turno abarca desde las 00:00 hasta las 06:00. Esta guía de orientación ha sido diseñada para facilitar tu transición a este puesto crítico. Esperamos tus valiosas contribuciones a nuestro equipo.",
+    "tutorial.camera.title": "Operaciones de Cámara",
+    "tutorial.camera.text": "Para navegar entre las cámaras de vigilancia, utiliza estos métodos aprobados:",
+    "tutorial.camera.list.1": "Accede a los controles de navegación ubicados a cada lado de la interfaz de monitoreo.",
+    "tutorial.camera.list.2": "Alternativamente, utiliza las teclas direccionales A/D en tu teclado para cambiar de cámara de manera eficiente.",
+    "tutorial.report.title": "Operaciones de Reporte",
+    "tutorial.report.text.1": "Sigue este procedimiento estandarizado para la presentación de informes de anomalías:",
+    "tutorial.report.list.1": "Coloca el cursor sobre el área de preocupación.",
+    "tutorial.report.list.2": "Inicia la interfaz de informes manteniendo presionado el botón izquierdo del ratón.",
+    "tutorial.report.list.3": "Clasifica la anomalía utilizando la clasificación apropiada.",
+    "tutorial.report.list.4": "Revisa y envía tu informe de anomalía.",
+    "tutorial.report.text.2": "Por favor, ten en cuenta: La presentación constante de informes inexactos puede afectar negativamente tu evaluación de desempeño y puede resultar en la terminación de tu contrato laboral.",
+    "tutorial.tips.title": "Protocolos Operativos",
+    "tutorial.tips.text": "Adhiérete a estos estándares operativos esenciales:",
+    "tutorial.tips.list.1": "Mantén una vigilancia constante en todas las cámaras designadas.",
+    "tutorial.tips.list.2": "Mantén una alta atención a las variaciones y anomalías del entorno.",
+    "tutorial.tips.list.3": "Responde rápidamente, pero mantén la precisión en los reportes."
+}

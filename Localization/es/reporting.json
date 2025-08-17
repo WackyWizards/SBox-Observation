@@ -1,0 +1,18 @@
+{
+    "ui.report.confirm.title": "Confirmar reporte",
+    "ui.report.confirm.text": "Estás intentando reportar {0} en {1}.<br>¿Estás seguro?",
+    "ui.report.verifying": "Verificando reporte...",
+    "ui.report.clear": "Anomalía eliminada",
+    "ui.report.none": "No se encontró ninguna anomalía",
+    "ui.report.wrongtype": "Tipo de anomalía incorrecto, descartando",
+    "report.extraobject": "Objeto Extra",
+    "report.movement": "Movimento de Objecto",
+    "report.manipulation": "Manipulación de Objeto",
+    "report.disappearance": "Desaparición de Objecto",
+    "report.audio": "Anomalía de Audio",
+    "report.cameramalfunction": "Fallo de Cámara",
+    "report.intruder": "Intruso",
+    "report.other": "Otro",
+    "report.rock": "Roca Inconveniente",
+    "report.rock.confirm.text": "Es realmente bastante inconveniente."
+}

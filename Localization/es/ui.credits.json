@@ -1,0 +1,12 @@
+{
+    "ui.credits.title": "Creditos",
+    "ui.credits.credit.game": "Juego por",
+    "ui.credits.credit.menumusic": "Menú de Música",
+    "ui.credits.credit.sounds": "Varios sonidos de freesound.org",
+    "ui.credits.credit.sounds.license": "Licenciado bajo CC0",
+    "ui.credits.credit.models": "Varios modelos de sbox.game",
+    "ui.credits.credit.models.license": "Varias liencias",
+    "ui.credits.credit.inspiration": "Inspirado en el juego \"I'm On Observation Duty\"",
+    "ui.credits.disclaimer.title": "Aviso Legal",
+    "ui.credits.disclaimer.text": "Este juego respeta los derechos originales de los autores de los recursos utilizados arriba. Si usted cree que tu trabajo se está utilizando de manera injusta, porfavor ponte en contacto con nosotros en contact.kuo.team@gmail.com"
+}

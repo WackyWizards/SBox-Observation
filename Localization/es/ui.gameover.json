@@ -1,0 +1,9 @@
+{
+    "ui.gameover.win.title": "Turno Completado",
+    "ui.gameover.lose.title": "Aviso de Despido",
+    "ui.gameover.congratulations": "¡Felicidades!",
+    "ui.gameover.lose.failreports": "Demasiados reportes fallidos",
+    "ui.gameover.lose.toomanyanomalies": "Demasiadas anomalías activas",
+    "ui.gameover.missedanomalies": "Anomalías perdidas",
+    "ui.gameover.missedanomaly": "{0} en {1}"
+}

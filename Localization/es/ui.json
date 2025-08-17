@@ -1,0 +1,14 @@
+{
+    "ui.game.title": "Observación",
+    "ui.paused.title": "Juego Pausado",
+    "ui.button.close": "Cerrar",
+    "ui.button.continue": "Continuar",
+    "ui.button.return": "Regresar",
+    "ui.button.returntomenu": "Regresar al Menú",
+    "ui.button.refresh": "Refrescar",
+    "ui.button.save": "Guardar",
+    "ui.button.yes": "Sí",
+    "ui.button.no": "No",
+    "ui.button.replay": "Repetir",
+    "ui.keybind.input": "Presiona cualquier tecla"
+}

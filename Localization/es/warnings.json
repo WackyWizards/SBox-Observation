@@ -1,0 +1,6 @@
+{
+    "warning.tutorial.title": "Tutorial",
+    "warning.tutorial.text": "Parece que es tu primera vez jugando. ¿Te gustaría leer sobre cómo jugar?",
+    "warning.activeanomalies": "Atención empleado, se han detectado múltiples anomalías activas en su área. Localícelas y envíe informes lo antes posible.",
+    "warning.failreports": "Atención empleado, se han detectado informes falsos excesivos. Por favor, informe solo sobre anomalías activas."
+}
