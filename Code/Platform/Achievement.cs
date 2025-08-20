@@ -1,4 +1,6 @@
-﻿namespace Observation.Platform;
+﻿using kEllie.Utils;
+
+namespace Observation.Platform;
 
 public enum Achievement
 {

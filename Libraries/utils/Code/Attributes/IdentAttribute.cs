@@ -1,7 +1,6 @@
 ﻿using System;
-using Sandbox.Internal;
 
-namespace Observation;
+namespace kEllie.Utils;
 
 [AttributeUsage( AttributeTargets.Field )]
 public class IdentAttribute( string ident ) : Attribute
