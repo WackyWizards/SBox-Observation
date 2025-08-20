@@ -6,10 +6,10 @@ namespace Observation;
 public class Anomaly : Component
 {
 	[Property]
-	public virtual string Name { get; set; } = string.Empty;
+	public string Name { get; set; } = string.Empty;
 
 	[Property]
-	public virtual string Room { get; set; } = string.Empty;
+	public string Room { get; set; } = string.Empty;
 
 	[Property]
 	public virtual AnomalyType Type { get; set; }
