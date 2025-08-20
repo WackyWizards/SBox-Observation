@@ -9,9 +9,9 @@
 	return;
 }
 
-<root>
+<root class="@(ActiveCameraHasName ? "active-camera-has-name" : "")">
 	<label class="timer">@( ElapsedTime )</label>
-	@if ( !string.IsNullOrEmpty( CameraManager.Instance?.ActiveCamera?.Name ) )
+	@if ( ActiveCameraHasName )
 	{
 		<label class="camera-name">@( CameraManager.Instance.ActiveCamera.Name )</label>
 	}
