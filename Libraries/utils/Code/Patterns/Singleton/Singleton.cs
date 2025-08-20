@@ -5,7 +5,10 @@ namespace kEllie.Utils;
 
 public abstract class Singleton<T> : Component, IHotloadManaged where T : Singleton<T>
 {
+#nullable enable
+#pragma warning disable SB3000
 	public static T? Instance { get; private set; }
+#pragma warning restore SB3000
 
 	protected override void OnAwake()
 	{
