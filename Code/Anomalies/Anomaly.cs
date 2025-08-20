@@ -1,4 +1,5 @@
 ﻿using System;
+using kEllie.Utils;
 
 namespace Observation;
 
@@ -74,24 +75,24 @@ public class Anomaly : Component
 
 	public enum AnomalyType
 	{
-		[Title( "#report.extraobject" )]
+		[LocalizedName( "#report.extraobject" )]
 		Extra,
-		[Title( "#report.movement" )]
+		[LocalizedName( "#report.movement" )]
 		Movement,
-		[Title( "#report.manipulation" )]
+		[LocalizedName( "#report.manipulation" )]
 		Manipulation,
-		[Title( "#report.disappearance" )]
+		[LocalizedName( "#report.disappearance" )]
 		Disappearance,
-		[Title( "#report.audio" )]
+		[LocalizedName( "#report.audio" )]
 		Audio,
-		[Title( "#report.cameramalfunction" )]
+		[LocalizedName( "#report.cameramalfunction" )]
 		[RoomReport]
 		CameraMalfunction,
-		[Title( "#report.intruder" )]
+		[LocalizedName( "#report.intruder" )]
 		Intruder,
-		[Title( "#report.other" )]
+		[LocalizedName( "#report.other" )]
 		Other,
-		[Title( "#report.rock" )]
+		[LocalizedName( "#report.rock" )]
 		[HideReport]
 		Rock
 	}
@@ -99,9 +100,9 @@ public class Anomaly : Component
 
 public static class AnomalyTypeExtensions
 {
-	public static string GetTitle( this Anomaly.AnomalyType type )
+	public static string GetLocalizedName( this Anomaly.AnomalyType type )
 	{
-		var title = type.GetAttributeOfType<TitleAttribute>();
-		return title.Value ?? type.ToString();
+		var localizedName = type.GetAttributeOfType<LocalizedNameAttribute>();
+		return localizedName.Value;
 	}
 }

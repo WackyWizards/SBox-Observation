@@ -7,6 +7,6 @@
 <root>
 	@foreach ( var anomalyType in AvailableTypes )
 	{
-		<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetTitle()</button>
+		<button onclick="@( () => Report( anomalyType ) )">@anomalyType.GetLocalizedName()</button>
 	}
 </root>

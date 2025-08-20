@@ -1,4 +1,6 @@
-﻿namespace Observation;
+﻿using kEllie.Utils;
+
+namespace Observation;
 
 public class PlayerData : IDataFile<PlayerData>
 {
@@ -29,19 +31,19 @@ public class PlayerData : IDataFile<PlayerData>
 
 public enum ObserverRank
 {
-	[Title( "#rank.newbie" )]
+	[LocalizedName( "#rank.newbie" )]
 	Newbie,
-	[Title( "#rank.veteran" )]
+	[LocalizedName( "#rank.veteran" )]
 	Veteran,
-	[Title( "#rank.manager" )]
+	[LocalizedName( "#rank.manager" )]
 	Manager
 }
 
 public static class ObserverRankExtensions
 {
-	public static string GetTitle( this ObserverRank rank )
+	public static string GetLocalizedName( this ObserverRank rank )
 	{
-		var title = rank.GetAttributeOfType<TitleAttribute>();
-		return title.Value ?? rank.ToString();
+		var localizedName = rank.GetAttributeOfType<LocalizedNameAttribute>();
+		return localizedName.Value;
 	}
 }

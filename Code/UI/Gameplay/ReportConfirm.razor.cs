@@ -51,7 +51,7 @@ public partial class ReportConfirm
 		var confirmationPhrase = Language.GetPhrase( key );
 
 		// Get the localized anomaly type name
-		var anomalyTypeTitle = AnomalyType.GetTitle();
+		var anomalyTypeTitle = AnomalyType.GetLocalizedName();
 		var typeDisplayName = anomalyTypeTitle.StartsWith( '#' )
 			? Language.GetPhrase( anomalyTypeTitle[1..] )
 			: anomalyTypeTitle;
