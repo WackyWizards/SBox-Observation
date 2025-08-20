@@ -2,9 +2,6 @@
 
 namespace kEllie.Utils;
 
-/// <summary>
-/// Useful to mark properties or fields with a 
-/// </summary>
 [AttributeUsage( AttributeTargets.Field | AttributeTargets.Property )]
 public class LocalizedNameAttribute( string key ) : Attribute
 {
