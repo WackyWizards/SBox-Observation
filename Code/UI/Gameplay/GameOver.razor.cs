@@ -32,20 +32,22 @@ public partial class GameOver
 		_loseReason = reason;
 	}
 	
-	private string GetFormattedText( Anomaly anomaly )
+	private static string GetFormattedText( Anomaly anomaly )
 	{
 		const string key = "ui.gameover.missedanomaly";
 		var confirmationPhrase = Language.GetPhrase( key );
 
 		// Get the localized anomaly type name
-		var anomalyTypeTitle = anomaly.Type.GetTitle();
+		var anomalyTypeTitle = anomaly.Type.GetLocalizedName();
 		var typeDisplayName = anomalyTypeTitle.StartsWith( '#' )
 			? Language.GetPhrase( anomalyTypeTitle[1..] )
 			: anomalyTypeTitle;
 
 		// Get the localized room name
 		var roomName = anomaly.Room;
-		var roomDisplayName = Language.GetPhrase( roomName );
+		var roomDisplayName = roomName.StartsWith( '#' )
+			? Language.GetPhrase( roomName[1..] )
+			: roomName;
 
 		return string.Format( confirmationPhrase, typeDisplayName, roomDisplayName );
 	}
