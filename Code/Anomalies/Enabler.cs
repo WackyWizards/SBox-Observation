@@ -1,5 +1,6 @@
 ﻿namespace Observation.Anomalies;
 
+[Title( "Enabler Anomaly" )]
 public class Enabler : Anomaly
 {
 	[Property]

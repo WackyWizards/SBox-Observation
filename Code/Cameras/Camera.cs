@@ -1,5 +1,6 @@
 ﻿namespace Observation.Cameras;
 
+[Category( "Game" )]
 public class Camera : Anomaly
 {
 	public override AnomalyType Type => AnomalyType.CameraMalfunction;

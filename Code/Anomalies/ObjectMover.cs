@@ -1,5 +1,6 @@
 ﻿namespace Observation.Anomalies;
 
+[Title( "Object Mover Anomaly" )]
 public class ObjectMover : Anomaly
 {
 	[Property]

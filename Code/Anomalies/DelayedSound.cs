@@ -1,5 +1,6 @@
 ﻿namespace Observation.Anomalies;
 
+[Title( "Delayed Sound Anomaly" )]
 public class DelayedSound : Anomaly
 {
 	[Property]
