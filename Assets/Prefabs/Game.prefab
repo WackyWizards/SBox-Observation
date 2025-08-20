@@ -1,14 +1,23 @@
 {
   "RootObject": {
     "__guid": "1ebcabb5-3fa2-481b-aad4-a078a44df7c2",
+    "__version": 1,
     "Flags": 0,
-    "Name": "game",
+    "Name": "Game",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
     "Enabled": true,
     "NetworkMode": 1,
+    "NetworkInterpolation": true,
+    "NetworkOrphaned": 0,
+    "OwnerTransfer": 1,
     "Components": [
       {
         "__type": "Observation.GameManager",
         "__guid": "f2782567-4a27-4ddf-9282-9abe1fbbaf97",
+        "__enabled": true,
         "MenuScene": "scenes/menu.scene",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -20,6 +29,7 @@
       {
         "__type": "Observation.AnomalyManager",
         "__guid": "76365f3d-9320-4e93-b36b-fb176e261a87",
+        "__enabled": true,
         "ActiveAnomalies": [],
         "AnomalyTime": "20 120",
         "CanActivateAnomalies": true,
@@ -44,6 +54,7 @@
       {
         "__type": "Observation.Cursor",
         "__guid": "bd4da06d-e1e1-46ae-9b47-8745671d2bcb",
+        "__enabled": true,
         "HoldTime": 1,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -55,6 +66,7 @@
       {
         "__type": "Observation.GameTimer",
         "__guid": "98352bc1-135e-402b-b086-16a3c6e49220",
+        "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -66,6 +78,7 @@
       {
         "__type": "Observation.PauseManager",
         "__guid": "7361f510-09a9-46f4-8c70-574d45c74fe3",
+        "__enabled": true,
         "IsPaused": false,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -75,7 +88,59 @@
         "OnComponentUpdate": null
       }
     ],
-    "Children": [],
+    "Children": [
+      {
+        "__guid": "f0a52ed5-0cb6-43f8-a159-6e1b604cdf9c",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "Cameras",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 1,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Observation.CameraManager",
+            "__guid": "f689d997-4cef-4c23-b061-85a1d969a88a",
+            "__enabled": true,
+            "ActiveCamera": null,
+            "LastCameraInput": "lastcamera",
+            "NextCameraInput": "nextcamera",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "PossibleCameras": []
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    },
     "__variables": [
       {
         "Id": "Active Anomalies",
@@ -246,36 +311,13 @@
           }
         ]
       }
-    ],
-    "__properties": {
-      "FixedUpdateFrequency": 50,
-      "MaxFixedUpdates": 5,
-      "NetworkFrequency": 30,
-      "NetworkInterpolation": true,
-      "PhysicsSubSteps": 1,
-      "ThreadedAnimation": true,
-      "TimeScale": 1,
-      "UseFixedUpdate": true,
-      "Metadata": {},
-      "NavMesh": {
-        "Enabled": false,
-        "IncludeStaticBodies": true,
-        "IncludeKeyframedBodies": true,
-        "EditorAutoUpdate": true,
-        "AgentHeight": 64,
-        "AgentRadius": 16,
-        "AgentStepSize": 18,
-        "AgentMaxSlope": 40,
-        "ExcludedBodies": "",
-        "IncludedBodies": ""
-      }
-    }
+    ]
   },
+  "ResourceVersion": 2,
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
   "DontBreakAsTemplate": false,
-  "ResourceVersion": 1,
   "__references": [],
-  "__version": 1
+  "__version": 2
 }
