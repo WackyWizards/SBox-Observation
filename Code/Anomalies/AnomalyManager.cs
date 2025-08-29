@@ -4,7 +4,7 @@ using Sandbox.Diagnostics;
 using Sandbox.UI;
 using Observation.UI;
 using Observation.Platform;
-using kEllie.Utils;
+using WackyLib.Patterns;
 
 namespace Observation;
 

@@ -1,4 +1,4 @@
-﻿using kEllie.Utils;
+﻿using WackyLib.Attributes;
 
 namespace Observation;
 
