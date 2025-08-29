@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace kEllie.Utils;
+namespace WackyLib.Attributes;
 
 [AttributeUsage( AttributeTargets.Field )]
 public class IdentAttribute( string ident ) : Attribute

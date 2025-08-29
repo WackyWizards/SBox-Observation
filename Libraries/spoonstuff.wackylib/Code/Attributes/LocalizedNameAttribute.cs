@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace kEllie.Utils;
+namespace WackyLib.Attributes;
 
 [AttributeUsage( AttributeTargets.Field | AttributeTargets.Property )]
 public class LocalizedNameAttribute( string key ) : Attribute

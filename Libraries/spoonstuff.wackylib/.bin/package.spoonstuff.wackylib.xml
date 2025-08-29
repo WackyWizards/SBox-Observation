@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>package.spoonstuff.wackylib</name>
+    </assembly>
+    <members>
+        <member name="M:Sandbox.CollectionExtensions.Shuffle``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Randomizes the order of the elements in the given list in-place
+            using the Fisher–Yates shuffle algorithm.
+            </summary>
+            <typeparam name="T">The type of elements in the list.</typeparam>
+            <param name="list">
+            The list whose elements will be shuffled. Its order is modified directly.
+            </param>
+        </member>
+        <member name="M:Sandbox.CollectionExtensions.ShuffleInto``1(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+            Inserts an element into the list at a random position.
+            </summary>
+            <typeparam name="T">The type of elements in the list.</typeparam>
+            <param name="list">The list to insert into.</param>
+            <param name="item">The element to insert at a random index.</param>
+        </member>
+        <member name="M:Sandbox.CollectionExtensions.HashCombine``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Combines the hash codes of all elements in the sequence by applying
+            the given selector and aggregating with <see cref="M:System.HashCode.Combine``1(``0)"/>.
+            </summary>
+            <typeparam name="T">The type of elements in the sequence.</typeparam>
+            <typeparam name="TKey">The type returned by the selector function.</typeparam>
+            <param name="e">The sequence of elements to hash.</param>
+            <param name="selector">A function that selects the value to hash for each element.</param>
+            <returns>A combined hash code representing the sequence.</returns>
+        </member>
+        <member name="M:Sandbox.GameObjectExtensions.Spawn(Sandbox.GameObject,Sandbox.Connection,Sandbox.CloneConfig)">
+            <summary>
+            Clones and network spawns this GameObject.
+            </summary>
+            <param name="gameObject">GameObject to spawn.</param>
+            <param name="owner">Connection to set as the owner.</param>
+            <param name="config">Clone configuration.</param>
+            <returns>Spawned GameObject</returns>
+        </member>
+        <member name="M:Sandbox.LoggerExtensions.EditorLog(Sandbox.Diagnostics.Logger,System.Object,Sandbox.LoggerExtensions.LogType)">
+            <summary>
+            Logs a message only when running in the editor.
+            </summary>
+        </member>
+        <member name="M:Sandbox.SceneExtensions.DestroyPersistentObjects(Sandbox.Scene,System.Type[])">
+            <summary>
+            Searches the scene for any enabled gameobjects with the DontDestroyOnLoad flag and destroys them.
+            </summary>
+            <param name="scene">The scene to search in.</param>
+            <param name="ignored">Component types to ignore deletion.</param>
+        </member>
+        <member name="M:Sandbox.SceneExtensions.GetInstance``1(Sandbox.Scene)">
+            <summary>
+            Search the scene for a specific component instance.
+            </summary>
+            <typeparam name="T">Component to search for.</typeparam>
+            <param name="scene">The scene to search in.</param>
+            <returns>Found component instance.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if no instance or multiple instances are found.</exception>
+        </member>
+        <member name="M:Sandbox.TraceExtensions.RunRayTrace(Sandbox.SceneTrace,Ray,System.Single,System.String[])">
+            <summary>
+            Run a ray trace to the following distance.
+            </summary>
+            <returns>Result of the trace.</returns>
+        </member>
+        <member name="M:Sandbox.TraceExtensions.RunAllRayTrace(Sandbox.SceneTrace,Ray,System.Single,System.String[])">
+            <summary>
+            Run a ray trace to the following distance.
+            </summary>
+            <returns>Results of the trace.</returns>
+        </member>
+    </members>
+</doc>

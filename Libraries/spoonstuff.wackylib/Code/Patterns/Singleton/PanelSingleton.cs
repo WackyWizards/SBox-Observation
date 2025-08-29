@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
-using Sandbox;
+﻿using Sandbox;
+using System.Collections.Generic;
 
-namespace kEllie.Utils;
+namespace WackyLib.Patterns;
 
 public abstract class PanelSingleton<T> : PanelComponent, IHotloadManaged where T : PanelSingleton<T>
 {
 #nullable enable
 #pragma warning disable SB3000
+	// ReSharper disable once MemberCanBePrivate.Global
 	public static T? Instance { get; private set; }
 #pragma warning restore SB3000
 
