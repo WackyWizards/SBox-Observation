@@ -2,7 +2,7 @@
 using Sandbox.UI;
 using Observation.Platform;
 using Observation.UI;
-using kEllie.Utils;
+using WackyLib.Patterns;
 
 namespace Observation;
 

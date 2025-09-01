@@ -1,6 +1,6 @@
 ﻿using Observation.UI;
 using Sandbox.UI;
-using kEllie.Utils;
+using WackyLib.Patterns;
 
 namespace Observation;
 

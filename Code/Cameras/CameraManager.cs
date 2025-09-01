@@ -2,7 +2,7 @@
 using Observation.UI;
 using Sandbox.Audio;
 using Sandbox.UI;
-using kEllie.Utils;
+using WackyLib.Patterns;
 
 namespace Observation;
 
