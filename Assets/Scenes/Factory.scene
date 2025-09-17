@@ -1,0 +1,125 @@
+{
+  "__guid": "a8202b73-1de1-4b1c-9ee4-024fd3d5d87b",
+  "GameObjects": [
+    {
+      "__guid": "fb972c66-6a26-46ce-84a3-112209855014",
+      "__version": 1,
+      "__Prefab": "prefabs/game.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "1ebcabb5-3fa2-481b-aad4-a078a44df7c2": "fb972c66-6a26-46ce-84a3-112209855014",
+        "f2782567-4a27-4ddf-9282-9abe1fbbaf97": "d5534aa5-507a-4fb9-b4d3-af55e2c545c6",
+        "76365f3d-9320-4e93-b36b-fb176e261a87": "fc49f266-215c-43a0-952b-de8ace9374a3",
+        "bd4da06d-e1e1-46ae-9b47-8745671d2bcb": "45a421aa-2099-4055-8a2b-6ac6f4e434a0",
+        "98352bc1-135e-402b-b086-16a3c6e49220": "ab3be742-752e-43fb-ac9f-a6fa58c3b751",
+        "7361f510-09a9-46f4-8c70-574d45c74fe3": "6fffd631-7d8a-404e-b8ec-68b4c2fa5f46",
+        "f0a52ed5-0cb6-43f8-a159-6e1b604cdf9c": "14b96b9d-a376-4424-8090-0a9ebe7a5256",
+        "f689d997-4cef-4c23-b061-85a1d969a88a": "499166b7-d8ed-486c-a58b-2566c5de1ff6"
+      }
+    },
+    {
+      "__guid": "a7c6065b-1407-4253-a659-7a6394a71b8d",
+      "__version": 1,
+      "__Prefab": "prefabs/hud.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "4cc789b5-7089-402b-9f10-d863f770b341"
+            },
+            "Property": "Position",
+            "Value": "0,0,0"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "4cc789b5-7089-402b-9f10-d863f770b341"
+            },
+            "Property": "Rotation",
+            "Value": "0,0,0,1"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "4cc789b5-7089-402b-9f10-d863f770b341": "a7c6065b-1407-4253-a659-7a6394a71b8d",
+        "84bb2f0d-f133-4605-923c-f9485aaff6ef": "5326311d-d362-44dc-8c96-9f70ad45e5df",
+        "340f65ab-f810-4ad4-948a-96ea87288e84": "3443acda-2608-439e-bf28-be19db4e5278"
+      }
+    },
+    {
+      "__guid": "db7312ff-9446-4c47-848f-b881f5691755",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Camera",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "7fb643e8-d16d-47d2-86c4-e67270979dcc",
+          "__enabled": true,
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "FovAxis": "Horizontal",
+          "IsMainCamera": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ],
+      "Children": []
+    }
+  ],
+  "SceneProperties": {
+    "NetworkInterpolation": true,
+    "TimeScale": 1,
+    "WantsSystemScene": true,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 3,
+  "Title": null,
+  "Description": null,
+  "__references": [],
+  "__version": 3
+}
