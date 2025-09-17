@@ -30,33 +30,48 @@ public partial class MainMenu
 	protected override void OnTreeFirstBuilt()
 	{
 		var mixer = Mixer.FindMixerByName( "Music" );
-
-		if ( _splashScreen.IsValid() )
+		MenuMusic = GameObject?.PlaySound( Music );
+		if ( MenuMusic is not null && mixer is not null )
 		{
-			_splashScreen.Play( "/videos/KUO_SPLASH.mp4" );
-			_splashScreen.OnVideoEnd += () =>
-			{
-				_splashScreen.Hide();
-
-				if ( !Music.IsValid() )
-				{
-					return;
-				}
-
-				if ( MenuMusic.IsValid() )
-				{
-					return;
-				}
-
-				MenuMusic = GameObject?.PlaySound( Music );
-				if ( MenuMusic is not null && mixer is not null )
-				{
-					MenuMusic.TargetMixer = mixer;
-				}
-			};
+			MenuMusic.TargetMixer = mixer;
 		}
 
+		// TODO: After we have a new splash screen, re-implement.
+		// ShowSplashScreen();
+
 		base.OnTreeFirstBuilt();
+	}
+
+	private void ShowSplashScreen()
+	{
+		if ( !_splashScreen.IsValid() )
+		{
+			return;
+		}
+		
+		_splashScreen.Show();
+		_splashScreen.Play( "/videos/KUO_SPLASH.mp4" );
+		_splashScreen.OnVideoEnd += () =>
+		{
+			_splashScreen.Hide();
+
+			if ( !Music.IsValid() )
+			{
+				return;
+			}
+
+			if ( MenuMusic.IsValid() )
+			{
+				return;
+			}
+
+			MenuMusic = GameObject?.PlaySound( Music );
+			var mixer = Mixer.FindMixerByName( "Music" );
+			if ( MenuMusic is not null && mixer is not null )
+			{
+				MenuMusic.TargetMixer = mixer;
+			}
+		};
 	}
 
 	protected override void OnStart()
