@@ -24,14 +24,6 @@
 		</div>
 	</div>
 
-	<div class="side-buttons">
-		<i @onclick="@Credits" tooltip="#ui.menu.tooltip.credits">info</i>
-		<i @onclick="@Leaderboards" tooltip="#ui.menu.tooltip.statistics">leaderboard</i>
-		<i @onclick="@Achievements" tooltip="#ui.menu.tooltip.achievements">trophy</i>
-		<i @onclick="@News" tooltip="#ui.menu.tooltip.news">newspaper</i>
-		<img @onclick="@Discord" alt="Discord" src="/materials/icons/discord-icon.svg" tooltip="#ui.menu.tooltip.discord"/>
-	</div>
-
 	<div class="web-container hidden" @ref="_webContainer">
 		<WebPanel @ref="_web"></WebPanel>
 		<button icon="arrow_back" @onclick="@CloseWebPanel">#ui.button.close</button>

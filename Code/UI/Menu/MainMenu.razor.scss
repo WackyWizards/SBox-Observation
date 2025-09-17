@@ -55,37 +55,6 @@ MainMenu {
     }
   }
 
-  .side-buttons {
-    display: none;
-    position: absolute;
-    right: 50px;
-    bottom: 50px;
-    font-size: 65px;
-    gap: 10px;
-
-    .iconpanel, img {
-      width: 65px;
-      height: 65px;
-      transition: all 0.2s ease;
-
-      &:not(.disabled) {
-        cursor: pointer;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-
-        &:active {
-          sound-in: "ui.button.deny";
-        }
-      }
-
-      &.disabled {
-        opacity: 0.2;
-      }
-    }
-  }
-
   .socials {
     font-size: 24px;
     align-items: center;
