@@ -2,33 +2,59 @@
 # This file describes files and paths that should not be tracked by Git version control
 # https://git-scm.com/docs/gitignore
 
-# Auto-generated code editor files
-.vs/*
-.vscode/*
-*.csproj
-obj
-bin
-Properties/*
-code/obj/*
-code/Properties/*
+# General / Temporary Files
+*.user
+*.userprefs
+*.suo
+*.log
+*.tmp
+*.cache
+*.bak
+*.old
 
-# Auto-generated asset related files
-.sbox/*
+# IDE & Editor Settings
+.vs/
+.vscode/*
+!.vscode/settings.json
+.idea/
+
+# C# Build Artifacts
+bin/
+obj/
+Build/
+Temp/
+Log/
+
+# S&box Generated Files
+.sbox/
 *.generated.*
 *.*_c
 !*.shader_c
-*.los
 *.vpk
-*launchSettings.json
+*.los
+*.vmat_c
+*.vmdl_c
+*.vtex_c
+*.vpcf_c
+
+# Project / Solution Files
+*.code-workspace
+*.csproj
 *.sln
 *.slnx
 *.sln.DotSettings.user
-*idea
-*.code-workspace
+*launchSettings.json
 
-# Generated Documentation Files.
+# Documentation Outputs
 Documentation/generated/
 Documentation/doxygen/bin/
 
-# Exported / standalone games
+# Exports / Standalone Builds
 Exports/
+dist/
+release/
+
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
