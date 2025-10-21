@@ -24,6 +24,11 @@ code/Properties/*
 *.slnx
 *.sln.DotSettings.user
 *idea
+*.code-workspace
+
+# Generated Documentation Files.
+Documentation/generated/
+Documentation/doxygen/bin/
 
 # Exported / standalone games
 Exports/
